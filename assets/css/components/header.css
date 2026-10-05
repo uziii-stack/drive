@@ -23,7 +23,8 @@
 }
 
 .header-pill-bar {
-    background: #23252a; /* Sleek dark graphite as in design */
+    background: #23252a;
+    /* Sleek dark graphite as in design */
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 9999px;
     padding: 0.45rem 0.55rem 0.45rem 1.75rem;
@@ -74,7 +75,8 @@
    - 100% Contained Internally: Bounding box NEVER resizes, zero disturbance to navbar.
    ========================================================================== */
 .btn-header-cta {
-    background-color: #0c0d10; /* Original state: Solid deep black pill */
+    background-color: #0c0d10;
+    /* Original state: Solid deep black pill */
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 9999px;
@@ -91,10 +93,10 @@
     overflow: hidden;
     position: relative;
     box-sizing: border-box;
-    transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1), 
-                color 280ms cubic-bezier(0.4, 0, 0.2, 1), 
-                border-color 280ms cubic-bezier(0.4, 0, 0.2, 1), 
-                box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 280ms cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 280ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-cta-inner {
@@ -125,8 +127,8 @@
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), 
-                opacity 220ms ease;
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 220ms ease;
 }
 
 /* Text Element (Slides forward when pushed by the left arrow) */
@@ -148,8 +150,8 @@
     margin-left: 8px;
     opacity: 1;
     transform: translateX(0);
-    transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 200ms ease;
+    transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 200ms ease;
 }
 
 /* ==========================================================================
@@ -157,8 +159,10 @@
    ========================================================================== */
 .btn-header-cta:hover,
 .btn-header-cta:focus-visible {
-    background-color: var(--color-secondary); /* Brand Hierarchy Color (#00B4A6) */
-    color: #000000 !important;               /* Crisp black text and arrow */
+    background-color: var(--color-secondary);
+    /* Brand Hierarchy Color (#00B4A6) */
+    color: #000000 !important;
+    /* Crisp black text and arrow */
     border-color: var(--color-secondary);
     box-shadow: 0 4px 20px rgba(0, 180, 166, 0.45);
 }
@@ -292,11 +296,11 @@
         gap: 1.5rem;
     }
 
-    .primary-menu-list > li {
+    .primary-menu-list>li {
         position: relative;
     }
 
-    .primary-menu-list > li > a {
+    .primary-menu-list>li>a {
         text-decoration: none;
         color: #e2e8f0;
         font-size: 0.9375rem;
@@ -308,8 +312,8 @@
         transition: color var(--transition-fast);
     }
 
-    .primary-menu-list > li > a:hover,
-    .primary-menu-list > li > a:focus-visible {
+    .primary-menu-list>li>a:hover,
+    .primary-menu-list>li>a:focus-visible {
         color: #ffffff;
     }
 
@@ -317,7 +321,8 @@
        Dropdown Triggers (State: Pin Icon, Vehicle: Car Icon in #007AFF)
        -------------------------------------------------------------------------- */
     .nav-dropdown-trigger {
-        color: #007AFF !important; /* Vibrant electric blue as in reference */
+        color: #007AFF !important;
+        /* Vibrant electric blue as in reference */
         font-weight: 600 !important;
         cursor: pointer;
         gap: 0.4rem !important;
@@ -367,9 +372,9 @@
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1), 
-                    transform 220ms cubic-bezier(0.16, 1, 0.3, 1), 
-                    visibility 220ms ease;
+        transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
+            transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+            visibility 220ms ease;
     }
 
     /* Invisible hover bridge to prevent menu from closing when moving cursor */
@@ -445,9 +450,9 @@
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1), 
-                    transform 200ms cubic-bezier(0.16, 1, 0.3, 1), 
-                    visibility 200ms ease;
+        transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1),
+            transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+            visibility 200ms ease;
     }
 
     .nav-vehicle-item::after {
@@ -557,7 +562,8 @@
         top: calc(100% + 10px);
         left: 0;
         right: 0;
-        background: #23252a; /* Matching dark graphite drawer */
+        background: #23252a;
+        /* Matching dark graphite drawer */
         border: 1px solid rgba(255, 255, 255, 0.09);
         border-radius: 28px;
         padding: 1.75rem 1.5rem 1.5rem;
@@ -618,8 +624,8 @@
         align-items: flex-start;
     }
 
-    .primary-menu-list li.nav-state-item > a,
-    .primary-menu-list li.nav-vehicle-item > a {
+    .primary-menu-list li.nav-state-item>a,
+    .primary-menu-list li.nav-vehicle-item>a {
         color: #007AFF !important;
         font-weight: 700;
         display: flex;
