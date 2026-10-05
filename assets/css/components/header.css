@@ -356,25 +356,26 @@
     }
 
     /* --------------------------------------------------------------------------
-       3-Column State Mega Dropdown Menu Card (Desktop)
+       3-Column State Mega Dropdown Menu Card (Desktop - Compact & Refined)
        -------------------------------------------------------------------------- */
     .nav-mega-menu.state-mega-menu {
         position: absolute;
-        top: calc(100% + 14px);
+        top: calc(100% + 10px);
         left: 50%;
-        transform: translateX(-35%) translateY(10px);
+        transform: translateX(-40%) translateY(8px);
         background: #ffffff;
-        border-radius: 22px;
-        padding: 1.75rem 2rem;
-        box-shadow: 0 24px 54px -10px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.05);
-        min-width: 660px;
+        border-radius: 16px;
+        padding: 1.15rem 1.4rem;
+        box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        min-width: 480px;
+        max-width: 520px;
         z-index: 1050;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
-            visibility 220ms ease;
+        transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1),
+            transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+            visibility 180ms ease;
     }
 
     /* Invisible hover bridge to prevent menu from closing when moving cursor */
@@ -384,7 +385,7 @@
         top: 100%;
         left: 0;
         right: 0;
-        height: 18px;
+        height: 14px;
         display: block;
     }
 
@@ -393,66 +394,67 @@
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
-        transform: translateX(-35%) translateY(0);
+        transform: translateX(-40%) translateY(0);
     }
 
     .state-mega-columns-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        column-gap: 2.25rem;
-        row-gap: 0.15rem;
+        column-gap: 1.25rem;
+        row-gap: 0.1rem;
     }
 
     .state-mega-column {
         display: flex;
         flex-direction: column;
-        gap: 0.35rem;
+        gap: 0.15rem;
     }
 
     .state-mega-link {
         display: block;
-        color: #334155 !important;
-        font-size: 0.9375rem !important;
-        font-weight: 600 !important;
+        color: #374151 !important;
+        font-size: 0.8125rem !important; /* ~13px compact clean typography */
+        font-weight: 500 !important;
         line-height: 1.35;
-        padding: 0.3rem 0.5rem !important;
-        border-radius: 8px;
+        padding: 0.2rem 0.35rem !important;
+        border-radius: 6px;
         text-decoration: none;
-        transition: color 150ms ease, background-color 150ms ease, transform 150ms ease !important;
+        white-space: nowrap;
+        transition: color 140ms ease, background-color 140ms ease, transform 140ms ease !important;
     }
 
     .state-mega-link:hover,
     .state-mega-link:focus-visible {
         color: #007AFF !important;
-        background-color: rgba(0, 122, 255, 0.06);
-        transform: translateX(4px);
+        background-color: rgba(0, 122, 255, 0.07);
+        transform: translateX(2px);
     }
 
     .state-mega-link.is-selected {
         color: #007AFF !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
     }
 
     /* --------------------------------------------------------------------------
-       Vehicle Selector Dropdown Menu Card (Desktop)
+       Vehicle Selector Dropdown Menu Card (Desktop - Compact & Refined)
        -------------------------------------------------------------------------- */
     .nav-dropdown-menu.vehicle-dropdown-menu {
         position: absolute;
-        top: calc(100% + 14px);
+        top: calc(100% + 10px);
         left: 0;
-        transform: translateY(10px);
+        transform: translateY(8px);
         background: #ffffff;
-        border-radius: 18px;
-        padding: 0.65rem;
-        box-shadow: 0 20px 45px -8px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);
-        min-width: 280px;
+        border-radius: 16px;
+        padding: 0.35rem;
+        box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        min-width: 230px;
         z-index: 1050;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
-            visibility 200ms ease;
+        transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1),
+            transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+            visibility 180ms ease;
     }
 
     .nav-vehicle-item::after {
@@ -461,7 +463,7 @@
         top: 100%;
         left: 0;
         right: 0;
-        height: 18px;
+        height: 14px;
         display: block;
     }
 
@@ -479,20 +481,28 @@
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 0.35rem;
+        gap: 0;
+    }
+
+    .vehicle-options-list li {
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .vehicle-options-list li:last-child {
+        border-bottom: none;
     }
 
     .vehicle-option-link {
         display: flex !important;
         align-items: center;
-        gap: 0.85rem;
-        padding: 0.75rem 1rem !important;
-        border-radius: 12px;
-        color: #1e293b !important;
-        font-size: 0.9375rem !important;
-        font-weight: 600 !important;
+        gap: 0.65rem;
+        padding: 0.6rem 0.75rem !important;
+        border-radius: 10px;
+        color: #374151 !important;
+        font-size: 0.8125rem !important; /* ~13px compact */
+        font-weight: 500 !important;
         text-decoration: none;
-        transition: all 180ms ease !important;
+        transition: all 150ms ease !important;
     }
 
     .vehicle-option-link .veh-icon-box {
@@ -503,16 +513,21 @@
         flex-shrink: 0;
     }
 
+    .vehicle-option-link .veh-icon-box svg {
+        width: 16px;
+        height: 16px;
+    }
+
     .vehicle-option-link:hover,
     .vehicle-option-link:focus-visible {
-        background-color: rgba(0, 122, 255, 0.08);
+        background-color: rgba(0, 122, 255, 0.07);
         color: #007AFF !important;
     }
 
     .vehicle-option-link.is-active {
-        background-color: rgba(0, 122, 255, 0.12);
+        background-color: rgba(0, 122, 255, 0.09);
         color: #007AFF !important;
-        font-weight: 700 !important;
+        font-weight: 600 !important;
     }
 
     .menu-item-chevron {
