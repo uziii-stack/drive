@@ -1,0 +1,789 @@
+/**
+ * Drive - Header Component Styles
+ * Desktop Layout (>= 1200px): Sleek floating horizontal pill bar.
+ * Mobile/Tablet Layout (< 1200px down to 320px): Floating pill with full-width modern drawer matching reference.
+ */
+
+/* ==========================================================================
+   1. Floating Header Wrapper & Base Pill Bar
+   ========================================================================== */
+.site-header.pill-header {
+    background: transparent;
+    border: none;
+    padding: 1.25rem 0 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-site-container {
+    max-width: var(--container-max-width);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.header-pill-bar {
+    background: #23252a; /* Sleek dark graphite as in design */
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 9999px;
+    padding: 0.45rem 0.55rem 0.45rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    position: relative;
+    transition: background-color var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+/* ==========================================================================
+   2. Branding / Logo
+   ========================================================================== */
+.site-branding {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.site-branding .brand-link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.site-branding .brand-text {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.site-branding .custom-logo-link img {
+    height: 32px;
+    width: auto;
+}
+
+/* ==========================================================================
+   3. CTA Buttons ("Pass with premium") Dynamic Text-Push Arrow Transition
+   - Original State: Solid Black Pill with Text on Left & Arrow on Right [ Text  → ]
+   - Hover State: Arrow swipes out to right, re-renders from left and pushes text ahead [ →  Text ]
+   - 100% Contained Internally: Bounding box NEVER resizes, zero disturbance to navbar.
+   ========================================================================== */
+.btn-header-cta {
+    background-color: #0c0d10; /* Original state: Solid deep black pill */
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 9999px;
+    padding: 0.65rem 1.45rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1), 
+                color 280ms cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 280ms cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-cta-inner {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.btn-cta-svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    color: currentColor;
+    flex-shrink: 0;
+}
+
+/* Left Arrow (Hidden off-screen to the left, enters and pushes text on hover) */
+.btn-cta-arrow-left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transform: translateY(-50%) translateX(-24px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 220ms ease;
+}
+
+/* Text Element (Slides forward when pushed by the left arrow) */
+.btn-cta-text {
+    line-height: 1;
+    white-space: nowrap;
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Right Arrow (Visible in original state, swipes forward and out on hover) */
+.btn-cta-arrow-right {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 200ms ease;
+}
+
+/* ==========================================================================
+   Hover State: Brand Secondary Color, Swipe-Out & Re-render from Left
+   ========================================================================== */
+.btn-header-cta:hover,
+.btn-header-cta:focus-visible {
+    background-color: var(--color-secondary); /* Brand Hierarchy Color (#00B4A6) */
+    color: #000000 !important;               /* Crisp black text and arrow */
+    border-color: var(--color-secondary);
+    box-shadow: 0 4px 20px rgba(0, 180, 166, 0.45);
+}
+
+/* 1. Left Arrow enters from far left into position */
+.btn-header-cta:hover .btn-cta-arrow-left,
+.btn-header-cta:focus-visible .btn-cta-arrow-left {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* 2. Text smoothly pushes ahead to make room for left arrow (16px arrow + 8px gap = 24px) */
+.btn-header-cta:hover .btn-cta-text,
+.btn-header-cta:focus-visible .btn-cta-text {
+    transform: translateX(24px);
+}
+
+/* 3. Right Arrow swipes forward out of the button */
+.btn-header-cta:hover .btn-cta-arrow-right,
+.btn-header-cta:focus-visible .btn-cta-arrow-right {
+    opacity: 0;
+    transform: translateX(24px);
+}
+
+
+
+
+
+/* ==========================================================================
+   4. Mobile / Tablet Menu Toggle (Close 'X' & Hamburger)
+   ========================================================================== */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    border-radius: var(--radius-full);
+    transition: background-color var(--transition-fast);
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.menu-toggle-icon-wrap {
+    display: block;
+    width: 20px;
+    height: 16px;
+    position: relative;
+}
+
+.menu-toggle-bar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: transform 250ms ease, opacity 250ms ease, top 250ms ease;
+}
+
+.menu-toggle-bar.bar-1 {
+    top: 0;
+}
+
+.menu-toggle-bar.bar-2 {
+    top: 7px;
+}
+
+.menu-toggle-bar.bar-3 {
+    top: 14px;
+}
+
+/* Transition to crisp 'X' close icon when opened */
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar.bar-1 {
+    top: 7px;
+    transform: rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar.bar-2 {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar.bar-3 {
+    top: 7px;
+    transform: rotate(-45deg);
+}
+
+/* ==========================================================================
+   5. Desktop Mode (>= 1200px)
+   ========================================================================== */
+@media (min-width: 1200px) {
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .main-navigation {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .primary-menu-drawer {
+        display: block !important;
+        position: static;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .primary-menu-drawer-inner {
+        display: flex;
+        align-items: center;
+    }
+
+    .primary-menu-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .primary-menu-list > li {
+        position: relative;
+    }
+
+    .primary-menu-list > li > a {
+        text-decoration: none;
+        color: #e2e8f0;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        padding: 0.5rem 0.35rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: color var(--transition-fast);
+    }
+
+    .primary-menu-list > li > a:hover,
+    .primary-menu-list > li > a:focus-visible {
+        color: #ffffff;
+    }
+
+    /* --------------------------------------------------------------------------
+       Dropdown Triggers (State: Pin Icon, Vehicle: Car Icon in #007AFF)
+       -------------------------------------------------------------------------- */
+    .nav-dropdown-trigger {
+        color: #007AFF !important; /* Vibrant electric blue as in reference */
+        font-weight: 600 !important;
+        cursor: pointer;
+        gap: 0.4rem !important;
+    }
+
+    .nav-trigger-icon-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #007AFF;
+        flex-shrink: 0;
+    }
+
+    .nav-svg-icon {
+        display: block;
+    }
+
+    .nav-chevron-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0.15rem;
+        transition: transform 220ms ease;
+    }
+
+    .nav-state-item:hover .nav-chevron-wrap,
+    .nav-state-item:focus-within .nav-chevron-wrap,
+    .nav-vehicle-item:hover .nav-chevron-wrap,
+    .nav-vehicle-item:focus-within .nav-chevron-wrap {
+        transform: rotate(180deg);
+    }
+
+    /* --------------------------------------------------------------------------
+       3-Column State Mega Dropdown Menu Card (Desktop)
+       -------------------------------------------------------------------------- */
+    .nav-mega-menu.state-mega-menu {
+        position: absolute;
+        top: calc(100% + 14px);
+        left: 50%;
+        transform: translateX(-35%) translateY(10px);
+        background: #ffffff;
+        border-radius: 22px;
+        padding: 1.75rem 2rem;
+        box-shadow: 0 24px 54px -10px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        min-width: 660px;
+        z-index: 1050;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 220ms cubic-bezier(0.16, 1, 0.3, 1), 
+                    visibility 220ms ease;
+    }
+
+    /* Invisible hover bridge to prevent menu from closing when moving cursor */
+    .nav-state-item::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 18px;
+        display: block;
+    }
+
+    .nav-state-item:hover .nav-mega-menu,
+    .nav-state-item:focus-within .nav-mega-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-35%) translateY(0);
+    }
+
+    .state-mega-columns-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2.25rem;
+        row-gap: 0.15rem;
+    }
+
+    .state-mega-column {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .state-mega-link {
+        display: block;
+        color: #334155 !important;
+        font-size: 0.9375rem !important;
+        font-weight: 600 !important;
+        line-height: 1.35;
+        padding: 0.3rem 0.5rem !important;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: color 150ms ease, background-color 150ms ease, transform 150ms ease !important;
+    }
+
+    .state-mega-link:hover,
+    .state-mega-link:focus-visible {
+        color: #007AFF !important;
+        background-color: rgba(0, 122, 255, 0.06);
+        transform: translateX(4px);
+    }
+
+    .state-mega-link.is-selected {
+        color: #007AFF !important;
+        font-weight: 700 !important;
+    }
+
+    /* --------------------------------------------------------------------------
+       Vehicle Selector Dropdown Menu Card (Desktop)
+       -------------------------------------------------------------------------- */
+    .nav-dropdown-menu.vehicle-dropdown-menu {
+        position: absolute;
+        top: calc(100% + 14px);
+        left: 0;
+        transform: translateY(10px);
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 0.65rem;
+        box-shadow: 0 20px 45px -8px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        min-width: 280px;
+        z-index: 1050;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1), 
+                    transform 200ms cubic-bezier(0.16, 1, 0.3, 1), 
+                    visibility 200ms ease;
+    }
+
+    .nav-vehicle-item::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 18px;
+        display: block;
+    }
+
+    .nav-vehicle-item:hover .nav-dropdown-menu,
+    .nav-vehicle-item:focus-within .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .vehicle-options-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .vehicle-option-link {
+        display: flex !important;
+        align-items: center;
+        gap: 0.85rem;
+        padding: 0.75rem 1rem !important;
+        border-radius: 12px;
+        color: #1e293b !important;
+        font-size: 0.9375rem !important;
+        font-weight: 600 !important;
+        text-decoration: none;
+        transition: all 180ms ease !important;
+    }
+
+    .vehicle-option-link .veh-icon-box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #007AFF;
+        flex-shrink: 0;
+    }
+
+    .vehicle-option-link:hover,
+    .vehicle-option-link:focus-visible {
+        background-color: rgba(0, 122, 255, 0.08);
+        color: #007AFF !important;
+    }
+
+    .vehicle-option-link.is-active {
+        background-color: rgba(0, 122, 255, 0.12);
+        color: #007AFF !important;
+        font-weight: 700 !important;
+    }
+
+    .menu-item-chevron {
+        display: none;
+    }
+
+    .mobile-drawer-cta-wrap {
+        display: none;
+    }
+
+    .desktop-header-cta {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+}
+
+/* ==========================================================================
+   6. Mobile & Tablet Drawer (< 1200px down to 320px)
+   Matches reference screenshot layout
+   ========================================================================== */
+@media (max-width: 1199px) {
+    .site-header.pill-header {
+        padding-top: 1rem;
+    }
+
+    .header-pill-bar {
+        padding: 0.45rem 0.75rem 0.45rem 1.5rem;
+    }
+
+    .desktop-header-cta {
+        display: none !important;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .main-navigation {
+        display: block;
+    }
+
+    /* Floating drawer card directly below the pill bar */
+    .primary-menu-drawer {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        background: #23252a; /* Matching dark graphite drawer */
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 28px;
+        padding: 1.75rem 1.5rem 1.5rem;
+        box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 220ms ease, transform 220ms ease;
+    }
+
+    .primary-menu-drawer.is-active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .primary-menu-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .primary-menu-list li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .primary-menu-list li:last-child {
+        border-bottom: none;
+    }
+
+    .primary-menu-list li a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        padding: 1.1rem 0.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        transition: color var(--transition-fast), padding-left var(--transition-fast);
+    }
+
+    .primary-menu-list li a:hover,
+    .primary-menu-list li a:focus-visible {
+        color: var(--color-secondary-light);
+        padding-left: 0.35rem;
+    }
+
+    /* Mobile Dropdown Triggers */
+    .nav-state-item,
+    .nav-vehicle-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .primary-menu-list li.nav-state-item > a,
+    .primary-menu-list li.nav-vehicle-item > a {
+        color: #007AFF !important;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-trigger-icon-wrap {
+        color: #007AFF;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .nav-chevron-wrap {
+        margin-left: auto;
+        transition: transform 200ms ease;
+    }
+
+    .nav-state-item.is-open .nav-chevron-wrap,
+    .nav-vehicle-item.is-open .nav-chevron-wrap {
+        transform: rotate(180deg);
+    }
+
+    /* Mobile State Mega Dropdown */
+    .nav-mega-menu.state-mega-menu {
+        display: none;
+        width: 100%;
+        background: #181b22;
+        border-radius: 16px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        max-height: 280px;
+        overflow-y: auto;
+    }
+
+    .nav-state-item.is-open .nav-mega-menu.state-mega-menu {
+        display: block;
+    }
+
+    .state-mega-columns-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .state-mega-column {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .state-mega-link {
+        font-size: 0.9375rem !important;
+        color: #cbd5e1 !important;
+        padding: 0.4rem 0.5rem !important;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500 !important;
+    }
+
+    .state-mega-link:hover,
+    .state-mega-link.is-selected {
+        color: #007AFF !important;
+        background: rgba(0, 122, 255, 0.1);
+    }
+
+    /* Mobile Vehicle Dropdown */
+    .nav-dropdown-menu.vehicle-dropdown-menu {
+        display: none;
+        width: 100%;
+        background: #181b22;
+        border-radius: 16px;
+        padding: 0.75rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-vehicle-item.is-open .nav-dropdown-menu.vehicle-dropdown-menu {
+        display: block;
+    }
+
+    .vehicle-options-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .vehicle-option-link {
+        display: flex !important;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.65rem 0.85rem !important;
+        border-radius: 10px;
+        color: #cbd5e1 !important;
+        font-size: 0.95rem !important;
+        text-decoration: none;
+    }
+
+    .vehicle-option-link .veh-icon-box {
+        color: #007AFF;
+        display: inline-flex;
+    }
+
+    .vehicle-option-link:hover,
+    .vehicle-option-link.is-active {
+        color: #007AFF !important;
+        background: rgba(0, 122, 255, 0.1);
+    }
+
+    /* Full-width bottom CTA inside drawer */
+    .mobile-drawer-cta-wrap {
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+
+    .btn-drawer-cta {
+        width: 100%;
+        padding: 0.95rem 1.5rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        border-radius: 9999px;
+        background-color: #0c0d10;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Ultra-mobile refinement (320px - 480px) */
+@media (max-width: 480px) {
+    .site-header.pill-header {
+        padding-top: 0.75rem;
+    }
+
+    .header-site-container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .header-pill-bar {
+        padding: 0.4rem 0.6rem 0.4rem 1.25rem;
+    }
+
+    .site-branding .brand-text {
+        font-size: 1.15rem;
+    }
+
+    .primary-menu-drawer {
+        padding: 1.25rem 1.15rem 1.25rem;
+        border-radius: 22px;
+    }
+
+    .primary-menu-list li a {
+        font-size: 1.05rem;
+        padding: 0.9rem 0.15rem;
+    }
+
+    .btn-drawer-cta {
+        padding: 0.85rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}
