@@ -13,7 +13,8 @@
    1. Hero Wrapper & Background
    ========================================================================== */
 .homepage-hero.hero-dark-mockup {
-    background-color: #222438; /* Matches navbar tone */
+    background-color: #24263a; /* Precise dark slate-navy from reference */
+    background-image: radial-gradient(circle at 75% 35%, rgba(45, 52, 75, 0.4) 0%, rgba(36, 38, 58, 0) 65%);
     padding: 4.5rem 0 6.5rem;
     position: relative;
     overflow: hidden;
@@ -29,13 +30,13 @@
     width: 100%;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.85;
+    opacity: 0.95;
 }
 
 .hero-road-svg {
     display: block;
     width: 100%;
-    height: 180px;
+    height: 240px;
 }
 
 .hero-container {

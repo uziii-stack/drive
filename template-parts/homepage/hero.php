@@ -53,11 +53,15 @@ if ( isset( $_GET['veh'] ) && ! empty( $_GET['veh'] ) ) {
     
     <!-- Curved Road Background Graphic -->
     <div class="hero-road-bg-wrap" aria-hidden="true">
-        <svg class="hero-road-svg" viewBox="0 0 1440 220" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-50 180 C320 235 720 75 1490 135 L1490 230 L-50 230 Z" fill="rgba(255, 255, 255, 0.02)"/>
-            <path d="M-50 135 C370 195 770 45 1490 105" stroke="rgba(255, 255, 255, 0.07)" stroke-width="2"/>
-            <path d="M-50 180 C320 235 720 75 1490 135" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2" stroke-dasharray="14 14"/>
-            <path d="M-50 225 C270 275 670 105 1490 165" stroke="rgba(255, 255, 255, 0.07)" stroke-width="2"/>
+        <svg class="hero-road-svg" viewBox="0 0 1440 280" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Road Asphalt Surface Ribbon -->
+            <path d="M-60 190 C 350 245, 680 230, 960 155 C 1180 95, 1360 140, 1500 170 L 1500 290 L -60 290 Z" fill="rgba(0, 0, 0, 0.15)"/>
+            <!-- Top Lane Solid Line -->
+            <path d="M-60 145 C 330 200, 660 185, 960 110 C 1180 50, 1360 95, 1500 125" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2"/>
+            <!-- Center Dashed Line -->
+            <path d="M-60 190 C 350 245, 680 230, 960 155 C 1180 95, 1360 140, 1500 170" stroke="rgba(255, 255, 255, 0.22)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="14 16"/>
+            <!-- Bottom Lane Solid Line -->
+            <path d="M-60 235 C 370 290, 700 275, 960 200 C 1180 140, 1360 185, 1500 215" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2"/>
         </svg>
     </div>
 

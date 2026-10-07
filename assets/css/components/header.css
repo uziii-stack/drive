@@ -12,7 +12,7 @@
    1. Header Base & Full-Width Wrapper
    ========================================================================== */
 .site-header.fullwidth-dark-header {
-    background-color: #222438; /* Sleek dark navy/charcoal as in screenshot */
+    background-color: #24263a; /* Seamless match with hero background */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     position: sticky;
     top: 0;
