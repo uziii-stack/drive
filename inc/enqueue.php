@@ -75,6 +75,13 @@ function drive_scripts() {
     $footer_version  = file_exists( $footer_css_path ) ? filemtime( $footer_css_path ) : $theme_version;
     wp_enqueue_style( 'drive-footer-style', DRIVE_THEME_URI . '/assets/css/components/footer.css', array( 'drive-main-style' ), $footer_version );
 
+    // 404 Error Page Component CSS
+    if ( is_404() ) {
+        $error_404_css_path = DRIVE_THEME_DIR . '/assets/css/components/404.css';
+        $error_404_version  = file_exists( $error_404_css_path ) ? filemtime( $error_404_css_path ) : $theme_version;
+        wp_enqueue_style( 'drive-404-style', DRIVE_THEME_URI . '/assets/css/components/404.css', array( 'drive-main-style' ), $error_404_version );
+    }
+
 
     // Main JS (Lightweight vanilla JS)
     $main_js_path = DRIVE_THEME_DIR . '/assets/js/main.js';
