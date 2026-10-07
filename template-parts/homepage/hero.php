@@ -2,9 +2,13 @@
 /**
  * Template part for displaying the Homepage Hero section
  *
- * Implements the high-converting social proof hero layout featuring
- * the pass-holder photo wall, floating stat badges, central punchy copy,
- * main CTA button, and trust indicators.
+ * Implements the dark interactive mockup hero layout with:
+ * - Top Badge: "FREE PERMIT TEST PREP · 40 STATES"
+ * - Headline with vibrant teal highlight: "Get road–ready for your DMV permit test"
+ * - Subtitle & Orange "Choose Your State" CTA button
+ * - Feature checklist (State-specific, Car/truck/motorcycle, Free to start)
+ * - Right Side: Interactive practice test question card with floating Cheat Sheet & Mock Test timer badges
+ * - Subtle background curved highway road graphic
  *
  * @package Drive
  */
@@ -12,192 +16,212 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+$all_states     = function_exists( 'drive_get_all_states' ) ? drive_get_all_states() : array();
+$vehicle_types  = function_exists( 'drive_get_vehicle_types' ) ? drive_get_vehicle_types() : array();
+
+// Determine state context
+$current_state_slug = 'california';
+if ( isset( $_GET['state'] ) && ! empty( $_GET['state'] ) ) {
+    $req_state = sanitize_title( wp_unslash( $_GET['state'] ) );
+    foreach ( $all_states as $code => $data ) {
+        if ( $data['slug'] === $req_state || strtolower( $code ) === strtolower( $req_state ) ) {
+            $current_state_slug = $data['slug'];
+            break;
+        }
+    }
+}
+$current_s_name = 'California';
+foreach ( $all_states as $code => $data ) {
+    if ( $data['slug'] === $current_state_slug ) {
+        $current_s_name = $data['name'];
+        break;
+    }
+}
+
+// Determine vehicle context
+$current_veh = 'car';
+if ( isset( $_GET['veh'] ) && ! empty( $_GET['veh'] ) ) {
+    $req_veh = sanitize_title( wp_unslash( $_GET['veh'] ) );
+    if ( array_key_exists( $req_veh, $vehicle_types ) ) {
+        $current_veh = $req_veh;
+    }
+}
 ?>
 
-<section id="hero" class="homepage-section homepage-hero hero-pass-wall" aria-labelledby="hero-main-heading">
-    <div class="site-container hero-container">
+<section id="hero" class="homepage-section homepage-hero hero-dark-mockup" aria-labelledby="hero-main-heading">
+    
+    <!-- Curved Road Background Graphic -->
+    <div class="hero-road-bg-wrap" aria-hidden="true">
+        <svg class="hero-road-svg" viewBox="0 0 1440 220" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-50 180 C320 235 720 75 1490 135 L1490 230 L-50 230 Z" fill="rgba(255, 255, 255, 0.02)"/>
+            <path d="M-50 135 C370 195 770 45 1490 105" stroke="rgba(255, 255, 255, 0.07)" stroke-width="2"/>
+            <path d="M-50 180 C320 235 720 75 1490 135" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2" stroke-dasharray="14 14"/>
+            <path d="M-50 225 C270 275 670 105 1490 165" stroke="rgba(255, 255, 255, 0.07)" stroke-width="2"/>
+        </svg>
+    </div>
+
+    <div class="hero-container">
         
-        <div class="hero-grid-layout">
+        <div class="hero-split-grid">
             
-            <!-- 1. Left Social Proof Flank (Pass-holder photos & stat badges) -->
-            <div class="hero-flank hero-flank-left" aria-hidden="true">
-                <div class="hero-cards-cluster cluster-left">
-                    
-                    <!-- Photo Card 1 (Top Left) -->
-                    <div class="hero-photo-card card-tilt-left photo-1">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-1.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-1">
-                                <span class="avatar-badge-icon">🪪</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Photo Card 2 (Top Center-Left) -->
-                    <div class="hero-photo-card card-tilt-right photo-2">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-2.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-2">
-                                <span class="avatar-badge-icon">🚗</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Yellow Stat Badge (97% Pass Rate) -->
-                    <div class="hero-stat-badge badge-yellow">
-                        <div class="stat-number">97%</div>
-                        <div class="stat-label"><?php esc_html_e( 'Industry-leading pass rate', 'drive' ); ?></div>
-                    </div>
-
-                    <!-- Photo Card 3 (Mid Left) -->
-                    <div class="hero-photo-card card-tilt-left photo-3">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-3.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-3">
-                                <span class="avatar-badge-icon">✨</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Photo Card 4 (Mid Center-Left) -->
-                    <div class="hero-photo-card card-tilt-right photo-4">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-4.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-4">
-                                <span class="avatar-badge-icon">🎉</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Photo Card 5 (Bottom Left) -->
-                    <div class="hero-photo-card card-tilt-left photo-5">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-5.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-5">
-                                <span class="avatar-badge-icon">👍</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Purple Stat Badge (1,144 Tests Completed) -->
-                    <div class="hero-stat-badge badge-purple">
-                        <div class="stat-number">1,144</div>
-                        <div class="stat-label"><strong><?php esc_html_e( 'tests', 'drive' ); ?></strong> <?php esc_html_e( 'completed today', 'drive' ); ?></div>
-                    </div>
-
-                </div>
-            </div><!-- .hero-flank-left -->
-
-            <!-- 2. Center Content Area (Headline, Story Subtext, CTA, Trust Bar) -->
-            <div class="hero-center-content">
+            <!-- Left Column: Copy, CTA & Checklist -->
+            <div class="hero-content-col">
                 
-                <div class="hero-eyebrow">
-                    <span><?php esc_html_e( 'YOUR SHORTCUT TO A DRIVER\'S LICENSE', 'drive' ); ?></span>
+                <!-- Badge -->
+                <div class="hero-top-badge">
+                    <span class="badge-dot" aria-hidden="true"></span>
+                    <span class="badge-text"><?php esc_html_e( 'FREE PERMIT TEST PREP · 40 STATES', 'drive' ); ?></span>
                 </div>
 
-                <h1 id="hero-main-heading" class="hero-title">
-                    <?php esc_html_e( 'Ace Your DMV Test', 'drive' ); ?> 
-                    <span class="text-highlight-blue"><?php esc_html_e( 'Without Any Drama', 'drive' ); ?></span>
+                <!-- Headline -->
+                <h1 id="hero-main-heading" class="hero-main-title">
+                    <?php esc_html_e( 'Get road–ready for', 'drive' ); ?><br>
+                    <?php esc_html_e( 'your', 'drive' ); ?> <span class="text-teal-glow"><?php esc_html_e( 'DMV permit test', 'drive' ); ?></span>
                 </h1>
 
-                <p class="hero-story-p">
-                    <?php esc_html_e( 'Scary. Boring. Confusing. No, we\'re not talking about what it\'s like catching up on the news these days. We\'re talking about the permit test. The manuals are daunting. The paperwork is hard to navigate. The DMV is filled with sneezy noses, crying babies, and groans of frustration. No wonder you avoid it all.', 'drive' ); ?>
+                <!-- Subtitle -->
+                <p class="hero-subtext">
+                    <?php esc_html_e( 'State-specific practice tests, timed mock exams and printable cheat sheets for car, truck and motorcycle.', 'drive' ); ?>
                 </p>
 
-                <p class="hero-hook-text">
-                    <?php esc_html_e( 'What if we told you there\'s a better way?', 'drive' ); ?>
-                </p>
-
-                <div class="hero-cta-box">
-                    <a href="#state-selector" class="btn-hero-primary" id="btn-hero-start">
-                        <?php esc_html_e( 'Go to practice tests', 'drive' ); ?>
+                <!-- CTA Button -->
+                <div class="hero-action-row">
+                    <a href="#state-selector" class="btn-hero-orange" id="btn-hero-choose-state">
+                        <span class="btn-label"><?php esc_html_e( 'Choose Your State', 'drive' ); ?></span>
+                        <span class="btn-arrow-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 10h12M11 5l5 5-5 5"/>
+                            </svg>
+                        </span>
                     </a>
                 </div>
 
-                <div class="hero-trust-bar">
-                    <span class="trust-item"><?php esc_html_e( '6M+ practice tests taken this year', 'drive' ); ?></span>
-                    <span class="trust-dot" aria-hidden="true">•</span>
-                    <span class="trust-item"><?php esc_html_e( 'State-specific', 'drive' ); ?></span>
-                    <span class="trust-dot" aria-hidden="true">•</span>
-                    <span class="trust-item"><?php esc_html_e( 'No registration required', 'drive' ); ?></span>
+                <!-- Checklist Features -->
+                <div class="hero-checkmarks-list">
+                    <div class="hero-check-item">
+                        <span class="check-icon-box" aria-hidden="true">
+                            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 8.5L6.5 12L13 4.5"/>
+                            </svg>
+                        </span>
+                        <span class="check-item-text"><?php esc_html_e( 'State-specific', 'drive' ); ?></span>
+                    </div>
+
+                    <div class="hero-check-item">
+                        <span class="check-icon-box" aria-hidden="true">
+                            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 8.5L6.5 12L13 4.5"/>
+                            </svg>
+                        </span>
+                        <span class="check-item-text"><?php esc_html_e( 'Car, truck & motorcycle', 'drive' ); ?></span>
+                    </div>
+
+                    <div class="hero-check-item">
+                        <span class="check-icon-box" aria-hidden="true">
+                            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 8.5L6.5 12L13 4.5"/>
+                            </svg>
+                        </span>
+                        <span class="check-item-text"><?php esc_html_e( 'Free to start', 'drive' ); ?></span>
+                    </div>
                 </div>
 
-            </div><!-- .hero-center-content -->
+            </div><!-- .hero-content-col -->
 
-            <!-- 3. Right Social Proof Flank (Pass-holder photos & stat badge) -->
-            <div class="hero-flank hero-flank-right" aria-hidden="true">
-                <div class="hero-cards-cluster cluster-right">
+
+            <!-- Right Column: Interactive Practice Test Card Mockup + Floating Badges -->
+            <div class="hero-mockup-col">
+                <div class="hero-mockup-wrapper">
                     
-                    <!-- Photo Card 6 (Top Right) -->
-                    <div class="hero-photo-card card-tilt-right photo-6">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-6.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-6">
-                                <span class="avatar-badge-icon">🪪</span>
+                    <!-- Floating Badge: Cheat Sheet (Top Right) -->
+                    <div class="floating-badge badge-cheat-sheet" aria-hidden="true">
+                        <div class="badge-cheat-top">
+                            <div class="badge-icon-box">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                </svg>
                             </div>
+                            <div class="badge-text-box">
+                                <div class="badge-title"><?php esc_html_e( 'Cheat Sheet', 'drive' ); ?></div>
+                                <div class="badge-subtitle"><?php esc_html_e( 'Printable PDF', 'drive' ); ?></div>
+                            </div>
+                        </div>
+                        <div class="badge-doc-lines">
+                            <span class="doc-line line-1"></span>
+                            <span class="doc-line line-2"></span>
                         </div>
                     </div>
 
-                    <!-- Photo Card 7 (Top Far Right) -->
-                    <div class="hero-photo-card card-tilt-left photo-7">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-7.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-7">
-                                <span class="avatar-badge-icon">⭐</span>
-                            </div>
+                    <!-- Main Question Mockup Card -->
+                    <div class="hero-question-card">
+                        
+                        <!-- Card Header Meta -->
+                        <div class="card-meta-row">
+                            <span class="card-tag"><?php echo esc_html( $current_s_name ); ?> · <?php echo esc_html( ucfirst( $current_veh ) ); ?></span>
+                            <span class="card-counter"><?php esc_html_e( 'Question 4 of 20', 'drive' ); ?></span>
+                        </div>
+
+                        <!-- Progress Bar (20% Completed) -->
+                        <div class="card-progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                            <div class="card-progress-fill" style="width: 20%;"></div>
+                        </div>
+
+                        <!-- Question Title -->
+                        <h2 class="card-question-text">
+                            <?php esc_html_e( 'What should you do at a flashing red traffic light?', 'drive' ); ?>
+                        </h2>
+
+                        <!-- Options List -->
+                        <div class="card-options-list">
+                            
+                            <!-- Option 1 -->
+                            <button type="button" class="card-option-btn">
+                                <span class="opt-label"><?php esc_html_e( 'Slow down and continue', 'drive' ); ?></span>
+                            </button>
+
+                            <!-- Option 2: Active / Correct State matching screenshot -->
+                            <button type="button" class="card-option-btn is-correct is-active">
+                                <span class="opt-label"><?php esc_html_e( 'Stop fully, then go when safe', 'drive' ); ?></span>
+                                <span class="opt-check-badge" aria-hidden="true">
+                                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 10.5L8 14.5L16 6"/>
+                                    </svg>
+                                </span>
+                            </button>
+
+                            <!-- Option 3 -->
+                            <button type="button" class="card-option-btn">
+                                <span class="opt-label"><?php esc_html_e( 'Stop only if cars are coming', 'drive' ); ?></span>
+                            </button>
+
+                        </div>
+
+                    </div><!-- .hero-question-card -->
+
+                    <!-- Floating Badge: Mock Test Timer (Bottom Right) -->
+                    <div class="floating-badge badge-mock-timer" aria-hidden="true">
+                        <div class="timer-icon-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="13" r="8"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="13" x2="15" y2="15"/>
+                                <line x1="9.5" y1="3" x2="14.5" y2="3"/>
+                            </svg>
+                        </div>
+                        <div class="timer-text-box">
+                            <div class="timer-label"><?php esc_html_e( 'Mock Test', 'drive' ); ?></div>
+                            <div class="timer-value"><?php esc_html_e( '18:42 left', 'drive' ); ?></div>
                         </div>
                     </div>
 
-                    <!-- Pink Stat Badge (2026 Updated) -->
-                    <div class="hero-stat-badge badge-pink">
-                        <div class="stat-number">2026</div>
-                        <div class="stat-label"><?php esc_html_e( 'updated', 'drive' ); ?></div>
-                    </div>
+                </div><!-- .hero-mockup-wrapper -->
+            </div><!-- .hero-mockup-col -->
 
-                    <!-- Photo Card 8 (Mid Right) -->
-                    <div class="hero-photo-card card-tilt-right photo-8">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-8.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-8">
-                                <span class="avatar-badge-icon">🙌</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Photo Card 9 (Mid Center-Right) -->
-                    <div class="hero-photo-card card-tilt-left photo-9">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-9.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-9">
-                                <span class="avatar-badge-icon">🚦</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Photo Card 10 (Bottom Right) -->
-                    <div class="hero-photo-card card-tilt-right photo-10">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-10.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-10">
-                                <span class="avatar-badge-icon">💯</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Photo Card 11 (Bottom Far Right) -->
-                    <div class="hero-photo-card card-tilt-left photo-11">
-                        <div class="photo-img-wrap">
-                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/hero-pass-11.jpg' ); ?>" alt="" onerror="this.parentElement.classList.add('is-fallback')" />
-                            <div class="photo-placeholder-avatar avatar-11">
-                                <span class="avatar-badge-icon">🚗</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div><!-- .hero-flank-right -->
-
-        </div><!-- .hero-grid-layout -->
+        </div><!-- .hero-split-grid -->
 
     </div><!-- .hero-container -->
 </section><!-- #hero -->

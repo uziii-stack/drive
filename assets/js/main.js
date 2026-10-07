@@ -16,7 +16,6 @@
         }
 
         const trigger = stateSelector.querySelector('.header-state-trigger');
-        const megaMenu = stateSelector.querySelector('.state-mega-dropdown-card');
         const stateLinks = stateSelector.querySelectorAll('.state-mega-link');
         const selectedLabel = document.getElementById('selectedStateLabel');
 
@@ -65,6 +64,26 @@
     }
 
     /**
+     * Hero Interactive Demo Card Options Handler
+     */
+    function initHeroMockup() {
+        const mockupCard = document.querySelector('.hero-question-card');
+        if (!mockupCard) {
+            return;
+        }
+
+        const optionButtons = mockupCard.querySelectorAll('.card-option-btn');
+        optionButtons.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                optionButtons.forEach(function (b) {
+                    b.classList.remove('is-active');
+                });
+                btn.classList.add('is-active');
+            });
+        });
+    }
+
+    /**
      * Skip link focus fix for keyboard accessibility
      */
     function initSkipLinkFocus() {
@@ -95,10 +114,12 @@
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
             initHeaderControls();
+            initHeroMockup();
             initSkipLinkFocus();
         });
     } else {
         initHeaderControls();
+        initHeroMockup();
         initSkipLinkFocus();
     }
 })();
