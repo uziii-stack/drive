@@ -64,6 +64,53 @@
     }
 
     /**
+     * Mobile Menu Toggle & Drawer Handler
+     */
+    function initMobileMenu() {
+        const toggleBtn = document.getElementById('headerMenuToggle');
+        const drawer = document.getElementById('mobileMenuDrawer');
+
+        if (!toggleBtn || !drawer) {
+            return;
+        }
+
+        function toggleDrawer(open) {
+            const isOpen = typeof open === 'boolean' ? open : toggleBtn.getAttribute('aria-expanded') !== 'true';
+            toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+            drawer.classList.toggle('is-active', isOpen);
+        }
+
+        toggleBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            toggleDrawer();
+        });
+
+        // Close drawer when clicking outside
+        document.addEventListener('click', function (e) {
+            if (drawer.classList.contains('is-active') && !drawer.contains(e.target) && !toggleBtn.contains(e.target)) {
+                toggleDrawer(false);
+            }
+        });
+
+        // Close drawer on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && drawer.classList.contains('is-active')) {
+                toggleDrawer(false);
+                toggleBtn.focus();
+            }
+        });
+
+        // Auto close on navigation link clicks
+        const links = drawer.querySelectorAll('a');
+        links.forEach(function (link) {
+            link.addEventListener('click', function () {
+                toggleDrawer(false);
+            });
+        });
+    }
+
+    /**
      * Hero Interactive Demo Card Options Handler
      */
     function initHeroMockup() {
@@ -114,11 +161,13 @@
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
             initHeaderControls();
+            initMobileMenu();
             initHeroMockup();
             initSkipLinkFocus();
         });
     } else {
         initHeaderControls();
+        initMobileMenu();
         initHeroMockup();
         initSkipLinkFocus();
     }
