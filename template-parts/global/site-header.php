@@ -3,10 +3,9 @@
  * Template part for displaying the modern site header
  *
  * Implements the sleek full-width dark navbar with:
- * 1. WordPress Site Logo support (wp_custom_logo) with crisp SVG badge fallback
- * 2. State Selector with US Map Icon & 3-Column Mega Menu Dropdown
- * 3. Vehicle Switcher (Car, Motorcycle, CDL/Truck)
- * 4. Responsive Mobile Hamburger Menu Toggle & Drawer
+ * - Desktop: WP Site Logo on left, State Dropdown + Vehicle Switcher on right
+ * - Mobile (< 992px): Ultra-clean header with Logo + Hamburger toggle;
+ *   State Selector, Vehicle Type Selector, and navigation links neatly organized inside the Mobile Drawer.
  *
  * @package Drive
  */
@@ -89,8 +88,8 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
         <!-- Right: Actions (Desktop State Dropdown + Vehicle Switcher + Mobile Toggle) -->
         <div class="header-actions">
             
-            <!-- 1. State Selector Dropdown -->
-            <div class="header-state-selector" id="header-state-selector">
+            <!-- 1. Desktop State Selector Dropdown (Hidden on Mobile) -->
+            <div class="header-state-selector desktop-state-selector" id="header-state-selector">
                 <button type="button" class="header-state-trigger" id="stateDropdownTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="stateMegaDropdown" aria-label="<?php esc_attr_e( 'Select State', 'drive' ); ?>">
                     <span class="state-icon-wrap" aria-hidden="true">
                         <!-- US Map Silhouette Icon in Teal -->
@@ -106,7 +105,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                     </span>
                 </button>
 
-                <!-- 3-Column State Mega Dropdown Card -->
+                <!-- 3-Column State Mega Dropdown Card (Desktop) -->
                 <div class="state-mega-dropdown-card" id="stateMegaDropdown" role="menu" aria-label="<?php esc_attr_e( 'Select State', 'drive' ); ?>">
                     <div class="state-mega-dropdown-inner">
                         <div class="state-dropdown-header">
@@ -138,7 +137,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                 </div>
             </div>
 
-            <!-- 2. Vehicle Switcher Tabs / Icons (Desktop) -->
+            <!-- 2. Vehicle Switcher Tabs / Icons (Desktop - Hidden on Mobile) -->
             <div class="header-vehicle-switcher desktop-vehicle-switcher" role="tablist" aria-label="<?php esc_attr_e( 'Vehicle Type', 'drive' ); ?>">
                 
                 <!-- Car -->
@@ -197,7 +196,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
 
             </div>
 
-            <!-- 3. Mobile Hamburger Toggle Button -->
+            <!-- 3. Mobile Hamburger Toggle Button (Clean & Prominent on Mobile) -->
             <button type="button" class="menu-toggle header-hamburger-btn" id="headerMenuToggle" aria-controls="mobileMenuDrawer" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation menu', 'drive' ); ?>">
                 <span class="menu-toggle-icon-wrap" aria-hidden="true">
                     <span class="menu-toggle-bar bar-1"></span>
@@ -215,7 +214,46 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
     <div id="mobileMenuDrawer" class="mobile-menu-drawer" aria-hidden="true">
         <div class="mobile-drawer-inner">
             
-            <!-- Vehicle Selection Quick Switcher (Mobile) -->
+            <!-- 1. Mobile State Selector Accordion / Card -->
+            <div class="mobile-state-accordion-block" id="mobileStateBlock">
+                <button type="button" class="mobile-state-accordion-trigger" id="mobileStateTrigger" aria-expanded="false">
+                    <div class="mobile-state-trigger-left">
+                        <span class="state-icon-wrap" aria-hidden="true">
+                            <svg class="state-us-svg" width="20" height="15" viewBox="0 0 28 20" fill="currentColor">
+                                <path d="M1.2 5.5c.4-.7 1.5-.8 2.2-1.1 1-.7 2.2-.2 3.3-.6 1.3-.4 2.6-1.4 4-1.5 1.5-.1 3 .6 4.6.7 1.5.1 3.1-.5 4.7-.7 1.3-.2 2.6.3 3.9.4 1 .1 2.1-.3 3 .2.6.3.8 1.2.7 1.9-.1 1.2-.7 2.3-1.2 3.4-.4 1-1 1.8-1 2.9.1 1 .8 1.8.6 2.9-.2 1-1 1.8-1.9 2.4-1.3.9-2.8 1.5-4.3 1.5-1.2 0-2.4-.5-3.6-.7-1.5-.3-3 .3-4.4.3-1.5 0-3.1-.7-4.6-1.1-1.3-.4-2.6-.8-3.8-1.5-1-.6-1.5-1.6-1.9-2.7-.4-1.2-.2-2.6-.2-3.9.1-1-.3-1.9-.1-2.9.2-.5.4-.9.4-1.4z"/>
+                            </svg>
+                        </span>
+                        <div class="mobile-state-info">
+                            <span class="mobile-state-sub"><?php esc_html_e( 'Selected State', 'drive' ); ?></span>
+                            <span class="mobile-state-curr" id="mobileSelectedStateLabel"><?php echo esc_html( $current_s_name ); ?></span>
+                        </div>
+                    </div>
+                    <span class="mobile-state-chevron" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
+                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+
+                <!-- Expandable 50 States Grid -->
+                <div class="mobile-state-list-expandable" id="mobileStateList">
+                    <div class="mobile-state-columns-grid">
+                        <?php foreach ( $all_states as $st_code => $st_data ) : 
+                            $st_url = home_url( '/' . esc_attr( $st_data['slug'] ) . '/' . esc_attr( $current_veh_slug ) . '/' );
+                            $is_active = ( $st_data['slug'] === $current_state_slug ) ? 'is-selected' : '';
+                        ?>
+                            <a href="<?php echo esc_url( $st_url ); ?>" 
+                               class="mobile-state-link <?php echo esc_attr( $is_active ); ?>" 
+                               data-state-slug="<?php echo esc_attr( $st_data['slug'] ); ?>"
+                               data-state-name="<?php echo esc_attr( $st_data['name'] ); ?>">
+                                <?php echo esc_html( $st_data['name'] ); ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Vehicle Selection Quick Switcher (Mobile) -->
             <div class="mobile-section-block">
                 <div class="mobile-section-label"><?php esc_html_e( 'Select Vehicle Type', 'drive' ); ?></div>
                 <div class="mobile-vehicle-grid">
@@ -259,7 +297,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                 </div>
             </div>
 
-            <!-- Mobile Navigation Links -->
+            <!-- 3. Mobile Navigation Links -->
             <ul class="mobile-nav-list">
                 <li class="mobile-nav-item">
                     <a href="<?php echo esc_url( home_url( '/#state-selector' ) ); ?>" class="mobile-nav-link">
@@ -287,7 +325,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                 </li>
             </ul>
 
-            <!-- Mobile Drawer CTA Button -->
+            <!-- 4. Mobile Drawer CTA Button -->
             <div class="mobile-drawer-cta">
                 <a href="<?php echo esc_url( home_url( '/#state-selector' ) ); ?>" class="btn-hero-orange btn-mobile-cta">
                     <span><?php esc_html_e( 'Choose Your State', 'drive' ); ?></span>

@@ -7,7 +7,7 @@
     'use strict';
 
     /**
-     * Header State Dropdown & Vehicle Switcher Handler
+     * Desktop Header State Dropdown Handler
      */
     function initHeaderControls() {
         const stateSelector = document.getElementById('header-state-selector');
@@ -101,9 +101,38 @@
             }
         });
 
-        // Auto close on navigation link clicks
-        const links = drawer.querySelectorAll('a');
-        links.forEach(function (link) {
+        // Mobile State Accordion Toggle inside Drawer
+        const mobileStateBlock = document.getElementById('mobileStateBlock');
+        const mobileStateTrigger = document.getElementById('mobileStateTrigger');
+        const mobileStateLinks = drawer.querySelectorAll('.mobile-state-link');
+        const mobileStateLabel = document.getElementById('mobileSelectedStateLabel');
+
+        if (mobileStateTrigger && mobileStateBlock) {
+            mobileStateTrigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const isExpanded = mobileStateBlock.classList.toggle('is-open');
+                mobileStateTrigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+            });
+        }
+
+        if (mobileStateLinks) {
+            mobileStateLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    const stName = link.getAttribute('data-state-name');
+                    if (stName && mobileStateLabel) {
+                        mobileStateLabel.textContent = stName;
+                    }
+                    if (mobileStateBlock) {
+                        mobileStateBlock.classList.remove('is-open');
+                    }
+                    toggleDrawer(false);
+                });
+            });
+        }
+
+        // Auto close on other navigation link clicks
+        const navLinks = drawer.querySelectorAll('.mobile-nav-link, .btn-mobile-cta');
+        navLinks.forEach(function (link) {
             link.addEventListener('click', function () {
                 toggleDrawer(false);
             });

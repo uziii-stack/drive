@@ -1,10 +1,10 @@
 /**
  * Drive - Modern Dark Header Component Styles
  *
- * Full-width dark navigation bar matching reference design:
- * - Left: WP Custom Logo / SVG Badge Brand fallback
- * - Right: State Dropdown (US Map Icon + 3-Column Mega Menu) & Vehicle Switcher (Car, Motorcycle, CDL)
- * - Mobile: Hamburger menu toggle button & smooth slide-down drawer
+ * Full-width dark navigation bar:
+ * - Desktop (>= 992px): WP Site Logo on left, State Dropdown + Vehicle Switcher on right
+ * - Mobile (< 992px): Ultra-clean header with Logo + Hamburger toggle;
+ *   State Selector accordion, Vehicle Type switcher, and navigation links inside the drawer.
  *
  * @package Drive
  */
@@ -108,7 +108,7 @@
 }
 
 /* ==========================================================================
-   3. Header Right Actions (State Selector + Vehicle Switcher + Hamburger)
+   3. Header Right Actions (Desktop: State + Vehicles | Mobile: Hamburger)
    ========================================================================== */
 .header-actions {
     display: flex;
@@ -118,7 +118,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   3.1 State Selector Trigger & Dropdown
+   3.1 Desktop State Selector Trigger & Dropdown
    -------------------------------------------------------------------------- */
 .header-state-selector {
     position: relative;
@@ -197,7 +197,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   3.2 State Mega Dropdown Card (3-Column Layout)
+   3.2 Desktop State Mega Dropdown Card (3-Column Layout)
    -------------------------------------------------------------------------- */
 .state-mega-dropdown-card {
     position: absolute;
@@ -302,7 +302,7 @@
 }
 
 /* ==========================================================================
-   4. Vehicle Switcher (Desktop)
+   4. Desktop Vehicle Switcher
    ========================================================================== */
 .header-vehicle-switcher {
     display: inline-flex;
@@ -340,7 +340,7 @@
     outline: none;
 }
 
-/* Active State: Selected Vehicle Box */
+/* Active State */
 .vehicle-switch-btn.is-active {
     color: #00D4C3;
     background: rgba(0, 212, 195, 0.12);
@@ -377,8 +377,8 @@
     width: 42px;
     height: 42px;
     padding: 0;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 10px;
     cursor: pointer;
     position: relative;
@@ -388,8 +388,8 @@
 
 .menu-toggle.header-hamburger-btn:hover,
 .menu-toggle.header-hamburger-btn:focus-visible {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
     outline: none;
 }
 
@@ -465,13 +465,119 @@
 .mobile-drawer-inner {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 1.5rem 1.5rem 2rem;
+    padding: 1.5rem 1.25rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.35rem;
 }
 
-/* 6.1 Mobile Vehicle Grid */
+/* --------------------------------------------------------------------------
+   6.1 Mobile State Selector Accordion
+   -------------------------------------------------------------------------- */
+.mobile-state-accordion-block {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color var(--transition-fast);
+}
+
+.mobile-state-accordion-block.is-open {
+    border-color: rgba(0, 212, 195, 0.35);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.mobile-state-accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+}
+
+.mobile-state-trigger-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mobile-state-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.mobile-state-sub {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.mobile-state-curr {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.mobile-state-chevron {
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    transition: transform 220ms ease;
+}
+
+.mobile-state-accordion-block.is-open .mobile-state-chevron {
+    transform: rotate(180deg);
+    color: #00D4C3;
+}
+
+/* Expandable 50-States Grid */
+.mobile-state-list-expandable {
+    display: none;
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 0.5rem 0.75rem 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mobile-state-accordion-block.is-open .mobile-state-list-expandable {
+    display: block;
+}
+
+.mobile-state-columns-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.35rem 0.65rem;
+}
+
+.mobile-state-link {
+    color: #cbd5e1;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 140ms ease;
+}
+
+.mobile-state-link:hover,
+.mobile-state-link.is-selected {
+    color: #00D4C3;
+    background: rgba(0, 212, 195, 0.12);
+    font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   6.2 Mobile Vehicle Grid
+   -------------------------------------------------------------------------- */
 .mobile-section-block {
     display: flex;
     flex-direction: column;
@@ -528,7 +634,9 @@
     color: #00D4C3;
 }
 
-/* 6.2 Mobile Navigation List */
+/* --------------------------------------------------------------------------
+   6.3 Mobile Navigation List
+   -------------------------------------------------------------------------- */
 .mobile-nav-list {
     list-style: none;
     padding: 0;
@@ -546,9 +654,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 0.25rem;
+    padding: 0.85rem 0.25rem;
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
     transition: color 150ms ease, padding-left 150ms ease;
@@ -570,7 +678,9 @@
     transform: translateX(3px);
 }
 
-/* 6.3 Mobile CTA Button */
+/* --------------------------------------------------------------------------
+   6.4 Mobile CTA Button
+   -------------------------------------------------------------------------- */
 .mobile-drawer-cta .btn-mobile-cta {
     width: 100%;
     justify-content: center;
@@ -587,10 +697,13 @@
         gap: 1rem;
     }
 
+    /* Hide desktop controls on mobile */
+    .desktop-state-selector,
     .desktop-vehicle-switcher {
         display: none !important;
     }
 
+    /* Show clean hamburger button */
     .menu-toggle.header-hamburger-btn {
         display: flex !important;
     }
@@ -603,18 +716,6 @@
         width: 30px;
         height: 30px;
     }
-
-    .state-mega-dropdown-card {
-        min-width: 420px;
-        max-width: 92vw;
-        right: 0;
-        padding: 1rem 1.15rem;
-    }
-
-    .state-mega-columns-grid {
-        column-gap: 0.85rem;
-        max-height: 340px;
-    }
 }
 
 @media (max-width: 767px) {
@@ -624,16 +725,16 @@
     }
 
     .header-container {
-        padding: 0.5rem 0.75rem;
-        gap: 0.35rem;
-        min-height: 52px;
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+        min-height: 54px;
         width: 100%;
         max-width: 100vw;
     }
 
     .brand-title-wrap {
-        font-size: clamp(0.8rem, 3.6vw, 0.95rem);
-        gap: 0.2rem;
+        font-size: clamp(0.85rem, 3.8vw, 1rem);
+        gap: 0.25rem;
     }
 
     .brand-logo-badge svg {
@@ -641,104 +742,35 @@
         height: 26px;
     }
 
-    .header-actions {
-        gap: 0.35rem;
-    }
-
-    .header-state-trigger {
-        padding: 0.35rem 0.45rem;
-        gap: 0.25rem;
-        font-size: 0.8125rem;
-    }
-
-    .header-state-name {
-        font-size: 0.8125rem;
-        max-width: 80px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    .state-us-svg {
-        width: 16px;
-        height: 12px;
-    }
-
     .menu-toggle.header-hamburger-btn {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
-    }
-
-    .state-mega-dropdown-card {
-        position: fixed;
-        top: 56px;
-        left: 8px;
-        right: 8px;
-        min-width: auto;
-        max-width: calc(100vw - 16px);
-        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
-    }
-
-    .state-mega-columns-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-height: 300px;
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
     }
 }
 
 @media (max-width: 380px) {
     .header-container {
-        padding: 0.45rem 0.5rem;
+        padding: 0.45rem 0.65rem;
         gap: 0.25rem;
     }
 
     .brand-link {
-        gap: 0.4rem;
+        gap: 0.45rem;
     }
 
     .brand-title-wrap {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     .brand-logo-badge svg {
-        width: 22px;
-        height: 22px;
-    }
-
-    .header-state-trigger {
-        padding: 0.25rem 0.35rem;
-        font-size: 0.75rem;
-    }
-
-    .header-state-name {
-        font-size: 0.75rem;
-        max-width: 58px;
+        width: 24px;
+        height: 24px;
     }
 
     .menu-toggle.header-hamburger-btn {
-        width: 32px;
-        height: 32px;
-        min-width: 32px;
-    }
-
-    .menu-toggle-icon-wrap {
-        width: 16px;
-        height: 12px;
-    }
-
-    .menu-toggle-bar.bar-2 {
-        top: 5px;
-    }
-
-    .menu-toggle-bar.bar-3 {
-        top: 10px;
-    }
-
-    .menu-toggle.header-hamburger-btn[aria-expanded="true"] .menu-toggle-bar.bar-1 {
-        top: 5px;
-    }
-
-    .menu-toggle.header-hamburger-btn[aria-expanded="true"] .menu-toggle-bar.bar-3 {
-        top: 5px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
     }
 }
