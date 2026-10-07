@@ -93,7 +93,14 @@
     font-weight: 700;
 }
 
-/* WordPress Uploaded Custom Logo Support */
+/* Custom Logo Image Badge Support */
+.brand-custom-logo-badge .custom-logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    display: block;
+}
+
 .custom-logo-link {
     display: inline-flex;
     align-items: center;

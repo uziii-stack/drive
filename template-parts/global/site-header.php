@@ -63,10 +63,27 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
         
         <!-- Left: Brand / WP Site Logo -->
         <div class="site-branding">
-            <?php if ( has_custom_logo() ) : ?>
-                <?php the_custom_logo(); ?>
-            <?php else : ?>
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand-link" rel="home">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand-link" rel="home">
+                <?php 
+                $logo_src = '';
+                if ( has_custom_logo() ) {
+                    $custom_logo_id = get_theme_mod( 'custom_logo' );
+                    $custom_logo_data = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+                    if ( ! empty( $custom_logo_data[0] ) ) {
+                        $logo_src = $custom_logo_data[0];
+                    }
+                } elseif ( file_exists( get_template_directory() . '/assets/images/logo-icon.png' ) ) {
+                    $logo_src = get_template_directory_uri() . '/assets/images/logo-icon.png';
+                } elseif ( file_exists( get_template_directory() . '/assets/images/logo.png' ) ) {
+                    $logo_src = get_template_directory_uri() . '/assets/images/logo.png';
+                }
+                ?>
+
+                <?php if ( ! empty( $logo_src ) ) : ?>
+                    <span class="brand-logo-badge brand-custom-logo-badge" aria-hidden="true">
+                        <img src="<?php echo esc_url( $logo_src ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="custom-logo-img" width="36" height="36" />
+                    </span>
+                <?php else : ?>
                     <span class="brand-logo-badge" aria-hidden="true">
                         <svg width="34" height="34" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <!-- Circular Badge with Outer Ring -->
@@ -77,12 +94,13 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                             <path d="M11 18.5L16 23.5L25.5 13" stroke="#00D4C3" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
-                    <span class="brand-title-wrap">
-                        <span class="brand-name-main"><?php esc_html_e( 'DMV Learners Permit', 'drive' ); ?></span>
-                        <span class="brand-name-accent"><?php esc_html_e( 'Test', 'drive' ); ?></span>
-                    </span>
-                </a>
-            <?php endif; ?>
+                <?php endif; ?>
+
+                <span class="brand-title-wrap">
+                    <span class="brand-name-main"><?php esc_html_e( 'DMV Learners Permit', 'drive' ); ?></span>
+                    <span class="brand-name-accent"><?php esc_html_e( 'Test', 'drive' ); ?></span>
+                </span>
+            </a>
         </div>
 
         <!-- Right: Actions (Desktop State Dropdown + Vehicle Switcher + Mobile Toggle) -->
