@@ -1,9 +1,11 @@
 <?php
 /**
- * Template part for displaying the site header
+ * Template part for displaying the modern site header
  *
- * Implements the sleek floating pill-style header with branding,
- * navigation menu, and the dynamic push-text arrow CTA button.
+ * Implements the sleek full-width dark navbar with:
+ * 1. WordPress Site Logo support (wp_custom_logo) with crisp SVG badge fallback
+ * 2. State Selector with US Map Icon & 3-Column Mega Menu Dropdown
+ * 3. Vehicle Switcher (Car, Motorcycle, CDL/Truck)
  *
  * @package Drive
  */
@@ -11,199 +13,193 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+$all_states     = function_exists( 'drive_get_all_states' ) ? drive_get_all_states() : array();
+$vehicle_types  = function_exists( 'drive_get_vehicle_types' ) ? drive_get_vehicle_types() : array();
+
+// Determine current state
+$current_state_slug = 'california'; // Default matching reference design
+if ( isset( $_GET['state'] ) && ! empty( $_GET['state'] ) ) {
+    $req_state = sanitize_title( wp_unslash( $_GET['state'] ) );
+    foreach ( $all_states as $code => $data ) {
+        if ( $data['slug'] === $req_state || strtolower( $code ) === strtolower( $req_state ) ) {
+            $current_state_slug = $data['slug'];
+            break;
+        }
+    }
+} elseif ( get_query_var( 'drive_state' ) ) {
+    $current_state_slug = sanitize_title( get_query_var( 'drive_state' ) );
+}
+
+$current_s_name = 'California';
+foreach ( $all_states as $code => $data ) {
+    if ( $data['slug'] === $current_state_slug ) {
+        $current_s_name = $data['name'];
+        break;
+    }
+}
+
+// Determine current vehicle type
+$current_veh = 'car';
+if ( isset( $_GET['veh'] ) && ! empty( $_GET['veh'] ) ) {
+    $req_veh = sanitize_title( wp_unslash( $_GET['veh'] ) );
+    if ( array_key_exists( $req_veh, $vehicle_types ) ) {
+        $current_veh = $req_veh;
+    }
+} elseif ( is_page() ) {
+    $page_slug = get_post_field( 'post_name', get_post() );
+    if ( strpos( $page_slug, 'motorcycle' ) !== false ) {
+        $current_veh = 'motorcycle';
+    } elseif ( strpos( $page_slug, 'cdl' ) !== false ) {
+        $current_veh = 'cdl';
+    }
+}
+
+$current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_types[ $current_veh ]['slug'] : 'car-practice-test';
 ?>
 
-<header id="masthead" class="site-header pill-header" role="banner">
-    <div class="site-container header-site-container">
-        <div class="header-pill-bar">
-            
-            <!-- Left: Brand / Logo Area (Text-based until logo asset is placed) -->
-            <div class="site-branding">
-                <?php if ( has_custom_logo() ) : ?>
-                    <?php the_custom_logo(); ?>
-                <?php else : ?>
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand-link" rel="home">
-                        <span class="brand-text"><?php bloginfo( 'name' ); ?></span>
-                    </a>
-                <?php endif; ?>
-            </div>
-
-            <!-- Middle / Right: Navigation & Mobile Drawer -->
-            <nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'drive' ); ?>">
-                <button class="menu-toggle" aria-controls="primary-menu-drawer" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation menu', 'drive' ); ?>">
-                    <span class="menu-toggle-icon-wrap" aria-hidden="true">
-                        <span class="menu-toggle-bar bar-1"></span>
-                        <span class="menu-toggle-bar bar-2"></span>
-                        <span class="menu-toggle-bar bar-3"></span>
+<header id="masthead" class="site-header fullwidth-dark-header" role="banner">
+    <div class="header-container">
+        
+        <!-- Left: Brand / WP Site Logo -->
+        <div class="site-branding">
+            <?php if ( has_custom_logo() ) : ?>
+                <?php the_custom_logo(); ?>
+            <?php else : ?>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand-link" rel="home">
+                    <span class="brand-logo-badge" aria-hidden="true">
+                        <svg width="34" height="34" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Circular Badge with Outer Ring -->
+                            <circle cx="18" cy="18" r="16" fill="#1C1E2E" stroke="#ffffff" stroke-width="2.5"/>
+                            <!-- Small Accent Dot -->
+                            <circle cx="9.5" cy="26.5" r="2.5" fill="#FF6B00"/>
+                            <!-- Vibrant Teal Checkmark -->
+                            <path d="M11 18.5L16 23.5L25.5 13" stroke="#00D4C3" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </span>
-                    <span class="screen-reader-text"><?php esc_html_e( 'Toggle navigation menu', 'drive' ); ?></span>
-                </button>
-
-                <div id="primary-menu-drawer" class="primary-menu-drawer">
-                    <div class="primary-menu-drawer-inner">
-                        <?php
-                        $all_states     = function_exists( 'drive_get_all_states' ) ? drive_get_all_states() : array();
-                        $vehicle_types  = function_exists( 'drive_get_vehicle_types' ) ? drive_get_vehicle_types() : array();
-                        $current_state  = 'alaska'; // Default or context-derived state slug
-                        $current_s_name = isset( $all_states['AK']['name'] ) ? $all_states['AK']['name'] : 'Alaska';
-                        $current_veh    = 'car';
-                        $current_v_name = 'Car';
-                        ?>
-
-                        <ul id="primary-menu" class="nav-menu primary-menu-list">
-                            
-                            <!-- 1. State Selector Dropdown (3-Column Mega Menu) -->
-                            <li class="menu-item menu-item-has-children nav-state-item" id="nav-state-dropdown-item">
-                                <a href="<?php echo esc_url( home_url( '/#state-selector' ) ); ?>" class="nav-dropdown-trigger state-trigger" aria-haspopup="true" aria-expanded="false">
-                                    <span class="nav-trigger-icon-wrap" aria-hidden="true">
-                                        <!-- Location Pin SVG -->
-                                        <svg class="nav-svg-icon icon-pin" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                                        </svg>
-                                    </span>
-                                    <span class="nav-trigger-label current-state-text"><?php echo esc_html( $current_s_name ); ?></span>
-                                    <span class="nav-chevron-wrap" aria-hidden="true">
-                                        <svg class="nav-chevron-svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                            <path d="M2.5 3.75L5 6.25L7.5 3.75" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </span>
-                                </a>
-
-                                <!-- 3-Column State Mega Dropdown Card -->
-                                <div class="nav-mega-menu state-mega-menu" aria-label="<?php esc_attr_e( 'Select State', 'drive' ); ?>">
-                                    <div class="state-mega-columns-grid">
-                                        <?php
-                                        $state_chunks = array_chunk( $all_states, ceil( count( $all_states ) / 3 ), true );
-                                        foreach ( $state_chunks as $chunk ) :
-                                        ?>
-                                            <div class="state-mega-column">
-                                                <?php foreach ( $chunk as $st_code => $st_data ) : 
-                                                    $st_url = home_url( '/' . esc_attr( $st_data['slug'] ) . '/car-practice-test/' );
-                                                    $is_active = ( $st_data['slug'] === $current_state ) ? 'is-selected' : '';
-                                                ?>
-                                                    <a href="<?php echo esc_url( $st_url ); ?>" class="state-mega-link <?php echo esc_attr( $is_active ); ?>" data-state-slug="<?php echo esc_attr( $st_data['slug'] ); ?>">
-                                                        <?php echo esc_html( $st_data['name'] ); ?>
-                                                    </a>
-                                                <?php endforeach; ?>
-                                            </div>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <!-- 2. Vehicle Selector Dropdown -->
-                            <li class="menu-item menu-item-has-children nav-vehicle-item" id="nav-vehicle-dropdown-item">
-                                <a href="<?php echo esc_url( home_url( '/#vehicle-selector' ) ); ?>" class="nav-dropdown-trigger vehicle-trigger" aria-haspopup="true" aria-expanded="false">
-                                    <span class="nav-trigger-icon-wrap" aria-hidden="true">
-                                        <!-- Car Icon SVG -->
-                                        <svg class="nav-svg-icon icon-car" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.04 3H5.81l1.04-3zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z"/>
-                                            <circle cx="7.5" cy="14.5" r="1.5"/>
-                                            <circle cx="16.5" cy="14.5" r="1.5"/>
-                                        </svg>
-                                    </span>
-                                    <span class="nav-trigger-label current-vehicle-text"><?php echo esc_html( $current_v_name ); ?></span>
-                                    <span class="nav-chevron-wrap" aria-hidden="true">
-                                        <svg class="nav-chevron-svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
-                                            <path d="M2.5 3.75L5 6.25L7.5 3.75" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </span>
-                                </a>
-
-                                <!-- Vehicle Selector Dropdown Menu Card -->
-                                <div class="nav-dropdown-menu vehicle-dropdown-menu" aria-label="<?php esc_attr_e( 'Select Vehicle Type', 'drive' ); ?>">
-                                    <ul class="vehicle-options-list">
-                                        
-                                        <!-- Car -->
-                                        <li>
-                                            <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state ) . '/car-practice-test/' ) ); ?>" class="vehicle-option-link is-active" data-vehicle="car">
-                                                <span class="veh-icon-box" aria-hidden="true">
-                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.04 3H5.81l1.04-3zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z"/>
-                                                        <circle cx="7.5" cy="14.5" r="1.5"/>
-                                                        <circle cx="16.5" cy="14.5" r="1.5"/>
-                                                    </svg>
-                                                </span>
-                                                <span class="veh-name"><?php esc_html_e( 'Car', 'drive' ); ?></span>
-                                            </a>
-                                        </li>
-
-                                        <!-- CDL -->
-                                        <li>
-                                            <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state ) . '/cdl-practice-test/' ) ); ?>" class="vehicle-option-link" data-vehicle="cdl">
-                                                <span class="veh-icon-box" aria-hidden="true">
-                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"/>
-                                                    </svg>
-                                                </span>
-                                                <span class="veh-name"><?php esc_html_e( 'CDL (Commercial Vehicles)', 'drive' ); ?></span>
-                                            </a>
-                                        </li>
-
-                                        <!-- Motorcycle -->
-                                        <li>
-                                            <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state ) . '/motorcycle-practice-test/' ) ); ?>" class="vehicle-option-link" data-vehicle="motorcycle">
-                                                <span class="veh-icon-box" aria-hidden="true">
-                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M19.44 9.03L15.41 5H11v2h3.59l2 2H5c-2.8 0-5 2.2-5 5s2.2 5 5 5c2.46 0 4.45-1.69 4.9-4h4.2c.45 2.31 2.44 4 4.9 4 2.8 0 5-2.2 5-5 0-2.54-1.86-4.63-4.56-4.97zM7.82 15C7.4 16.15 6.28 17 5 17c-1.63 0-3-1.37-3-3s1.37-3 3-3c1.28 0 2.4.85 2.82 2H5v2h2.82zm11.18 2c-1.63 0-3-1.37-3-3s1.37-3 3-3 3 1.37 3 3-1.37 3-3 3z"/>
-                                                    </svg>
-                                                </span>
-                                                <span class="veh-name"><?php esc_html_e( 'Motorcycle', 'drive' ); ?></span>
-                                            </a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <!-- Standard Nav Items -->
-                            <li class="menu-item"><a href="<?php echo esc_url( home_url( '/#features' ) ); ?>"><span><?php esc_html_e( 'Cheat Sheets', 'drive' ); ?></span></a></li>
-                            <li class="menu-item"><a href="<?php echo esc_url( home_url( '/#how-it-works' ) ); ?>"><span><?php esc_html_e( 'How It Works', 'drive' ); ?></span></a></li>
-                            <li class="menu-item"><a href="<?php echo esc_url( home_url( '/#faq' ) ); ?>"><span><?php esc_html_e( 'FAQ', 'drive' ); ?></span></a></li>
-
-                        </ul>
-
-                        <!-- Mobile/Tablet Drawer Bottom CTA Button -->
-                        <div class="mobile-drawer-cta-wrap">
-                            <a href="<?php echo esc_url( home_url( '/#premium' ) ); ?>" class="btn-header-cta btn-drawer-cta">
-                                <span class="btn-cta-inner">
-                                    <span class="btn-cta-arrow-left" aria-hidden="true">
-                                        <svg class="btn-cta-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </span>
-                                    <span class="btn-cta-text"><?php esc_html_e( 'Pass with premium', 'drive' ); ?></span>
-                                    <span class="btn-cta-arrow-right" aria-hidden="true">
-                                        <svg class="btn-cta-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                    </div><!-- .primary-menu-drawer-inner -->
-                </div><!-- .primary-menu-drawer -->
-            </nav>
-
-            <!-- Desktop (>= 1200px) Far Right CTA Button -->
-            <div class="header-cta-wrap desktop-header-cta">
-                <a href="<?php echo esc_url( home_url( '/#premium' ) ); ?>" class="btn-header-cta">
-                    <span class="btn-cta-inner">
-                        <span class="btn-cta-arrow-left" aria-hidden="true">
-                            <svg class="btn-cta-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                        <span class="btn-cta-text"><?php esc_html_e( 'Pass with premium', 'drive' ); ?></span>
-                        <span class="btn-cta-arrow-right" aria-hidden="true">
-                            <svg class="btn-cta-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
+                    <span class="brand-title-wrap">
+                        <span class="brand-name-main"><?php esc_html_e( 'DMV Learners Permit', 'drive' ); ?></span>
+                        <span class="brand-name-accent"><?php esc_html_e( 'Test', 'drive' ); ?></span>
                     </span>
                 </a>
+            <?php endif; ?>
+        </div>
+
+        <!-- Right: Actions (State Dropdown + Vehicle Switcher) -->
+        <div class="header-actions">
+            
+            <!-- 1. State Selector Dropdown -->
+            <div class="header-state-selector" id="header-state-selector">
+                <button type="button" class="header-state-trigger" id="stateDropdownTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="stateMegaDropdown" aria-label="<?php esc_attr_e( 'Select State', 'drive' ); ?>">
+                    <span class="state-icon-wrap" aria-hidden="true">
+                        <!-- US Map Silhouette Icon in Teal -->
+                        <svg class="state-us-svg" width="22" height="16" viewBox="0 0 28 20" fill="currentColor">
+                            <path d="M1.2 5.5c.4-.7 1.5-.8 2.2-1.1 1-.7 2.2-.2 3.3-.6 1.3-.4 2.6-1.4 4-1.5 1.5-.1 3 .6 4.6.7 1.5.1 3.1-.5 4.7-.7 1.3-.2 2.6.3 3.9.4 1 .1 2.1-.3 3 .2.6.3.8 1.2.7 1.9-.1 1.2-.7 2.3-1.2 3.4-.4 1-1 1.8-1 2.9.1 1 .8 1.8.6 2.9-.2 1-1 1.8-1.9 2.4-1.3.9-2.8 1.5-4.3 1.5-1.2 0-2.4-.5-3.6-.7-1.5-.3-3 .3-4.4.3-1.5 0-3.1-.7-4.6-1.1-1.3-.4-2.6-.8-3.8-1.5-1-.6-1.5-1.6-1.9-2.7-.4-1.2-.2-2.6-.2-3.9.1-1-.3-1.9-.1-2.9.2-.5.4-.9.4-1.4z"/>
+                        </svg>
+                    </span>
+                    <span class="header-state-name" id="selectedStateLabel"><?php echo esc_html( $current_s_name ); ?></span>
+                    <span class="state-chevron-wrap" aria-hidden="true">
+                        <svg class="state-chevron-svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+
+                <!-- 3-Column State Mega Dropdown Card -->
+                <div class="state-mega-dropdown-card" id="stateMegaDropdown" role="menu" aria-label="<?php esc_attr_e( 'Select State', 'drive' ); ?>">
+                    <div class="state-mega-dropdown-inner">
+                        <div class="state-dropdown-header">
+                            <span class="state-dropdown-title"><?php esc_html_e( 'Select Your State', 'drive' ); ?></span>
+                            <span class="state-dropdown-subtitle"><?php esc_html_e( 'Choose a state to access official DMV practice tests', 'drive' ); ?></span>
+                        </div>
+                        <div class="state-mega-columns-grid">
+                            <?php
+                            $state_chunks = array_chunk( $all_states, ceil( count( $all_states ) / 3 ), true );
+                            foreach ( $state_chunks as $chunk ) :
+                            ?>
+                                <div class="state-mega-column">
+                                    <?php foreach ( $chunk as $st_code => $st_data ) : 
+                                        $st_url = home_url( '/' . esc_attr( $st_data['slug'] ) . '/' . esc_attr( $current_veh_slug ) . '/' );
+                                        $is_active = ( $st_data['slug'] === $current_state_slug ) ? 'is-selected' : '';
+                                    ?>
+                                        <a href="<?php echo esc_url( $st_url ); ?>" 
+                                           class="state-mega-link <?php echo esc_attr( $is_active ); ?>" 
+                                           data-state-slug="<?php echo esc_attr( $st_data['slug'] ); ?>"
+                                           data-state-name="<?php echo esc_attr( $st_data['name'] ); ?>"
+                                           role="menuitem">
+                                            <?php echo esc_html( $st_data['name'] ); ?>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-        </div><!-- .header-pill-bar -->
-    </div><!-- .header-site-container -->
+            <!-- 2. Vehicle Switcher Tabs / Icons -->
+            <div class="header-vehicle-switcher" role="tablist" aria-label="<?php esc_attr_e( 'Vehicle Type', 'drive' ); ?>">
+                
+                <!-- Car -->
+                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/car-practice-test/' ) ); ?>" 
+                   class="vehicle-switch-btn <?php echo ( $current_veh === 'car' ) ? 'is-active' : ''; ?>" 
+                   data-vehicle="car" 
+                   role="tab" 
+                   aria-selected="<?php echo ( $current_veh === 'car' ) ? 'true' : 'false'; ?>"
+                   aria-label="<?php esc_attr_e( 'Car Permit Tests', 'drive' ); ?>"
+                   title="<?php esc_attr_e( 'Car Permit Tests', 'drive' ); ?>">
+                    <span class="veh-btn-icon" aria-hidden="true">
+                        <!-- Front 3/4 Car Icon matching screenshot -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 11l1.5-5.5A2 2 0 0 1 8.4 4h7.2a2 2 0 0 1 1.9 1.5L19 11M3 11h18v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6z"/>
+                            <circle cx="7" cy="15" r="1.5" fill="currentColor"/>
+                            <circle cx="17" cy="15" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Motorcycle -->
+                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/motorcycle-practice-test/' ) ); ?>" 
+                   class="vehicle-switch-btn <?php echo ( $current_veh === 'motorcycle' ) ? 'is-active' : ''; ?>" 
+                   data-vehicle="motorcycle" 
+                   role="tab" 
+                   aria-selected="<?php echo ( $current_veh === 'motorcycle' ) ? 'true' : 'false'; ?>"
+                   aria-label="<?php esc_attr_e( 'Motorcycle Permit Tests', 'drive' ); ?>"
+                   title="<?php esc_attr_e( 'Motorcycle Permit Tests', 'drive' ); ?>">
+                    <span class="veh-btn-icon" aria-hidden="true">
+                        <!-- Motorcycle Outline Icon matching screenshot -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="5.5" cy="17.5" r="3.5"/>
+                            <circle cx="18.5" cy="17.5" r="3.5"/>
+                            <path d="M15 6h-3l-4 6h7.5l2-3.5L19 9"/>
+                            <path d="M12 17.5V14l-3-4"/>
+                            <path d="M5.5 17.5L9 12"/>
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- CDL / Truck -->
+                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/cdl-practice-test/' ) ); ?>" 
+                   class="vehicle-switch-btn <?php echo ( $current_veh === 'cdl' ) ? 'is-active' : ''; ?>" 
+                   data-vehicle="cdl" 
+                   role="tab" 
+                   aria-selected="<?php echo ( $current_veh === 'cdl' ) ? 'true' : 'false'; ?>"
+                   aria-label="<?php esc_attr_e( 'CDL Commercial Tests', 'drive' ); ?>"
+                   title="<?php esc_attr_e( 'CDL Commercial Tests', 'drive' ); ?>">
+                    <span class="veh-btn-icon" aria-hidden="true">
+                        <!-- Truck / CDL Outline Icon matching screenshot -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 4h12v12H2z"/>
+                            <path d="M14 9h4l3 3v4h-7V9z"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </span>
+                </a>
+
+            </div>
+
+        </div><!-- .header-actions -->
+
+    </div><!-- .header-container -->
 </header><!-- #masthead -->

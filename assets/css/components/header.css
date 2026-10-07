@@ -1,46 +1,43 @@
 /**
- * Drive - Header Component Styles
- * Desktop Layout (>= 1200px): Sleek floating horizontal pill bar.
- * Mobile/Tablet Layout (< 1200px down to 320px): Floating pill with full-width modern drawer matching reference.
+ * Drive - Modern Dark Header Component Styles
+ *
+ * Full-width dark navigation bar matching reference design:
+ * - Left: WP Custom Logo / SVG Badge Brand fallback
+ * - Right: State Dropdown (US Map Icon + 3-Column Mega Menu) & Vehicle Switcher (Car, Motorcycle, CDL)
+ *
+ * @package Drive
  */
 
 /* ==========================================================================
-   1. Floating Header Wrapper & Base Pill Bar
+   1. Header Base & Full-Width Wrapper
    ========================================================================== */
-.site-header.pill-header {
-    background: transparent;
-    border: none;
-    padding: 1.25rem 0 0.5rem;
+.site-header.fullwidth-dark-header {
+    background-color: #222438; /* Sleek dark navy/charcoal as in screenshot */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
+    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background-color var(--transition-base), box-shadow var(--transition-base);
 }
 
-.header-site-container {
-    max-width: var(--container-max-width);
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.header-pill-bar {
-    background: #23252a;
-    /* Sleek dark graphite as in design */
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 9999px;
-    padding: 0.45rem 0.55rem 0.45rem 1.75rem;
+.header-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0.65rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
-    box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    position: relative;
-    transition: background-color var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    min-height: 64px;
+    box-sizing: border-box;
 }
 
 /* ==========================================================================
-   2. Branding / Logo
+   2. Site Branding / Logo
    ========================================================================== */
 .site-branding {
     display: flex;
@@ -52,759 +49,447 @@
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-}
-
-.site-branding .brand-text {
+    gap: 0.75rem;
     color: #ffffff;
-    font-size: 1.35rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1;
+    transition: opacity var(--transition-fast);
 }
 
-.site-branding .custom-logo-link img {
-    height: 32px;
-    width: auto;
+.site-branding .brand-link:hover {
+    opacity: 0.92;
 }
 
-/* ==========================================================================
-   3. CTA Buttons ("Pass with premium") Dynamic Text-Push Arrow Transition
-   - Original State: Solid Black Pill with Text on Left & Arrow on Right [ Text  → ]
-   - Hover State: Arrow swipes out to right, re-renders from left and pushes text ahead [ →  Text ]
-   - 100% Contained Internally: Bounding box NEVER resizes, zero disturbance to navbar.
-   ========================================================================== */
-.btn-header-cta {
-    background-color: #0c0d10;
-    /* Original state: Solid deep black pill */
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 9999px;
-    padding: 0.65rem 1.45rem;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    text-decoration: none;
+/* Fallback SVG Badge */
+.brand-logo-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    box-sizing: border-box;
-    transition: background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 280ms cubic-bezier(0.4, 0, 0.2, 1),
-        border-color 280ms cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-cta-inner {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.btn-cta-svg {
-    width: 16px;
-    height: 16px;
-    display: block;
-    color: currentColor;
     flex-shrink: 0;
 }
 
-/* Left Arrow (Hidden off-screen to the left, enters and pushes text on hover) */
-.btn-cta-arrow-left {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 16px;
-    height: 16px;
-    opacity: 0;
-    transform: translateY(-50%) translateX(-24px);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 220ms ease;
+.brand-logo-badge svg {
+    display: block;
+    filter: drop-shadow(0 2px 6px rgba(0, 212, 195, 0.2));
 }
 
-/* Text Element (Slides forward when pushed by the left arrow) */
-.btn-cta-text {
+.brand-title-wrap {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     line-height: 1;
     white-space: nowrap;
-    display: inline-block;
-    transform: translateX(0);
-    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Right Arrow (Visible in original state, swipes forward and out on hover) */
-.btn-cta-arrow-right {
+.brand-name-main {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.brand-name-accent {
+    color: #FF6B00; /* Vibrant orange accent as in screenshot */
+    font-weight: 700;
+}
+
+/* WordPress Uploaded Custom Logo Support */
+.custom-logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.custom-logo-link img.custom-logo {
+    max-height: 42px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* ==========================================================================
+   3. Header Right Actions (State Selector + Vehicle Switcher)
+   ========================================================================== */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: auto;
+}
+
+/* --------------------------------------------------------------------------
+   3.1 State Selector Trigger & Dropdown
+   -------------------------------------------------------------------------- */
+.header-state-selector {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.header-state-trigger {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    line-height: 1;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.header-state-trigger:hover,
+.header-state-trigger:focus-visible,
+.header-state-selector.is-open .header-state-trigger {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    outline: none;
+}
+
+.state-icon-wrap {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-    opacity: 1;
-    transform: translateX(0);
-    transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 200ms ease;
+    color: #00D4C3; /* Vibrant teal US icon */
+    flex-shrink: 0;
 }
 
-/* ==========================================================================
-   Hover State: Brand Secondary Color, Swipe-Out & Re-render from Left
-   ========================================================================== */
-.btn-header-cta:hover,
-.btn-header-cta:focus-visible {
-    background-color: var(--color-secondary);
-    /* Brand Hierarchy Color (#00B4A6) */
-    color: #000000 !important;
-    /* Crisp black text and arrow */
-    border-color: var(--color-secondary);
-    box-shadow: 0 4px 20px rgba(0, 180, 166, 0.45);
+.state-us-svg {
+    display: block;
 }
 
-/* 1. Left Arrow enters from far left into position */
-.btn-header-cta:hover .btn-cta-arrow-left,
-.btn-header-cta:focus-visible .btn-cta-arrow-left {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
+.header-state-name {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
-/* 2. Text smoothly pushes ahead to make room for left arrow (16px arrow + 8px gap = 24px) */
-.btn-header-cta:hover .btn-cta-text,
-.btn-header-cta:focus-visible .btn-cta-text {
-    transform: translateX(24px);
+.state-chevron-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 0.15rem;
+    transition: transform 220ms ease;
 }
 
-/* 3. Right Arrow swipes forward out of the button */
-.btn-header-cta:hover .btn-cta-arrow-right,
-.btn-header-cta:focus-visible .btn-cta-arrow-right {
+.header-state-selector:hover .state-chevron-wrap,
+.header-state-selector.is-open .state-chevron-wrap {
+    transform: rotate(180deg);
+}
+
+/* Invisible bridge so mouse cursor doesn't lose hover when moving to dropdown */
+.header-state-selector::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 14px;
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   3.2 State Mega Dropdown Card (3-Column Layout)
+   -------------------------------------------------------------------------- */
+.state-mega-dropdown-card {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 520px;
+    max-width: 560px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.25rem 1.4rem 1.15rem;
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    z-index: 1050;
     opacity: 0;
-    transform: translateX(24px);
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 180ms ease;
 }
 
+.header-state-selector:hover .state-mega-dropdown-card,
+.header-state-selector.is-open .state-mega-dropdown-card {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
 
+.state-dropdown-header {
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid #f1f5f9;
+}
 
+.state-dropdown-title {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: -0.01em;
+}
 
+.state-dropdown-subtitle {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.state-mega-columns-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.25rem;
+    row-gap: 0.15rem;
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+}
+
+/* Sleek Scrollbar */
+.state-mega-columns-grid::-webkit-scrollbar {
+    width: 5px;
+}
+
+.state-mega-columns-grid::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.state-mega-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.state-mega-link {
+    display: block;
+    color: #334155;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.35;
+    padding: 0.25rem 0.45rem;
+    border-radius: 6px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 140ms ease, background-color 140ms ease, transform 140ms ease;
+}
+
+.state-mega-link:hover,
+.state-mega-link:focus-visible {
+    color: #008F84;
+    background-color: rgba(0, 180, 166, 0.09);
+    transform: translateX(2px);
+    outline: none;
+}
+
+.state-mega-link.is-selected {
+    color: #008F84;
+    background-color: rgba(0, 180, 166, 0.14);
+    font-weight: 700;
+}
 
 /* ==========================================================================
-   4. Mobile / Tablet Menu Toggle (Close 'X' & Hamburger)
+   4. Vehicle Switcher (Car, Motorcycle, CDL)
    ========================================================================== */
-.menu-toggle {
-    display: none;
+.header-vehicle-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.25rem 0.35rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vehicle-switch-btn {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 40px;
-    height: 40px;
-    padding: 0;
+    height: 38px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.65); /* Inactive outline color */
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
+    text-decoration: none;
     cursor: pointer;
+    transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    border-radius: var(--radius-full);
-    transition: background-color var(--transition-fast);
+    box-sizing: border-box;
 }
 
-.menu-toggle:hover,
-.menu-toggle:focus-visible {
+.vehicle-switch-btn:hover,
+.vehicle-switch-btn:focus-visible {
+    color: #00D4C3;
     background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+    outline: none;
 }
 
-.menu-toggle-icon-wrap {
+/* Active State: Selected Vehicle Box matching Screenshot */
+.vehicle-switch-btn.is-active {
+    color: #00D4C3;
+    background: rgba(0, 212, 195, 0.12);
+    border: 1px solid rgba(0, 212, 195, 0.4);
+    box-shadow: 0 0 14px rgba(0, 212, 195, 0.18), inset 0 0 0 1px rgba(0, 212, 195, 0.1);
+}
+
+.veh-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.veh-btn-icon svg {
     display: block;
-    width: 20px;
-    height: 16px;
-    position: relative;
+    transition: transform 180ms ease;
 }
 
-.menu-toggle-bar {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #ffffff;
-    border-radius: 2px;
-    transition: transform 250ms ease, opacity 250ms ease, top 250ms ease;
+.vehicle-switch-btn:hover .veh-btn-icon svg {
+    transform: scale(1.08);
 }
 
-.menu-toggle-bar.bar-1 {
-    top: 0;
-}
-
-.menu-toggle-bar.bar-2 {
-    top: 7px;
-}
-
-.menu-toggle-bar.bar-3 {
-    top: 14px;
-}
-
-/* Transition to crisp 'X' close icon when opened */
-.menu-toggle[aria-expanded="true"] .menu-toggle-bar.bar-1 {
-    top: 7px;
-    transform: rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] .menu-toggle-bar.bar-2 {
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.menu-toggle[aria-expanded="true"] .menu-toggle-bar.bar-3 {
-    top: 7px;
-    transform: rotate(-45deg);
+.vehicle-switch-btn.is-active .veh-btn-icon svg {
+    transform: scale(1.04);
 }
 
 /* ==========================================================================
-   5. Desktop Mode (>= 1200px)
+   5. Responsive Breakpoints
    ========================================================================== */
-@media (min-width: 1200px) {
-    .menu-toggle {
-        display: none !important;
+@media (max-width: 991px) {
+    .header-container {
+        padding: 0.6rem 1.25rem;
+        gap: 1rem;
     }
 
-    .main-navigation {
-        display: flex;
-        align-items: center;
-        margin-left: auto;
+    .brand-title-wrap {
+        font-size: 1.1rem;
     }
 
-    .primary-menu-drawer {
-        display: block !important;
-        position: static;
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        padding: 0;
+    .brand-logo-badge svg {
+        width: 30px;
+        height: 30px;
     }
 
-    .primary-menu-drawer-inner {
-        display: flex;
-        align-items: center;
+    .state-mega-dropdown-card {
+        min-width: 440px;
+        max-width: 90vw;
+        right: 0;
+        padding: 1rem 1.15rem;
     }
 
-    .primary-menu-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
+    .state-mega-columns-grid {
+        column-gap: 0.85rem;
+        max-height: 360px;
+    }
+}
+
+@media (max-width: 767px) {
+    .header-container {
+        padding: 0.5rem 0.85rem;
+        gap: 0.75rem;
+        min-height: 56px;
     }
 
-    .primary-menu-list>li {
-        position: relative;
+    .brand-name-main {
+        display: inline;
     }
 
-    .primary-menu-list>li>a {
-        text-decoration: none;
-        color: #e2e8f0;
-        font-size: 0.9375rem;
-        font-weight: 500;
-        padding: 0.5rem 0.35rem;
-        display: inline-flex;
-        align-items: center;
+    .brand-title-wrap {
+        font-size: 0.95rem;
+    }
+
+    .brand-logo-badge svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .header-actions {
+        gap: 0.5rem;
+    }
+
+    .header-state-trigger {
+        padding: 0.4rem 0.5rem;
         gap: 0.35rem;
-        transition: color var(--transition-fast);
     }
 
-    .primary-menu-list>li>a:hover,
-    .primary-menu-list>li>a:focus-visible {
-        color: #ffffff;
+    .header-state-name {
+        font-size: 0.875rem;
     }
 
-    /* --------------------------------------------------------------------------
-       Dropdown Triggers (State: Pin Icon, Vehicle: Car Icon in #007AFF)
-       -------------------------------------------------------------------------- */
-    .nav-dropdown-trigger {
-        color: #007AFF !important;
-        /* Vibrant electric blue as in reference */
-        font-weight: 600 !important;
-        cursor: pointer;
-        gap: 0.4rem !important;
+    .state-us-svg {
+        width: 18px;
+        height: 13px;
     }
 
-    .nav-trigger-icon-wrap {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #007AFF;
-        flex-shrink: 0;
-    }
-
-    .nav-svg-icon {
-        display: block;
-    }
-
-    .nav-chevron-wrap {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 0.15rem;
-        transition: transform 220ms ease;
-    }
-
-    .nav-state-item:hover .nav-chevron-wrap,
-    .nav-state-item:focus-within .nav-chevron-wrap,
-    .nav-vehicle-item:hover .nav-chevron-wrap,
-    .nav-vehicle-item:focus-within .nav-chevron-wrap {
-        transform: rotate(180deg);
-    }
-
-    /* --------------------------------------------------------------------------
-       3-Column State Mega Dropdown Menu Card (Desktop - Compact & Refined)
-       -------------------------------------------------------------------------- */
-    .nav-mega-menu.state-mega-menu {
-        position: absolute;
-        top: calc(100% + 10px);
-        left: 50%;
-        transform: translateX(-40%) translateY(8px);
-        background: #ffffff;
-        border-radius: 16px;
-        padding: 1.15rem 1.4rem;
-        box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05);
-        min-width: 480px;
-        max-width: 520px;
-        z-index: 1050;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
-            visibility 180ms ease;
-    }
-
-    /* Invisible hover bridge to prevent menu from closing when moving cursor */
-    .nav-state-item::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        height: 14px;
-        display: block;
-    }
-
-    .nav-state-item:hover .nav-mega-menu,
-    .nav-state-item:focus-within .nav-mega-menu {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateX(-40%) translateY(0);
-    }
-
-    .state-mega-columns-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 1.25rem;
-        row-gap: 0.1rem;
-    }
-
-    .state-mega-column {
-        display: flex;
-        flex-direction: column;
-        gap: 0.15rem;
-    }
-
-    .state-mega-link {
-        display: block;
-        color: #374151 !important;
-        font-size: 0.8125rem !important; /* ~13px compact clean typography */
-        font-weight: 500 !important;
-        line-height: 1.35;
-        padding: 0.2rem 0.35rem !important;
-        border-radius: 6px;
-        text-decoration: none;
-        white-space: nowrap;
-        transition: color 140ms ease, background-color 140ms ease, transform 140ms ease !important;
-    }
-
-    .state-mega-link:hover,
-    .state-mega-link:focus-visible {
-        color: #007AFF !important;
-        background-color: rgba(0, 122, 255, 0.07);
-        transform: translateX(2px);
-    }
-
-    .state-mega-link.is-selected {
-        color: #007AFF !important;
-        font-weight: 600 !important;
-    }
-
-    /* --------------------------------------------------------------------------
-       Vehicle Selector Dropdown Menu Card (Desktop - Compact & Refined)
-       -------------------------------------------------------------------------- */
-    .nav-dropdown-menu.vehicle-dropdown-menu {
-        position: absolute;
-        top: calc(100% + 10px);
-        left: 0;
-        transform: translateY(8px);
-        background: #ffffff;
-        border-radius: 16px;
-        padding: 0.35rem;
-        box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05);
-        min-width: 230px;
-        z-index: 1050;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1),
-            transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
-            visibility 180ms ease;
-    }
-
-    .nav-vehicle-item::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        height: 14px;
-        display: block;
-    }
-
-    .nav-vehicle-item:hover .nav-dropdown-menu,
-    .nav-vehicle-item:focus-within .nav-dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateY(0);
-    }
-
-    .vehicle-options-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .vehicle-options-list li {
-        border-bottom: 1px solid #f1f5f9;
-    }
-
-    .vehicle-options-list li:last-child {
-        border-bottom: none;
-    }
-
-    .vehicle-option-link {
-        display: flex !important;
-        align-items: center;
-        gap: 0.65rem;
-        padding: 0.6rem 0.75rem !important;
-        border-radius: 10px;
-        color: #374151 !important;
-        font-size: 0.8125rem !important; /* ~13px compact */
-        font-weight: 500 !important;
-        text-decoration: none;
-        transition: all 150ms ease !important;
-    }
-
-    .vehicle-option-link .veh-icon-box {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #007AFF;
-        flex-shrink: 0;
-    }
-
-    .vehicle-option-link .veh-icon-box svg {
-        width: 16px;
-        height: 16px;
-    }
-
-    .vehicle-option-link:hover,
-    .vehicle-option-link:focus-visible {
-        background-color: rgba(0, 122, 255, 0.07);
-        color: #007AFF !important;
-    }
-
-    .vehicle-option-link.is-active {
-        background-color: rgba(0, 122, 255, 0.09);
-        color: #007AFF !important;
-        font-weight: 600 !important;
-    }
-
-    .menu-item-chevron {
-        display: none;
-    }
-
-    .mobile-drawer-cta-wrap {
-        display: none;
-    }
-
-    .desktop-header-cta {
-        display: flex;
-        align-items: center;
-        flex-shrink: 0;
-    }
-}
-
-/* ==========================================================================
-   6. Mobile & Tablet Drawer (< 1200px down to 320px)
-   Matches reference screenshot layout
-   ========================================================================== */
-@media (max-width: 1199px) {
-    .site-header.pill-header {
-        padding-top: 1rem;
-    }
-
-    .header-pill-bar {
-        padding: 0.45rem 0.75rem 0.45rem 1.5rem;
-    }
-
-    .desktop-header-cta {
-        display: none !important;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .main-navigation {
-        display: block;
-    }
-
-    /* Floating drawer card directly below the pill bar */
-    .primary-menu-drawer {
-        display: none;
-        position: absolute;
-        top: calc(100% + 10px);
-        left: 0;
-        right: 0;
-        background: #23252a;
-        /* Matching dark graphite drawer */
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: 28px;
-        padding: 1.75rem 1.5rem 1.5rem;
-        box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
-        z-index: 1000;
-        opacity: 0;
-        transform: translateY(-8px);
-        transition: opacity 220ms ease, transform 220ms ease;
-    }
-
-    .primary-menu-drawer.is-active {
-        display: block;
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .primary-menu-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .primary-menu-list li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .primary-menu-list li:last-child {
-        border-bottom: none;
-    }
-
-    .primary-menu-list li a {
-        text-decoration: none;
-        color: #ffffff;
-        font-size: 1.2rem;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        padding: 1.1rem 0.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        transition: color var(--transition-fast), padding-left var(--transition-fast);
-    }
-
-    .primary-menu-list li a:hover,
-    .primary-menu-list li a:focus-visible {
-        color: var(--color-secondary-light);
-        padding-left: 0.35rem;
-    }
-
-    /* Mobile Dropdown Triggers */
-    .nav-state-item,
-    .nav-vehicle-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .primary-menu-list li.nav-state-item>a,
-    .primary-menu-list li.nav-vehicle-item>a {
-        color: #007AFF !important;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .nav-trigger-icon-wrap {
-        color: #007AFF;
-        display: inline-flex;
-        align-items: center;
-    }
-
-    .nav-chevron-wrap {
-        margin-left: auto;
-        transition: transform 200ms ease;
-    }
-
-    .nav-state-item.is-open .nav-chevron-wrap,
-    .nav-vehicle-item.is-open .nav-chevron-wrap {
-        transform: rotate(180deg);
-    }
-
-    /* Mobile State Mega Dropdown */
-    .nav-mega-menu.state-mega-menu {
-        display: none;
-        width: 100%;
-        background: #181b22;
-        border-radius: 16px;
-        padding: 1rem;
-        margin-top: 0.5rem;
-        margin-bottom: 0.75rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        max-height: 280px;
-        overflow-y: auto;
-    }
-
-    .nav-state-item.is-open .nav-mega-menu.state-mega-menu {
-        display: block;
-    }
-
-    .state-mega-columns-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-    }
-
-    .state-mega-column {
-        display: flex;
-        flex-direction: column;
+    .header-vehicle-switcher {
+        padding: 0.2rem 0.25rem;
         gap: 0.25rem;
     }
 
-    .state-mega-link {
-        font-size: 0.9375rem !important;
-        color: #cbd5e1 !important;
-        padding: 0.4rem 0.5rem !important;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 500 !important;
+    .vehicle-switch-btn {
+        width: 34px;
+        height: 32px;
     }
 
-    .state-mega-link:hover,
-    .state-mega-link.is-selected {
-        color: #007AFF !important;
-        background: rgba(0, 122, 255, 0.1);
+    .vehicle-switch-btn svg {
+        width: 18px;
+        height: 18px;
     }
 
-    /* Mobile Vehicle Dropdown */
-    .nav-dropdown-menu.vehicle-dropdown-menu {
-        display: none;
-        width: 100%;
-        background: #181b22;
-        border-radius: 16px;
-        padding: 0.75rem;
-        margin-top: 0.5rem;
-        margin-bottom: 0.75rem;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+    .state-mega-dropdown-card {
+        position: fixed;
+        top: 60px;
+        left: 10px;
+        right: 10px;
+        min-width: auto;
+        max-width: calc(100vw - 20px);
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
     }
 
-    .nav-vehicle-item.is-open .nav-dropdown-menu.vehicle-dropdown-menu {
-        display: block;
-    }
-
-    .vehicle-options-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-    }
-
-    .vehicle-option-link {
-        display: flex !important;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 0.65rem 0.85rem !important;
-        border-radius: 10px;
-        color: #cbd5e1 !important;
-        font-size: 0.95rem !important;
-        text-decoration: none;
-    }
-
-    .vehicle-option-link .veh-icon-box {
-        color: #007AFF;
-        display: inline-flex;
-    }
-
-    .vehicle-option-link:hover,
-    .vehicle-option-link.is-active {
-        color: #007AFF !important;
-        background: rgba(0, 122, 255, 0.1);
-    }
-
-    /* Full-width bottom CTA inside drawer */
-    .mobile-drawer-cta-wrap {
-        margin-top: 1.5rem;
-        width: 100%;
-    }
-
-    .btn-drawer-cta {
-        width: 100%;
-        padding: 0.95rem 1.5rem;
-        font-size: 1.05rem;
-        font-weight: 600;
-        border-radius: 9999px;
-        background-color: #0c0d10;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    .state-mega-columns-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-height: 300px;
     }
 }
 
-/* Ultra-mobile refinement (320px - 480px) */
 @media (max-width: 480px) {
-    .site-header.pill-header {
-        padding-top: 0.75rem;
+    .brand-name-main {
+        font-size: 0.875rem;
     }
 
-    .header-site-container {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
+    .brand-name-accent {
+        font-size: 0.875rem;
     }
 
-    .header-pill-bar {
-        padding: 0.4rem 0.6rem 0.4rem 1.25rem;
+    .header-state-trigger {
+        padding: 0.35rem 0.4rem;
     }
 
-    .site-branding .brand-text {
-        font-size: 1.15rem;
+    .header-state-name {
+        font-size: 0.8125rem;
     }
 
-    .primary-menu-drawer {
-        padding: 1.25rem 1.15rem 1.25rem;
-        border-radius: 22px;
+    .vehicle-switch-btn {
+        width: 30px;
+        height: 30px;
     }
 
-    .primary-menu-list li a {
-        font-size: 1.05rem;
-        padding: 0.9rem 0.15rem;
-    }
-
-    .btn-drawer-cta {
-        padding: 0.85rem 1.25rem;
-        font-size: 0.95rem;
+    .vehicle-switch-btn svg {
+        width: 16px;
+        height: 16px;
     }
 }

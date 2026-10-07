@@ -7,78 +7,59 @@
     'use strict';
 
     /**
-     * Mobile / Tablet Menu Navigation Handler
+     * Header State Dropdown & Vehicle Switcher Handler
      */
-    function initNavigation() {
-        const siteNavigation = document.getElementById('site-navigation');
-        if (!siteNavigation) {
+    function initHeaderControls() {
+        const stateSelector = document.getElementById('header-state-selector');
+        if (!stateSelector) {
             return;
         }
 
-        const button = siteNavigation.querySelector('.menu-toggle');
-        const drawer = siteNavigation.querySelector('.primary-menu-drawer');
-        if (!button || !drawer) {
-            return;
+        const trigger = stateSelector.querySelector('.header-state-trigger');
+        const megaMenu = stateSelector.querySelector('.state-mega-dropdown-card');
+        const stateLinks = stateSelector.querySelectorAll('.state-mega-link');
+        const selectedLabel = document.getElementById('selectedStateLabel');
+
+        function toggleStateDropdown(open) {
+            const isOpen = typeof open === 'boolean' ? open : !stateSelector.classList.contains('is-open');
+            stateSelector.classList.toggle('is-open', isOpen);
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
         }
 
-        function toggleMenu(open) {
-            const isOpen = typeof open === 'boolean' ? open : button.getAttribute('aria-expanded') !== 'true';
-            button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            drawer.classList.toggle('is-active', isOpen);
-        }
-
-        button.addEventListener('click', function (e) {
-            e.stopPropagation();
-            toggleMenu();
-        });
-
-        // Close on click outside drawer
-        document.addEventListener('click', function (e) {
-            if (drawer.classList.contains('is-active') && !siteNavigation.contains(e.target)) {
-                toggleMenu(false);
-            }
-        });
-
-        // Close menu on Escape key
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape' && drawer.classList.contains('is-active')) {
-                toggleMenu(false);
-                button.focus();
-            }
-        });
-
-        // Handle dropdown triggers (State & Vehicle) for mobile/touch
-        const dropdownTriggers = siteNavigation.querySelectorAll('.nav-dropdown-trigger');
-        dropdownTriggers.forEach(function (trigger) {
+        if (trigger) {
             trigger.addEventListener('click', function (e) {
-                if (window.innerWidth < 1200) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const parentLi = trigger.closest('.menu-item-has-children');
-                    if (parentLi) {
-                        const isOpen = parentLi.classList.contains('is-open');
-                        // Close other sibling dropdowns in drawer
-                        siteNavigation.querySelectorAll('.menu-item-has-children').forEach(function (li) {
-                            li.classList.remove('is-open');
-                        });
-                        if (!isOpen) {
-                            parentLi.classList.add('is-open');
-                            trigger.setAttribute('aria-expanded', 'true');
-                        } else {
-                            trigger.setAttribute('aria-expanded', 'false');
-                        }
-                    }
-                }
+                e.stopPropagation();
+                toggleStateDropdown();
             });
+        }
+
+        // Close on click outside
+        document.addEventListener('click', function (e) {
+            if (stateSelector.classList.contains('is-open') && !stateSelector.contains(e.target)) {
+                toggleStateDropdown(false);
+            }
         });
 
-        // Auto-close drawer on standard link click (excluding dropdown triggers)
-        const navLinks = drawer.querySelectorAll('a:not(.nav-dropdown-trigger)');
-        navLinks.forEach(function (link) {
-            link.addEventListener('click', function () {
-                if (window.innerWidth < 1200) {
-                    toggleMenu(false);
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && stateSelector.classList.contains('is-open')) {
+                toggleStateDropdown(false);
+                if (trigger) {
+                    trigger.focus();
                 }
+            }
+        });
+
+        // Update state selection if dynamically navigating
+        stateLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+                const stateName = link.getAttribute('data-state-name');
+                if (stateName && selectedLabel) {
+                    selectedLabel.textContent = stateName;
+                }
+                toggleStateDropdown(false);
             });
         });
     }
@@ -113,12 +94,11 @@
     // Initialize once DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
-            initNavigation();
+            initHeaderControls();
             initSkipLinkFocus();
         });
     } else {
-        initNavigation();
+        initHeaderControls();
         initSkipLinkFocus();
     }
 })();
-
