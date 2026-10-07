@@ -40,6 +40,41 @@ function drive_scripts() {
     $hero_version  = file_exists( $hero_css_path ) ? filemtime( $hero_css_path ) : $theme_version;
     wp_enqueue_style( 'drive-hero-style', DRIVE_THEME_URI . '/assets/css/components/hero.css', array( 'drive-main-style' ), $hero_version );
 
+    // Features / What We Offer Section Component CSS
+    $features_css_path = DRIVE_THEME_DIR . '/assets/css/components/features.css';
+    $features_version  = file_exists( $features_css_path ) ? filemtime( $features_css_path ) : $theme_version;
+    wp_enqueue_style( 'drive-features-style', DRIVE_THEME_URI . '/assets/css/components/features.css', array( 'drive-main-style' ), $features_version );
+
+    // How It Works Section Component CSS
+    $how_css_path = DRIVE_THEME_DIR . '/assets/css/components/how-it-works.css';
+    $how_version  = file_exists( $how_css_path ) ? filemtime( $how_css_path ) : $theme_version;
+    wp_enqueue_style( 'drive-how-it-works-style', DRIVE_THEME_URI . '/assets/css/components/how-it-works.css', array( 'drive-main-style' ), $how_version );
+
+    // YouTube Banner Section Component CSS
+    $youtube_css_path = DRIVE_THEME_DIR . '/assets/css/components/youtube.css';
+    $youtube_version  = file_exists( $youtube_css_path ) ? filemtime( $youtube_css_path ) : $theme_version;
+    wp_enqueue_style( 'drive-youtube-style', DRIVE_THEME_URI . '/assets/css/components/youtube.css', array( 'drive-main-style' ), $youtube_version );
+
+    // Testimonials Section Component CSS
+    $testimonials_css_path = DRIVE_THEME_DIR . '/assets/css/components/testimonials.css';
+    $testimonials_version  = file_exists( $testimonials_css_path ) ? filemtime( $testimonials_css_path ) : $theme_version;
+    wp_enqueue_style( 'drive-testimonials-style', DRIVE_THEME_URI . '/assets/css/components/testimonials.css', array( 'drive-main-style' ), $testimonials_version );
+
+    // FAQ Section Component CSS
+    $faq_css_path = DRIVE_THEME_DIR . '/assets/css/components/faq.css';
+    $faq_version  = file_exists( $faq_css_path ) ? filemtime( $faq_css_path ) : $theme_version;
+    wp_enqueue_style( 'drive-faq-style', DRIVE_THEME_URI . '/assets/css/components/faq.css', array( 'drive-main-style' ), $faq_version );
+
+    // Final CTA Section Component CSS
+    $final_cta_css_path = DRIVE_THEME_DIR . '/assets/css/components/final-cta.css';
+    $final_cta_version  = file_exists( $final_cta_css_path ) ? filemtime( $final_cta_css_path ) : $theme_version;
+    wp_enqueue_style( 'drive-final-cta-style', DRIVE_THEME_URI . '/assets/css/components/final-cta.css', array( 'drive-main-style' ), $final_cta_version );
+
+    // Footer Component CSS
+    $footer_css_path = DRIVE_THEME_DIR . '/assets/css/components/footer.css';
+    $footer_version  = file_exists( $footer_css_path ) ? filemtime( $footer_css_path ) : $theme_version;
+    wp_enqueue_style( 'drive-footer-style', DRIVE_THEME_URI . '/assets/css/components/footer.css', array( 'drive-main-style' ), $footer_version );
+
 
     // Main JS (Lightweight vanilla JS)
     $main_js_path = DRIVE_THEME_DIR . '/assets/js/main.js';

@@ -142,21 +142,22 @@ if ( isset( $_GET['veh'] ) && ! empty( $_GET['veh'] ) ) {
                     <div class="floating-badge badge-cheat-sheet" aria-hidden="true">
                         <div class="badge-cheat-top">
                             <div class="badge-icon-box">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4C3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                                     <polyline points="14 2 14 8 20 8"/>
-                                    <line x1="16" y1="13" x2="8" y2="13"/>
-                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <line x1="9" y1="13" x2="15" y2="13"/>
+                                    <line x1="9" y1="17" x2="15" y2="17"/>
                                 </svg>
                             </div>
-                            <div class="badge-text-box">
-                                <div class="badge-title"><?php esc_html_e( 'Cheat Sheet', 'drive' ); ?></div>
-                                <div class="badge-subtitle"><?php esc_html_e( 'Printable PDF', 'drive' ); ?></div>
+                            <div class="badge-cheat-text-wrap">
+                                <span class="badge-title"><?php esc_html_e( 'Cheat Sheet', 'drive' ); ?></span>
+                                <span class="badge-sub"><?php esc_html_e( 'Printable PDF', 'drive' ); ?></span>
                             </div>
                         </div>
                         <div class="badge-doc-lines">
                             <span class="doc-line line-1"></span>
                             <span class="doc-line line-2"></span>
+                            <span class="doc-line line-3"></span>
                         </div>
                     </div>
 

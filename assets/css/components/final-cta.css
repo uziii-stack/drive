@@ -1,0 +1,129 @@
+/**
+ * Drive - Final CTA Section Component Styles
+ *
+ * Clean centered final action row:
+ * - Teal envelope icon + "Have more questions? We're here to help"
+ * - Rounded dark-bordered button: "Choose Your State & Start Practicing"
+ *
+ * @package Drive
+ */
+
+/* ==========================================================================
+   1. Section Wrapper & Container
+   ========================================================================== */
+.final-cta-section {
+    background-color: #ffffff;
+    padding: 3.5rem 0 5.5rem;
+    position: relative;
+    border: none !important;
+    border-bottom: none !important;
+}
+
+.final-cta-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.final-cta-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.25rem;
+}
+
+/* ==========================================================================
+   2. Help Link Row
+   ========================================================================== */
+.final-help-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    font-size: 0.95rem;
+    color: #1e2238;
+    font-weight: 500;
+}
+
+.help-envelope-icon {
+    color: #00D4C3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.help-text {
+    color: #1e2238;
+}
+
+.help-link {
+    color: #1e2238;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 160ms ease;
+}
+
+.help-link:hover,
+.help-link:focus-visible {
+    color: #00a89a;
+}
+
+/* ==========================================================================
+   3. Outlined Choose State Button
+   ========================================================================== */
+.btn-outline-choose-state {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8fafc;
+    border: 2px solid #25283c;
+    color: #1e2238;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    padding: 0.95rem 2.5rem;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 180ms ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.btn-outline-choose-state:hover,
+.btn-outline-choose-state:focus-visible {
+    background-color: #25283c;
+    color: #ffffff;
+    border-color: #25283c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 40, 60, 0.25);
+    outline: none;
+}
+
+/* ==========================================================================
+   4. Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 640px) {
+    .final-cta-section {
+        padding: 2.5rem 0 4rem;
+    }
+
+    .btn-outline-choose-state {
+        width: 100%;
+        padding: 0.85rem 1.25rem;
+        font-size: 0.9375rem;
+    }
+
+    .final-help-row {
+        font-size: 0.875rem;
+        flex-wrap: wrap;
+    }
+
+    .final-cta-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

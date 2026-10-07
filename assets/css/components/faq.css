@@ -1,0 +1,318 @@
+/**
+ * Drive - FAQ Section Component Styles
+ *
+ * 2-Column interactive FAQ section matching design:
+ * - Clean slate canvas background (#f4f6fa)
+ * - Left: Category tag, bold title, subtitle, and dark "Still have a question?" contact card
+ * - Right: Rounded white accordion list with item 1 active/open by default (teal border & glow)
+ *
+ * @package Drive
+ */
+
+/* ==========================================================================
+   1. Section Wrapper & Layout
+   ========================================================================== */
+.faq-section {
+    background-color: #f4f6fa;
+    padding: 6rem 0 6.5rem;
+    position: relative;
+    color: #0f172a;
+    border: none;
+}
+
+.faq-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.faq-split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    align-items: flex-start;
+    gap: 4.5rem;
+}
+
+/* ==========================================================================
+   2. Left Column: Typography & Contact Card
+   ========================================================================== */
+.faq-left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.faq-category-tag {
+    color: #00D4C3;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.faq-main-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #1e2238;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.15rem;
+}
+
+.faq-subtitle {
+    font-size: 1.0625rem;
+    color: #64748b;
+    line-height: 1.55;
+    margin: 0 0 2.5rem;
+    max-width: 440px;
+}
+
+/* Dark Contact Callout Card */
+.faq-contact-card {
+    background: #25283c;
+    border-radius: 20px;
+    padding: 1.85rem 1.75rem;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+}
+
+.contact-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.45rem;
+    letter-spacing: -0.01em;
+}
+
+.contact-card-desc {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    margin: 0 0 1.35rem;
+    line-height: 1.5;
+}
+
+.btn-contact-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: #ffffff;
+    color: #1e2238;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 0.7rem 1.35rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 180ms ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-contact-white:hover,
+.btn-contact-white:focus-visible {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+    color: #0f172a;
+    outline: none;
+}
+
+.btn-contact-white .btn-arrow {
+    display: inline-flex;
+    transition: transform 180ms ease;
+}
+
+.btn-contact-white:hover .btn-arrow {
+    transform: translateX(3px);
+}
+
+/* ==========================================================================
+   3. Right Column: Accordion List
+   ========================================================================== */
+.faq-right-col {
+    position: relative;
+}
+
+.faq-accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+}
+
+/* Accordion Item Card */
+.faq-accordion-item {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+}
+
+.faq-accordion-item:hover {
+    border-color: #cbd5e1;
+}
+
+/* Active State (Teal border & glowing shadow) */
+.faq-accordion-item.is-active {
+    border-color: #00D4C3;
+    box-shadow: 0 8px 24px rgba(0, 212, 195, 0.15);
+}
+
+/* Question Trigger Button */
+.faq-question-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+    transition: color 180ms ease;
+}
+
+.faq-question-btn:hover {
+    color: #00a89a;
+}
+
+.faq-question-text {
+    flex: 1;
+    letter-spacing: -0.01em;
+}
+
+/* Toggle Plus/Close Icon */
+.faq-toggle-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #1e2238;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    transition: transform 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.icon-line {
+    position: absolute;
+    background: currentColor;
+    border-radius: 2px;
+}
+
+.line-h {
+    width: 12px;
+    height: 2px;
+}
+
+.line-v {
+    width: 2px;
+    height: 12px;
+}
+
+/* Active Icon (Teal circle with rotated X) */
+.faq-accordion-item.is-active .faq-toggle-icon {
+    background: #00D4C3;
+    color: #0f172a;
+    transform: rotate(45deg);
+}
+
+/* Answer Body */
+.faq-answer-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 320ms ease, opacity 250ms ease;
+    opacity: 0;
+}
+
+.faq-accordion-item.is-active .faq-answer-collapse {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.faq-answer-body {
+    padding: 0 1.5rem 1.35rem;
+    font-size: 0.9375rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.faq-answer-body p {
+    margin: 0;
+}
+
+/* ==========================================================================
+   4. Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1080px) {
+    .faq-split-grid {
+        gap: 3rem;
+    }
+
+    .faq-main-title {
+        font-size: 2.35rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .faq-section {
+        padding: 4.5rem 0 5rem;
+    }
+
+    .faq-split-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .faq-left-col {
+        max-width: 600px;
+    }
+
+    .faq-contact-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .faq-main-title {
+        font-size: 1.95rem;
+    }
+
+    .faq-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .faq-question-btn {
+        padding: 1.1rem 1.25rem;
+        font-size: 0.9375rem;
+    }
+
+    .faq-answer-body {
+        padding: 0 1.25rem 1.2rem;
+        font-size: 0.875rem;
+    }
+
+    .faq-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .faq-container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}

@@ -307,19 +307,18 @@
 .header-vehicle-switcher {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    background: rgba(255, 255, 255, 0.04);
-    padding: 0.25rem 0.35rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    gap: 0.35rem;
+    background: transparent;
+    padding: 0;
+    border: none;
 }
 
 .vehicle-switch-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 38px;
+    width: 38px;
+    height: 36px;
     border-radius: 8px;
     color: rgba(255, 255, 255, 0.65);
     background: transparent;
@@ -334,18 +333,18 @@
 .vehicle-switch-btn:hover,
 .vehicle-switch-btn:focus-visible {
     color: #00D4C3;
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.08);
     transform: translateY(-1px);
     outline: none;
 }
 
-/* Active State */
+/* Selected / Active Button: Subtle grayish container box */
 .vehicle-switch-btn.is-active {
     color: #00D4C3;
-    background: rgba(0, 212, 195, 0.12);
-    border: 1px solid rgba(0, 212, 195, 0.4);
-    box-shadow: 0 0 14px rgba(0, 212, 195, 0.18), inset 0 0 0 1px rgba(0, 212, 195, 0.1);
+    background: rgba(255, 255, 255, 0.09); /* Subtle grayish rounded box matching screenshot */
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .veh-btn-icon {

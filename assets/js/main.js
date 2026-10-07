@@ -160,6 +160,136 @@
     }
 
     /**
+     * How It Works Interactive Step Switcher
+     */
+    function initHowItWorks() {
+        const stepCards = document.querySelectorAll('.how-step-card');
+        const mockupPill = document.getElementById('how-mockup-step-pill');
+        const segments = document.querySelectorAll('.timeline-segment');
+
+        if (!stepCards.length) {
+            return;
+        }
+
+        stepCards.forEach(function (card) {
+            card.addEventListener('click', function () {
+                const stepNum = card.getAttribute('data-step');
+                const stepTitle = card.getAttribute('data-step-title');
+
+                // Update active state on step cards
+                stepCards.forEach(function (c) {
+                    c.classList.remove('is-active');
+                    c.setAttribute('aria-selected', 'false');
+                });
+                card.classList.add('is-active');
+                card.setAttribute('aria-selected', 'true');
+
+                // Update mockup pill tag
+                if (mockupPill && stepTitle) {
+                    mockupPill.textContent = stepTitle;
+                }
+
+                // Update bottom timeline segments
+                if (segments.length && stepNum) {
+                    segments.forEach(function (seg) {
+                        const segNum = seg.getAttribute('data-step-seg');
+                        if (parseInt(segNum, 10) <= parseInt(stepNum, 10)) {
+                            seg.classList.add('is-active');
+                        } else {
+                            seg.classList.remove('is-active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Video Pause/Play Control
+        const video = document.getElementById('howWalkthroughVideo');
+        const toggleBtn = document.getElementById('btn-how-video-toggle');
+
+        if (video && toggleBtn) {
+            const pauseIcon = toggleBtn.querySelector('.icon-pause');
+            const playIcon = toggleBtn.querySelector('.icon-play');
+
+            toggleBtn.addEventListener('click', function () {
+                if (video.paused) {
+                    video.play();
+                    if (pauseIcon) pauseIcon.style.display = 'block';
+                    if (playIcon) playIcon.style.display = 'none';
+                    toggleBtn.setAttribute('aria-label', 'Pause video walkthrough loop');
+                } else {
+                    video.pause();
+                    if (pauseIcon) pauseIcon.style.display = 'none';
+                    if (playIcon) playIcon.style.display = 'block';
+                    toggleBtn.setAttribute('aria-label', 'Play video walkthrough loop');
+                }
+            });
+        }
+    }
+
+    /**
+     * Testimonials View More Expand Handler
+     */
+    function initTestimonials() {
+        const viewMoreBtn = document.getElementById('btn-view-more-testimonials');
+        const gridWrapper = document.getElementById('testimonials-grid-wrapper');
+
+        if (!viewMoreBtn || !gridWrapper) {
+            return;
+        }
+
+        viewMoreBtn.addEventListener('click', function () {
+            const isExpanded = gridWrapper.classList.toggle('is-expanded');
+            const labelSpan = viewMoreBtn.querySelector('.btn-label');
+            if (labelSpan) {
+                labelSpan.textContent = isExpanded ? 'VIEW LESS' : 'VIEW MORE';
+            }
+        });
+    }
+
+    /**
+     * FAQ Accordion Handler (Single Active Item)
+     */
+    function initFaqAccordion() {
+        const accordionItems = document.querySelectorAll('.faq-accordion-item');
+        if (!accordionItems.length) {
+            return;
+        }
+
+        accordionItems.forEach(function (item) {
+            const btn = item.querySelector('.faq-question-btn');
+            if (!btn) {
+                return;
+            }
+
+            btn.addEventListener('click', function () {
+                const isCurrentlyActive = item.classList.contains('is-active');
+
+                // If clicking an active card, toggle it closed
+                if (isCurrentlyActive) {
+                    item.classList.remove('is-active');
+                    btn.setAttribute('aria-expanded', 'false');
+                } else {
+                    // Gracefully close all other open FAQ cards
+                    accordionItems.forEach(function (otherItem) {
+                        if (otherItem !== item && otherItem.classList.contains('is-active')) {
+                            otherItem.classList.remove('is-active');
+                            const otherBtn = otherItem.querySelector('.faq-question-btn');
+                            if (otherBtn) {
+                                otherBtn.setAttribute('aria-expanded', 'false');
+                            }
+                        }
+                    });
+
+                    // Open clicked card
+                    item.classList.add('is-active');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    }
+
+    /**
      * Skip link focus fix for keyboard accessibility
      */
     function initSkipLinkFocus() {
@@ -192,12 +322,18 @@
             initHeaderControls();
             initMobileMenu();
             initHeroMockup();
+            initHowItWorks();
+            initTestimonials();
+            initFaqAccordion();
             initSkipLinkFocus();
         });
     } else {
         initHeaderControls();
         initMobileMenu();
         initHeroMockup();
+        initHowItWorks();
+        initTestimonials();
+        initFaqAccordion();
         initSkipLinkFocus();
     }
 })();
