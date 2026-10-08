@@ -64,77 +64,104 @@
     }
 
     /**
-     * Mobile Menu Toggle & Drawer Handler
+     * Mobile State & Vehicle Modal Picker Handler (Replaces Hamburger)
      */
     function initMobileMenu() {
-        const toggleBtn = document.getElementById('headerMenuToggle');
-        const drawer = document.getElementById('mobileMenuDrawer');
+        const chipBtn = document.getElementById('mobileStateVehChip');
+        const modal = document.getElementById('mobileStateVehModal');
+        const closeBtn = document.getElementById('mobileModalClose');
+        const backdrop = document.getElementById('mobileModalBackdrop');
+        const searchInput = document.getElementById('mobileStateSearchInput');
+        const stateLinks = modal ? modal.querySelectorAll('.mobile-modal-state-link') : [];
+        const chipState = document.getElementById('headerChipState');
 
-        if (!toggleBtn || !drawer) {
+        if (!chipBtn || !modal) {
             return;
         }
 
-        function toggleDrawer(open) {
-            const isOpen = typeof open === 'boolean' ? open : toggleBtn.getAttribute('aria-expanded') !== 'true';
-            toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-            drawer.classList.toggle('is-active', isOpen);
+        function toggleModal(open) {
+            const isOpen = typeof open === 'boolean' ? open : !modal.classList.contains('is-open');
+            chipBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            modal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+            modal.classList.toggle('is-open', isOpen);
+            if (isOpen) {
+                document.body.style.overflow = 'hidden';
+                if (searchInput) {
+                    setTimeout(function () { searchInput.focus(); }, 150);
+                }
+            } else {
+                document.body.style.overflow = '';
+            }
         }
 
-        toggleBtn.addEventListener('click', function (e) {
+        chipBtn.addEventListener('click', function (e) {
             e.stopPropagation();
-            toggleDrawer();
+            toggleModal();
         });
 
-        // Close drawer when clicking outside
-        document.addEventListener('click', function (e) {
-            if (drawer.classList.contains('is-active') && !drawer.contains(e.target) && !toggleBtn.contains(e.target)) {
-                toggleDrawer(false);
-            }
-        });
-
-        // Close drawer on Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && drawer.classList.contains('is-active')) {
-                toggleDrawer(false);
-                toggleBtn.focus();
-            }
-        });
-
-        // Mobile State Accordion Toggle inside Drawer
-        const mobileStateBlock = document.getElementById('mobileStateBlock');
-        const mobileStateTrigger = document.getElementById('mobileStateTrigger');
-        const mobileStateLinks = drawer.querySelectorAll('.mobile-state-link');
-        const mobileStateLabel = document.getElementById('mobileSelectedStateLabel');
-
-        if (mobileStateTrigger && mobileStateBlock) {
-            mobileStateTrigger.addEventListener('click', function (e) {
-                e.stopPropagation();
-                const isExpanded = mobileStateBlock.classList.toggle('is-open');
-                mobileStateTrigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function () {
+                toggleModal(false);
             });
         }
 
-        if (mobileStateLinks) {
-            mobileStateLinks.forEach(function (link) {
-                link.addEventListener('click', function () {
-                    const stName = link.getAttribute('data-state-name');
-                    if (stName && mobileStateLabel) {
-                        mobileStateLabel.textContent = stName;
+        if (backdrop) {
+            backdrop.addEventListener('click', function () {
+                toggleModal(false);
+            });
+        }
+
+        // Close on Escape
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+                toggleModal(false);
+                chipBtn.focus();
+            }
+        });
+
+        // Filter states in real-time
+        if (searchInput && stateLinks.length) {
+            searchInput.addEventListener('input', function () {
+                const term = searchInput.value.trim().toLowerCase();
+                stateLinks.forEach(function (link) {
+                    const stName = (link.getAttribute('data-state-name') || '').toLowerCase();
+                    const stCode = (link.getAttribute('data-state-code') || '').toLowerCase();
+                    if (!term || stName.includes(term) || stCode.includes(term)) {
+                        link.style.display = 'flex';
+                    } else {
+                        link.style.display = 'none';
                     }
-                    if (mobileStateBlock) {
-                        mobileStateBlock.classList.remove('is-open');
-                    }
-                    toggleDrawer(false);
                 });
             });
         }
 
-        // Auto close on other navigation link clicks
-        const navLinks = drawer.querySelectorAll('.mobile-nav-link, .btn-mobile-cta');
-        navLinks.forEach(function (link) {
+        // Update chip & save to localStorage on state link click
+        stateLinks.forEach(function (link) {
             link.addEventListener('click', function () {
-                toggleDrawer(false);
+                const stCode = link.getAttribute('data-state-code');
+                const stSlug = link.getAttribute('data-state-slug');
+                if (stCode && chipState) {
+                    chipState.textContent = stCode;
+                }
+                if (stSlug) {
+                    try {
+                        localStorage.setItem('drive_selected_state', stSlug);
+                    } catch (err) {}
+                }
+                toggleModal(false);
+            });
+        });
+
+        // Save selected vehicle to localStorage
+        const vehPills = modal.querySelectorAll('.mobile-modal-veh-btn');
+        vehPills.forEach(function (pill) {
+            pill.addEventListener('click', function () {
+                const veh = pill.getAttribute('data-veh');
+                if (veh) {
+                    try {
+                        localStorage.setItem('drive_selected_vehicle', veh);
+                    } catch (err) {}
+                }
             });
         });
     }

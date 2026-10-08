@@ -1,10 +1,11 @@
 /**
  * Drive - Modern Dark Header Component Styles
  *
- * Full-width dark navigation bar:
+ * Full-width dark navigation bar (#2B2D42):
  * - Desktop (>= 992px): WP Site Logo on left, State Dropdown + Vehicle Switcher on right
- * - Mobile (< 992px): Ultra-clean header with Logo + Hamburger toggle;
- *   State Selector accordion, Vehicle Type switcher, and navigation links inside the drawer.
+ * - Mobile (< 992px): Logo on left + Compact [ CA | 🚗 ⌄ ] Chip Button on right (NO Hamburger)
+ * - Divider line below header spans exactly from logo to the right action button
+ * - Highly optimized down to 320px with zero horizontal overflow
  *
  * @package Drive
  */
@@ -23,7 +24,7 @@
 }
 
 .header-container {
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0.75rem 2rem;
     display: flex;
@@ -32,7 +33,7 @@
     gap: 1.5rem;
     min-height: 64px;
     box-sizing: border-box;
-    border-bottom: 1px solid #3D3F57; /* Divider line constrained from logo to truck icon */
+    border-bottom: 1px solid #3D3F57; /* Divider line constrained from logo to right action button */
 }
 
 /* ==========================================================================
@@ -67,53 +68,48 @@
 
 .brand-logo-badge svg {
     display: block;
-    filter: drop-shadow(0 2px 6px rgba(0, 212, 195, 0.2));
-}
-
-.brand-title-wrap {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.35rem;
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    white-space: nowrap;
-}
-
-.brand-name-main {
-    color: #ffffff;
-    font-weight: 700;
-}
-
-.brand-name-accent {
-    color: #FF6B00; /* Vibrant orange accent */
-    font-weight: 700;
 }
 
 /* Custom Logo Image Badge Support */
 .brand-custom-logo-badge .custom-logo-img {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     object-fit: contain;
     display: block;
 }
 
-.custom-logo-link {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
+/* Wordmark (2 lines matching screenshot) */
+.brand-title-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
 }
 
-.custom-logo-link img.custom-logo {
-    max-height: 42px;
-    width: auto;
-    object-fit: contain;
-    display: block;
+.brand-title-line-1 {
+    font-family: var(--font-family-heading);
+    font-size: 0.9375rem;
+    font-weight: 800;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.brand-title-line-2 {
+    font-family: var(--font-family-heading);
+    font-size: 0.9375rem;
+    font-weight: 800;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.brand-name-accent {
+    color: #F26419; /* Primary orange */
+    font-weight: 800;
 }
 
 /* ==========================================================================
-   3. Header Right Actions (Desktop: State + Vehicles | Mobile: Hamburger)
+   3. Header Right Actions
    ========================================================================== */
 .header-actions {
     display: flex;
@@ -123,7 +119,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   3.1 Desktop State Selector Trigger & Dropdown
+   3.1 Desktop State Selector Trigger & Mega Dropdown
    -------------------------------------------------------------------------- */
 .header-state-selector {
     position: relative;
@@ -151,171 +147,131 @@
 .header-state-trigger:hover,
 .header-state-trigger:focus-visible,
 .header-state-selector.is-open .header-state-trigger {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.12);
-    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
     outline: none;
 }
 
-.state-icon-wrap {
-    display: inline-flex;
+.header-state-trigger .state-icon-wrap {
+    color: #00B4A6;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    color: #00D4C3; /* Vibrant teal US icon */
-    flex-shrink: 0;
-}
-
-.state-us-svg {
-    display: block;
 }
 
 .header-state-name {
     color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 600;
     letter-spacing: -0.01em;
 }
 
 .state-chevron-wrap {
-    display: inline-flex;
+    color: #94A3B8;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.7);
-    margin-left: 0.15rem;
-    transition: transform 220ms ease;
+    transition: transform var(--transition-fast);
 }
 
-.header-state-selector:hover .state-chevron-wrap,
 .header-state-selector.is-open .state-chevron-wrap {
     transform: rotate(180deg);
 }
 
-/* Invisible bridge */
-.header-state-selector::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    height: 14px;
-    display: block;
-}
-
-/* --------------------------------------------------------------------------
-   3.2 Desktop State Mega Dropdown Card (3-Column Layout)
-   -------------------------------------------------------------------------- */
+/* 3-Column State Mega Dropdown Card */
 .state-mega-dropdown-card {
     position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    min-width: 520px;
-    max-width: 560px;
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 1.25rem 1.4rem 1.15rem;
+    top: calc(100% + 12px);
+    right: -20px;
+    width: 620px;
+    background: #1e2032;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 1.5rem 1.75rem;
     box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.08);
-    z-index: 1050;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(8px);
-    transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1),
-                transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 180ms ease;
+    display: none;
+    z-index: 1001;
+    box-sizing: border-box;
 }
 
-.header-state-selector:hover .state-mega-dropdown-card,
 .header-state-selector.is-open .state-mega-dropdown-card {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
+    display: block;
+    animation: dropdownFadeIn 180ms ease forwards;
+}
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .state-dropdown-header {
-    margin-bottom: 0.85rem;
-    padding-bottom: 0.65rem;
-    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1.15rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .state-dropdown-title {
-    display: block;
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    color: #1e293b;
-    letter-spacing: -0.01em;
+    color: #ffffff;
 }
 
 .state-dropdown-subtitle {
-    display: block;
-    font-size: 0.75rem;
-    color: #64748b;
-    margin-top: 2px;
+    font-size: 0.8125rem;
+    color: #94A3B8;
 }
 
 .state-mega-columns-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 1.25rem;
-    row-gap: 0.15rem;
-    max-height: 420px;
+    gap: 0.25rem 1.25rem;
+    max-height: 380px;
     overflow-y: auto;
-    padding-right: 0.25rem;
-}
-
-/* Sleek Scrollbar */
-.state-mega-columns-grid::-webkit-scrollbar {
-    width: 5px;
-}
-
-.state-mega-columns-grid::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-
-.state-mega-column {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
+    padding-right: 0.5rem;
 }
 
 .state-mega-link {
-    display: block;
-    color: #334155;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    line-height: 1.35;
-    padding: 0.25rem 0.45rem;
-    border-radius: 6px;
+    color: #C9CAD3;
+    font-size: 0.875rem;
     text-decoration: none;
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    display: block;
     white-space: nowrap;
-    transition: color 140ms ease, background-color 140ms ease, transform 140ms ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .state-mega-link:hover,
 .state-mega-link:focus-visible {
-    color: #008F84;
-    background-color: rgba(0, 180, 166, 0.09);
-    transform: translateX(2px);
+    color: #00B4A6;
+    background-color: rgba(0, 180, 166, 0.12);
     outline: none;
 }
 
 .state-mega-link.is-selected {
-    color: #008F84;
-    background-color: rgba(0, 180, 166, 0.14);
+    color: #00B4A6;
     font-weight: 700;
+    background-color: rgba(0, 180, 166, 0.16);
 }
 
-/* ==========================================================================
-   4. Desktop Vehicle Switcher
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   3.2 Desktop Vehicle Switcher Tabs
+   -------------------------------------------------------------------------- */
 .header-vehicle-switcher {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    background: transparent;
-    padding: 0;
-    border: none;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 3px;
+    gap: 2px;
 }
 
 .vehicle-switch-btn {
@@ -323,382 +279,306 @@
     align-items: center;
     justify-content: center;
     width: 38px;
-    height: 36px;
-    border-radius: 8px;
-    color: rgba(255, 255, 255, 0.65);
-    background: transparent;
-    border: 1px solid transparent;
+    height: 34px;
+    border-radius: 9px;
+    color: #94A3B8;
     text-decoration: none;
-    cursor: pointer;
-    transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--transition-fast);
     position: relative;
-    box-sizing: border-box;
 }
 
-.vehicle-switch-btn:hover,
-.vehicle-switch-btn:focus-visible {
-    color: #00D4C3;
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.08);
-    transform: translateY(-1px);
-    outline: none;
-}
-
-/* Selected / Active Button: Subtle grayish container box */
-.vehicle-switch-btn.is-active {
-    color: #00D4C3;
-    background: rgba(255, 255, 255, 0.09); /* Subtle grayish rounded box matching screenshot */
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.veh-btn-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.veh-btn-icon svg {
-    display: block;
-    transition: transform 180ms ease;
-}
-
-.vehicle-switch-btn:hover .veh-btn-icon svg {
-    transform: scale(1.08);
-}
-
-.vehicle-switch-btn.is-active .veh-btn-icon svg {
-    transform: scale(1.04);
-}
-
-/* ==========================================================================
-   5. Mobile Hamburger Toggle Button
-   ========================================================================== */
-.menu-toggle.header-hamburger-btn {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
-    cursor: pointer;
-    position: relative;
+.vehicle-switch-btn:hover {
     color: #ffffff;
-    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    background-color: rgba(255, 255, 255, 0.06);
 }
 
-.menu-toggle.header-hamburger-btn:hover,
-.menu-toggle.header-hamburger-btn:focus-visible {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.25);
-    outline: none;
+.vehicle-switch-btn.is-active {
+    background-color: #383A52; /* Charcoal2 matching developer guide */
+    color: #00B4A6; /* Teal icon */
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.menu-toggle-icon-wrap {
-    display: block;
-    width: 20px;
-    height: 14px;
-    position: relative;
-}
-
-.menu-toggle-bar {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #ffffff;
-    border-radius: 2px;
-    transition: transform 250ms ease, opacity 250ms ease, top 250ms ease;
-}
-
-.menu-toggle-bar.bar-1 {
-    top: 0;
-}
-
-.menu-toggle-bar.bar-2 {
-    top: 6px;
-}
-
-.menu-toggle-bar.bar-3 {
-    top: 12px;
-}
-
-/* Animated 'X' state when drawer is open */
-.menu-toggle.header-hamburger-btn[aria-expanded="true"] .menu-toggle-bar.bar-1 {
-    top: 6px;
-    transform: rotate(45deg);
-}
-
-.menu-toggle.header-hamburger-btn[aria-expanded="true"] .menu-toggle-bar.bar-2 {
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.menu-toggle.header-hamburger-btn[aria-expanded="true"] .menu-toggle-bar.bar-3 {
-    top: 6px;
-    transform: rotate(-45deg);
-}
-
-/* ==========================================================================
-   6. Mobile Slide-Down Menu Drawer
-   ========================================================================== */
-.mobile-menu-drawer {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #1e2032;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    opacity: 0;
-    transform: translateY(-8px);
-    transition: opacity 220ms ease, transform 220ms ease;
-}
-
-.mobile-menu-drawer.is-active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.mobile-drawer-inner {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 1.5rem 1.25rem 2rem;
+.vehicle-switch-btn .veh-btn-icon {
     display: flex;
-    flex-direction: column;
-    gap: 1.35rem;
+    align-items: center;
+    justify-content: center;
 }
 
 /* --------------------------------------------------------------------------
-   6.1 Mobile State Selector Accordion
+   3.3 Mobile State & Vehicle Chip Button [ CA | 🚗 ⌄ ] (Replaces Hamburger)
    -------------------------------------------------------------------------- */
-.mobile-state-accordion-block {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    overflow: hidden;
-    transition: border-color var(--transition-fast);
-}
-
-.mobile-state-accordion-block.is-open {
-    border-color: rgba(0, 212, 195, 0.35);
-    background: rgba(255, 255, 255, 0.07);
-}
-
-.mobile-state-accordion-trigger {
-    width: 100%;
-    display: flex;
+.header-state-veh-chip {
+    display: none; /* Desktop hidden */
     align-items: center;
-    justify-content: space-between;
-    padding: 0.85rem 1rem;
-    background: transparent;
-    border: none;
+    background-color: #383A52; /* Charcoal2 matching screenshot */
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 13px;
+    padding: 0.45rem 0.85rem;
     color: #ffffff;
     cursor: pointer;
     font-family: inherit;
-    text-align: left;
+    transition: background-color 160ms ease, border-color 160ms ease;
+    box-sizing: border-box;
 }
 
-.mobile-state-trigger-left {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+.header-state-veh-chip:hover,
+.header-state-veh-chip:focus-visible {
+    background-color: #4A4C66; /* Charcoal3 */
+    border-color: rgba(255, 255, 255, 0.22);
+    outline: none;
 }
 
-.mobile-state-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-}
-
-.mobile-state-sub {
-    font-size: 0.7rem;
-    color: #94a3b8;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-}
-
-.mobile-state-curr {
+.chip-state-abbr {
+    font-family: var(--font-family-heading);
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #ffffff;
+    line-height: 1;
+    letter-spacing: 0.02em;
 }
 
-.mobile-state-chevron {
-    color: #94a3b8;
-    display: flex;
-    align-items: center;
-    transition: transform 220ms ease;
-}
-
-.mobile-state-accordion-block.is-open .mobile-state-chevron {
-    transform: rotate(180deg);
-    color: #00D4C3;
-}
-
-/* Expandable 50-States Grid */
-.mobile-state-list-expandable {
-    display: none;
-    max-height: 280px;
-    overflow-y: auto;
-    padding: 0.5rem 0.75rem 0.85rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.mobile-state-accordion-block.is-open .mobile-state-list-expandable {
+.chip-divider {
+    width: 1px;
+    height: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 0.55rem;
     display: block;
 }
 
-.mobile-state-columns-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.35rem 0.65rem;
+.chip-veh-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #00B4A6;
 }
 
-.mobile-state-link {
-    color: #cbd5e1;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    padding: 0.35rem 0.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 140ms ease;
+.chip-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #C9CAD3;
+    margin-left: 0.35rem;
+    transition: transform 180ms ease;
 }
 
-.mobile-state-link:hover,
-.mobile-state-link.is-selected {
-    color: #00D4C3;
-    background: rgba(0, 212, 195, 0.12);
-    font-weight: 700;
+.header-state-veh-chip[aria-expanded="true"] .chip-chevron {
+    transform: rotate(180deg);
 }
 
-/* --------------------------------------------------------------------------
-   6.2 Mobile Vehicle Grid
-   -------------------------------------------------------------------------- */
-.mobile-section-block {
+/* ==========================================================================
+   4. Mobile Slide-Up State & Vehicle Modal Sheet
+   ========================================================================== */
+.mobile-state-veh-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.mobile-state-veh-modal.is-open {
+    display: flex;
+}
+
+.mobile-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 17, 28, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.mobile-modal-sheet {
+    position: relative;
+    z-index: 2;
+    background: #25283C;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px 24px 0 0;
+    width: 100%;
+    max-width: 520px;
+    max-height: 85vh;
+    padding: 1.25rem 1.35rem 2rem;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: 1.25rem;
+    overflow-y: auto;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    animation: slideUpModal 240ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mobile-section-label {
+@keyframes slideUpModal {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.mobile-modal-handle-bar {
+    width: 40px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    margin: 0 auto;
+}
+
+.mobile-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-modal-title {
+    font-family: var(--font-family-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.mobile-modal-close {
+    background: transparent;
+    border: none;
+    color: #94A3B8;
+    padding: 0.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: color 150ms ease;
+}
+
+.mobile-modal-close:hover {
+    color: #ffffff;
+}
+
+.mobile-modal-section-label {
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    color: #94a3b8;
+    letter-spacing: 0.08em;
+    color: #94A3B8;
     text-transform: uppercase;
+    margin-bottom: 0.65rem;
 }
 
-.mobile-vehicle-grid {
+.mobile-modal-veh-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.65rem;
 }
 
-.mobile-veh-btn {
+.mobile-modal-veh-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.4rem;
-    padding: 0.75rem 0.5rem;
+    gap: 0.45rem;
+    padding: 0.85rem 0.5rem;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #cbd5e1;
+    color: #C9CAD3;
     text-decoration: none;
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 700;
     transition: all 180ms ease;
 }
 
-.mobile-veh-btn .veh-icon-box {
-    color: #94a3b8;
+.mobile-modal-veh-btn .m-veh-icon {
+    color: #94A3B8;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-.mobile-veh-btn:hover,
-.mobile-veh-btn.is-active {
-    background: rgba(0, 212, 195, 0.12);
-    border-color: rgba(0, 212, 195, 0.4);
-    color: #00D4C3;
-}
-
-.mobile-veh-btn.is-active .veh-icon-box,
-.mobile-veh-btn:hover .veh-icon-box {
-    color: #00D4C3;
-}
-
-/* --------------------------------------------------------------------------
-   6.3 Mobile Navigation List
-   -------------------------------------------------------------------------- */
-.mobile-nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.mobile-nav-item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.mobile-nav-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.85rem 0.25rem;
+.mobile-modal-veh-btn:hover,
+.mobile-modal-veh-btn.is-active {
+    background: #383A52;
+    border-color: #00B4A6;
     color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 150ms ease, padding-left 150ms ease;
 }
 
-.mobile-nav-link:hover {
-    color: #00D4C3;
-    padding-left: 0.35rem;
+.mobile-modal-veh-btn.is-active .m-veh-icon {
+    color: #00B4A6;
 }
 
-.mobile-nav-link .nav-link-arrow {
-    color: #64748b;
-    font-size: 1.1rem;
-    transition: transform 150ms ease, color 150ms ease;
-}
-
-.mobile-nav-link:hover .nav-link-arrow {
-    color: #00D4C3;
-    transform: translateX(3px);
-}
-
-/* --------------------------------------------------------------------------
-   6.4 Mobile CTA Button
-   -------------------------------------------------------------------------- */
-.mobile-drawer-cta .btn-mobile-cta {
+.mobile-state-search-box input {
     width: 100%;
-    justify-content: center;
-    padding: 0.95rem;
-    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    background: #1C1E2E;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 160ms ease;
+}
+
+.mobile-state-search-box input:focus {
+    border-color: #00B4A6;
+}
+
+.mobile-modal-states-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.45rem 0.75rem;
+    max-height: 260px;
+    overflow-y: auto;
+    margin-top: 0.75rem;
+    padding-right: 0.35rem;
+}
+
+.mobile-modal-state-link {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.5rem 0.65rem;
+    border-radius: 8px;
+    color: #C9CAD3;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background-color 140ms ease, color 140ms ease;
+}
+
+.mobile-modal-state-link:hover,
+.mobile-modal-state-link.is-selected {
+    background: rgba(0, 180, 166, 0.14);
+    color: #00B4A6;
+    font-weight: 700;
+}
+
+.mobile-modal-state-link .m-st-code {
+    font-size: 0.75rem;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+.mobile-modal-state-link.is-selected .m-st-code {
+    background: #00B4A6;
+    color: #1C1E2E;
 }
 
 /* ==========================================================================
-   7. Responsive Breakpoints
+   5. Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 991px) {
     .header-container {
-        padding: 0.6rem 1.25rem;
-        gap: 1rem;
+        padding: 0.65rem 1.25rem;
     }
 
     /* Hide desktop controls on mobile */
@@ -707,74 +587,102 @@
         display: none !important;
     }
 
-    /* Show clean hamburger button */
-    .menu-toggle.header-hamburger-btn {
-        display: flex !important;
-    }
-
-    .brand-title-wrap {
-        font-size: 1.15rem;
-    }
-
-    .brand-logo-badge svg {
-        width: 30px;
-        height: 30px;
+    /* Show compact chip on mobile (matching user screenshot) */
+    .header-state-veh-chip {
+        display: inline-flex !important;
     }
 }
 
 @media (max-width: 767px) {
-    .site-header.fullwidth-dark-header {
-        overflow-x: clip;
-        max-width: 100vw;
-    }
-
     .header-container {
-        padding: 0.5rem 1rem;
-        gap: 0.5rem;
-        min-height: 54px;
-        width: 100%;
-        max-width: 100vw;
+        padding: 0.6rem 1rem;
+        min-height: 58px;
     }
 
-    .brand-title-wrap {
-        font-size: clamp(0.85rem, 3.8vw, 1rem);
-        gap: 0.25rem;
-    }
-
-    .brand-logo-badge svg {
-        width: 26px;
-        height: 26px;
-    }
-
-    .menu-toggle.header-hamburger-btn {
-        width: 38px;
-        height: 38px;
-        min-width: 38px;
+    .brand-title-line-1,
+    .brand-title-line-2 {
+        font-size: 0.9rem;
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
     .header-container {
-        padding: 0.45rem 0.65rem;
-        gap: 0.25rem;
+        padding: 0.55rem 0.85rem;
+    }
+
+    .brand-link {
+        gap: 0.55rem;
+    }
+
+    .brand-title-line-1,
+    .brand-title-line-2 {
+        font-size: 0.85rem;
+    }
+
+    .brand-custom-logo-badge .custom-logo-img,
+    .brand-logo-badge svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .header-state-veh-chip {
+        padding: 0.4rem 0.75rem;
+        border-radius: 12px;
+    }
+
+    .chip-state-abbr {
+        font-size: 0.875rem;
+    }
+
+    .chip-divider {
+        margin: 0 0.45rem;
+        height: 14px;
+    }
+}
+
+/* Ultra-Compact 320px optimization */
+@media (max-width: 360px) {
+    .header-container {
+        padding: 0.5rem 0.75rem;
     }
 
     .brand-link {
         gap: 0.45rem;
     }
 
-    .brand-title-wrap {
-        font-size: 0.8rem;
-    }
-
+    .brand-custom-logo-badge .custom-logo-img,
     .brand-logo-badge svg {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
     }
 
-    .menu-toggle.header-hamburger-btn {
-        width: 34px;
-        height: 34px;
-        min-width: 34px;
+    .brand-title-line-1,
+    .brand-title-line-2 {
+        font-size: 0.78rem;
+        line-height: 1.1;
+    }
+
+    .header-state-veh-chip {
+        padding: 0.35rem 0.65rem;
+        border-radius: 10px;
+    }
+
+    .chip-state-abbr {
+        font-size: 0.8125rem;
+    }
+
+    .chip-divider {
+        margin: 0 0.4rem;
+        height: 13px;
+    }
+
+    .chip-veh-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .chip-chevron svg {
+        width: 9px;
+        height: 9px;
     }
 }
