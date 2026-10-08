@@ -51,23 +51,23 @@ if ( isset( $_GET['veh'] ) && ! empty( $_GET['veh'] ) ) {
 
 <section id="hero" class="homepage-section homepage-hero hero-dark-mockup" aria-labelledby="hero-main-heading">
     
-    <!-- Curved Road Background Graphic with Distinct Asphalt Color Fills -->
+    <!-- Curved Road Background Graphic: 2 Gray Asphalt Lanes traversing across Charcoal (#2B2D42) -->
     <div class="hero-road-bg-wrap" aria-hidden="true">
         <svg class="hero-road-svg" viewBox="0 0 1440 280" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Upper Road Lane (Solid dark charcoal-navy #202234) -->
-            <path d="M-60 145 C 330 200, 660 185, 960 110 C 1180 50, 1360 95, 1500 125 L 1500 170 C 1360 140, 1180 95, 960 155 C 680 230, 350 245, -60 190 Z" fill="#202234"/>
+            <!-- Upper Roadway Lane (Gray Asphalt #383A52) -->
+            <path d="M -50 130 C 380 185, 740 170, 1100 105 C 1240 85, 1380 105, 1500 125 L 1500 170 C 1380 150, 1240 130, 1100 150 C 740 215, 380 230, -50 175 Z" fill="#383A52"/>
             
-            <!-- Lower Road Lane (Deep solid asphalt #171825) -->
-            <path d="M-60 190 C 350 245, 680 230, 960 155 C 1180 95, 1360 140, 1500 170 L 1500 290 L -60 290 Z" fill="#171825"/>
+            <!-- Lower Roadway Lane (Gray Asphalt #383A52) -->
+            <path d="M -50 175 C 380 230, 740 215, 1100 150 C 1240 130, 1380 150, 1500 170 L 1500 215 C 1380 195, 1240 175, 1100 195 C 740 260, 380 275, -50 220 Z" fill="#383A52"/>
             
-            <!-- Top Lane Solid Outer Line -->
-            <path d="M-60 145 C 330 200, 660 185, 960 110 C 1180 50, 1360 95, 1500 125" stroke="#383A52" stroke-width="1.5"/>
+            <!-- Top Road Edge Line -->
+            <path d="M -50 130 C 380 185, 740 170, 1100 105 C 1240 85, 1380 105, 1500 125" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1.5"/>
             
             <!-- Center Dashed Lane Divider Line -->
-            <path d="M-60 190 C 350 245, 680 230, 960 155 C 1180 95, 1360 140, 1500 170" stroke="rgba(255, 255, 255, 0.35)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="14 16"/>
+            <path d="M -50 175 C 380 230, 740 215, 1100 150 C 1240 130, 1380 150, 1500 170" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="14 16"/>
             
-            <!-- Bottom Lane Solid Line -->
-            <path d="M-60 235 C 370 290, 700 275, 960 200 C 1180 140, 1360 185, 1500 215" stroke="#2B2D42" stroke-width="1.5"/>
+            <!-- Bottom Road Edge Line -->
+            <path d="M -50 220 C 380 275, 740 260, 1100 195 C 1240 175, 1380 195, 1500 215" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1.5"/>
         </svg>
     </div>
 

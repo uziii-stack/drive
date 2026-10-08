@@ -21,17 +21,23 @@ get_header();
 <main id="primary" class="site-main">
     <section class="error-404-section" aria-labelledby="error-heading">
         
-        <!-- Curved Road Background Graphic with Distinct Asphalt Color Fills -->
+        <!-- Curved Road Background Graphic: 2 Gray Asphalt Lanes traversing across Charcoal (#2B2D42) -->
         <div class="error-road-bg-wrap" aria-hidden="true">
             <svg class="error-road-svg" viewBox="0 0 1440 240" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Top Lane Surface (Tone 1) -->
-                <path d="M-60 125 C 330 180, 660 165, 960 90 C 1180 30, 1360 75, 1500 105 L 1500 150 C 1360 120, 1180 75, 960 135 C 680 210, 350 225, -60 170 Z" fill="#202234"/>
-                <!-- Bottom Lane Surface (Tone 2) -->
-                <path d="M-60 170 C 350 225, 680 210, 960 135 C 1180 75, 1360 120, 1500 150 L 1500 250 L -60 250 Z" fill="#171825"/>
-                <!-- Top Line -->
-                <path d="M-60 125 C 330 180, 660 165, 960 90 C 1180 30, 1360 75, 1500 105" stroke="#383A52" stroke-width="1.5"/>
-                <!-- Dashed Center Line -->
-                <path d="M-60 170 C 350 225, 680 210, 960 135 C 1180 75, 1360 120, 1500 150" stroke="rgba(255, 255, 255, 0.35)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="14 16"/>
+                <!-- Upper Roadway Lane (Gray Asphalt #383A52) -->
+                <path d="M -50 110 C 380 165, 740 150, 1100 85 C 1240 65, 1380 85, 1500 105 L 1500 150 C 1380 130, 1240 110, 1100 130 C 740 195, 380 210, -50 155 Z" fill="#383A52"/>
+                
+                <!-- Lower Roadway Lane (Gray Asphalt #383A52) -->
+                <path d="M -50 155 C 380 210, 740 195, 1100 130 C 1240 110, 1380 130, 1500 150 L 1500 195 C 1380 175, 1240 155, 1100 175 C 740 240, 380 255, -50 200 Z" fill="#383A52"/>
+                
+                <!-- Top Road Edge Line -->
+                <path d="M -50 110 C 380 165, 740 150, 1100 85 C 1240 65, 1380 85, 1500 105" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1.5"/>
+                
+                <!-- Center Dashed Lane Divider Line -->
+                <path d="M -50 155 C 380 210, 740 195, 1100 130 C 1240 110, 1380 130, 1500 150" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="14 16"/>
+                
+                <!-- Bottom Road Edge Line -->
+                <path d="M -50 200 C 380 255, 740 240, 1100 175 C 1240 155, 1380 175, 1500 195" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1.5"/>
             </svg>
         </div>
 
