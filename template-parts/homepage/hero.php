@@ -86,8 +86,9 @@ if ( isset( $_GET['veh'] ) && ! empty( $_GET['veh'] ) ) {
 
                 <!-- Headline -->
                 <h1 id="hero-main-heading" class="hero-main-title">
-                    <?php esc_html_e( 'Get road–ready for', 'drive' ); ?><br>
-                    <?php esc_html_e( 'your', 'drive' ); ?> <span class="text-teal"><?php esc_html_e( 'DMV permit test', 'drive' ); ?></span>
+                    <span class="hero-title-line-1"><?php esc_html_e( 'Get road–ready for', 'drive' ); ?></span>
+                    <span class="hero-title-line-2"><?php esc_html_e( 'your', 'drive' ); ?> <span class="text-teal"><?php esc_html_e( 'DMV permit', 'drive' ); ?></span></span>
+                    <span class="hero-title-line-3 text-teal"><?php esc_html_e( 'test', 'drive' ); ?></span>
                 </h1>
 
                 <!-- Subtitle -->
