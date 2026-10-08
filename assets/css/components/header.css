@@ -14,24 +14,25 @@
    ========================================================================== */
 .site-header.fullwidth-dark-header {
     background-color: #2B2D42; /* Charcoal matching Figma */
-    border-bottom: 1px solid #3D3F57; /* Line token dividing header and hero */
     position: sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
+    border-bottom: none;
     transition: background-color var(--transition-base);
 }
 
 .header-container {
-    max-width: 1440px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0.65rem 2rem;
+    padding: 0.75rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
     min-height: 64px;
     box-sizing: border-box;
+    border-bottom: 1px solid #3D3F57; /* Divider line constrained from logo to truck icon */
 }
 
 /* ==========================================================================
