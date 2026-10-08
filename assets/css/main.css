@@ -296,29 +296,9 @@ img {
     color: var(--color-text-muted);
 }
 
-/* Hero */
+/* Hero Foundation */
 .homepage-hero {
-    background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
-    padding: var(--spacing-4xl) 0;
-    text-align: center;
-}
-
-.homepage-hero .hero-content {
-    max-width: var(--container-narrow-width);
-    margin: 0 auto;
-}
-
-.homepage-hero .section-title {
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--spacing-md);
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-    justify-content: center;
-    margin-top: var(--spacing-xl);
+    position: relative;
 }
 
 /* State Selector Map Box */

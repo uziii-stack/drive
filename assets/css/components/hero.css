@@ -13,7 +13,8 @@
    1. Hero Wrapper & Background
    ========================================================================== */
 .homepage-hero.hero-dark-mockup {
-    background-color: #2B2D42; /* Charcoal matching Figma */
+    background: #2B2D42; /* Charcoal matching Figma */
+    background-color: #2B2D42;
     padding: 5rem 0 6.5rem;
     position: relative;
     overflow: hidden;
