@@ -97,8 +97,14 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                 <?php endif; ?>
 
                 <span class="brand-title-wrap">
-                    <span class="brand-title-line-1"><?php esc_html_e( 'DMV Learners', 'drive' ); ?></span>
-                    <span class="brand-title-line-2"><?php esc_html_e( 'Permit', 'drive' ); ?> <span class="brand-name-accent"><?php esc_html_e( 'Test', 'drive' ); ?></span></span>
+                    <span class="brand-title-desktop">
+                        <span class="brand-name-main"><?php esc_html_e( 'DMV Learners Permit', 'drive' ); ?></span>
+                        <span class="brand-name-accent"><?php esc_html_e( 'Test', 'drive' ); ?></span>
+                    </span>
+                    <span class="brand-title-mobile">
+                        <span class="brand-title-line-1"><?php esc_html_e( 'DMV Learners', 'drive' ); ?></span>
+                        <span class="brand-title-line-2"><?php esc_html_e( 'Permit', 'drive' ); ?> <span class="brand-name-accent"><?php esc_html_e( 'Test', 'drive' ); ?></span></span>
+                    </span>
                 </span>
             </a>
         </div>

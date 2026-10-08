@@ -78,34 +78,39 @@
     display: block;
 }
 
-/* Wordmark (2 lines matching screenshot) */
+/* Wordmark: Desktop Single-Line, Mobile Stacked */
 .brand-title-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    line-height: 1.15;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Desktop Wordmark (Single Horizontal Line: DMV Learners Permit Test) */
+.brand-title-desktop {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-family-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ffffff;
+    white-space: nowrap;
     letter-spacing: -0.015em;
+    line-height: 1;
 }
 
-.brand-title-line-1 {
-    font-family: var(--font-family-heading);
-    font-size: 0.9375rem;
-    font-weight: 800;
+.brand-title-desktop .brand-name-main {
     color: #ffffff;
-    white-space: nowrap;
 }
 
-.brand-title-line-2 {
-    font-family: var(--font-family-heading);
-    font-size: 0.9375rem;
-    font-weight: 800;
-    color: #ffffff;
-    white-space: nowrap;
-}
-
-.brand-name-accent {
+.brand-title-desktop .brand-name-accent,
+.brand-title-mobile .brand-name-accent {
     color: #F26419; /* Primary orange */
     font-weight: 800;
+}
+
+/* Mobile Wordmark (Hidden on Desktop) */
+.brand-title-mobile {
+    display: none;
 }
 
 /* ==========================================================================
@@ -579,6 +584,28 @@
 @media (max-width: 991px) {
     .header-container {
         padding: 0.65rem 1.25rem;
+    }
+
+    /* Switch to 2-line stacked wordmark on mobile */
+    .brand-title-desktop {
+        display: none !important;
+    }
+
+    .brand-title-mobile {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 1.15;
+        letter-spacing: -0.015em;
+    }
+
+    .brand-title-line-1,
+    .brand-title-line-2 {
+        font-family: var(--font-family-heading);
+        font-size: 0.9375rem;
+        font-weight: 800;
+        color: #ffffff;
+        white-space: nowrap;
     }
 
     /* Hide desktop controls on mobile */
