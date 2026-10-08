@@ -284,35 +284,36 @@
 .header-vehicle-switcher {
     display: inline-flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 3px;
-    gap: 2px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    gap: 0.5rem;
 }
 
 .vehicle-switch-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 34px;
-    border-radius: 9px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
     color: #94A3B8;
     text-decoration: none;
     transition: all var(--transition-fast);
     position: relative;
+    background: transparent;
+    border: none;
 }
 
 .vehicle-switch-btn:hover {
     color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .vehicle-switch-btn.is-active {
-    background-color: #383A52; /* Charcoal2 matching developer guide */
+    background-color: #383A52; /* Charcoal2 matching screenshot */
     color: #00B4A6; /* Teal icon */
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: none;
 }
 
 .vehicle-switch-btn .veh-btn-icon {
