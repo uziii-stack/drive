@@ -604,11 +604,11 @@
         border-radius: 12px;
     }
 
-    /* Checklist Features (Left-aligned, 2 rows matching screenshot) */
+    /* Checklist Features (Exact 2 on row 1, 1 on row 2 matching screenshot) */
     .hero-checkmarks-list {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.65rem 1.25rem;
+        gap: 0.55rem 0.85rem;
         justify-content: flex-start !important;
         text-align: left !important;
         width: 100%;
@@ -616,8 +616,23 @@
     }
 
     .hero-check-item {
-        font-size: 0.85rem;
+        font-size: 0.8125rem;
         color: #C9CAD3;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        white-space: nowrap;
+    }
+
+    .hero-check-item .check-icon-box svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Force "Free to start" onto line 2 directly below State-specific */
+    .hero-check-item:nth-child(3) {
+        flex-basis: 100%;
+        width: 100%;
     }
 
     /* Right Column: Question Card Mockup */
@@ -739,8 +754,17 @@
     }
 
     .hero-checkmarks-list {
-        flex-direction: column;
-        gap: 0.45rem;
+        gap: 0.45rem 0.65rem;
+    }
+
+    .hero-check-item {
+        font-size: 0.75rem;
+        gap: 0.25rem;
+    }
+
+    .hero-check-item:nth-child(3) {
+        flex-basis: 100%;
+        width: 100%;
     }
 
     .hero-question-card {
