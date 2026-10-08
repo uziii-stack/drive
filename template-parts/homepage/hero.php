@@ -110,31 +110,35 @@ if ( isset( $_GET['veh'] ) && ! empty( $_GET['veh'] ) ) {
 
                 <!-- Checklist Features -->
                 <div class="hero-checkmarks-list">
-                    <div class="hero-check-item">
-                        <span class="check-icon-box" aria-hidden="true">
-                            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 8.5L6.5 12L13 4.5"/>
-                            </svg>
-                        </span>
-                        <span class="check-item-text"><?php esc_html_e( 'State-specific', 'drive' ); ?></span>
+                    <div class="hero-checkmarks-row hero-checkmarks-row-1">
+                        <div class="hero-check-item">
+                            <span class="check-icon-box" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 8.5L6.5 12L13 4.5"/>
+                                </svg>
+                            </span>
+                            <span class="check-item-text"><?php esc_html_e( 'State-specific', 'drive' ); ?></span>
+                        </div>
+
+                        <div class="hero-check-item">
+                            <span class="check-icon-box" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 8.5L6.5 12L13 4.5"/>
+                                </svg>
+                            </span>
+                            <span class="check-item-text"><?php esc_html_e( 'Car, truck & motorcycle', 'drive' ); ?></span>
+                        </div>
                     </div>
 
-                    <div class="hero-check-item">
-                        <span class="check-icon-box" aria-hidden="true">
-                            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 8.5L6.5 12L13 4.5"/>
-                            </svg>
-                        </span>
-                        <span class="check-item-text"><?php esc_html_e( 'Car, truck & motorcycle', 'drive' ); ?></span>
-                    </div>
-
-                    <div class="hero-check-item">
-                        <span class="check-icon-box" aria-hidden="true">
-                            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 8.5L6.5 12L13 4.5"/>
-                            </svg>
-                        </span>
-                        <span class="check-item-text"><?php esc_html_e( 'Free to start', 'drive' ); ?></span>
+                    <div class="hero-checkmarks-row hero-checkmarks-row-2">
+                        <div class="hero-check-item">
+                            <span class="check-icon-box" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 8.5L6.5 12L13 4.5"/>
+                                </svg>
+                            </span>
+                            <span class="check-item-text"><?php esc_html_e( 'Free to start', 'drive' ); ?></span>
+                        </div>
                     </div>
                 </div>
 
