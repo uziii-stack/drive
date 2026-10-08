@@ -21,17 +21,17 @@ get_header();
 <main id="primary" class="site-main">
     <section class="error-404-section" aria-labelledby="error-heading">
         
-        <!-- Curved Road Background Graphic with 2-Tone Highway Lanes -->
+        <!-- Curved Road Background Graphic with Distinct Asphalt Color Fills -->
         <div class="error-road-bg-wrap" aria-hidden="true">
             <svg class="error-road-svg" viewBox="0 0 1440 240" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <!-- Top Lane Surface (Tone 1) -->
-                <path d="M-60 125 C 330 180, 660 165, 960 90 C 1180 30, 1360 75, 1500 105 L 1500 150 C 1360 120, 1180 75, 960 135 C 680 210, 350 225, -60 170 Z" fill="rgba(0, 0, 0, 0.15)"/>
+                <path d="M-60 125 C 330 180, 660 165, 960 90 C 1180 30, 1360 75, 1500 105 L 1500 150 C 1360 120, 1180 75, 960 135 C 680 210, 350 225, -60 170 Z" fill="#202234"/>
                 <!-- Bottom Lane Surface (Tone 2) -->
-                <path d="M-60 170 C 350 225, 680 210, 960 135 C 1180 75, 1360 120, 1500 150 L 1500 250 L -60 250 Z" fill="rgba(0, 0, 0, 0.32)"/>
+                <path d="M-60 170 C 350 225, 680 210, 960 135 C 1180 75, 1360 120, 1500 150 L 1500 250 L -60 250 Z" fill="#171825"/>
                 <!-- Top Line -->
-                <path d="M-60 125 C 330 180, 660 165, 960 90 C 1180 30, 1360 75, 1500 105" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1.5"/>
+                <path d="M-60 125 C 330 180, 660 165, 960 90 C 1180 30, 1360 75, 1500 105" stroke="#383A52" stroke-width="1.5"/>
                 <!-- Dashed Center Line -->
-                <path d="M-60 170 C 350 225, 680 210, 960 135 C 1180 75, 1360 120, 1500 150" stroke="rgba(255, 255, 255, 0.28)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="14 16"/>
+                <path d="M-60 170 C 350 225, 680 210, 960 135 C 1180 75, 1360 120, 1500 150" stroke="rgba(255, 255, 255, 0.35)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="14 16"/>
             </svg>
         </div>
 
