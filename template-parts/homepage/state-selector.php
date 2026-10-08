@@ -110,12 +110,11 @@ $zone_5 = array( 'PA', 'NY', 'NJ', 'CT', 'RI', 'MA', 'VT', 'NH', 'ME' );
                             elseif ( in_array( $code, $zone_4, true ) ) $zone_class = 'zone-4';
                             elseif ( in_array( $code, $zone_5, true ) ) $zone_class = 'zone-5';
 
-                            $state_url  = home_url( '/' . esc_attr( $state['slug'] ) . '/car-practice-test/' );
-                            $is_default = ( 'CA' === $code ) ? 'is-selected' : '';
+                            $state_url = home_url( '/' . esc_attr( $state['slug'] ) . '/car-practice-test/' );
                         ?>
                             <path 
                                 id="state-path-<?php echo esc_attr( $code ); ?>"
-                                class="state-path <?php echo esc_attr( $zone_class . ' ' . $is_default ); ?>"
+                                class="state-path <?php echo esc_attr( $zone_class ); ?>"
                                 d="<?php echo esc_attr( $state['path'] ); ?>"
                                 data-state-code="<?php echo esc_attr( $code ); ?>"
                                 data-state-name="<?php echo esc_attr( $state['name'] ); ?>"
@@ -141,9 +140,9 @@ $zone_5 = array( 'PA', 'NY', 'NJ', 'CT', 'RI', 'MA', 'VT', 'NH', 'ME' );
                 <div class="state-select-custom-box">
                     <label for="state-map-dropdown" class="screen-reader-text"><?php esc_html_e( 'Select state from dropdown', 'drive' ); ?></label>
                     <select id="state-map-dropdown" class="state-map-dropdown" aria-label="<?php esc_attr_e( 'Select your state from the list', 'drive' ); ?>">
-                        <option value=""><?php esc_html_e( 'Or select your state from the list...', 'drive' ); ?></option>
+                        <option value="" selected><?php esc_html_e( 'Or select your state from the list...', 'drive' ); ?></option>
                         <?php foreach ( $all_states as $st_code => $st_data ) : ?>
-                            <option value="<?php echo esc_url( home_url( '/' . esc_attr( $st_data['slug'] ) . '/car-practice-test/' ) ); ?>" <?php selected( $st_code, 'CA' ); ?>>
+                            <option value="<?php echo esc_url( home_url( '/' . esc_attr( $st_data['slug'] ) . '/car-practice-test/' ) ); ?>">
                                 <?php echo esc_html( $st_data['name'] ); ?>
                             </option>
                         <?php endforeach; ?>

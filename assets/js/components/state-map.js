@@ -166,12 +166,6 @@
                 }
             });
         }
-
-        // Show default tooltip on California on initial load
-        const defaultPath = mapSvg.querySelector('.state-path[data-state-code="CA"]');
-        if (defaultPath) {
-            showTooltipFor('CA', defaultPath);
-        }
     }
 
     // Initialize on DOM ready
