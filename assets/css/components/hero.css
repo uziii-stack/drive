@@ -13,9 +13,8 @@
    1. Hero Wrapper & Background
    ========================================================================== */
 .homepage-hero.hero-dark-mockup {
-    background-color: #24263a; /* Precise dark slate-navy from reference */
-    background-image: radial-gradient(circle at 75% 35%, rgba(45, 52, 75, 0.4) 0%, rgba(36, 38, 58, 0) 65%);
-    padding: 5.5rem 0 6.5rem;
+    background-color: #2B2D42; /* Charcoal matching Figma */
+    padding: 5rem 0 6.5rem;
     position: relative;
     overflow: hidden;
     color: #ffffff;
@@ -68,7 +67,7 @@
     align-items: flex-start;
 }
 
-/* 3.1 Top Pill Badge */
+/* 3.1 Top Pill Badge (Label/Eyebrow 13 / 120%, +12% letter-spacing) */
 .hero-top-badge {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -78,81 +77,81 @@
     align-items: center;
     gap: 0.55rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .hero-top-badge .badge-dot {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background-color: #00D4C3;
-    box-shadow: 0 0 8px #00D4C3;
+    background-color: #00B4A6;
     display: inline-block;
     flex-shrink: 0;
 }
 
 .hero-top-badge .badge-text {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
-    color: #e2e8f0;
+    letter-spacing: 0.12em;
+    color: #C9CAD3;
     text-transform: uppercase;
-    line-height: 1;
+    line-height: 1.2;
 }
 
-/* 3.2 Main Headline */
+/* 3.2 Main Headline (Display/H1 60 / 112%, letter-spacing -2%, Bold 700) */
 .hero-main-title {
-    font-size: clamp(2.4rem, 4.5vw, 3.75rem);
-    font-weight: 800;
+    font-family: var(--font-family-heading);
+    font-size: clamp(2.35rem, 4.3vw, 3.75rem);
+    font-weight: 700;
     color: #ffffff;
-    letter-spacing: -0.03em;
-    line-height: 1.14;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
     margin-bottom: 1.25rem;
 }
 
+.hero-main-title .text-teal,
 .hero-main-title .text-teal-glow {
-    color: #00D4C3;
+    color: #00B4A6;
     display: inline;
-    text-shadow: 0 0 24px rgba(0, 212, 195, 0.25);
+    text-shadow: none;
 }
 
-/* 3.3 Subtext Description */
+/* 3.3 Subtext Description (Body/Large 18 / 160% Regular 400, color light #C9CAD3) */
 .hero-subtext {
-    font-size: 1.0625rem;
-    color: #94A3B8;
-    line-height: 1.65;
-    max-width: 520px;
+    font-size: 1.125rem;
+    color: #C9CAD3;
+    line-height: 1.6;
+    max-width: 510px;
     margin-bottom: 2rem;
     font-weight: 400;
 }
 
-/* 3.4 Orange CTA Button */
+/* 3.4 Orange CTA Button (Button/Primary: Orange fill, white label, arrow, NO GLOW) */
 .hero-action-row {
     margin-bottom: 2.25rem;
 }
 
 .btn-hero-orange {
-    background-color: #F26419; /* Vibrant energetic orange */
+    background-color: #F26419; /* Primary orange */
     color: #ffffff !important;
-    font-size: 1.0625rem;
-    font-weight: 700;
+    font-size: 1.125rem; /* ~18px Label/Button */
+    font-weight: 800; /* ExtraBold 800 */
     padding: 0.95rem 1.85rem;
     border-radius: 12px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
-    box-shadow: 0 8px 24px -4px rgba(242, 100, 25, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: none;
+    box-shadow: none; /* NO GLOW per client request */
     cursor: pointer;
-    transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 180ms ease, transform 180ms ease;
 }
 
 .btn-hero-orange:hover,
 .btn-hero-orange:focus-visible {
-    background-color: #e05307;
+    background-color: #D9561A; /* Hover color from Figma guide */
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px -4px rgba(242, 100, 25, 0.6);
+    box-shadow: none; /* NO GLOW on hover */
     outline: none;
 }
 
@@ -167,7 +166,7 @@
     transform: translateX(4px);
 }
 
-/* 3.5 Features Checklist */
+/* 3.5 Features Checklist (Teal icons, light #C9CAD3 body text) */
 .hero-checkmarks-list {
     display: flex;
     align-items: center;
@@ -182,7 +181,7 @@
 }
 
 .hero-check-item .check-icon-box {
-    color: #00D4C3;
+    color: #00B4A6;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -192,7 +191,7 @@
 .hero-check-item .check-item-text {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #cbd5e1;
+    color: #C9CAD3;
     letter-spacing: -0.01em;
 }
 
@@ -244,7 +243,7 @@
 .badge-cheat-sheet .badge-icon-box {
     background: #191b29;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #00D4C3;
+    color: #00B4A6;
     border-radius: 10px;
     width: 36px;
     height: 36px;
@@ -355,7 +354,7 @@
 
 .card-progress-fill {
     height: 100%;
-    background: #00D4C3;
+    background: #00B4A6;
     border-radius: 9999px;
     transition: width 400ms ease;
 }
@@ -404,15 +403,15 @@
 
 /* Active / Correct Option state (Option 2) matching screenshot */
 .card-option-btn.is-correct.is-active {
-    border: 2px solid #00D4C3;
+    border: 2px solid #00B4A6;
     background: #ffffff;
     color: #0f172a;
     font-weight: 600;
-    box-shadow: 0 0 0 3px rgba(0, 212, 195, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 180, 166, 0.12);
 }
 
 .opt-check-badge {
-    color: #00D4C3;
+    color: #00B4A6;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -440,7 +439,7 @@
 }
 
 .badge-mock-timer .timer-icon-box {
-    color: #00D4C3;
+    color: #00B4A6;
     display: inline-flex;
     align-items: center;
     justify-content: center;

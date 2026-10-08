@@ -15,10 +15,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 function drive_scripts() {
     $theme_version = DRIVE_THEME_VERSION;
 
+    // Google Fonts: Plus Jakarta Sans (400, 500, 600, 700, 800)
+    wp_enqueue_style(
+        'drive-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap',
+        array(),
+        null
+    );
+
     // Main stylesheet (Theme definitions & CSS variables)
     $style_css_path = DRIVE_THEME_DIR . '/style.css';
     $style_version  = file_exists( $style_css_path ) ? filemtime( $style_css_path ) : $theme_version;
-    wp_enqueue_style( 'drive-theme-style', get_stylesheet_uri(), array(), $style_version );
+    wp_enqueue_style( 'drive-theme-style', get_stylesheet_uri(), array( 'drive-google-fonts' ), $style_version );
 
     // Main CSS (Layout, components, responsive primitives)
     $main_css_path = DRIVE_THEME_DIR . '/assets/css/main.css';

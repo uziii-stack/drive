@@ -19,39 +19,48 @@ Tags: custom, education, modern, lightweight, responsive-layout, accessibility-r
  * Brand foundation
  */
 :root {
-    /* Brand Color Palette */
+    /* Brand Color Palette (From Figma Developer Guide) */
+    --color-charcoal: #2B2D42;
+    --color-charcoal2: #383A52;
+    --color-charcoal3: #4A4C66;
+    --color-line: #3D3F57;
+    --color-teal: #00B4A6;
+    --color-teal-dark: #00796F;
+    --color-orange: #F26419;
+    --color-orange-hover: #D9561A;
+    --color-light: #C9CAD3;
+    --color-muted: #55576D;
+    --color-grey50: #F4F5F7;
+    --color-grey200: #E6E7EB;
+    --color-grey300: #DCDDE3;
+
+    /* Semantic Mappings */
     --color-primary: #2B2D42;
-    --color-primary-light: #3D405B;
-    --color-primary-dark: #1E2030;
+    --color-primary-light: #383A52;
+    --color-primary-dark: #2B2D42;
     --color-secondary: #00B4A6;
-    --color-secondary-light: #00D4C3;
-    --color-secondary-dark: #008F84;
+    --color-secondary-light: #00B4A6;
+    --color-secondary-dark: #00796F;
     --color-accent: #F26419;
-    --color-accent-hover: #D9530D;
+    --color-accent-hover: #D9561A;
 
     /* Neutral & Background Colors */
     --color-bg: #FFFFFF;
-    --color-bg-alt: #F8FAFC;
-    --color-bg-muted: #F1F5F9;
+    --color-bg-alt: #F4F5F7;
+    --color-bg-muted: #F4F5F7;
     --color-surface: #FFFFFF;
-    --color-border: #E2E8F0;
-    --color-border-dark: #CBD5E1;
+    --color-border: #E6E7EB;
+    --color-border-dark: #DCDDE3;
 
     /* Typography Colors */
-    --color-text: #1E293B;
-    --color-text-muted: #64748B;
-    --color-text-light: #94A3B8;
+    --color-text: #2B2D42;
+    --color-text-muted: #55576D;
+    --color-text-light: #C9CAD3;
     --color-text-inverse: #FFFFFF;
 
-    /* Feedback Colors */
-    --color-success: #10B981;
-    --color-warning: #F59E0B;
-    --color-error: #EF4444;
-    --color-info: #3B82F6;
-
-    /* Typography Foundation */
-    --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    --font-family-heading: var(--font-family-base);
+    /* Typography Foundation - Plus Jakarta Sans */
+    --font-family-base: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-family-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     --font-size-xs: 0.75rem;
     /* 12px */
     --font-size-sm: 0.875rem;
