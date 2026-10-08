@@ -33,7 +33,19 @@
     gap: 1.5rem;
     min-height: 64px;
     box-sizing: border-box;
-    border-bottom: 1px solid #3D3F57; /* Divider line constrained from logo to right action button */
+    position: relative;
+}
+
+/* Constrained divider line between header and hero (cut from left and right) */
+.header-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 2rem;
+    right: 2rem;
+    height: 1px;
+    background-color: #3D3F57;
+    pointer-events: none;
 }
 
 /* ==========================================================================
@@ -583,7 +595,13 @@
    ========================================================================== */
 @media (max-width: 991px) {
     .header-container {
-        padding: 0.65rem 1.25rem;
+        padding: 0.65rem 14px;
+    }
+
+    /* Cut divider line from left and right on mobile matching 14px margin */
+    .header-container::after {
+        left: 14px;
+        right: 14px;
     }
 
     /* Switch to 2-line stacked wordmark on mobile */
@@ -622,8 +640,13 @@
 
 @media (max-width: 767px) {
     .header-container {
-        padding: 0.6rem 1rem;
+        padding: 0.6rem 14px;
         min-height: 58px;
+    }
+
+    .header-container::after {
+        left: 14px;
+        right: 14px;
     }
 
     .brand-title-line-1,
@@ -634,7 +657,12 @@
 
 @media (max-width: 480px) {
     .header-container {
-        padding: 0.55rem 0.85rem;
+        padding: 0.55rem 14px;
+    }
+
+    .header-container::after {
+        left: 14px;
+        right: 14px;
     }
 
     .brand-link {
@@ -670,7 +698,12 @@
 /* Ultra-Compact 320px optimization */
 @media (max-width: 360px) {
     .header-container {
-        padding: 0.5rem 0.75rem;
+        padding: 0.5rem 12px;
+    }
+
+    .header-container::after {
+        left: 12px;
+        right: 12px;
     }
 
     .brand-link {
