@@ -16,8 +16,8 @@
    1. State Selector Section Layout
    ========================================================================== */
 .homepage-state-selector {
-    padding: 5rem 0 4.5rem;
-    background-color: #f3f6f9; /* Clean soft light gray-blue canvas */
+    padding: 5.5rem 0 5rem;
+    background-color: #F4F5F7; /* Grey50 matching Figma */
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -42,14 +42,14 @@
     margin: 0 auto 2.5rem;
 }
 
-/* Top Pill Badge */
+/* Top Pill Badge (Label/Eyebrow 13 / 120%, +12% letter spacing, Bold 700) */
 .state-top-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.35rem 0.95rem;
     background: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #DCDDE3; /* grey300 */
     border-radius: 9999px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     margin-bottom: 1.25rem;
@@ -59,34 +59,35 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background-color: #00D4C3;
+    background-color: #00796F; /* tealDark */
     display: inline-block;
     flex-shrink: 0;
 }
 
 .state-top-badge .badge-text {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
-    color: #334155;
+    letter-spacing: 0.12em;
+    color: #00796F; /* tealDark on light */
     text-transform: uppercase;
-    line-height: 1;
+    line-height: 1.2;
 }
 
-/* Main Headline */
+/* Main Headline (Heading/H2 46 / 115%, letter-spacing -2%, ExtraBold 800) */
 .state-main-title {
-    font-size: clamp(2.1rem, 4.2vw, 3.25rem);
+    font-family: var(--font-family-heading);
+    font-size: clamp(2rem, 3.8vw, 2.875rem);
     font-weight: 800;
-    color: #1e243b;
-    letter-spacing: -0.03em;
+    color: #2B2D42; /* Charcoal */
+    letter-spacing: -0.02em;
     line-height: 1.15;
     margin-bottom: 0.85rem;
 }
 
-/* Sub-Description */
+/* Sub-Description (Body/Large 18 / 160% Regular 400, color muted #55576D) */
 .state-sub-description {
-    font-size: 1.0625rem;
-    color: #64748b;
+    font-size: 1.125rem;
+    color: #55576D; /* Muted */
     line-height: 1.6;
     max-width: 620px;
     margin: 0 auto 2rem;
@@ -315,31 +316,31 @@
     align-items: center;
 }
 
-/* Orange Continue Button */
+/* Orange Continue Button (Button/Primary: NO GLOW) */
 .btn-map-continue {
-    background-color: #EB5E28; /* Vibrant orange matching screenshot */
-    color: #ffffff;
+    background-color: #F26419; /* Primary orange */
+    color: #ffffff !important;
     border: none;
     border-radius: 12px;
-    padding: 0.85rem 1.85rem;
-    font-size: 0.95rem;
-    font-weight: 700;
+    padding: 0.95rem 1.85rem;
+    font-size: 1.125rem;
+    font-weight: 800; /* ExtraBold 800 */
     font-family: inherit;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    box-shadow: 0 6px 18px rgba(235, 94, 40, 0.35);
+    gap: 0.65rem;
+    box-shadow: none !important; /* NO GLOW */
     flex-shrink: 0;
-    transition: all 180ms ease;
+    transition: background-color 180ms ease, transform 180ms ease;
     outline: none;
 }
 
 .btn-map-continue:hover,
 .btn-map-continue:focus-visible {
-    background-color: #d84d18;
+    background-color: #D9561A; /* Figma hover */
     transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(235, 94, 40, 0.45);
+    box-shadow: none !important;
 }
 
 .btn-map-continue .btn-continue-arrow {

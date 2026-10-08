@@ -258,7 +258,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
-    background-color: #1e2238;
+    background-color: #2B2D42; /* Charcoal */
     color: #ffffff;
     font-weight: 700;
     font-size: 0.8125rem;
@@ -267,15 +267,15 @@
     border-radius: 9999px;
     border: none;
     cursor: pointer;
-    box-shadow: 0 8px 24px -2px rgba(30, 34, 56, 0.35);
-    transition: all 180ms ease;
+    box-shadow: none !important; /* NO GLOW */
+    transition: background-color 180ms ease, transform 180ms ease;
 }
 
 .btn-testimonials-view-more:hover,
 .btn-testimonials-view-more:focus-visible {
-    background-color: #141727;
+    background-color: #383A52; /* Charcoal2 hover */
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px -2px rgba(30, 34, 56, 0.45);
+    box-shadow: none !important;
     outline: none;
 }
 

@@ -44,45 +44,49 @@
 }
 
 .faq-category-tag {
-    color: #00D4C3;
-    font-size: 0.75rem;
+    color: #00796F; /* tealDark on light */
+    font-size: 0.8125rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    line-height: 1.2;
     margin-bottom: 1rem;
     display: inline-block;
 }
 
 .faq-main-title {
-    font-size: 2.75rem;
+    font-family: var(--font-family-heading);
+    font-size: clamp(2rem, 3.8vw, 2.875rem);
     font-weight: 800;
-    color: #1e2238;
+    color: #2B2D42; /* Charcoal */
     line-height: 1.15;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     margin: 0 0 1.15rem;
 }
 
 .faq-subtitle {
-    font-size: 1.0625rem;
-    color: #64748b;
-    line-height: 1.55;
+    font-size: 1.125rem;
+    color: #55576D; /* Muted */
+    line-height: 1.6;
     margin: 0 0 2.5rem;
     max-width: 440px;
+    font-weight: 400;
 }
 
 /* Dark Contact Callout Card */
 .faq-contact-card {
-    background: #25283c;
+    background: #2B2D42; /* Charcoal */
     border-radius: 20px;
     padding: 1.85rem 1.75rem;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 16px 32px rgba(20, 21, 33, 0.25);
     width: 100%;
     max-width: 360px;
     box-sizing: border-box;
 }
 
 .contact-card-title {
-    font-size: 1.15rem;
+    font-family: var(--font-family-heading);
+    font-size: 1.25rem;
     font-weight: 700;
     color: #ffffff;
     margin: 0 0 0.45rem;
@@ -90,8 +94,8 @@
 }
 
 .contact-card-desc {
-    font-size: 0.875rem;
-    color: #94a3b8;
+    font-size: 0.9375rem;
+    color: #C9CAD3; /* Light */
     margin: 0 0 1.35rem;
     line-height: 1.5;
 }
@@ -101,22 +105,22 @@
     align-items: center;
     gap: 0.55rem;
     background: #ffffff;
-    color: #1e2238;
-    font-weight: 700;
-    font-size: 0.875rem;
-    padding: 0.7rem 1.35rem;
+    color: #2B2D42 !important;
+    font-weight: 800;
+    font-size: 0.9375rem;
+    padding: 0.75rem 1.45rem;
     border-radius: 12px;
     text-decoration: none;
-    transition: all 180ms ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 180ms ease, transform 180ms ease;
+    box-shadow: none !important; /* NO GLOW */
 }
 
 .btn-contact-white:hover,
 .btn-contact-white:focus-visible {
-    background: #f1f5f9;
+    background: #F4F5F7;
     transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
-    color: #0f172a;
+    box-shadow: none !important;
+    color: #2B2D42 !important;
     outline: none;
 }
 

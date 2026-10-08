@@ -87,16 +87,15 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background-color: #F26419;
-    box-shadow: 0 0 8px #F26419;
+    background-color: #00B4A6;
     display: inline-block;
 }
 
 .error-pill-badge .badge-text {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
-    color: #e2e8f0;
+    letter-spacing: 0.12em;
+    color: #C9CAD3;
     text-transform: uppercase;
 }
 
@@ -107,34 +106,31 @@
     line-height: 0.95;
     letter-spacing: -0.04em;
     margin: 0 0 0.85rem;
-    color: transparent;
-    background: linear-gradient(135deg, #ffffff 30%, #00D4C3 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 10px 40px rgba(0, 212, 195, 0.2);
+    color: #383A52;
 }
 
 /* 3.3 Main Title */
 .error-main-title {
+    font-family: var(--font-family-heading);
     font-size: clamp(1.85rem, 3.5vw, 2.5rem);
     font-weight: 800;
     color: #ffffff;
-    letter-spacing: -0.025em;
-    line-height: 1.2;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
     margin: 0 0 1rem;
 }
 
 .error-main-title .text-teal-glow {
-    color: #00D4C3;
+    color: #00B4A6;
     display: inline;
-    text-shadow: 0 0 24px rgba(0, 212, 195, 0.25);
+    text-shadow: none;
 }
 
 /* 3.4 Subtext */
 .error-subtext {
-    font-size: 1.0625rem;
-    color: #94A3B8;
-    line-height: 1.65;
+    font-size: 1.125rem;
+    color: #C9CAD3;
+    line-height: 1.6;
     max-width: 520px;
     margin: 0 0 2rem;
     font-weight: 400;
@@ -152,25 +148,25 @@
 .btn-error-orange {
     background-color: #F26419;
     color: #ffffff !important;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0.9rem 1.75rem;
+    font-size: 1.125rem;
+    font-weight: 800;
+    padding: 0.95rem 1.85rem;
     border-radius: 12px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
-    box-shadow: 0 8px 24px -4px rgba(242, 100, 25, 0.45);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: none !important; /* NO GLOW */
+    border: none;
     cursor: pointer;
-    transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 180ms ease, transform 180ms ease;
 }
 
 .btn-error-orange:hover,
 .btn-error-orange:focus-visible {
-    background-color: #e05307;
+    background-color: #D9561A;
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px -4px rgba(242, 100, 25, 0.6);
+    box-shadow: none !important;
     outline: none;
 }
 

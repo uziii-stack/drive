@@ -2,8 +2,9 @@
  * Drive - Final CTA Section Component Styles
  *
  * Clean centered final action row:
+ * - Grey50 (#F4F5F7) background
  * - Teal envelope icon + "Have more questions? We're here to help"
- * - Rounded dark-bordered button: "Choose Your State & Start Practicing"
+ * - Button/Outline: Grey50 fill, 2px charcoal (#2B2D42) border, turns charcoal with white text on hover (NO GLOW)
  *
  * @package Drive
  */
@@ -12,15 +13,14 @@
    1. Section Wrapper & Container
    ========================================================================== */
 .final-cta-section {
-    background-color: #ffffff;
+    background-color: #F4F5F7; /* Grey50 matching Figma */
     padding: 3.5rem 0 5.5rem;
     position: relative;
     border: none !important;
-    border-bottom: none !important;
 }
 
 .final-cta-container {
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 1.25rem;
+    gap: 1.5rem;
 }
 
 /* ==========================================================================
@@ -43,13 +43,13 @@
     align-items: center;
     justify-content: center;
     gap: 0.55rem;
-    font-size: 0.95rem;
-    color: #1e2238;
+    font-size: 1rem;
+    color: #55576D; /* Muted */
     font-weight: 500;
 }
 
 .help-envelope-icon {
-    color: #00D4C3;
+    color: #00796F; /* TealDark on light */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -57,11 +57,11 @@
 }
 
 .help-text {
-    color: #1e2238;
+    color: #55576D; /* Muted */
 }
 
 .help-link {
-    color: #1e2238;
+    color: #2B2D42; /* Charcoal */
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -70,36 +70,36 @@
 
 .help-link:hover,
 .help-link:focus-visible {
-    color: #00a89a;
+    color: #00796F;
 }
 
 /* ==========================================================================
-   3. Outlined Choose State Button
+   3. Outlined Choose State Button (Button/Outline: NO GLOW)
    ========================================================================== */
 .btn-outline-choose-state {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #f8fafc;
-    border: 2px solid #25283c;
-    color: #1e2238;
-    font-weight: 700;
-    font-size: 1.05rem;
+    background-color: #F4F5F7; /* Grey50 fill */
+    border: 2px solid #2B2D42; /* 2px charcoal border */
+    color: #2B2D42 !important;
+    font-weight: 800; /* ExtraBold 800 */
+    font-size: 1.125rem;
     letter-spacing: -0.01em;
     padding: 0.95rem 2.5rem;
     border-radius: 14px;
     text-decoration: none;
-    transition: all 180ms ease;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    box-shadow: none !important; /* NO GLOW */
+    transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .btn-outline-choose-state:hover,
 .btn-outline-choose-state:focus-visible {
-    background-color: #25283c;
-    color: #ffffff;
-    border-color: #25283c;
+    background-color: #2B2D42; /* Turns charcoal */
+    color: #ffffff !important; /* White text */
+    border-color: #2B2D42;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(37, 40, 60, 0.25);
+    box-shadow: none !important;
     outline: none;
 }
 
@@ -114,7 +114,7 @@
     .btn-outline-choose-state {
         width: 100%;
         padding: 0.85rem 1.25rem;
-        font-size: 0.9375rem;
+        font-size: 0.95rem;
     }
 
     .final-help-row {
@@ -123,7 +123,7 @@
     }
 
     .final-cta-container {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
     }
 }

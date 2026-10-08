@@ -2,9 +2,9 @@
  * Drive - YouTube Banner Section Component Styles
  *
  * Dark callout banner for YouTube channel subscription:
- * - Rounded dark slate-navy card (#25283c) on clean white background
+ * - Rounded charcoal (#2B2D42) card on clean white background
  * - Left: Rounded icon box with YouTube play logo, title with teal highlight, and subtitle
- * - Right: Crisp white "Subscribe on YouTube" button with external link icon
+ * - Right: Crisp white "Subscribe on YouTube" button with external link icon (NO GLOW)
  *
  * @package Drive
  */
@@ -21,7 +21,7 @@
 }
 
 .youtube-container {
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -31,27 +31,16 @@
    2. Dark Callout Card
    ========================================================================== */
 .youtube-banner-card {
-    background: #25283c;
+    background: #2B2D42; /* Charcoal */
     border-radius: 22px;
-    padding: 1.65rem 2.25rem;
+    padding: 1.75rem 2.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    box-shadow: 0 16px 32px rgba(20, 21, 33, 0.25);
     position: relative;
     overflow: hidden;
-}
-
-/* Subtle top edge glow */
-.youtube-banner-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.12) 30%, rgba(0, 212, 195, 0.3) 50%, rgba(255, 255, 255, 0.12) 70%, rgba(255, 255, 255, 0) 100%);
 }
 
 /* ==========================================================================
@@ -76,7 +65,6 @@
     justify-content: center;
     color: #ffffff;
     flex-shrink: 0;
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .youtube-icon-box svg {
@@ -91,6 +79,7 @@
 }
 
 .youtube-banner-title {
+    font-family: var(--font-family-heading);
     font-size: 1.25rem;
     font-weight: 700;
     color: #ffffff;
@@ -99,20 +88,22 @@
     letter-spacing: -0.01em;
 }
 
-.youtube-banner-title .text-teal-glow {
-    color: #00D4C3;
+.youtube-banner-title .text-teal-glow,
+.youtube-banner-title .text-teal {
+    color: #00B4A6;
+    text-shadow: none;
 }
 
 .youtube-banner-subtext {
     font-size: 0.9375rem;
-    color: #94a3b8;
+    color: #C9CAD3; /* Light */
     line-height: 1.45;
     margin: 0;
     font-weight: 400;
 }
 
 /* ==========================================================================
-   4. Right Block: Subscribe Button
+   4. Right Block: Subscribe Button (NO GLOW)
    ========================================================================== */
 .youtube-banner-right {
     flex-shrink: 0;
@@ -123,23 +114,24 @@
     align-items: center;
     gap: 0.55rem;
     background: #ffffff;
-    color: #1e2238;
-    font-weight: 700;
-    font-size: 0.9375rem;
-    padding: 0.75rem 1.45rem;
+    color: #2B2D42 !important; /* Charcoal */
+    font-weight: 800; /* ExtraBold 800 */
+    font-size: 1.05rem;
+    padding: 0.85rem 1.65rem;
     border-radius: 12px;
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    transition: all 180ms ease;
+    box-shadow: none !important; /* NO GLOW */
+    transition: background-color 180ms ease, transform 180ms ease;
     white-space: nowrap;
+    border: none;
 }
 
 .btn-youtube-subscribe:hover,
 .btn-youtube-subscribe:focus-visible {
-    background: #f1f5f9;
+    background: #F4F5F7; /* Grey50 */
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
-    color: #0f172a;
+    box-shadow: none !important;
+    color: #2B2D42 !important;
     outline: none;
 }
 
@@ -147,13 +139,13 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #475569;
+    color: #55576D;
     transition: transform 180ms ease, color 180ms ease;
 }
 
 .btn-youtube-subscribe:hover .btn-external-icon {
     transform: translate(2px, -2px);
-    color: #0f172a;
+    color: #2B2D42;
 }
 
 /* ==========================================================================
