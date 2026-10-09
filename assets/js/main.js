@@ -343,11 +343,58 @@
         }
     }
 
+    /**
+     * Sticky Header Handler (Activates when user scrolls past the Hero section)
+     */
+    function initStickyHeader() {
+        const header = document.getElementById('masthead') || document.querySelector('.site-header');
+        if (!header) {
+            return;
+        }
+
+        const hero = document.getElementById('hero');
+
+        function checkScroll() {
+            let triggerPoint = 300; // Fallback threshold if no hero element
+            if (hero) {
+                // Activate right as user reaches the end of the Hero section
+                triggerPoint = hero.offsetTop + hero.offsetHeight - 60;
+            }
+
+            const currentScroll = window.scrollY || window.pageYOffset;
+            if (currentScroll > triggerPoint) {
+                if (!header.classList.contains('is-sticky')) {
+                    header.classList.add('is-sticky');
+                }
+            } else {
+                if (header.classList.contains('is-sticky')) {
+                    header.classList.remove('is-sticky');
+                }
+            }
+        }
+
+        // Optimized scroll listener
+        let ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    checkScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Initial check on load
+        checkScroll();
+    }
+
     // Initialize once DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
             initHeaderControls();
             initMobileMenu();
+            initStickyHeader();
             initHeroMockup();
             initHowItWorks();
             initTestimonials();
@@ -357,6 +404,7 @@
     } else {
         initHeaderControls();
         initMobileMenu();
+        initStickyHeader();
         initHeroMockup();
         initHowItWorks();
         initTestimonials();
