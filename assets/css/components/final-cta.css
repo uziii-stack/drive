@@ -80,17 +80,19 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    height: 48px;
+    padding: 0.75rem 1.75rem;
     background-color: #F4F5F7; /* Grey50 fill */
     border: 2px solid #2B2D42; /* 2px charcoal border */
     color: #2B2D42 !important;
-    font-weight: 800; /* ExtraBold 800 */
-    font-size: 1.125rem;
+    font-weight: 700;
+    font-size: 0.95rem;
     letter-spacing: -0.01em;
-    padding: 0.95rem 2.5rem;
-    border-radius: 14px;
+    border-radius: 12px;
     text-decoration: none;
     box-shadow: none !important; /* NO GLOW */
     transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+    box-sizing: border-box;
 }
 
 .btn-outline-choose-state:hover,
