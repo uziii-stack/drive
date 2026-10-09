@@ -28,17 +28,17 @@ if ( function_exists( 'drive_get_states' ) ) {
     <!-- Perspective Road Background Graphic: Light subtle road surface matching Figma -->
     <div class="offer-road-bg" aria-hidden="true">
         <svg class="offer-road-svg" viewBox="0 0 500 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Road Asphalt Surface (Subtle light slate #313349) -->
-            <polygon points="-20,600 220,0 265,0 475,600" fill="#313349" />
+            <!-- Road Asphalt Surface (Lighter subtle slate #3A3C55) -->
+            <polygon points="-20,600 220,0 265,0 475,600" fill="#3A3C55" />
             
             <!-- Road Left Boundary Line -->
-            <path d="M-20 600 L220 0" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5" />
+            <path d="M-20 600 L220 0" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" />
             
             <!-- Road Right Boundary Line -->
-            <path d="M475 600 L265 0" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5" />
+            <path d="M475 600 L265 0" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" />
             
             <!-- Dashed Center Divider Line -->
-            <line x1="230" y1="600" x2="242.5" y2="0" stroke="rgba(255, 255, 255, 0.28)" stroke-width="2" stroke-linecap="round" stroke-dasharray="12 14" />
+            <line x1="230" y1="600" x2="242.5" y2="0" stroke="rgba(255, 255, 255, 0.32)" stroke-width="2" stroke-linecap="round" stroke-dasharray="12 14" />
         </svg>
     </div>
 
