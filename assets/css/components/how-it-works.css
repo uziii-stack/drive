@@ -165,15 +165,14 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    width: 208px;
-    height: 62px;
-    padding: 20px 32px;
-    border-radius: 14px;
+    gap: 10px;
+    padding: 0.85rem 1.65rem;
+    height: 48px;
+    border-radius: 12px;
     background-color: #2B2D42; /* Charcoal */
     color: #ffffff !important;
-    font-weight: 800; /* ExtraBold 800 */
-    font-size: 1rem;
+    font-weight: 700;
+    font-size: 0.95rem;
     text-decoration: none;
     box-shadow: none !important; /* NO GLOW */
     transition: background-color 180ms ease, transform 180ms ease;
@@ -196,16 +195,16 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
     transition: transform 180ms ease;
     flex-shrink: 0;
 }
 
 .btn-how-dark-cta .btn-arrow-icon svg {
     display: block;
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
 }
 
 .btn-how-dark-cta:hover .btn-arrow-icon {
