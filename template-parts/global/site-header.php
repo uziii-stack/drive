@@ -273,100 +273,100 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
 
     </div><!-- .header-container -->
 
-    <!-- Mobile Slide-Up State & Vehicle Picker Sheet -->
-    <div id="mobileStateVehModal" class="mobile-state-veh-modal" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Choose state and vehicle', 'drive' ); ?>" aria-hidden="true">
-        <div class="mobile-modal-backdrop" id="mobileModalBackdrop"></div>
-        <div class="mobile-modal-sheet">
-            <div class="mobile-modal-handle-bar" aria-hidden="true"></div>
-            
-            <div class="mobile-modal-header">
-                <span class="mobile-modal-title"><?php esc_html_e( 'Select State & Vehicle', 'drive' ); ?></span>
-                <button type="button" class="mobile-modal-close" id="mobileModalClose" aria-label="<?php esc_attr_e( 'Close', 'drive' ); ?>">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Vehicle Selection Pills -->
-            <div class="mobile-modal-veh-block">
-                <div class="mobile-modal-section-label"><?php esc_html_e( 'Vehicle Type', 'drive' ); ?></div>
-                <div class="mobile-modal-veh-grid">
-                    
-                    <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/car-practice-test/' ) ); ?>" 
-                       class="mobile-modal-veh-btn <?php echo ( $current_veh === 'car' ) ? 'is-active' : ''; ?>" 
-                       data-veh="car">
-                        <span class="m-veh-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 11l1.5-5.5A2 2 0 0 1 8.4 4h7.2a2 2 0 0 1 1.9 1.5L19 11M3 11h18v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6z"/>
-                                <circle cx="7" cy="15" r="1.5" fill="currentColor"/>
-                                <circle cx="17" cy="15" r="1.5" fill="currentColor"/>
-                            </svg>
-                        </span>
-                        <span class="m-veh-name"><?php esc_html_e( 'Car', 'drive' ); ?></span>
-                    </a>
-
-                    <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/motorcycle-practice-test/' ) ); ?>" 
-                       class="mobile-modal-veh-btn <?php echo ( $current_veh === 'motorcycle' ) ? 'is-active' : ''; ?>" 
-                       data-veh="motorcycle">
-                        <span class="m-veh-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="5.5" cy="17.5" r="3.5"/>
-                                <circle cx="18.5" cy="17.5" r="3.5"/>
-                                <path d="M15 6h-3l-4 6h7.5l2-3.5L19 9"/>
-                                <path d="M12 17.5V14l-3-4"/>
-                                <path d="M5.5 17.5L9 12"/>
-                            </svg>
-                        </span>
-                        <span class="m-veh-name"><?php esc_html_e( 'Motorcycle', 'drive' ); ?></span>
-                    </a>
-
-                    <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/cdl-practice-test/' ) ); ?>" 
-                       class="mobile-modal-veh-btn <?php echo ( $current_veh === 'cdl' ) ? 'is-active' : ''; ?>" 
-                       data-veh="cdl">
-                        <span class="m-veh-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M2 4h12v12H2z"/>
-                                <path d="M14 9h4l3 3v4h-7V9z"/>
-                                <circle cx="5.5" cy="18.5" r="2.5"/>
-                                <circle cx="18.5" cy="18.5" r="2.5"/>
-                            </svg>
-                        </span>
-                        <span class="m-veh-name"><?php esc_html_e( 'CDL', 'drive' ); ?></span>
-                    </a>
-
-                </div>
-            </div>
-
-            <!-- State List with Quick Search -->
-            <div class="mobile-modal-states-block">
-                <div class="mobile-modal-section-label"><?php esc_html_e( 'State (50 States)', 'drive' ); ?></div>
-                <div class="mobile-state-search-box">
-                    <input type="text" id="mobileStateSearchInput" placeholder="<?php esc_attr_e( 'Filter state (e.g. California, TX)...', 'drive' ); ?>" autocomplete="off" />
-                </div>
-                <div class="mobile-modal-states-grid" id="mobileModalStatesGrid">
-                    <?php foreach ( $all_states as $st_code => $st_data ) : 
-                        $st_url = home_url( '/' . esc_attr( $st_data['slug'] ) . '/' . esc_attr( $current_veh_slug ) . '/' );
-                        $is_active = ( $st_data['slug'] === $current_state_slug ) ? 'is-selected' : '';
-                        $st_vb = isset( $us_map_states[ $st_code ]['viewBox'] ) ? $us_map_states[ $st_code ]['viewBox'] : '0 0 975 610';
-                        $st_path = isset( $us_map_states[ $st_code ]['path'] ) ? $us_map_states[ $st_code ]['path'] : '';
-                    ?>
-                        <a href="<?php echo esc_url( $st_url ); ?>" 
-                           class="mobile-modal-state-link <?php echo esc_attr( $is_active ); ?>" 
-                           data-state-code="<?php echo esc_attr( $st_code ); ?>"
-                           data-state-name="<?php echo esc_attr( $st_data['name'] ); ?>"
-                           data-state-slug="<?php echo esc_attr( $st_data['slug'] ); ?>"
-                           data-state-viewbox="<?php echo esc_attr( $st_vb ); ?>"
-                           data-state-path="<?php echo esc_attr( $st_path ); ?>">
-                            <span class="m-st-code"><?php echo esc_html( $st_code ); ?></span>
-                            <span class="m-st-name"><?php echo esc_html( $st_data['name'] ); ?></span>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-
-        </div><!-- .mobile-modal-sheet -->
-    </div><!-- #mobileStateVehModal -->
-
 </header><!-- #masthead -->
+
+<!-- Mobile Slide-Up State & Vehicle Picker Sheet (Global Drawer) -->
+<div id="mobileStateVehModal" class="mobile-state-veh-modal" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Choose state and vehicle', 'drive' ); ?>" aria-hidden="true">
+    <div class="mobile-modal-backdrop" id="mobileModalBackdrop"></div>
+    <div class="mobile-modal-sheet">
+        <div class="mobile-modal-handle-bar" aria-hidden="true"></div>
+        
+        <div class="mobile-modal-header">
+            <span class="mobile-modal-title"><?php esc_html_e( 'Select State & Vehicle', 'drive' ); ?></span>
+            <button type="button" class="mobile-modal-close" id="mobileModalClose" aria-label="<?php esc_attr_e( 'Close', 'drive' ); ?>">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Vehicle Selection Pills -->
+        <div class="mobile-modal-veh-block">
+            <div class="mobile-modal-section-label"><?php esc_html_e( 'Vehicle Type', 'drive' ); ?></div>
+            <div class="mobile-modal-veh-grid">
+                
+                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/car-practice-test/' ) ); ?>" 
+                   class="mobile-modal-veh-btn <?php echo ( $current_veh === 'car' ) ? 'is-active' : ''; ?>" 
+                   data-veh="car">
+                    <span class="m-veh-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 11l1.5-5.5A2 2 0 0 1 8.4 4h7.2a2 2 0 0 1 1.9 1.5L19 11M3 11h18v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6z"/>
+                            <circle cx="7" cy="15" r="1.5" fill="currentColor"/>
+                            <circle cx="17" cy="15" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </span>
+                    <span class="m-veh-name"><?php esc_html_e( 'Car', 'drive' ); ?></span>
+                </a>
+
+                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/motorcycle-practice-test/' ) ); ?>" 
+                   class="mobile-modal-veh-btn <?php echo ( $current_veh === 'motorcycle' ) ? 'is-active' : ''; ?>" 
+                   data-veh="motorcycle">
+                    <span class="m-veh-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="5.5" cy="17.5" r="3.5"/>
+                            <circle cx="18.5" cy="17.5" r="3.5"/>
+                            <path d="M15 6h-3l-4 6h7.5l2-3.5L19 9"/>
+                            <path d="M12 17.5V14l-3-4"/>
+                            <path d="M5.5 17.5L9 12"/>
+                        </svg>
+                    </span>
+                    <span class="m-veh-name"><?php esc_html_e( 'Motorcycle', 'drive' ); ?></span>
+                </a>
+
+                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/cdl-practice-test/' ) ); ?>" 
+                   class="mobile-modal-veh-btn <?php echo ( $current_veh === 'cdl' ) ? 'is-active' : ''; ?>" 
+                   data-veh="cdl">
+                    <span class="m-veh-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 4h12v12H2z"/>
+                            <path d="M14 9h4l3 3v4h-7V9z"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </span>
+                    <span class="m-veh-name"><?php esc_html_e( 'CDL', 'drive' ); ?></span>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- State List with Quick Search -->
+        <div class="mobile-modal-states-block">
+            <div class="mobile-modal-section-label"><?php esc_html_e( 'State (50 States)', 'drive' ); ?></div>
+            <div class="mobile-state-search-box">
+                <input type="text" id="mobileStateSearchInput" placeholder="<?php esc_attr_e( 'Filter state (e.g. California, TX)...', 'drive' ); ?>" autocomplete="off" />
+            </div>
+            <div class="mobile-modal-states-grid" id="mobileModalStatesGrid">
+                <?php foreach ( $all_states as $st_code => $st_data ) : 
+                    $st_url = home_url( '/' . esc_attr( $st_data['slug'] ) . '/' . esc_attr( $current_veh_slug ) . '/' );
+                    $is_active = ( $st_data['slug'] === $current_state_slug ) ? 'is-selected' : '';
+                    $st_vb = isset( $us_map_states[ $st_code ]['viewBox'] ) ? $us_map_states[ $st_code ]['viewBox'] : '0 0 975 610';
+                    $st_path = isset( $us_map_states[ $st_code ]['path'] ) ? $us_map_states[ $st_code ]['path'] : '';
+                ?>
+                    <a href="<?php echo esc_url( $st_url ); ?>" 
+                       class="mobile-modal-state-link <?php echo esc_attr( $is_active ); ?>" 
+                       data-state-code="<?php echo esc_attr( $st_code ); ?>"
+                       data-state-name="<?php echo esc_attr( $st_data['name'] ); ?>"
+                       data-state-slug="<?php echo esc_attr( $st_data['slug'] ); ?>"
+                       data-state-viewbox="<?php echo esc_attr( $st_vb ); ?>"
+                       data-state-path="<?php echo esc_attr( $st_path ); ?>">
+                        <span class="m-st-code"><?php echo esc_html( $st_code ); ?></span>
+                        <span class="m-st-name"><?php echo esc_html( $st_data['name'] ); ?></span>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+    </div><!-- .mobile-modal-sheet -->
+</div><!-- #mobileStateVehModal -->
