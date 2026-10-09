@@ -84,7 +84,7 @@
 .offer-main-title {
     font-family: var(--font-family-heading);
     font-size: clamp(2rem, 3.8vw, 2.875rem);
-    font-weight: 800;
+    font-weight: 700;
     color: #ffffff;
     line-height: 1.15;
     letter-spacing: -0.02em;
