@@ -97,8 +97,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <a href="#state-selector" class="btn-how-dark-cta" id="btn-how-start-practicing">
                         <span class="btn-label"><?php esc_html_e( 'Get Started', 'drive' ); ?></span>
                         <span class="btn-arrow-icon" aria-hidden="true">
-                            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 10h12M11 5l5 5-5 5"/>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M13 5l7 7-7 7"/>
                             </svg>
                         </span>
                     </a>
