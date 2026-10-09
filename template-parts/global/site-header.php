@@ -34,12 +34,22 @@ if ( isset( $_GET['state'] ) && ! empty( $_GET['state'] ) ) {
 
 $current_state_code = 'CA';
 $current_s_name     = 'California';
+$us_map_states      = function_exists( 'drive_get_us_map_states' ) ? drive_get_us_map_states() : array();
+
 foreach ( $all_states as $code => $data ) {
     if ( $data['slug'] === $current_state_slug ) {
         $current_state_code = $code;
         $current_s_name     = $data['name'];
         break;
     }
+}
+
+$active_st_viewbox = '6.9 140.2 167.4 286.7';
+$active_st_path    = 'M77.194,374.3L78.25,374.65L79.813,376.093L81.113,376.912L81.793,378.752L81.326,379.506L80.534,378.817L78.9,378.289L78.636,377.506L78.981,376.105L77.773,375.493L77.194,374.3ZM74.747,384.219L75.326,384.284L76.382,387.134L78.27,389.977L76.829,390.131L75.793,388.683L74.747,384.219ZM65.174,358.362L66.362,358.73L66.24,359.3L65.123,359.092L65.174,358.362ZM58.281,374.306L59.245,374.401L60.728,376.116L59.804,376.182L58.636,375.464L58.281,374.306ZM56.616,355.05L58.291,356.053L59.459,356.261L60.494,357.394L61.692,357.78L62.352,357.163L63.58,357.834L62.636,358.51L60.728,358.255L59.53,358.57L56.89,357.406L57.134,356.249L56.616,355.05ZM50.251,355.18L51.733,355.418L54.139,355.388L53.936,356.308L55.002,356.854L54.86,357.78L51.916,358.119L51.195,357.382L50.251,355.18ZM46.819,353.441L48.596,353.061L49.388,354.444L48.332,354.367L46.819,353.441ZM32.596,159.951L40.332,162.332L46.454,164.107L49.753,164.837L51.337,165.448L57.946,167.324L62.108,168.404L68.159,170.244L83.671,174.768L95.793,177.991L100.452,179.166L94.046,203.997L91.965,212.277L88.828,224.321L84.514,240.503L83.295,245.525L94.767,262.757L101.457,272.866L116.584,295.607L132.086,318.977L144.4,337.503L156.847,356.183L156.248,359.074L156.948,360.083L157.263,361.751L158.491,363.247L158.897,365.717L158.715,366.12L159.334,367.687L158.907,369.278L159.811,369.634L161.435,371.914L162.258,372.46L162.765,373.629L162.176,374.567L160.085,376.128L158.715,376.68L156.836,377.031L156.116,378.746L153.882,380.479L154.187,382.094L153.608,382.444L153.547,385.952L152.847,386.225L152.39,389.098L151.669,389.431L150.156,390.879L149.903,391.497L148.024,391.681L148.319,392.737L147.466,393.936L148.329,394.856L147.791,397.332L146.979,398.614L147.405,400.08L148.644,400.62L150.167,400.816L150.684,403.76L150.299,405.143L148.887,406.123L148.826,406.901L147.091,407.096L145.73,406.74L145.07,407.049L99.498,401.659L99.701,399.534L98.95,397.913L97.935,398.145L98.341,395.1L98.067,394.595L98.869,393.556L99.031,390.363L98.716,387.727L96.534,382.254L95.153,380.699L94.524,379.286L93.346,378.55L92.493,376.449L91.072,374.929L90.229,374.419L89.143,373.018L87.925,370.958L86.422,369.818L86.168,370.697L84.696,370.804L82.118,369.284L81.976,368.483L82.757,367.972L82.991,367.171L82.605,364.743L81.671,362.47L80.849,361.935L77.61,361.371L76.351,361.793L75.631,360.837L74.169,360.261L71.753,358.374L71.012,358.148L69.702,356.735L69.316,354.124L67.885,352.194L67.509,352.135L66.555,350.574L65.002,349.256L62.991,348.68L62.21,348.971L60.788,348.081L59.316,347.915L57.195,346.152L54.88,345.243L51.956,344.632L48.809,344.258L48.525,342.406L46.454,340.489L47.895,338.239L47.631,336.66L48.637,334.867L48.312,333.401L47.906,333.223L49.56,329.934L49.763,328.142L48.393,326.854L47.895,327.151L46.393,325.661L45.916,324.551L46.911,322.936L47.327,321.244L46.911,320.051L45.286,319.339L44.078,316.923L43.449,314.697L41.591,313.278L41.307,312.269L41.418,310.643L39.754,307.752L39.733,305.021L38.698,304.232L38.21,301.893L37.175,299.685L35.723,298.355L34.83,296.117L35.094,294.669L35.043,292.188L35.662,290.591L35.145,289.902L36.271,288.988L36.677,289.878L38.129,288.97L39.672,285.907L39.175,282.731L38.282,281.378L37.398,281.699L35.104,281.016L33.733,279.247L32.657,276.499L32.129,276.327L31.957,274.955L31.449,274.267L31.551,273.038L32.546,270.687L32.292,268.782L32.434,267.761L31.581,266.544L32.962,263.006L33.256,260.84L35.277,260.691L35.337,262.525L34.87,263.048L34.546,264.621L34.708,265.743L36.251,266.651L37.439,268.622L37.946,268.675L38.485,270.1L39.266,270.26L38.444,268.823L38.332,266.871L38.556,265.036L37.459,263.44L37.733,262.763L36.414,261.671L37.317,260.406L37.297,259.017L36.211,258.602L35.845,257.236L37.002,257.207L37.165,256.548L38.342,256.809L39.205,256.251L38.921,254.731L37.601,253.443L35.713,253.746L35.043,255.669L35.662,256.672L34.83,256.91L34.383,257.64L35.185,259.005L34.2,258.424L34.231,259.89L33.246,259.925L32.901,259.047L31.612,257.42L30.759,257.432L29.754,255.77L29.399,254.583L28.546,253.651L27.612,253.224L26.769,253.918L26.211,253.491L27.764,251.336L28.292,250.268L28.018,248.534L28.485,247.846L27.967,246.676L27.246,246.664L27.541,245.37L27.094,243.079L25.449,241.15L24.414,239.541L23.226,235.57L20.942,231.819L20.109,229.848L20.13,228.975L21.378,227.74L21.561,226.933L21.186,221.525L21.409,219.442L22.109,217.792L23.612,215.702L23.612,214.462L24.048,212.693L23.693,211.654L24.048,209.155L23.328,208.193L23.267,207.059L22.211,204.264L21.592,203.682L21.581,201.907L20.495,200.934L18.485,197.194L19.104,196.096L19.206,194.256L18.922,193.086L19.906,191.448L21.429,189.59L24.779,186.094L26.637,183.779L27.723,181.659L27.216,180.9L27.734,178.917L29.155,177.279L31.256,172.898L31.673,170.44L31.622,165.828L31.175,165.787L30.444,164.445L31.916,162.379L32.596,159.951Z';
+
+if ( isset( $us_map_states[ $current_state_code ] ) ) {
+    $active_st_viewbox = isset( $us_map_states[ $current_state_code ]['viewBox'] ) ? $us_map_states[ $current_state_code ]['viewBox'] : $active_st_viewbox;
+    $active_st_path    = isset( $us_map_states[ $current_state_code ]['path'] ) ? $us_map_states[ $current_state_code ]['path'] : $active_st_path;
 }
 
 // Determine current vehicle type
@@ -115,9 +125,9 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
             <!-- 1. Desktop State Selector Dropdown (Hidden on Mobile) -->
             <div class="header-state-selector desktop-state-selector" id="header-state-selector">
                 <button type="button" class="header-state-trigger" id="stateDropdownTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="stateMegaDropdown" aria-label="<?php esc_attr_e( 'Select State', 'drive' ); ?>">
-                    <span class="state-icon-wrap" aria-hidden="true">
-                        <svg class="state-us-svg" width="22" height="16" viewBox="0 0 28 20" fill="currentColor">
-                            <path d="M1.2 5.5c.4-.7 1.5-.8 2.2-1.1 1-.7 2.2-.2 3.3-.6 1.3-.4 2.6-1.4 4-1.5 1.5-.1 3 .6 4.6.7 1.5.1 3.1-.5 4.7-.7 1.3-.2 2.6.3 3.9.4 1 .1 2.1-.3 3 .2.6.3.8 1.2.7 1.9-.1 1.2-.7 2.3-1.2 3.4-.4 1-1 1.8-1 2.9.1 1 .8 1.8.6 2.9-.2 1-1 1.8-1.9 2.4-1.3.9-2.8 1.5-4.3 1.5-1.2 0-2.4-.5-3.6-.7-1.5-.3-3 .3-4.4.3-1.5 0-3.1-.7-4.6-1.1-1.3-.4-2.6-.8-3.8-1.5-1-.6-1.5-1.6-1.9-2.7-.4-1.2-.2-2.6-.2-3.9.1-1-.3-1.9-.1-2.9.2-.5.4-.9.4-1.4z"/>
+                    <span class="state-icon-wrap" id="headerStateIconWrap" aria-hidden="true">
+                        <svg class="state-us-svg" id="headerStateSvg" width="20" height="18" viewBox="<?php echo esc_attr( $active_st_viewbox ); ?>" fill="currentColor">
+                            <path id="headerStatePath" d="<?php echo esc_attr( $active_st_path ); ?>"/>
                         </svg>
                     </span>
                     <span class="header-state-name" id="selectedStateLabel"><?php echo esc_html( $current_s_name ); ?></span>
@@ -144,11 +154,16 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                                     <?php foreach ( $chunk as $st_code => $st_data ) : 
                                         $st_url = home_url( '/' . esc_attr( $st_data['slug'] ) . '/' . esc_attr( $current_veh_slug ) . '/' );
                                         $is_active = ( $st_data['slug'] === $current_state_slug ) ? 'is-selected' : '';
+                                        $st_vb = isset( $us_map_states[ $st_code ]['viewBox'] ) ? $us_map_states[ $st_code ]['viewBox'] : '0 0 975 610';
+                                        $st_path = isset( $us_map_states[ $st_code ]['path'] ) ? $us_map_states[ $st_code ]['path'] : '';
                                     ?>
                                         <a href="<?php echo esc_url( $st_url ); ?>" 
                                            class="state-mega-link <?php echo esc_attr( $is_active ); ?>" 
                                            data-state-slug="<?php echo esc_attr( $st_data['slug'] ); ?>"
                                            data-state-name="<?php echo esc_attr( $st_data['name'] ); ?>"
+                                           data-state-code="<?php echo esc_attr( $st_code ); ?>"
+                                           data-state-viewbox="<?php echo esc_attr( $st_vb ); ?>"
+                                           data-state-path="<?php echo esc_attr( $st_path ); ?>"
                                            role="menuitem">
                                             <?php echo esc_html( $st_data['name'] ); ?>
                                         </a>
@@ -334,12 +349,16 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                     <?php foreach ( $all_states as $st_code => $st_data ) : 
                         $st_url = home_url( '/' . esc_attr( $st_data['slug'] ) . '/' . esc_attr( $current_veh_slug ) . '/' );
                         $is_active = ( $st_data['slug'] === $current_state_slug ) ? 'is-selected' : '';
+                        $st_vb = isset( $us_map_states[ $st_code ]['viewBox'] ) ? $us_map_states[ $st_code ]['viewBox'] : '0 0 975 610';
+                        $st_path = isset( $us_map_states[ $st_code ]['path'] ) ? $us_map_states[ $st_code ]['path'] : '';
                     ?>
                         <a href="<?php echo esc_url( $st_url ); ?>" 
                            class="mobile-modal-state-link <?php echo esc_attr( $is_active ); ?>" 
                            data-state-code="<?php echo esc_attr( $st_code ); ?>"
                            data-state-name="<?php echo esc_attr( $st_data['name'] ); ?>"
-                           data-state-slug="<?php echo esc_attr( $st_data['slug'] ); ?>">
+                           data-state-slug="<?php echo esc_attr( $st_data['slug'] ); ?>"
+                           data-state-viewbox="<?php echo esc_attr( $st_vb ); ?>"
+                           data-state-path="<?php echo esc_attr( $st_path ); ?>">
                             <span class="m-st-code"><?php echo esc_html( $st_code ); ?></span>
                             <span class="m-st-name"><?php echo esc_html( $st_data['name'] ); ?></span>
                         </a>

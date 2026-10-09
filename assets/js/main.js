@@ -55,8 +55,19 @@
         stateLinks.forEach(function (link) {
             link.addEventListener('click', function () {
                 const stateName = link.getAttribute('data-state-name');
+                const stateViewBox = link.getAttribute('data-state-viewbox');
+                const statePath = link.getAttribute('data-state-path');
+                const headerSvg = document.getElementById('headerStateSvg');
+                const headerPath = document.getElementById('headerStatePath');
+
                 if (stateName && selectedLabel) {
                     selectedLabel.textContent = stateName;
+                }
+                if (stateViewBox && headerSvg) {
+                    headerSvg.setAttribute('viewBox', stateViewBox);
+                }
+                if (statePath && headerPath) {
+                    headerPath.setAttribute('d', statePath);
                 }
                 toggleStateDropdown(false);
             });
@@ -140,8 +151,19 @@
             link.addEventListener('click', function () {
                 const stCode = link.getAttribute('data-state-code');
                 const stSlug = link.getAttribute('data-state-slug');
+                const stateViewBox = link.getAttribute('data-state-viewbox');
+                const statePath = link.getAttribute('data-state-path');
+                const headerSvg = document.getElementById('headerStateSvg');
+                const headerPath = document.getElementById('headerStatePath');
+
                 if (stCode && chipState) {
                     chipState.textContent = stCode;
+                }
+                if (stateViewBox && headerSvg) {
+                    headerSvg.setAttribute('viewBox', stateViewBox);
+                }
+                if (statePath && headerPath) {
+                    headerPath.setAttribute('d', statePath);
                 }
                 if (stSlug) {
                     try {

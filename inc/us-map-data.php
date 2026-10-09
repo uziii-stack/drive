@@ -15,6 +15,8 @@ function drive_get_us_map_states() {
         'AK' => array(
             'name'      => 'Alaska',
             'slug'      => 'alaska',
+
+            'viewBox'   => '-78.5 453.9 302.2 161.3',
             'count'     => 32,
             'level'     => 'medium',
             'pin'       => array( 'x' => 101, 'y' => 535 ),
@@ -23,6 +25,8 @@ function drive_get_us_map_states() {
         'AL' => array(
             'name'      => 'Alabama',
             'slug'      => 'alabama',
+
+            'viewBox'   => '636.0 370.6 80.3 131.1',
             'count'     => 20,
             'level'     => 'medium',
             'pin'       => array( 'x' => 676, 'y' => 436 ),
@@ -31,6 +35,8 @@ function drive_get_us_map_states() {
         'AR' => array(
             'name'      => 'Arkansas',
             'slug'      => 'arkansas',
+
+            'viewBox'   => '515.7 345.6 105.2 95.6',
             'count'     => 19,
             'level'     => 'medium',
             'pin'       => array( 'x' => 568, 'y' => 393 ),
@@ -39,6 +45,8 @@ function drive_get_us_map_states() {
         'AZ' => array(
             'name'      => 'Arizona',
             'slug'      => 'arizona',
+
+            'viewBox'   => '132.5 301.9 141.9 165.8',
             'count'     => 20,
             'level'     => 'medium',
             'pin'       => array( 'x' => 203, 'y' => 385 ),
@@ -47,6 +55,8 @@ function drive_get_us_map_states() {
         'CA' => array(
             'name'      => 'California',
             'slug'      => 'california',
+
+            'viewBox'   => '6.9 140.2 167.4 286.7',
             'count'     => 19,
             'level'     => 'medium',
             'pin'       => array( 'x' => 91, 'y' => 284 ),
@@ -55,6 +65,8 @@ function drive_get_us_map_states() {
         'CO' => array(
             'name'      => 'Colorado',
             'slug'      => 'colorado',
+
+            'viewBox'   => '254.2 228.9 151.6 120.1',
             'count'     => 17,
             'level'     => 'medium',
             'pin'       => array( 'x' => 330, 'y' => 289 ),
@@ -63,6 +75,8 @@ function drive_get_us_map_states() {
         'CT' => array(
             'name'      => 'Connecticut',
             'slug'      => 'connecticut',
+
+            'viewBox'   => '868.7 175.2 36.0 35.5',
             'count'     => 23,
             'level'     => 'medium',
             'pin'       => array( 'x' => 887, 'y' => 193 ),
@@ -71,6 +85,8 @@ function drive_get_us_map_states() {
         'DC' => array(
             'name'      => 'District of Columbia',
             'slug'      => 'district-of-columbia',
+
+            'viewBox'   => '824.7 264.1 6.2 7.0',
             'count'     => 30,
             'level'     => 'medium',
             'pin'       => array( 'x' => 828, 'y' => 268 ),
@@ -79,6 +95,8 @@ function drive_get_us_map_states() {
         'DE' => array(
             'name'      => 'Delaware',
             'slug'      => 'delaware',
+
+            'viewBox'   => '843.3 238.5 21.9 36.5',
             'count'     => 20,
             'level'     => 'medium',
             'pin'       => array( 'x' => 854, 'y' => 257 ),
@@ -87,6 +105,8 @@ function drive_get_us_map_states() {
         'FL' => array(
             'name'      => 'Florida',
             'slug'      => 'florida',
+
+            'viewBox'   => '647.2 453.5 189.9 164.4',
             'count'     => 34,
             'level'     => 'medium',
             'pin'       => array( 'x' => 742, 'y' => 536 ),
@@ -95,6 +115,8 @@ function drive_get_us_map_states() {
         'GA' => array(
             'name'      => 'Georgia',
             'slug'      => 'georgia',
+
+            'viewBox'   => '681.4 365.5 113.3 118.8',
             'count'     => 15,
             'level'     => 'medium',
             'pin'       => array( 'x' => 738, 'y' => 425 ),
@@ -103,6 +125,8 @@ function drive_get_us_map_states() {
         'HI' => array(
             'name'      => 'Hawaii',
             'slug'      => 'hawaii',
+
+            'viewBox'   => '206.9 522.1 134.4 87.0',
             'count'     => 22,
             'level'     => 'medium',
             'pin'       => array( 'x' => 274, 'y' => 566 ),
@@ -111,6 +135,8 @@ function drive_get_us_map_states() {
         'IA' => array(
             'name'      => 'Iowa',
             'slug'      => 'iowa',
+
+            'viewBox'   => '478.9 187.6 125.9 82.8',
             'count'     => 16,
             'level'     => 'medium',
             'pin'       => array( 'x' => 542, 'y' => 229 ),
@@ -119,6 +145,8 @@ function drive_get_us_map_states() {
         'ID' => array(
             'name'      => 'Idaho',
             'slug'      => 'idaho',
+
+            'viewBox'   => '140.3 22.0 124.3 201.5',
             'count'     => 31,
             'level'     => 'medium',
             'pin'       => array( 'x' => 202, 'y' => 123 ),
@@ -127,6 +155,8 @@ function drive_get_us_map_states() {
         'IL' => array(
             'name'      => 'Illinois',
             'slug'      => 'illinois',
+
+            'viewBox'   => '569.4 202.2 83.1 148.1',
             'count'     => 26,
             'level'     => 'medium',
             'pin'       => array( 'x' => 611, 'y' => 276 ),
@@ -135,6 +165,8 @@ function drive_get_us_map_states() {
         'IN' => array(
             'name'      => 'Indiana',
             'slug'      => 'indiana',
+
+            'viewBox'   => '633.5 216.2 64.6 111.6',
             'count'     => 22,
             'level'     => 'medium',
             'pin'       => array( 'x' => 666, 'y' => 272 ),
@@ -143,6 +175,8 @@ function drive_get_us_map_states() {
         'KS' => array(
             'name'      => 'Kansas',
             'slug'      => 'kansas',
+
+            'viewBox'   => '379.0 266.1 154.5 83.7',
             'count'     => 17,
             'level'     => 'medium',
             'pin'       => array( 'x' => 456, 'y' => 308 ),
@@ -151,6 +185,8 @@ function drive_get_us_map_states() {
         'KY' => array(
             'name'      => 'Kentucky',
             'slug'      => 'kentucky',
+
+            'viewBox'   => '603.3 277.7 154.4 79.3',
             'count'     => 21,
             'level'     => 'medium',
             'pin'       => array( 'x' => 681, 'y' => 317 ),
@@ -159,6 +195,8 @@ function drive_get_us_map_states() {
         'LA' => array(
             'name'      => 'Louisiana',
             'slug'      => 'louisiana',
+
+            'viewBox'   => '526.7 425.8 120.6 105.0',
             'count'     => 28,
             'level'     => 'medium',
             'pin'       => array( 'x' => 587, 'y' => 478 ),
@@ -167,6 +205,8 @@ function drive_get_us_map_states() {
         'MA' => array(
             'name'      => 'Massachusetts',
             'slug'      => 'massachusetts',
+
+            'viewBox'   => '865.6 152.0 72.4 40.0',
             'count'     => 19,
             'level'     => 'medium',
             'pin'       => array( 'x' => 902, 'y' => 172 ),
@@ -175,6 +215,8 @@ function drive_get_us_map_states() {
         'MD' => array(
             'name'      => 'Maryland',
             'slug'      => 'maryland',
+
+            'viewBox'   => '775.8 241.3 94.5 47.2',
             'count'     => 17,
             'level'     => 'medium',
             'pin'       => array( 'x' => 823, 'y' => 265 ),
@@ -183,6 +225,8 @@ function drive_get_us_map_states() {
         'ME' => array(
             'name'      => 'Maine',
             'slug'      => 'maine',
+
+            'viewBox'   => '885.6 37.5 76.8 121.0',
             'count'     => 22,
             'level'     => 'medium',
             'pin'       => array( 'x' => 924, 'y' => 98 ),
@@ -191,6 +235,8 @@ function drive_get_us_map_states() {
         'MI' => array(
             'name'      => 'Michigan',
             'slug'      => 'michigan',
+
+            'viewBox'   => '574.4 72.9 158.0 166.1',
             'count'     => 33,
             'level'     => 'medium',
             'pin'       => array( 'x' => 653, 'y' => 156 ),
@@ -199,6 +245,8 @@ function drive_get_us_map_states() {
         'MN' => array(
             'name'      => 'Minnesota',
             'slug'      => 'minnesota',
+
+            'viewBox'   => '469.9 51.5 137.2 154.4',
             'count'     => 31,
             'level'     => 'medium',
             'pin'       => array( 'x' => 538, 'y' => 129 ),
@@ -207,6 +255,8 @@ function drive_get_us_map_states() {
         'MO' => array(
             'name'      => 'Missouri',
             'slug'      => 'missouri',
+
+            'viewBox'   => '492.4 251.2 139.0 121.1',
             'count'     => 28,
             'level'     => 'medium',
             'pin'       => array( 'x' => 562, 'y' => 312 ),
@@ -215,6 +265,8 @@ function drive_get_us_map_states() {
         'MS' => array(
             'name'      => 'Mississippi',
             'slug'      => 'mississippi',
+
+            'viewBox'   => '577.1 375.1 74.6 129.3',
             'count'     => 27,
             'level'     => 'medium',
             'pin'       => array( 'x' => 614, 'y' => 440 ),
@@ -223,6 +275,8 @@ function drive_get_us_map_states() {
         'MT' => array(
             'name'      => 'Montana',
             'slug'      => 'montana',
+
+            'viewBox'   => '178.6 29.7 213.0 135.3',
             'count'     => 22,
             'level'     => 'medium',
             'pin'       => array( 'x' => 285, 'y' => 97 ),
@@ -231,6 +285,8 @@ function drive_get_us_map_states() {
         'NC' => array(
             'name'      => 'North Carolina',
             'slug'      => 'north-carolina',
+
+            'viewBox'   => '699.9 310.3 184.0 81.5',
             'count'     => 32,
             'level'     => 'medium',
             'pin'       => array( 'x' => 792, 'y' => 351 ),
@@ -239,6 +295,8 @@ function drive_get_us_map_states() {
         'ND' => array(
             'name'      => 'North Dakota',
             'slug'      => 'north-dakota',
+
+            'viewBox'   => '361.6 59.8 137.1 86.1',
             'count'     => 26,
             'level'     => 'medium',
             'pin'       => array( 'x' => 430, 'y' => 103 ),
@@ -247,6 +305,8 @@ function drive_get_us_map_states() {
         'NE' => array(
             'name'      => 'Nebraska',
             'slug'      => 'nebraska',
+
+            'viewBox'   => '349.5 195.1 172.3 86.1',
             'count'     => 18,
             'level'     => 'medium',
             'pin'       => array( 'x' => 436, 'y' => 238 ),
@@ -255,6 +315,8 @@ function drive_get_us_map_states() {
         'NH' => array(
             'name'      => 'New Hampshire',
             'slug'      => 'new-hampshire',
+
+            'viewBox'   => '878.2 97.4 34.3 72.4',
             'count'     => 21,
             'level'     => 'medium',
             'pin'       => array( 'x' => 895, 'y' => 134 ),
@@ -263,6 +325,8 @@ function drive_get_us_map_states() {
         'NJ' => array(
             'name'      => 'New Jersey',
             'slug'      => 'new-jersey',
+
+            'viewBox'   => '847.3 199.6 27.8 64.0',
             'count'     => 35,
             'level'     => 'medium',
             'pin'       => array( 'x' => 861, 'y' => 232 ),
@@ -271,6 +335,8 @@ function drive_get_us_map_states() {
         'NM' => array(
             'name'      => 'New Mexico',
             'slug'      => 'new-mexico',
+
+            'viewBox'   => '236.8 317.5 145.8 151.3',
             'count'     => 25,
             'level'     => 'medium',
             'pin'       => array( 'x' => 310, 'y' => 393 ),
@@ -279,6 +345,8 @@ function drive_get_us_map_states() {
         'NV' => array(
             'name'      => 'Nevada',
             'slug'      => 'nevada',
+
+            'viewBox'   => '74.1 165.0 132.8 205.3',
             'count'     => 32,
             'level'     => 'medium',
             'pin'       => array( 'x' => 141, 'y' => 268 ),
@@ -287,6 +355,8 @@ function drive_get_us_map_states() {
         'NY' => array(
             'name'      => 'New York',
             'slug'      => 'new-york',
+
+            'viewBox'   => '756.7 109.5 157.2 120.2',
             'count'     => 34,
             'level'     => 'medium',
             'pin'       => array( 'x' => 835, 'y' => 170 ),
@@ -295,6 +365,8 @@ function drive_get_us_map_states() {
         'OH' => array(
             'name'      => 'Ohio',
             'slug'      => 'ohio',
+
+            'viewBox'   => '679.8 202.1 87.3 99.8',
             'count'     => 19,
             'level'     => 'medium',
             'pin'       => array( 'x' => 723, 'y' => 252 ),
@@ -303,6 +375,8 @@ function drive_get_us_map_states() {
         'OK' => array(
             'name'      => 'Oklahoma',
             'slug'      => 'oklahoma',
+
+            'viewBox'   => '359.2 332.8 180.0 94.9',
             'count'     => 29,
             'level'     => 'medium',
             'pin'       => array( 'x' => 449, 'y' => 380 ),
@@ -311,6 +385,8 @@ function drive_get_us_map_states() {
         'OR' => array(
             'name'      => 'Oregon',
             'slug'      => 'oregon',
+
+            'viewBox'   => '19.5 59.0 167.7 141.5',
             'count'     => 32,
             'level'     => 'medium',
             'pin'       => array( 'x' => 103, 'y' => 130 ),
@@ -319,6 +395,8 @@ function drive_get_us_map_states() {
         'PA' => array(
             'name'      => 'Pennsylvania',
             'slug'      => 'pennsylvania',
+
+            'viewBox'   => '747.8 186.7 121.2 78.6',
             'count'     => 15,
             'level'     => 'medium',
             'pin'       => array( 'x' => 808, 'y' => 226 ),
@@ -327,6 +405,8 @@ function drive_get_us_map_states() {
         'RI' => array(
             'name'      => 'Rhode Island',
             'slug'      => 'rhode-island',
+
+            'viewBox'   => '897.6 174.4 16.4 23.2',
             'count'     => 30,
             'level'     => 'medium',
             'pin'       => array( 'x' => 906, 'y' => 186 ),
@@ -335,6 +415,8 @@ function drive_get_us_map_states() {
         'SC' => array(
             'name'      => 'South Carolina',
             'slug'      => 'south-carolina',
+
+            'viewBox'   => '723.9 359.2 106.2 81.0',
             'count'     => 28,
             'level'     => 'medium',
             'pin'       => array( 'x' => 777, 'y' => 400 ),
@@ -343,6 +425,8 @@ function drive_get_us_map_states() {
         'SD' => array(
             'name'      => 'South Dakota',
             'slug'      => 'south-dakota',
+
+            'viewBox'   => '355.2 127.6 145.6 97.6',
             'count'     => 28,
             'level'     => 'medium',
             'pin'       => array( 'x' => 428, 'y' => 176 ),
@@ -351,6 +435,8 @@ function drive_get_us_map_states() {
         'TN' => array(
             'name'      => 'Tennessee',
             'slug'      => 'tennessee',
+
+            'viewBox'   => '590.6 329.1 177.6 61.9',
             'count'     => 24,
             'level'     => 'medium',
             'pin'       => array( 'x' => 679, 'y' => 360 ),
@@ -359,6 +445,8 @@ function drive_get_us_map_states() {
         'TX' => array(
             'name'      => 'Texas',
             'slug'      => 'texas',
+
+            'viewBox'   => '274.2 331.0 292.1 286.4',
             'count'     => 31,
             'level'     => 'medium',
             'pin'       => array( 'x' => 420, 'y' => 474 ),
@@ -367,6 +455,8 @@ function drive_get_us_map_states() {
         'UT' => array(
             'name'      => 'Utah',
             'slug'      => 'utah',
+
+            'viewBox'   => '167.9 190.9 117.2 147.2',
             'count'     => 23,
             'level'     => 'medium',
             'pin'       => array( 'x' => 227, 'y' => 265 ),
@@ -375,6 +465,8 @@ function drive_get_us_map_states() {
         'VA' => array(
             'name'      => 'Virginia',
             'slug'      => 'virginia',
+
+            'viewBox'   => '708.3 252.8 165.6 92.3',
             'count'     => 21,
             'level'     => 'medium',
             'pin'       => array( 'x' => 791, 'y' => 299 ),
@@ -383,6 +475,8 @@ function drive_get_us_map_states() {
         'VT' => array(
             'name'      => 'Vermont',
             'slug'      => 'vermont',
+
+            'viewBox'   => '855.1 106.0 35.2 66.3',
             'count'     => 20,
             'level'     => 'medium',
             'pin'       => array( 'x' => 873, 'y' => 139 ),
@@ -391,6 +485,8 @@ function drive_get_us_map_states() {
         'WA' => array(
             'name'      => 'Washington',
             'slug'      => 'washington',
+
+            'viewBox'   => '53.3 5.8 139.9 103.7',
             'count'     => 30,
             'level'     => 'medium',
             'pin'       => array( 'x' => 123, 'y' => 58 ),
@@ -399,6 +495,8 @@ function drive_get_us_map_states() {
         'WI' => array(
             'name'      => 'Wisconsin',
             'slug'      => 'wisconsin',
+
+            'viewBox'   => '539.7 103.2 112.0 120.5',
             'count'     => 34,
             'level'     => 'medium',
             'pin'       => array( 'x' => 596, 'y' => 163 ),
@@ -407,6 +505,8 @@ function drive_get_us_map_states() {
         'WV' => array(
             'name'      => 'West Virginia',
             'slug'      => 'west-virginia',
+
+            'viewBox'   => '726.7 232.7 93.6 93.9',
             'count'     => 16,
             'level'     => 'medium',
             'pin'       => array( 'x' => 774, 'y' => 280 ),
@@ -415,6 +515,8 @@ function drive_get_us_map_states() {
         'WY' => array(
             'name'      => 'Wyoming',
             'slug'      => 'wyoming',
+
+            'viewBox'   => '233.5 133.7 145.6 121.2',
             'count'     => 29,
             'level'     => 'medium',
             'pin'       => array( 'x' => 306, 'y' => 194 ),
