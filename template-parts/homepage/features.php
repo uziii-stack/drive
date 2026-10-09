@@ -87,10 +87,10 @@ if ( function_exists( 'drive_get_states' ) ) {
                     <!-- Card 1: Practice Tests -->
                     <div class="offer-feature-card">
                         <div class="offer-card-icon-box" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4C3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                                <path d="M9 14l2 2 4-4"></path>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke="#2B2D42" stroke-width="2" stroke-linecap="round"/>
+                                <rect x="9" y="2" width="6" height="3.5" rx="1" fill="#F4F5F7" stroke="#2B2D42" stroke-width="1.8"/>
+                                <path d="M9 13.5l2.2 2.2 4.3-4.3" stroke="#00B4A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <h3 class="offer-card-title"><?php esc_html_e( 'Practice Tests', 'drive' ); ?></h3>
@@ -100,12 +100,12 @@ if ( function_exists( 'drive_get_states' ) ) {
                     <!-- Card 2: Mock Tests -->
                     <div class="offer-feature-card">
                         <div class="offer-card-icon-box" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4C3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="13" r="8"></circle>
-                                <path d="M12 9v4l2 2"></path>
-                                <path d="M5 3L2 6"></path>
-                                <path d="M22 6l-3-3"></path>
-                                <path d="M12 2v3"></path>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="13.5" r="7.5" stroke="#2B2D42" stroke-width="2"/>
+                                <path d="M12 2v3.5M9.5 2h5" stroke="#2B2D42" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M18.5 5.5l-1.5 1.5" stroke="#2B2D42" stroke-width="1.8" stroke-linecap="round"/>
+                                <circle cx="12" cy="13.5" r="1.2" fill="#00B4A6"/>
+                                <path d="M12 9.5v4l2.5 1.5" stroke="#00B4A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <h3 class="offer-card-title"><?php esc_html_e( 'Mock Tests', 'drive' ); ?></h3>
@@ -115,11 +115,11 @@ if ( function_exists( 'drive_get_states' ) ) {
                     <!-- Card 3: Cheat Sheets (PDF) -->
                     <div class="offer-feature-card">
                         <div class="offer-card-icon-box" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4C3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <path d="M12 12v6"></path>
-                                <path d="M9 15l3 3 3-3"></path>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7L15 2z" stroke="#2B2D42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 2v5h5" stroke="#2B2D42" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="14.5" r="3.5" fill="#00B4A6"/>
+                                <path d="M12 12.8v3.4M10.2 14.7l1.8 1.8 1.8-1.8" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <h3 class="offer-card-title"><?php esc_html_e( 'Cheat Sheets (PDF)', 'drive' ); ?></h3>
@@ -129,10 +129,11 @@ if ( function_exists( 'drive_get_states' ) ) {
                     <!-- Card 4: States Covered -->
                     <div class="offer-feature-card">
                         <div class="offer-card-icon-box" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4C3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
-                                <line x1="8" y1="2" x2="8" y2="18"></line>
-                                <line x1="16" y1="6" x2="16" y2="22"></line>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z" stroke="#2B2D42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 3v15M15 6v15" stroke="#2B2D42" stroke-width="1.5"/>
+                                <path d="M12 7.5a2.5 2.5 0 0 1 2.5 2.5c0 2.2-2.5 4.5-2.5 4.5s-2.5-2.3-2.5-4.5A2.5 2.5 0 0 1 12 7.5z" fill="#00B4A6" stroke="#2B2D42" stroke-width="1.2" stroke-linejoin="round"/>
+                                <circle cx="12" cy="10" r="0.9" fill="#ffffff"/>
                             </svg>
                         </div>
                         <h3 class="offer-card-title"><?php echo esc_html( sprintf( __( '%d States Covered', 'drive' ), $all_states_count ) ); ?></h3>
