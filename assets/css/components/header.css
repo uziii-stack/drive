@@ -14,7 +14,8 @@
    1. Header Base & Full-Width Wrapper
    ========================================================================== */
 .site-header.fullwidth-dark-header {
-    background-color: #2B2D42; /* Charcoal matching Figma */
+    background-color: #2B2D42;
+    /* Charcoal matching Figma */
     position: relative;
     top: 0;
     z-index: 1000;
@@ -53,6 +54,7 @@
     from {
         transform: translateY(-100%);
     }
+
     to {
         transform: translateY(0);
     }
@@ -151,7 +153,8 @@
 
 .brand-title-desktop .brand-name-accent,
 .brand-title-mobile .brand-name-accent {
-    color: #F26419; /* Primary orange */
+    color: #F26419;
+    /* Primary orange */
     font-weight: 800;
 }
 
@@ -252,6 +255,7 @@
         opacity: 0;
         transform: translateY(-8px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -346,8 +350,10 @@
 }
 
 .vehicle-switch-btn.is-active {
-    background-color: #383A52; /* Charcoal2 matching screenshot */
-    color: #00B4A6; /* Teal icon */
+    background-color: #383A52;
+    /* Charcoal2 matching screenshot */
+    color: #00B4A6;
+    /* Teal icon */
     border: none;
 }
 
@@ -361,9 +367,11 @@
    3.3 Mobile State & Vehicle Chip Button [ CA | 🚗 ⌄ ] (Replaces Hamburger)
    -------------------------------------------------------------------------- */
 .header-state-veh-chip {
-    display: none; /* Desktop hidden */
+    display: none;
+    /* Desktop hidden */
     align-items: center;
-    background-color: #383A52; /* Charcoal2 matching screenshot */
+    background-color: #383A52;
+    /* Charcoal2 matching screenshot */
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 13px;
     padding: 0.45rem 0.85rem;
@@ -376,7 +384,8 @@
 
 .header-state-veh-chip:hover,
 .header-state-veh-chip:focus-visible {
-    background-color: #4A4C66; /* Charcoal3 */
+    background-color: #4A4C66;
+    /* Charcoal3 */
     border-color: rgba(255, 255, 255, 0.22);
     outline: none;
 }
@@ -458,7 +467,7 @@
     border-radius: 24px 24px 0 0;
     width: 100%;
     max-width: 520px;
-    max-height: 85vh;
+    max-height: 75vh;
     padding: 1.25rem 1.35rem 2rem;
     box-sizing: border-box;
     display: flex;
@@ -475,6 +484,7 @@
     from {
         transform: translateY(100%);
     }
+
     to {
         transform: translateY(0);
     }
