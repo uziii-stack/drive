@@ -25,20 +25,20 @@ if ( function_exists( 'drive_get_states' ) ) {
 
 <section id="what-we-offer" class="homepage-section what-we-offer-section" aria-labelledby="what-we-offer-heading">
     
-    <!-- Perspective Road Background Graphic: Light subtle road surface in background -->
+    <!-- Perspective Road Background Graphic: Simple clean straight lines on left and right with center dashed divider -->
     <div class="offer-road-bg" aria-hidden="true">
-        <svg class="offer-road-svg" viewBox="0 0 500 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Road Asphalt Surface (Lighter soft slate #444765) -->
-            <polygon points="-20,600 220,0 265,0 475,600" fill="#444765" />
+        <svg class="offer-road-svg" viewBox="0 0 500 700" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Road Surface -->
+            <polygon points="40,700 220,0 280,0 460,700" fill="#34364D" />
             
-            <!-- Road Left Boundary Line (Soft background line) -->
-            <path d="M-20 600 L220 0" stroke="rgba(255, 255, 255, 0.07)" stroke-width="1.5" />
+            <!-- Simple Straight Line on Left -->
+            <line x1="40" y1="700" x2="220" y2="0" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2" />
             
-            <!-- Road Right Boundary Line (Soft background line) -->
-            <path d="M475 600 L265 0" stroke="rgba(255, 255, 255, 0.07)" stroke-width="1.5" />
+            <!-- Simple Straight Line on Right -->
+            <line x1="460" y1="700" x2="280" y2="0" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2" />
             
-            <!-- Dashed Center Divider Line (Soft background dashes) -->
-            <line x1="230" y1="600" x2="242.5" y2="0" stroke="rgba(255, 255, 255, 0.14)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="12 14" />
+            <!-- Dashed Center Divider Line -->
+            <line x1="250" y1="700" x2="250" y2="0" stroke="rgba(255, 255, 255, 0.28)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="16 18" />
         </svg>
     </div>
 
@@ -55,8 +55,8 @@ if ( function_exists( 'drive_get_states' ) ) {
 
                 <!-- Main Section Title -->
                 <h2 id="what-we-offer-heading" class="offer-main-title">
-                    <?php esc_html_e( 'Everything you need', 'drive' ); ?><br>
-                    <?php esc_html_e( 'to prepare for your', 'drive' ); ?><br>
+                    <?php esc_html_e( 'Everything you need', 'drive' ); ?><br class="offer-title-br">
+                    <?php esc_html_e( 'to prepare for your', 'drive' ); ?><br class="offer-title-br">
                     <?php esc_html_e( 'permit test', 'drive' ); ?>
                 </h2>
 
@@ -65,8 +65,8 @@ if ( function_exists( 'drive_get_states' ) ) {
                     <?php esc_html_e( "Study at your own pace with tools built around your state's driver handbook.", 'drive' ); ?>
                 </p>
 
-                <!-- CTA Action Button -->
-                <div class="offer-cta-wrap">
+                <!-- Desktop CTA Action Button -->
+                <div class="offer-cta-wrap offer-cta-desktop">
                     <a href="#state-selector" class="btn-hero-orange btn-offer-cta" id="btn-offer-start-free">
                         <span class="btn-label"><?php esc_html_e( 'Start Practicing Free', 'drive' ); ?></span>
                         <span class="btn-arrow-icon" aria-hidden="true">
@@ -93,8 +93,10 @@ if ( function_exists( 'drive_get_states' ) ) {
                                 <path d="M9 13.5l2.2 2.2 4.3-4.3" stroke="#00B4A6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3 class="offer-card-title"><?php esc_html_e( 'Practice Tests', 'drive' ); ?></h3>
-                        <p class="offer-card-desc"><?php esc_html_e( 'Topic-wise questions to learn one section at a time.', 'drive' ); ?></p>
+                        <div class="offer-card-text">
+                            <h3 class="offer-card-title"><?php esc_html_e( 'Practice Tests', 'drive' ); ?></h3>
+                            <p class="offer-card-desc"><?php esc_html_e( 'Topic-wise questions to learn one section at a time.', 'drive' ); ?></p>
+                        </div>
                     </div>
 
                     <!-- Card 2: Mock Tests -->
@@ -108,8 +110,10 @@ if ( function_exists( 'drive_get_states' ) ) {
                                 <path d="M12 9.5v4l2.5 1.5" stroke="#00B4A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3 class="offer-card-title"><?php esc_html_e( 'Mock Tests', 'drive' ); ?></h3>
-                        <p class="offer-card-desc"><?php esc_html_e( 'Timed tests that feel like the real test day.', 'drive' ); ?></p>
+                        <div class="offer-card-text">
+                            <h3 class="offer-card-title"><?php esc_html_e( 'Mock Tests', 'drive' ); ?></h3>
+                            <p class="offer-card-desc"><?php esc_html_e( 'Timed tests that feel like the real test day.', 'drive' ); ?></p>
+                        </div>
                     </div>
 
                     <!-- Card 3: Cheat Sheets (PDF) -->
@@ -122,8 +126,10 @@ if ( function_exists( 'drive_get_states' ) ) {
                                 <path d="M12 12.8v3.4M10.2 14.7l1.8 1.8 1.8-1.8" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3 class="offer-card-title"><?php esc_html_e( 'Cheat Sheets (PDF)', 'drive' ); ?></h3>
-                        <p class="offer-card-desc"><?php esc_html_e( 'Key rules and road signs in a printable PDF.', 'drive' ); ?></p>
+                        <div class="offer-card-text">
+                            <h3 class="offer-card-title"><?php esc_html_e( 'Cheat Sheets (PDF)', 'drive' ); ?></h3>
+                            <p class="offer-card-desc"><?php esc_html_e( 'Key rules and road signs in a printable PDF.', 'drive' ); ?></p>
+                        </div>
                     </div>
 
                     <!-- Card 4: States Covered -->
@@ -136,11 +142,26 @@ if ( function_exists( 'drive_get_states' ) ) {
                                 <circle cx="12" cy="10" r="0.9" fill="#ffffff"/>
                             </svg>
                         </div>
-                        <h3 class="offer-card-title"><?php echo esc_html( sprintf( __( '%d States Covered', 'drive' ), $all_states_count ) ); ?></h3>
-                        <p class="offer-card-desc"><?php esc_html_e( 'Car, truck and motorcycle content for each state.', 'drive' ); ?></p>
+                        <div class="offer-card-text">
+                            <h3 class="offer-card-title"><?php echo esc_html( sprintf( __( '%d States Covered', 'drive' ), $all_states_count ) ); ?></h3>
+                            <p class="offer-card-desc"><?php esc_html_e( 'Car, truck and motorcycle content for each state.', 'drive' ); ?></p>
+                        </div>
                     </div>
 
                 </div><!-- .offer-cards-grid -->
+
+                <!-- Mobile Only CTA Action Button (Positioned after cards as in screenshot) -->
+                <div class="offer-cta-wrap offer-cta-mobile">
+                    <a href="#state-selector" class="btn-hero-orange btn-offer-cta" id="btn-offer-start-free-mobile">
+                        <span class="btn-label"><?php esc_html_e( 'Start Practicing Free', 'drive' ); ?></span>
+                        <span class="btn-arrow-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 10h12M11 5l5 5-5 5"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+
             </div><!-- .offer-cards-col -->
 
         </div><!-- .offer-grid-layout -->
