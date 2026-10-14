@@ -25,17 +25,17 @@ if ( function_exists( 'drive_get_states' ) ) {
 
 <section id="what-we-offer" class="homepage-section what-we-offer-section" aria-labelledby="what-we-offer-heading">
     
-    <!-- Perspective Road Background Graphic: Simple clean straight lines on left and right with center dashed divider -->
+    <!-- Perspective Road Background Graphic: Background extends beyond left and right lines -->
     <div class="offer-road-bg" aria-hidden="true">
         <svg class="offer-road-svg" viewBox="0 0 500 700" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Road Surface -->
-            <polygon points="40,700 220,0 280,0 460,700" fill="#34364D" />
+            <!-- Road Background Surface (Extended to the left and right) -->
+            <polygon points="0,700 185,0 315,0 500,700" fill="#34364D" />
             
-            <!-- Simple Straight Line on Left -->
-            <line x1="40" y1="700" x2="220" y2="0" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2" />
+            <!-- Simple Straight Line on Left (Inside road bg) -->
+            <line x1="65" y1="700" x2="220" y2="0" stroke="rgba(255, 255, 255, 0.18)" stroke-width="2" />
             
-            <!-- Simple Straight Line on Right -->
-            <line x1="460" y1="700" x2="280" y2="0" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2" />
+            <!-- Simple Straight Line on Right (Inside road bg) -->
+            <line x1="435" y1="700" x2="280" y2="0" stroke="rgba(255, 255, 255, 0.18)" stroke-width="2" />
             
             <!-- Dashed Center Divider Line -->
             <line x1="250" y1="700" x2="250" y2="0" stroke="rgba(255, 255, 255, 0.28)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="16 18" />
