@@ -21,17 +21,15 @@
     color: #ffffff;
 }
 
-/* Perspective Road & Footpath SVG Graphic */
+/* Perspective Road SVG Graphic matching Figma Specs */
 .offer-road-bg {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: max(0px, calc(50% - 640px));
-    width: 580px;
-    max-width: 50vw;
-    height: 100%;
+    top: -20px;
+    left: -60px;
+    width: 820px;
+    height: 760px;
     pointer-events: none;
-    z-index: 1;
+    z-index: 0;
     opacity: 1;
 }
 
@@ -58,6 +56,7 @@
     grid-template-columns: 1.05fr 1fr;
     align-items: center;
     gap: 4.5rem;
+    position: relative;
 }
 
 /* ==========================================================================
@@ -67,6 +66,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
+    z-index: 1;
 }
 
 /* Small Teal Category Tag */

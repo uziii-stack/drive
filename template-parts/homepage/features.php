@@ -24,27 +24,27 @@ if ( function_exists( 'drive_get_states' ) ) {
 ?>
 
 <section id="what-we-offer" class="homepage-section what-we-offer-section" aria-labelledby="what-we-offer-heading">
-    
-    <!-- Perspective Road Background Graphic: Background extends beyond left and right lines -->
-    <div class="offer-road-bg" aria-hidden="true">
-        <svg class="offer-road-svg" viewBox="0 0 500 700" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Road Background Surface (Extended to the left and right) -->
-            <polygon points="0,700 185,0 315,0 500,700" fill="#34364D" />
-            
-            <!-- Simple Straight Line on Left (Inside road bg) -->
-            <line x1="65" y1="700" x2="220" y2="0" stroke="rgba(255, 255, 255, 0.18)" stroke-width="2" />
-            
-            <!-- Simple Straight Line on Right (Inside road bg) -->
-            <line x1="435" y1="700" x2="280" y2="0" stroke="rgba(255, 255, 255, 0.18)" stroke-width="2" />
-            
-            <!-- Dashed Center Divider Line -->
-            <line x1="250" y1="700" x2="250" y2="0" stroke="rgba(255, 255, 255, 0.28)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="16 18" />
-        </svg>
-    </div>
 
     <div class="site-container offer-container">
         <div class="offer-grid-layout">
             
+            <!-- Perspective Road Background Graphic from Figma Specs -->
+            <div class="offer-road-bg" aria-hidden="true">
+                <svg class="offer-road-svg" viewBox="0 0 820 760" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Road Surface (Fill #383A52, width 820, height 760) -->
+                    <polygon points="0,760 360,0 460,0 820,760" fill="#383A52" />
+                    
+                    <!-- Left Line (Stroke #4A4C66, width 6px, exactly 20px inside road) -->
+                    <line x1="20" y1="760" x2="380" y2="0" stroke="#4A4C66" stroke-width="6" stroke-linecap="round" />
+                    
+                    <!-- Right Line (Stroke #4A4C66, width 6px, exactly 20px inside road) -->
+                    <line x1="800" y1="760" x2="440" y2="0" stroke="#4A4C66" stroke-width="6" stroke-linecap="round" />
+                    
+                    <!-- Middle Dashed Line (#FFFFFF2E, width 6px, dashes: 40 34) -->
+                    <line x1="410" y1="760" x2="410" y2="0" stroke="#FFFFFF2E" stroke-width="6" stroke-linecap="round" stroke-dasharray="40 34" />
+                </svg>
+            </div>
+
             <!-- Left Column: Copy & CTA -->
             <div class="offer-content-col">
                 
