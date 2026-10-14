@@ -24,14 +24,13 @@
 /* Perspective Road SVG Graphic matching Figma Specs */
 .offer-road-bg {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: max(0px, calc(50% - 640px));
-    width: 620px;
-    max-width: 50vw;
-    height: 100%;
+    top: -6rem;
+    bottom: -6.5rem;
+    height: calc(100% + 12.5rem);
+    left: -70px;
+    width: 740px;
     pointer-events: none;
-    z-index: 1;
+    z-index: 0;
     opacity: 0.7;
 }
 
@@ -260,6 +259,9 @@
 
     /* Road SVG is centered behind the content on tablet & mobile */
     .offer-road-bg {
+        top: -4.5rem;
+        bottom: -5rem;
+        height: calc(100% + 9.5rem);
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
