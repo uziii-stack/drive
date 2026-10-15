@@ -668,6 +668,178 @@
 }
 
 /* ==========================================================================
+   3.5. What's Inside Section (Dark Charcoal Horizontal Strip)
+   ========================================================================== */
+.state-whats-inside-section {
+    background-color: #202232;
+    color: #FFFFFF;
+    padding: 2.25rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    z-index: 5;
+    width: 100%;
+}
+
+.whats-inside-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-left: clamp(1.25rem, 4vw, 2.5rem);
+    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.whats-inside-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+}
+
+/* Left Title Column */
+.whats-inside-heading-col {
+    flex: 0 0 auto;
+    max-width: 280px;
+}
+
+.whats-inside-eyebrow {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-teal);
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.whats-inside-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: -0.015em;
+}
+
+/* Right Features Row */
+.whats-inside-features-grid {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.inside-feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+/* Teal Icon Box */
+.feature-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background-color: rgba(0, 180, 166, 0.15);
+    color: var(--color-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 180, 166, 0.25);
+    flex-shrink: 0;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.inside-feature-card:hover .feature-icon-badge {
+    transform: translateY(-2px);
+    background-color: rgba(0, 180, 166, 0.25);
+}
+
+.feature-icon-badge svg {
+    display: block;
+}
+
+/* Feature Description Text */
+.feature-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #E6E7EB;
+}
+
+.feature-highlight {
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+/* Responsive adjustments for What's Inside */
+@media (max-width: 1100px) {
+    .whats-inside-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.75rem;
+    }
+
+    .whats-inside-heading-col {
+        max-width: 100%;
+    }
+
+    .whats-inside-features-grid {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .state-whats-inside-section {
+        padding: 1.75rem 0 2rem;
+    }
+
+    .whats-inside-title {
+        font-size: 1.125rem;
+    }
+
+    .whats-inside-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem 1rem;
+    }
+
+    .inside-feature-card {
+        gap: 0.55rem;
+    }
+
+    .feature-icon-badge {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+    }
+
+    .feature-icon-badge svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .feature-text {
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .whats-inside-features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .inside-feature-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+    }
+}
+
+/* ==========================================================================
    4. Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 1024px) {

@@ -58,6 +58,17 @@
                 mockupStack.setAttribute('data-active-veh', vehType);
             }
 
+            // Update What's Inside section dynamically
+            var insideTitle = document.querySelector('.inside-title-text');
+            var insideCount = document.getElementById('insideQuestionCount');
+            if (insideTitle) {
+                var vName = vehType === 'motorcycle' ? 'Motorcycle' : (vehType === 'cdl' ? 'CDL' : 'Car');
+                insideTitle.textContent = 'Everything in your ' + vName + ' cheat sheet';
+            }
+            if (insideCount) {
+                insideCount.textContent = vehType === 'cdl' ? '250' : '150';
+            }
+
             // Also synchronize with desktop header vehicle switcher if available
             var headerVehBtns = document.querySelectorAll('.header-vehicle-switcher .vehicle-switch-btn');
             if (headerVehBtns.length) {

@@ -30,10 +30,11 @@ if ( get_query_var( 'drive_state' ) ) {
 
 <div class="state-page-wrapper">
     <?php
-    // Hero Section for State Page matching the reference design
+    // Hero Section for State Page matching reference
     get_template_part( 'template-parts/states/hero' );
 
-    // Additional state page sections can be added here or reuse modular components
+    // What's Inside Feature Bar matching reference
+    get_template_part( 'template-parts/states/whats-inside' );
     ?>
 </div>
 
