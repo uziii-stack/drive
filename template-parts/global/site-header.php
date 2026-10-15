@@ -152,7 +152,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                             ?>
                                 <div class="state-mega-column">
                                     <?php foreach ( $chunk as $st_code => $st_data ) : 
-                                        $st_url = home_url( '/' . esc_attr( $st_data['slug'] ) . '/' . esc_attr( $current_veh_slug ) . '/' );
+                                        $st_url = function_exists( 'drive_get_state_url' ) ? drive_get_state_url( $st_data['slug'] ) : home_url( '/' . esc_attr( $st_data['slug'] ) . '/' );
                                         $is_active = ( $st_data['slug'] === $current_state_slug ) ? 'is-selected' : '';
                                         $st_vb = isset( $us_map_states[ $st_code ]['viewBox'] ) ? $us_map_states[ $st_code ]['viewBox'] : '0 0 975 610';
                                         $st_path = isset( $us_map_states[ $st_code ]['path'] ) ? $us_map_states[ $st_code ]['path'] : '';
@@ -349,7 +349,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
             </div>
             <div class="mobile-modal-states-grid" id="mobileModalStatesGrid">
                 <?php foreach ( $all_states as $st_code => $st_data ) : 
-                    $st_url = home_url( '/' . esc_attr( $st_data['slug'] ) . '/' . esc_attr( $current_veh_slug ) . '/' );
+                    $st_url = function_exists( 'drive_get_state_url' ) ? drive_get_state_url( $st_data['slug'] ) : home_url( '/' . esc_attr( $st_data['slug'] ) . '/' );
                     $is_active = ( $st_data['slug'] === $current_state_slug ) ? 'is-selected' : '';
                     $st_vb = isset( $us_map_states[ $st_code ]['viewBox'] ) ? $us_map_states[ $st_code ]['viewBox'] : '0 0 975 610';
                     $st_path = isset( $us_map_states[ $st_code ]['path'] ) ? $us_map_states[ $st_code ]['path'] : '';

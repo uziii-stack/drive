@@ -110,7 +110,7 @@ $zone_5 = array( 'PA', 'NY', 'NJ', 'CT', 'RI', 'MA', 'VT', 'NH', 'ME' );
                             elseif ( in_array( $code, $zone_4, true ) ) $zone_class = 'zone-4';
                             elseif ( in_array( $code, $zone_5, true ) ) $zone_class = 'zone-5';
 
-                            $state_url = home_url( '/' . esc_attr( $state['slug'] ) . '/car-practice-test/' );
+                            $state_url = function_exists( 'drive_get_state_url' ) ? drive_get_state_url( $state['slug'] ) : home_url( '/' . esc_attr( $state['slug'] ) . '/' );
                         ?>
                             <path 
                                 id="state-path-<?php echo esc_attr( $code ); ?>"
@@ -141,8 +141,10 @@ $zone_5 = array( 'PA', 'NY', 'NJ', 'CT', 'RI', 'MA', 'VT', 'NH', 'ME' );
                     <label for="state-map-dropdown" class="screen-reader-text"><?php esc_html_e( 'Select state from dropdown', 'drive' ); ?></label>
                     <select id="state-map-dropdown" class="state-map-dropdown" aria-label="<?php esc_attr_e( 'Select your state from the list', 'drive' ); ?>">
                         <option value="" selected><?php esc_html_e( 'Or select your state from the list...', 'drive' ); ?></option>
-                        <?php foreach ( $all_states as $st_code => $st_data ) : ?>
-                            <option value="<?php echo esc_url( home_url( '/' . esc_attr( $st_data['slug'] ) . '/car-practice-test/' ) ); ?>">
+                        <?php foreach ( $all_states as $st_code => $st_data ) : 
+                            $opt_url = function_exists( 'drive_get_state_url' ) ? drive_get_state_url( $st_data['slug'] ) : home_url( '/' . esc_attr( $st_data['slug'] ) . '/' );
+                        ?>
+                            <option value="<?php echo esc_url( $opt_url ); ?>">
                                 <?php echo esc_html( $st_data['name'] ); ?>
                             </option>
                         <?php endforeach; ?>

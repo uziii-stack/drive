@@ -59,6 +59,21 @@ add_filter( 'query_vars', 'drive_register_query_vars' );
  */
 function drive_state_rewrite_rules() {
     add_rewrite_tag( '%drive_state%', '([^&/]+)' );
+
+    $all_states = function_exists( 'drive_get_all_states' ) ? drive_get_all_states() : array();
+    $slugs = array();
+    foreach ( $all_states as $code => $data ) {
+        if ( ! empty( $data['slug'] ) ) {
+            $slugs[] = preg_quote( $data['slug'], '#' );
+        }
+    }
+
+    if ( ! empty( $slugs ) ) {
+        $pattern = '^(' . implode( '|', $slugs ) . ')/?$';
+        add_rewrite_rule( $pattern, 'index.php?drive_state=$matches[1]', 'top' );
+    }
+
+    // Also support fallback pattern
     add_rewrite_rule( '^([a-z\-]+)/?$', 'index.php?drive_state=$matches[1]', 'bottom' );
 }
 add_action( 'init', 'drive_state_rewrite_rules' );
@@ -71,6 +86,33 @@ add_action( 'init', 'drive_state_rewrite_rules' );
  */
 function drive_state_template_include( $template ) {
     $state = get_query_var( 'drive_state' );
+
+    // If query var isn't set yet (e.g. rewrite cache pending or query param ?state=xyz)
+    if ( empty( $state ) && isset( $_GET['state'] ) && ! empty( $_GET['state'] ) ) {
+        $state = sanitize_title( wp_unslash( $_GET['state'] ) );
+    }
+
+    // Direct path detection fallback if permalinks are not flushed yet
+    if ( empty( $state ) ) {
+        $req_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+        $site_path = wp_parse_url( home_url(), PHP_URL_PATH );
+        if ( ! empty( $site_path ) && $site_path !== '/' ) {
+            $req_uri = substr( $req_uri, strlen( rtrim( $site_path, '/' ) ) );
+        }
+        $parts = explode( '?', $req_uri );
+        $path = trim( $parts[0], '/' );
+        if ( ! empty( $path ) && strpos( $path, '/' ) === false ) {
+            $all_states = function_exists( 'drive_get_all_states' ) ? drive_get_all_states() : array();
+            foreach ( $all_states as $code => $data ) {
+                if ( $data['slug'] === $path || strtolower( $code ) === strtolower( $path ) ) {
+                    $state = $data['slug'];
+                    set_query_var( 'drive_state', $state );
+                    break;
+                }
+            }
+        }
+    }
+
     if ( ! empty( $state ) ) {
         $all_states = function_exists( 'drive_get_all_states' ) ? drive_get_all_states() : array();
         $is_valid_state = false;
@@ -84,6 +126,12 @@ function drive_state_template_include( $template ) {
         if ( $is_valid_state ) {
             $state_template = DRIVE_THEME_DIR . '/templates/states/state-hub.php';
             if ( file_exists( $state_template ) ) {
+                // Ensure 200 HTTP status if it was treated as 404
+                status_header( 200 );
+                global $wp_query;
+                if ( is_object( $wp_query ) ) {
+                    $wp_query->is_404 = false;
+                }
                 return $state_template;
             }
         }

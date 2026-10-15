@@ -161,3 +161,31 @@ function drive_get_vehicle_types() {
         ),
     );
 }
+
+/**
+ * Generate correct state page URL supporting both pretty and query-based permalinks
+ *
+ * @param string $state_slug State slug (e.g. 'california').
+ * @param string $vehicle_slug Optional vehicle test slug.
+ * @return string
+ */
+function drive_get_state_url( $state_slug, $vehicle_slug = '' ) {
+    $perm_structure = get_option( 'permalink_structure' );
+    
+    // If permalinks are empty or use plain default, or contain index.php
+    if ( empty( $perm_structure ) ) {
+        $url = home_url( '/?state=' . urlencode( $state_slug ) );
+        if ( ! empty( $vehicle_slug ) ) {
+            $url = add_query_arg( 'veh', $vehicle_slug, $url );
+        }
+        return $url;
+    }
+
+    // Standard pretty URL
+    $path = '/' . trim( $state_slug, '/' ) . '/';
+    if ( ! empty( $vehicle_slug ) ) {
+        $path .= trim( $vehicle_slug, '/' ) . '/';
+    }
+
+    return home_url( $path );
+}
