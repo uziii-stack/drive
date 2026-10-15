@@ -90,6 +90,11 @@ function drive_scripts() {
         wp_enqueue_style( 'drive-404-style', DRIVE_THEME_URI . '/assets/css/components/404.css', array( 'drive-main-style' ), $error_404_version );
     }
 
+    // State Page Component CSS
+    $state_hero_css_path = DRIVE_THEME_DIR . '/assets/css/components/state-hero.css';
+    $state_hero_version  = file_exists( $state_hero_css_path ) ? filemtime( $state_hero_css_path ) : $theme_version;
+    wp_enqueue_style( 'drive-state-hero-style', DRIVE_THEME_URI . '/assets/css/components/state-hero.css', array( 'drive-main-style' ), $state_hero_version );
+
 
     // Main JS (Lightweight vanilla JS)
     $main_js_path = DRIVE_THEME_DIR . '/assets/js/main.js';
@@ -127,6 +132,20 @@ function drive_scripts() {
         DRIVE_THEME_URI . '/assets/js/components/smooth-scroll.js',
         array( 'drive-main-script' ),
         $smooth_scroll_js_ver,
+        array(
+            'in_footer' => true,
+            'strategy'  => 'defer',
+        )
+    );
+
+    // State Hero Component JS
+    $state_hero_js_path = DRIVE_THEME_DIR . '/assets/js/components/state-hero.js';
+    $state_hero_js_ver  = file_exists( $state_hero_js_path ) ? filemtime( $state_hero_js_path ) : $theme_version;
+    wp_enqueue_script(
+        'drive-state-hero-script',
+        DRIVE_THEME_URI . '/assets/js/components/state-hero.js',
+        array( 'drive-main-script' ),
+        $state_hero_js_ver,
         array(
             'in_footer' => true,
             'strategy'  => 'defer',

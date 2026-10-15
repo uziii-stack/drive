@@ -1,0 +1,778 @@
+/**
+ * State Page Hero Section Styles
+ * Matches Figma and reference design:
+ * - Clean white/light gray background
+ * - Left column: Pill badge, H1, Subtitle, Vehicle Switcher Chips, Orange CTA, Trust line
+ * - Right column: Fanned 3D cheat sheet mockups with CDL, Car (with aerial intersection artwork), Motorcycle & floating Printable PDF badge
+ */
+
+/* ==========================================================================
+   1. State Hero Wrapper & Background
+   ========================================================================== */
+.state-page-hero {
+    position: relative;
+    background-color: #FFFFFF;
+    color: var(--color-charcoal);
+    padding: clamp(3rem, 6vw, 5.5rem) 0 clamp(3.5rem, 7vw, 6.5rem);
+    overflow: hidden;
+    width: 100%;
+}
+
+.state-hero-road-backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.state-hero-road-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.state-hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-left: clamp(1.25rem, 4vw, 2.5rem);
+    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.state-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+}
+
+/* ==========================================================================
+   2. Left Column: Content, Typography & Controls
+   ========================================================================== */
+.state-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 620px;
+}
+
+/* State Badge Pill */
+.state-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #202232;
+    color: #FFFFFF;
+    padding: 0.35rem 0.95rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.state-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-teal);
+    display: inline-block;
+}
+
+/* Main H1 Headline */
+.state-hero-h1 {
+    font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: #202232;
+    margin: 0 0 1.25rem 0;
+}
+
+/* Subtitle Description */
+.state-hero-description {
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    line-height: 1.6;
+    color: #55576D;
+    margin: 0 0 2rem 0;
+    max-width: 540px;
+}
+
+/* Vehicle Switcher Tabs / Chips */
+.state-vehicle-tabs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.state-veh-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: transparent;
+    color: #2B2D42;
+    border: 1.5px solid transparent;
+    border-radius: 999px;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+}
+
+.state-veh-tab:hover {
+    background-color: #F4F5F7;
+    color: #202232;
+}
+
+.state-veh-tab.is-active {
+    background-color: #202232;
+    color: #FFFFFF;
+    border-color: #202232;
+    box-shadow: 0 4px 14px rgba(32, 34, 50, 0.18);
+}
+
+.state-veh-tab .veh-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.state-veh-tab .veh-icon svg {
+    display: block;
+}
+
+/* Orange CTA Button */
+.state-hero-cta-wrap {
+    margin-bottom: 1.75rem;
+    width: 100%;
+}
+
+.btn-primary-orange.state-hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background-color: #F26419;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: 0.95rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(242, 100, 25, 0.28);
+    transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary-orange.state-hero-cta-btn:hover {
+    background-color: #D9561A;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(242, 100, 25, 0.35);
+}
+
+.btn-primary-orange.state-hero-cta-btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary-orange .cta-btn-arrow {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary-orange:hover .cta-btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Trust Guarantee Bar */
+.state-hero-trust-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.65rem;
+    font-size: 0.875rem;
+    color: #55576D;
+}
+
+.trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.trust-item .trust-icon {
+    color: var(--color-teal);
+    display: inline-flex;
+    align-items: center;
+}
+
+.trust-bullet {
+    color: #C9CAD3;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   3. Right Column: Fanned Mockup Stage & Cheat Sheets
+   ========================================================================== */
+.state-hero-visual-col {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.state-mockup-stage {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    padding: 2.5rem 1.5rem 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Subtle soft backdrop glow */
+.state-mockup-stage::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 95%;
+    top: 5%;
+    left: 0;
+    background: radial-gradient(circle at center, rgba(230, 231, 235, 0.45) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 32px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Fanned 3D Cards Stack */
+.cheat-sheets-fanned-stack {
+    position: relative;
+    width: 320px;
+    height: 440px;
+    perspective: 1200px;
+    z-index: 1;
+}
+
+/* Common Card Styles */
+.cheat-sheet-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 270px;
+    height: 380px;
+    border-radius: 16px;
+    background-color: #2B2D42;
+    color: #FFFFFF;
+    box-shadow: 0 16px 36px rgba(20, 21, 33, 0.22), 0 4px 12px rgba(20, 21, 33, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, opacity 0.4s ease, z-index 0.4s ease;
+    cursor: pointer;
+}
+
+/* 1. Left Card: Truck (CDL) */
+.cheat-sheet-card.card-cdl {
+    transform: translate(-50px, 35px) rotate(-11deg) scale(0.92);
+    z-index: 1;
+    background-color: #232536;
+    opacity: 0.92;
+}
+
+.cheat-sheet-card.card-cdl:hover {
+    transform: translate(-55px, 20px) rotate(-8deg) scale(0.95);
+    z-index: 5;
+    opacity: 1;
+    box-shadow: 0 24px 44px rgba(20, 21, 33, 0.32);
+}
+
+/* 2. Right Card: Motorcycle */
+.cheat-sheet-card.card-motorcycle {
+    transform: translate(95px, 15px) rotate(11deg) scale(0.92);
+    z-index: 2;
+    background-color: #25273A;
+    opacity: 0.92;
+}
+
+.cheat-sheet-card.card-motorcycle:hover {
+    transform: translate(100px, 0px) rotate(8deg) scale(0.95);
+    z-index: 5;
+    opacity: 1;
+    box-shadow: 0 24px 44px rgba(20, 21, 33, 0.32);
+}
+
+/* 3. Center Card: Car Permit Test (Primary Hero Card) */
+.cheat-sheet-card.card-car {
+    transform: translate(25px, 0) rotate(0deg) scale(1);
+    z-index: 4;
+    background-color: #202232;
+    box-shadow: 0 24px 48px rgba(20, 21, 33, 0.28), 0 8px 16px rgba(20, 21, 33, 0.12);
+}
+
+.cheat-sheet-card.card-car:hover {
+    transform: translate(25px, -8px) scale(1.02);
+    box-shadow: 0 30px 56px rgba(20, 21, 33, 0.35);
+}
+
+/* Active Highlight dynamically triggered by tabs */
+.cheat-sheets-fanned-stack[data-active-veh="cdl"] .card-cdl {
+    transform: translate(25px, 0) rotate(0deg) scale(1);
+    z-index: 5;
+    opacity: 1;
+    box-shadow: 0 28px 52px rgba(20, 21, 33, 0.32);
+}
+.cheat-sheets-fanned-stack[data-active-veh="cdl"] .card-car {
+    transform: translate(-50px, 35px) rotate(-11deg) scale(0.92);
+    z-index: 2;
+    opacity: 0.85;
+}
+
+.cheat-sheets-fanned-stack[data-active-veh="motorcycle"] .card-motorcycle {
+    transform: translate(25px, 0) rotate(0deg) scale(1);
+    z-index: 5;
+    opacity: 1;
+    box-shadow: 0 28px 52px rgba(20, 21, 33, 0.32);
+}
+.cheat-sheets-fanned-stack[data-active-veh="motorcycle"] .card-car {
+    transform: translate(95px, 35px) rotate(11deg) scale(0.92);
+    z-index: 2;
+    opacity: 0.85;
+}
+
+/* Sheet Internal Layout */
+.sheet-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.15rem 1.15rem 0.85rem;
+    box-sizing: border-box;
+}
+
+/* Sheet Header */
+.sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+}
+
+.sheet-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.sheet-mini-logo {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--color-teal);
+    background: transparent;
+    position: relative;
+}
+
+.sheet-mini-logo::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sheet-brand-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.525rem;
+    line-height: 1.1;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.sheet-pill-tag {
+    font-size: 0.55rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-teal);
+    background: rgba(0, 180, 166, 0.12);
+    border: 1px solid rgba(0, 180, 166, 0.3);
+    padding: 0.15rem 0.45rem;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+}
+
+/* Sheet Title Area */
+.sheet-title-area {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+}
+
+.sheet-state-name {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #8C8E9F;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.15rem;
+}
+
+.sheet-big-num {
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+}
+
+.sheet-big-num.orange-accent {
+    color: #F26419;
+}
+
+.sheet-big-num.cdl-accent {
+    color: #FFB703;
+}
+
+.sheet-main-title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #FFFFFF;
+    max-width: 190px;
+}
+
+/* Sheet Graphic Artwork Box */
+.sheet-graphic-preview {
+    flex: 1;
+    border-radius: 8px;
+    background: #181924;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Realistic Aerial Intersection Scene (Car Sheet) */
+.intersection-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2F3142;
+}
+
+/* Pavement Sidewalk Corners */
+.intersection-scene::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 0% 0%, #D8D9E0 32%, transparent 33%),
+        radial-gradient(circle at 100% 0%, #D8D9E0 32%, transparent 33%),
+        radial-gradient(circle at 0% 100%, #D8D9E0 32%, transparent 33%),
+        radial-gradient(circle at 100% 100%, #D8D9E0 32%, transparent 33%);
+}
+
+/* Vertical and Horizontal Asphalt Roads */
+.road-surface-v {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 32%;
+    width: 36%;
+    background-color: #262736;
+}
+
+.road-surface-h {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30%;
+    height: 40%;
+    background-color: #262736;
+}
+
+/* Road Zebra Crosswalks */
+.crosswalk-stripes {
+    position: absolute;
+    background-image: repeating-linear-gradient(90deg, #FFFFFF, #FFFFFF 4px, transparent 4px, transparent 8px);
+    opacity: 0.85;
+}
+
+.crosswalk-stripes.n {
+    top: 26%;
+    left: 34%;
+    width: 32%;
+    height: 6px;
+}
+
+.crosswalk-stripes.s {
+    bottom: 26%;
+    left: 34%;
+    width: 32%;
+    height: 6px;
+}
+
+/* Aerial Cars & Details */
+.aerial-car.teal-sedan {
+    position: absolute;
+    width: 14px;
+    height: 26px;
+    background: #00B4A6;
+    border-radius: 4px;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%) rotate(5deg);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.aerial-car .windshield {
+    position: absolute;
+    width: 8px;
+    height: 6px;
+    background: #181924;
+    border-radius: 2px;
+    top: 4px;
+    left: 3px;
+}
+
+.aerial-truck.white-truck {
+    position: absolute;
+    width: 16px;
+    height: 38px;
+    background: #F8F9FA;
+    border-radius: 3px;
+    bottom: 12%;
+    left: 12%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.mini-stop-sign {
+    position: absolute;
+    top: 72%;
+    left: 28%;
+    background: #E63946;
+    color: #FFFFFF;
+    font-size: 4px;
+    font-weight: 800;
+    padding: 1px 2px;
+    border-radius: 1px;
+    line-height: 1;
+}
+
+/* Traffic Light Pillars */
+.intersection-light {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #2EC4B6;
+    box-shadow: 0 0 6px #2EC4B6;
+}
+
+.intersection-light.tr {
+    top: 24%;
+    right: 28%;
+}
+
+/* CDL & Motorcycle preview graphic fallbacks */
+.cdl-road-scene, .moto-road-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #202232;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.curved-road-arc {
+    width: 120px;
+    height: 120px;
+    border: 14px solid #383A52;
+    border-style: dashed;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.traffic-light-post.right {
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00B4A6;
+    box-shadow: 0 0 8px #00B4A6;
+}
+
+/* Sheet Footer Bar */
+.sheet-footer-bar {
+    font-size: 0.485rem;
+    color: #8C8E9F;
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+/* Floating Printable PDF Badge (Bottom Right matching screenshot) */
+.floating-pdf-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #FFFFFF;
+    color: #202232;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 1.15rem;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+    border: 1px solid #E6E7EB;
+    font-size: 0.875rem;
+    font-weight: 700;
+    z-index: 10;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-pdf-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+.pdf-badge-icon {
+    color: var(--color-teal);
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ==========================================================================
+   4. Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .state-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+        text-align: left;
+    }
+
+    .state-hero-content {
+        max-width: 100%;
+    }
+
+    .state-hero-visual-col {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .state-mockup-stage {
+        max-width: 480px;
+    }
+}
+
+@media (max-width: 640px) {
+    .state-page-hero {
+        padding: 2.5rem 0 3.5rem;
+    }
+
+    .state-hero-h1 {
+        font-size: 2.125rem;
+    }
+
+    .state-hero-description {
+        font-size: 0.95rem;
+    }
+
+    .state-vehicle-tabs {
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .state-veh-tab {
+        padding: 0.5rem 0.95rem;
+        font-size: 0.875rem;
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+
+    .btn-primary-orange.state-hero-cta-btn {
+        width: 100%;
+        font-size: 1.05rem;
+        padding: 0.9rem 1.5rem;
+    }
+
+    .state-mockup-stage {
+        padding: 1.5rem 0 2.5rem;
+    }
+
+    .cheat-sheets-fanned-stack {
+        width: 280px;
+        height: 390px;
+    }
+
+    .cheat-sheet-card {
+        width: 230px;
+        height: 330px;
+    }
+
+    .cheat-sheet-card.card-cdl {
+        transform: translate(-35px, 25px) rotate(-9deg) scale(0.9);
+    }
+
+    .cheat-sheet-card.card-motorcycle {
+        transform: translate(65px, 15px) rotate(9deg) scale(0.9);
+    }
+
+    .cheat-sheet-card.card-car {
+        transform: translate(15px, 0) rotate(0deg) scale(1);
+    }
+
+    .floating-pdf-badge {
+        bottom: 0px;
+        right: 5px;
+        font-size: 0.8125rem;
+        padding: 0.5rem 0.95rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .state-vehicle-tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .state-veh-tab {
+        width: 100%;
+    }
+
+    .cheat-sheets-fanned-stack {
+        width: 250px;
+        height: 360px;
+    }
+
+    .cheat-sheet-card {
+        width: 210px;
+        height: 300px;
+    }
+}
