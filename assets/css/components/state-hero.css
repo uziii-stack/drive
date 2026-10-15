@@ -1165,6 +1165,118 @@
 }
 
 /* ==========================================================================
+   3.9. State FAQ Section Styles
+   ========================================================================== */
+.state-faq-section {
+    background-color: #F8F9FA;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+    width: 100%;
+    border-top: 1px solid #E6E7EB;
+}
+
+.state-faq-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-left: clamp(1.25rem, 4vw, 2.5rem);
+    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.state-faq-split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: flex-start;
+}
+
+/* Left Column */
+.state-faq-left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 440px;
+}
+
+.state-faq-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-teal);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.state-faq-title {
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #202232;
+    letter-spacing: -0.025em;
+    margin: 0 0 1rem 0;
+}
+
+.state-faq-desc {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    color: #55576D;
+    margin: 0 0 1.5rem 0;
+}
+
+/* Handbook Link */
+.state-faq-handbook-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #202232;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--color-teal);
+    text-decoration-thickness: 2px;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.state-faq-handbook-link:hover {
+    color: var(--color-teal);
+}
+
+.state-faq-handbook-link .handbook-arrow {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+    color: #202232;
+}
+
+.state-faq-handbook-link:hover .handbook-arrow {
+    transform: translateX(4px);
+    color: var(--color-teal);
+}
+
+/* Right Column: Accordion */
+.state-faq-right-col {
+    width: 100%;
+}
+
+.state-faq-right-col .faq-accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Responsive FAQ */
+@media (max-width: 960px) {
+    .state-faq-split-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .state-faq-left-col {
+        max-width: 100%;
+    }
+}
+
+/* ==========================================================================
    4. Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 1024px) {
