@@ -1277,6 +1277,200 @@
 }
 
 /* ==========================================================================
+   3.10. "Not in [State]?" Switcher Card Banner
+   ========================================================================== */
+.state-switcher-banner-section {
+    background-color: #FFFFFF;
+    padding: clamp(3rem, 5vw, 4.5rem) 0 clamp(4rem, 6vw, 6rem);
+    width: 100%;
+}
+
+.state-switcher-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-left: clamp(1.25rem, 4vw, 2.5rem);
+    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* Outer Rounded Card with Dark Border */
+.state-switcher-card {
+    background-color: #FFFFFF;
+    border: 2px solid #202232;
+    border-radius: 28px;
+    padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(1.5rem, 4vw, 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    box-sizing: border-box;
+}
+
+/* Left: Title & Quick State Chips */
+.switcher-left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.15rem;
+    flex: 1 1 auto;
+}
+
+.switcher-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #202232;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.switcher-chips-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.state-quick-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.15rem;
+    border-radius: 999px;
+    border: 1px solid #DCDDE3;
+    background-color: #FFFFFF;
+    color: #202232;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.state-quick-chip:hover {
+    background-color: #202232;
+    color: #FFFFFF;
+    border-color: #202232;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(32, 34, 50, 0.15);
+}
+
+/* Right: Dropdown + Go Button */
+.switcher-right-col {
+    flex: 0 0 auto;
+}
+
+.switcher-select-form {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.switcher-select-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.switcher-select-dropdown {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #FFFFFF;
+    border: 1px solid #DCDDE3;
+    border-radius: 12px;
+    padding: 0.75rem 2.5rem 0.75rem 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    font-family: inherit;
+    color: #202232;
+    cursor: pointer;
+    min-width: 230px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.switcher-select-dropdown:focus {
+    outline: none;
+    border-color: var(--color-teal);
+    box-shadow: 0 0 0 3px rgba(0, 180, 166, 0.15);
+}
+
+.switcher-select-wrap .select-arrow {
+    position: absolute;
+    right: 1.15rem;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Go Button */
+.btn-switcher-go {
+    background-color: #202232;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-switcher-go:hover {
+    background-color: #383A52;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(32, 34, 50, 0.2);
+}
+
+.btn-switcher-go:active {
+    transform: translateY(0);
+}
+
+/* Responsive Switcher */
+@media (max-width: 900px) {
+    .state-switcher-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.75rem;
+        border-radius: 22px;
+        padding: 1.75rem 1.5rem;
+    }
+
+    .switcher-right-col {
+        width: 100%;
+    }
+
+    .switcher-select-form {
+        width: 100%;
+    }
+
+    .switcher-select-wrap {
+        flex: 1 1 auto;
+    }
+
+    .switcher-select-dropdown {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .switcher-select-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .btn-switcher-go {
+        width: 100%;
+        padding: 0.85rem;
+    }
+
+    .state-quick-chip {
+        font-size: 0.8125rem;
+        padding: 0.4rem 0.85rem;
+    }
+}
+
+/* ==========================================================================
    4. Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 1024px) {
