@@ -620,12 +620,6 @@
 /* ==========================================================================
    2.8. Client-Specific Cheat Sheet Cover Styles (Matches Reference Exactly)
    ========================================================================== */
-.sheet-inner.client-cover-style,
-.cover-inner.client-cover-style {
-    position: relative;
-    overflow: hidden;
-    background-color: #262838;
-}
 
 /* Dashed Circular Arc in Top-Right */
 .cover-dashed-arc {
@@ -722,16 +716,44 @@
     margin-top: 0.2rem;
 }
 
-/* High-Res Aerial Intersection Photo */
+/* High-Res Aerial Intersection Photo (Bleeds edge-to-edge flush like client design) */
+.sheet-inner.client-cover-style,
+.cover-inner.client-cover-style {
+    position: relative;
+    overflow: hidden;
+    background-color: #262838;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0.75rem;
+}
+
+.sheet-inner.client-cover-style .sheet-header,
+.sheet-inner.client-cover-style .sheet-title-area,
+.cover-inner.client-cover-style .cover-header,
+.cover-inner.client-cover-style .cover-title-area {
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
+}
+
+.cover-inner.client-cover-style .cover-header,
+.cover-inner.client-cover-style .cover-title-area {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
 .sheet-graphic-preview.has-photo,
 .cover-art-box.has-photo {
     flex: 1;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0;
     background: #1e202e;
-    margin: 0.5rem 0;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 0.65rem 0 0.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: none;
+    border-right: none;
+    width: 100%;
 }
 
 .aerial-photo-img {
@@ -742,18 +764,25 @@
     display: block;
 }
 
-/* Client Cover Footer */
+/* Client Cover Footer (Flush horizontal padding with side-by-side or stacked meta) */
 .sheet-footer-bar.client-cover-footer,
 .cover-footer-bar.client-cover-footer {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.15rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
     font-size: 0.45rem;
     color: #A0A2B3;
     line-height: 1.25;
-    padding-top: 0.2rem;
+    padding: 0.35rem 1.15rem 0;
     text-align: left;
+    flex-wrap: wrap;
+}
+
+.cover-footer-bar.client-cover-footer {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
 }
 
 .client-cover-footer .footer-domain {
