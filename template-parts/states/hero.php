@@ -61,6 +61,8 @@ $veh_labels = array(
     'motorcycle' => __( 'Motorcycle', 'drive' ),
     'cdl'        => __( 'Truck (CDL)', 'drive' ),
 );
+
+$site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_logo_src() : '';
 ?>
 
 <section id="state-hero" class="state-page-hero" aria-labelledby="state-hero-title">
@@ -224,12 +226,16 @@ $veh_labels = array(
                                 <div class="sheet-header">
                                     <div class="sheet-brand">
                                         <div class="sheet-brand-logo-icon">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
-                                                <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
-                                                <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
-                                                <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
-                                            </svg>
+                                            <?php if ( ! empty( $site_logo_src ) ) : ?>
+                                                <img src="<?php echo esc_url( $site_logo_src ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="custom-logo-img" width="20" height="20" />
+                                            <?php else : ?>
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
+                                                    <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
+                                                    <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
+                                                    <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
+                                                </svg>
+                                            <?php endif; ?>
                                         </div>
                                         <div class="sheet-brand-text">
                                             <span class="brand-top">DMV Learners</span>
@@ -269,12 +275,16 @@ $veh_labels = array(
                                 <div class="sheet-header">
                                     <div class="sheet-brand">
                                         <div class="sheet-brand-logo-icon">
-                                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
-                                                <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
-                                                <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
-                                                <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
-                                            </svg>
+                                            <?php if ( ! empty( $site_logo_src ) ) : ?>
+                                                <img src="<?php echo esc_url( $site_logo_src ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="custom-logo-img" width="22" height="22" />
+                                            <?php else : ?>
+                                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
+                                                    <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
+                                                    <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
+                                                    <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
+                                                </svg>
+                                            <?php endif; ?>
                                         </div>
                                         <div class="sheet-brand-text">
                                             <span class="brand-top">DMV Learners</span>
@@ -314,12 +324,16 @@ $veh_labels = array(
                                 <div class="sheet-header">
                                     <div class="sheet-brand">
                                         <div class="sheet-brand-logo-icon">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
-                                                <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
-                                                <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
-                                                <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
-                                            </svg>
+                                            <?php if ( ! empty( $site_logo_src ) ) : ?>
+                                                <img src="<?php echo esc_url( $site_logo_src ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="custom-logo-img" width="20" height="20" />
+                                            <?php else : ?>
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
+                                                    <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
+                                                    <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
+                                                    <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
+                                                </svg>
+                                            <?php endif; ?>
                                         </div>
                                         <div class="sheet-brand-text">
                                             <span class="brand-top">DMV Learners</span>

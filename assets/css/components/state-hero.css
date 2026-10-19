@@ -663,7 +663,17 @@
 .sheet-brand-logo-icon {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     line-height: 1;
+    flex-shrink: 0;
+}
+
+.sheet-brand-logo-icon img,
+.cover-brand .sheet-brand-logo-icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: block;
 }
 
 .brand-test-orange {

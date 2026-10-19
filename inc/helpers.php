@@ -189,3 +189,24 @@ function drive_get_state_url( $state_slug, $vehicle_slug = '' ) {
 
     return home_url( $path );
 }
+
+/**
+ * Get site logo URL (custom logo from customizer/site settings, with theme asset fallback)
+ *
+ * @return string Logo image URL or empty string.
+ */
+function drive_get_site_logo_src() {
+    $logo_src = '';
+    if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
+        $custom_logo_id = get_theme_mod( 'custom_logo' );
+        $custom_logo_data = wp_get_attachment_image_src( $custom_logo_id, 'full' );
+        if ( ! empty( $custom_logo_data[0] ) ) {
+            $logo_src = $custom_logo_data[0];
+        }
+    } elseif ( file_exists( get_template_directory() . '/assets/images/logo-icon.png' ) ) {
+        $logo_src = get_template_directory_uri() . '/assets/images/logo-icon.png';
+    } elseif ( file_exists( get_template_directory() . '/assets/images/logo.png' ) ) {
+        $logo_src = get_template_directory_uri() . '/assets/images/logo.png';
+    }
+    return $logo_src;
+}

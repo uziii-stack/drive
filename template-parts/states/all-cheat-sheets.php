@@ -44,6 +44,8 @@ foreach ( $all_states as $code => $data ) {
     }
 }
 
+$site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_logo_src() : '';
+
 $sheets = array(
     'car' => array(
         'type'        => 'car',
@@ -114,12 +116,16 @@ $sheets = array(
                                 <div class="cover-header">
                                     <div class="cover-brand">
                                         <div class="sheet-brand-logo-icon">
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
-                                                <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
-                                                <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
-                                                <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
-                                            </svg>
+                                            <?php if ( ! empty( $site_logo_src ) ) : ?>
+                                                <img src="<?php echo esc_url( $site_logo_src ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="custom-logo-img" width="18" height="18" />
+                                            <?php else : ?>
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
+                                                    <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
+                                                    <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
+                                                    <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
+                                                </svg>
+                                            <?php endif; ?>
                                         </div>
                                         <div class="cover-brand-text">
                                             <span>DMV Learners</span>
