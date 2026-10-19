@@ -140,7 +140,12 @@ $sheets = array(
 
                                 <!-- Photo / Artwork -->
                                 <div class="cover-art-box has-photo">
-                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/intersection-aerial.jpg' ); ?>" 
+                                    <?php 
+                                    $cover_img_name = ( $sheet['vehicle_art'] === 'motorcycle' ) 
+                                        ? 'intersection-motorcycle.jpg' 
+                                        : 'intersection-aerial.jpg';
+                                    ?>
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $cover_img_name ); ?>" 
                                          alt="<?php echo esc_attr( $sheet['title'] ); ?>" 
                                          class="aerial-photo-img" />
                                 </div>
