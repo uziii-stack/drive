@@ -109,12 +109,12 @@ $sheets = array(
                     <div class="sheet-card-stage">
                         <div class="catalog-cover-mockup">
                             
-                            <div class="cover-inner client-cover-style">
+                            <div class="sheet-inner client-cover-style">
                                 <!-- Dashed Circular Accent Pattern -->
                                 <div class="cover-dashed-arc" aria-hidden="true"></div>
 
-                                <div class="cover-header">
-                                    <div class="cover-brand">
+                                <div class="sheet-header">
+                                    <div class="sheet-brand">
                                         <div class="sheet-brand-logo-icon">
                                             <?php if ( ! empty( $site_logo_src ) ) : ?>
                                                 <img src="<?php echo esc_url( $site_logo_src ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="custom-logo-img" width="18" height="18" />
@@ -127,25 +127,25 @@ $sheets = array(
                                                 </svg>
                                             <?php endif; ?>
                                         </div>
-                                        <div class="cover-brand-text">
-                                            <span>DMV Learners</span>
-                                            <span>Permit <strong class="brand-test-orange">Test</strong></span>
+                                        <div class="sheet-brand-text">
+                                            <span class="brand-top">DMV Learners</span>
+                                            <span class="brand-bot">Permit <strong class="brand-test-orange">Test</strong></span>
                                         </div>
                                     </div>
-                                    <div class="cover-pill-tag"><?php echo esc_html( $sheet['badge'] ); ?> CHEAT SHEET</div>
+                                    <div class="sheet-pill-tag <?php echo esc_attr( $sheet_key ); ?>-tag"><?php echo esc_html( $sheet['badge'] ); ?> CHEAT SHEET</div>
                                 </div>
 
-                                <div class="cover-title-area">
-                                    <span class="cover-state state-teal-title"><?php echo esc_html( strtoupper( $current_state_name ) ); ?></span>
-                                    <span class="cover-count count-orange">
+                                <div class="sheet-title-area">
+                                    <span class="sheet-state-name state-teal-title"><?php echo esc_html( strtoupper( $current_state_name ) ); ?></span>
+                                    <div class="sheet-big-num orange-accent">
                                         <?php echo esc_html( $sheet['count'] ); ?>
-                                    </span>
-                                    <span class="cover-subtitle"><?php echo esc_html( $sheet['sub'] ); ?></span>
+                                    </div>
+                                    <span class="sheet-main-title"><?php echo esc_html( $sheet['sub'] ); ?></span>
                                     <div class="title-orange-underline"></div>
                                 </div>
 
                                 <!-- Photo / Artwork -->
-                                <div class="cover-art-box has-photo">
+                                <div class="sheet-graphic-preview has-photo">
                                     <?php 
                                     if ( $sheet['vehicle_art'] === 'motorcycle' ) {
                                         $cover_img_name = 'intersection-motorcycle.jpg';
@@ -160,9 +160,9 @@ $sheets = array(
                                          class="aerial-photo-img" />
                                 </div>
 
-                                <div class="cover-footer-bar client-cover-footer">
+                                <div class="sheet-footer-bar client-cover-footer">
                                     <span class="footer-domain">dmvlearnerspermittest.com</span>
-                                    <span class="footer-meta">Built from official handbook</span>
+                                    <span class="footer-meta">Built from official <?php echo esc_html( $current_state_name ); ?> handbook · Not affiliated with any state DMV</span>
                                 </div>
                             </div>
 
