@@ -107,54 +107,47 @@ $sheets = array(
                     <div class="sheet-card-stage">
                         <div class="catalog-cover-mockup">
                             
-                            <div class="cover-inner">
+                            <div class="cover-inner client-cover-style">
+                                <!-- Dashed Circular Accent Pattern -->
+                                <div class="cover-dashed-arc" aria-hidden="true"></div>
+
                                 <div class="cover-header">
                                     <div class="cover-brand">
-                                        <div class="cover-mini-logo"></div>
+                                        <div class="sheet-brand-logo-icon">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
+                                                <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
+                                                <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
+                                                <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
+                                            </svg>
+                                        </div>
                                         <div class="cover-brand-text">
                                             <span>DMV Learners</span>
-                                            <span>Permit Test</span>
+                                            <span>Permit <strong class="brand-test-orange">Test</strong></span>
                                         </div>
                                     </div>
-                                    <div class="cover-pill-tag"><?php esc_html_e( 'THE CHEAT SHEET', 'drive' ); ?></div>
+                                    <div class="cover-pill-tag"><?php echo esc_html( $sheet['badge'] ); ?> CHEAT SHEET</div>
                                 </div>
 
                                 <div class="cover-title-area">
-                                    <span class="cover-state"><?php echo esc_html( strtoupper( $current_state_name ) ); ?></span>
+                                    <span class="cover-state state-teal-title"><?php echo esc_html( strtoupper( $current_state_name ) ); ?></span>
                                     <span class="cover-count <?php echo ( $sheet['accent'] === 'cdl' ) ? 'count-yellow' : 'count-orange'; ?>">
                                         <?php echo esc_html( $sheet['count'] ); ?>
                                     </span>
                                     <span class="cover-subtitle"><?php echo esc_html( $sheet['sub'] ); ?></span>
+                                    <div class="title-orange-underline"></div>
                                 </div>
 
-                                <!-- Intersection Aerial Artwork -->
-                                <div class="cover-art-box">
-                                    <div class="intersection-scene">
-                                        <div class="road-surface-v"></div>
-                                        <div class="road-surface-h"></div>
-                                        <div class="crosswalk-stripes n"></div>
-                                        <div class="crosswalk-stripes s"></div>
-
-                                        <?php if ( $sheet['vehicle_art'] === 'car' ) : ?>
-                                            <div class="aerial-car teal-sedan">
-                                                <div class="windshield"></div>
-                                            </div>
-                                        <?php elseif ( $sheet['vehicle_art'] === 'motorcycle' ) : ?>
-                                            <div class="aerial-moto"></div>
-                                        <?php elseif ( $sheet['vehicle_art'] === 'truck' ) : ?>
-                                            <div class="aerial-semi-truck">
-                                                <div class="truck-cab"></div>
-                                                <div class="truck-trailer"></div>
-                                            </div>
-                                        <?php endif; ?>
-
-                                        <div class="intersection-light tr"></div>
-                                        <div class="mini-stop-sign">STOP</div>
-                                    </div>
+                                <!-- Photo / Artwork -->
+                                <div class="cover-art-box has-photo">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/intersection-aerial.jpg' ); ?>" 
+                                         alt="<?php echo esc_attr( $sheet['title'] ); ?>" 
+                                         class="aerial-photo-img" />
                                 </div>
 
-                                <div class="cover-footer-bar">
-                                    <span>dmvlearnerspermittest.com</span>
+                                <div class="cover-footer-bar client-cover-footer">
+                                    <span class="footer-domain">dmvlearnerspermittest.com</span>
+                                    <span class="footer-meta">Built from official handbook</span>
                                 </div>
                             </div>
 

@@ -250,51 +250,45 @@ $veh_labels = array(
 
                         <!-- Center / Main Card: Car 150 Questions Cheat Sheet -->
                         <div class="cheat-sheet-card card-car is-primary" data-card-veh="car">
-                            <div class="sheet-inner">
+                            <div class="sheet-inner client-cover-style">
+                                <!-- Dashed Circular Accent Pattern -->
+                                <div class="cover-dashed-arc" aria-hidden="true"></div>
+
                                 <div class="sheet-header">
                                     <div class="sheet-brand">
-                                        <div class="sheet-mini-logo"></div>
+                                        <div class="sheet-brand-logo-icon">
+                                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
+                                                <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
+                                                <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
+                                                <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
+                                            </svg>
+                                        </div>
                                         <div class="sheet-brand-text">
                                             <span class="brand-top">DMV Learners</span>
-                                            <span class="brand-bot">Permit Test</span>
+                                            <span class="brand-bot">Permit <strong class="brand-test-orange">Test</strong></span>
                                         </div>
                                     </div>
-                                    <div class="sheet-pill-tag">THE CHEAT SHEET</div>
+                                    <div class="sheet-pill-tag car-tag">CAR CHEAT SHEET</div>
                                 </div>
                                 
                                 <div class="sheet-title-area">
-                                    <span class="sheet-state-name"><?php echo esc_html( strtoupper( $current_state_name ) ); ?></span>
+                                    <span class="sheet-state-name state-teal-title"><?php echo esc_html( strtoupper( $current_state_name ) ); ?></span>
                                     <span class="sheet-big-num orange-accent">150</span>
                                     <span class="sheet-main-title">Important Permit Test Questions</span>
+                                    <div class="title-orange-underline"></div>
                                 </div>
 
-                                <!-- Road Intersection Aerial Art -->
-                                <div class="sheet-graphic-preview car-theme">
-                                    <div class="intersection-scene">
-                                        <!-- Road Cross -->
-                                        <div class="road-surface-v"></div>
-                                        <div class="road-surface-h"></div>
-                                        <!-- White Crosswalk Stripes -->
-                                        <div class="crosswalk-stripes n"></div>
-                                        <div class="crosswalk-stripes s"></div>
-                                        <div class="crosswalk-stripes w"></div>
-                                        <div class="crosswalk-stripes e"></div>
-                                        <!-- Teal Car Navigating -->
-                                        <div class="aerial-car teal-sedan">
-                                            <div class="windshield"></div>
-                                        </div>
-                                        <!-- White Delivery Truck -->
-                                        <div class="aerial-truck white-truck"></div>
-                                        <!-- Traffic Lights -->
-                                        <div class="intersection-light tl"></div>
-                                        <div class="intersection-light tr"></div>
-                                        <!-- Stop Sign -->
-                                        <div class="mini-stop-sign">STOP</div>
-                                    </div>
+                                <!-- Real Aerial Intersection Photo Snippet -->
+                                <div class="sheet-graphic-preview car-theme has-photo">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/intersection-aerial.jpg' ); ?>" 
+                                         alt="<?php echo esc_attr( sprintf( __( '%s Car Permit Test Intersection', 'drive' ), $current_state_name ) ); ?>" 
+                                         class="aerial-photo-img" />
                                 </div>
 
-                                <div class="sheet-footer-bar">
-                                    <span>dmvlearnerspermittest.com · Official State DMV Revision</span>
+                                <div class="sheet-footer-bar client-cover-footer">
+                                    <span class="footer-domain">dmvlearnerspermittest.com</span>
+                                    <span class="footer-meta">Built from the official <?php echo esc_html( $current_state_name ); ?> handbook · Not affiliated with any state DMV</span>
                                 </div>
                             </div>
                         </div>
