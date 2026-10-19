@@ -131,7 +131,7 @@ $sheets = array(
 
                                 <div class="cover-title-area">
                                     <span class="cover-state state-teal-title"><?php echo esc_html( strtoupper( $current_state_name ) ); ?></span>
-                                    <span class="cover-count <?php echo ( $sheet['accent'] === 'cdl' ) ? 'count-yellow' : 'count-orange'; ?>">
+                                    <span class="cover-count count-orange">
                                         <?php echo esc_html( $sheet['count'] ); ?>
                                     </span>
                                     <span class="cover-subtitle"><?php echo esc_html( $sheet['sub'] ); ?></span>
@@ -141,9 +141,13 @@ $sheets = array(
                                 <!-- Photo / Artwork -->
                                 <div class="cover-art-box has-photo">
                                     <?php 
-                                    $cover_img_name = ( $sheet['vehicle_art'] === 'motorcycle' ) 
-                                        ? 'intersection-motorcycle.jpg' 
-                                        : 'intersection-aerial.jpg';
+                                    if ( $sheet['vehicle_art'] === 'motorcycle' ) {
+                                        $cover_img_name = 'intersection-motorcycle.jpg';
+                                    } elseif ( $sheet['vehicle_art'] === 'truck' || $sheet_key === 'cdl' ) {
+                                        $cover_img_name = 'intersection-cdl.jpg';
+                                    } else {
+                                        $cover_img_name = 'intersection-aerial.jpg';
+                                    }
                                     ?>
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $cover_img_name ); ?>" 
                                          alt="<?php echo esc_attr( $sheet['title'] ); ?>" 

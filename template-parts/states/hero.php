@@ -217,33 +217,45 @@ $veh_labels = array(
                         
                         <!-- Left Card: Truck (CDL) Cheat Sheet -->
                         <div class="cheat-sheet-card card-cdl" data-card-veh="cdl">
-                            <div class="sheet-inner">
+                            <div class="sheet-inner client-cover-style">
+                                <!-- Top-Right Dashed Arc (from client design) -->
+                                <div class="cover-dashed-arc" aria-hidden="true"></div>
+
                                 <div class="sheet-header">
                                     <div class="sheet-brand">
-                                        <div class="sheet-mini-logo"></div>
+                                        <div class="sheet-brand-logo-icon">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#00B4A6" opacity="0.3"/>
+                                                <path d="M10 17l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#00B4A6"/>
+                                                <circle cx="6" cy="18" r="1.5" fill="#F26419"/>
+                                                <circle cx="9" cy="19" r="1.5" fill="#F26419"/>
+                                            </svg>
+                                        </div>
                                         <div class="sheet-brand-text">
                                             <span class="brand-top">DMV Learners</span>
-                                            <span class="brand-bot">Permit Test</span>
+                                            <span class="brand-bot">Permit <strong class="brand-test-orange">Test</strong></span>
                                         </div>
                                     </div>
-                                    <div class="sheet-pill-tag">CDL CHEAT SHEET</div>
+                                    <div class="sheet-pill-tag cdl-tag">TRUCK (CDL) CHEAT SHEET</div>
                                 </div>
+
                                 <div class="sheet-title-area">
-                                    <span class="sheet-state-name"><?php echo esc_html( strtoupper( $current_state_name ) ); ?></span>
-                                    <span class="sheet-big-num cdl-accent">250</span>
-                                    <span class="sheet-main-title">Important CDL Questions</span>
+                                    <span class="sheet-state-name state-teal-title"><?php echo esc_html( strtoupper( $current_state_name ) ); ?></span>
+                                    <div class="sheet-big-num orange-accent">250</div>
+                                    <span class="sheet-main-title"><?php esc_html_e( 'Important CDL Test Questions', 'drive' ); ?></span>
+                                    <div class="title-orange-underline"></div>
                                 </div>
-                                <div class="sheet-graphic-preview cdl-theme">
-                                    <div class="cdl-road-scene">
-                                        <div class="truck-silhouette"></div>
-                                        <div class="traffic-light-post">
-                                            <div class="lamp green"></div>
-                                            <div class="lamp red"></div>
-                                        </div>
-                                    </div>
+
+                                <!-- Aerial Intersection Truck/CDL Photo -->
+                                <div class="sheet-graphic-preview has-photo">
+                                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/intersection-cdl.jpg' ); ?>" 
+                                         alt="<?php echo esc_attr( sprintf( __( '%s CDL Permit Test Intersection', 'drive' ), $current_state_name ) ); ?>" 
+                                         class="aerial-photo-img" />
                                 </div>
-                                <div class="sheet-footer-bar">
-                                    <span>dmvlearnerspermittest.com</span>
+
+                                <div class="sheet-footer-bar client-cover-footer">
+                                    <span class="footer-domain">dmvlearnerspermittest.com</span>
+                                    <span class="footer-meta">Built from the official <?php echo esc_html( $current_state_name ); ?> handbook · Not affiliated with any state DMV</span>
                                 </div>
                             </div>
                         </div>

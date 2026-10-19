@@ -673,6 +673,9 @@
 
 /* Pill Tag */
 .sheet-pill-tag.car-tag,
+.sheet-pill-tag.moto-tag,
+.sheet-pill-tag.cdl-tag,
+.sheet-pill-tag,
 .cover-pill-tag {
     font-size: 0.525rem;
     font-weight: 700;
