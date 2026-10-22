@@ -12,19 +12,22 @@
 /* ==========================================================================
    1. Footer Wrapper
    ========================================================================== */
+/* ==========================================================================
+   1. Footer Wrapper
+   ========================================================================== */
 .site-footer.dark-site-footer {
-    background-color: #2B2D42; /* Charcoal */
+    background-color: #2B2D42; /* Deep Charcoal */
     color: #ffffff;
-    padding: 5rem 0 3rem;
+    padding: 3rem 0 2rem;
     position: relative;
-    border-top: 1px solid #3D3F57; /* Line token */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-container {
-    max-width: 1280px;
+    max-width: 1240px;
     margin: 0 auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: clamp(1.25rem, 4vw, 2.5rem);
+    padding-right: clamp(1.25rem, 4vw, 2.5rem);
 }
 
 /* ==========================================================================
@@ -32,9 +35,10 @@
    ========================================================================== */
 .footer-main-grid {
     display: grid;
-    grid-template-columns: 1.85fr 1fr 1fr 1fr 1fr;
-    gap: 3.5rem;
-    margin-bottom: 3.5rem;
+    grid-template-columns: 1.75fr 1fr 1fr 1fr 1fr;
+    gap: 2.25rem;
+    margin-bottom: 2rem;
+    align-items: start;
 }
 
 /* ==========================================================================
@@ -48,7 +52,7 @@
 .footer-logo-wrap {
     display: inline-flex;
     align-items: center;
-    margin-bottom: 1.15rem;
+    margin-bottom: 0.85rem;
 }
 
 .footer-logo-wrap .custom-logo-link {
@@ -57,7 +61,7 @@
 }
 
 .footer-logo-wrap .custom-logo {
-    max-height: 40px;
+    max-height: 36px;
     width: auto;
     display: block;
 }
@@ -65,7 +69,7 @@
 .footer-brand-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.65rem;
     text-decoration: none;
     color: #ffffff;
 }
@@ -78,8 +82,8 @@
 }
 
 .footer-brand-link .brand-custom-logo-badge .custom-logo-img {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     display: block;
 }
@@ -88,7 +92,7 @@
     display: flex;
     align-items: baseline;
     gap: 0.35rem;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 800;
     letter-spacing: -0.01em;
 }
@@ -102,11 +106,11 @@
 }
 
 .footer-brand-blurb {
-    font-size: 0.875rem;
-    color: #94a3b8;
-    line-height: 1.55;
-    margin: 0 0 1.5rem;
-    max-width: 320px;
+    font-size: 0.8125rem;
+    color: #9496A8;
+    line-height: 1.45;
+    margin: 0 0 1.15rem;
+    max-width: 300px;
     font-weight: 400;
 }
 
@@ -117,25 +121,25 @@
 }
 
 .footer-social-btn {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    background: #1c1e2e;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: #36384E;
     border: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #cbd5e1;
+    color: #C9CAD3;
     text-decoration: none;
     transition: all 180ms ease;
 }
 
 .footer-social-btn:hover,
 .footer-social-btn:focus-visible {
-    background: #2f334d;
+    background: #41435C;
     color: #00D4C3;
     border-color: rgba(0, 212, 195, 0.35);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     outline: none;
 }
 
@@ -148,12 +152,12 @@
 }
 
 .footer-col-heading {
-    font-size: 0.8125rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 800;
     color: #ffffff;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin: 0 0 1.25rem;
+    margin: 0 0 0.85rem;
 }
 
 .footer-links-list {
@@ -162,7 +166,7 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.55rem;
 }
 
 .footer-links-list li {
@@ -171,8 +175,9 @@
 }
 
 .footer-links-list li a {
-    color: #C9CAD3; /* light */
-    font-size: 0.875rem;
+    color: #9496A8;
+    font-size: 0.8125rem;
+    font-weight: 500;
     text-decoration: none;
     transition: color 160ms ease, transform 160ms ease;
     display: inline-block;
@@ -186,35 +191,35 @@
 }
 
 .link-view-all-states {
-    color: #C9CAD3 !important;
+    color: #9496A8 !important;
     font-weight: 600;
 }
 
 .link-view-all-states:hover {
-    color: #00B4A6 !important;
+    color: #00D4C3 !important;
 }
 
 /* ==========================================================================
    5. Middle Disclaimer Card
    ========================================================================== */
 .footer-disclaimer-wrap {
-    border-top: 1px solid #3D3F57; /* Line */
-    padding-top: 2.25rem;
-    margin-bottom: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.75rem;
+    margin-bottom: 1.5rem;
 }
 
 .footer-disclaimer-card {
-    background: #383A52; /* charcoal2 */
-    border: 1px solid #4A4C66; /* charcoal3 */
-    border-radius: 12px;
-    padding: 1.15rem 1.65rem;
+    background: #36384E;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 0.85rem 1.35rem;
 }
 
 .footer-disclaimer-card p {
     margin: 0;
-    font-size: 0.8125rem;
-    color: #C9CAD3; /* light */
-    line-height: 1.55;
+    font-size: 0.75rem;
+    color: #9496A8;
+    line-height: 1.45;
     font-weight: 400;
 }
 
@@ -225,25 +230,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 0.5rem;
+    padding-top: 0;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
 .footer-copyright {
     margin: 0;
-    font-size: 0.8125rem;
-    color: #64748b;
+    font-size: 0.75rem;
+    color: #8C8E9F;
 }
 
 .footer-bottom-links {
     display: flex;
-    gap: 1.75rem;
+    gap: 1.5rem;
 }
 
 .footer-bottom-links a {
-    font-size: 0.8125rem;
-    color: #94a3b8;
+    font-size: 0.75rem;
+    color: #8C8E9F;
     text-decoration: none;
     transition: color 160ms ease;
 }
