@@ -351,18 +351,23 @@
     box-sizing: border-box;
 }
 
-/* Sheet Header */
+/* Sheet Header (Prevents collision / overlapping between brand logo and pill tag) */
 .sheet-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 0.4rem;
     margin-bottom: 0.85rem;
+    width: 100%;
+    min-width: 0;
 }
 
 .sheet-brand {
     display: flex;
     align-items: center;
     gap: 0.45rem;
+    min-width: 0;
+    flex: 0 1 auto;
 }
 
 .sheet-mini-logo {
@@ -2112,30 +2117,41 @@
 
     .sheet-header {
         margin-bottom: 0.45rem;
+        gap: 0.35rem;
+        min-width: 0;
+    }
+
+    .sheet-brand {
+        gap: 0.35rem;
+        min-width: 0;
+        flex: 0 1 auto;
     }
 
     .sheet-brand-logo-icon img {
-        width: 16px;
-        height: 16px;
+        width: 15px;
+        height: 15px;
     }
 
     .sheet-brand-text {
-        font-size: 0.44rem;
+        font-size: 0.42rem;
         line-height: 1.05;
+        white-space: nowrap;
     }
 
     .sheet-pill-tag {
-        font-size: 0.38rem;
-        padding: 0.1rem 0.36rem;
+        font-size: 0.36rem;
+        padding: 0.08rem 0.32rem;
         white-space: nowrap;
         flex-shrink: 0;
         letter-spacing: 0.015em;
+        max-width: 55%;
+        text-align: center;
     }
 
     .sheet-pill-tag.moto-tag,
     .sheet-pill-tag.cdl-tag {
-        font-size: 0.34rem;
-        padding: 0.08rem 0.32rem;
+        font-size: 0.32rem;
+        padding: 0.07rem 0.3rem;
         letter-spacing: 0.01em;
     }
 
@@ -2307,5 +2323,36 @@
 
     .state-veh-tab .veh-name {
         font-size: 0.7rem;
+    }
+
+    /* Prevent header elements collision on very narrow screens (<= 360px) */
+    .sheet-inner.client-cover-style .sheet-header {
+        padding-left: 0.65rem;
+        padding-right: 0.65rem;
+        gap: 0.25rem;
+    }
+
+    .sheet-brand {
+        gap: 0.25rem;
+    }
+
+    .sheet-brand-logo-icon img {
+        width: 13px;
+        height: 13px;
+    }
+
+    .sheet-brand-text {
+        font-size: 0.38rem;
+    }
+
+    .sheet-pill-tag {
+        font-size: 0.32rem;
+        padding: 0.06rem 0.26rem;
+    }
+
+    .sheet-pill-tag.moto-tag,
+    .sheet-pill-tag.cdl-tag {
+        font-size: 0.29rem;
+        padding: 0.05rem 0.24rem;
     }
 }
