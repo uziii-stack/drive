@@ -979,11 +979,14 @@
     }
 
     .whats-inside-heading-col {
+        flex: 0 0 auto;
+        height: auto;
+        min-height: 0;
         max-width: 100%;
         border-right: none;
         padding-right: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        padding-bottom: 1.25rem;
+        padding-bottom: 1rem;
         width: 100%;
     }
 
@@ -1004,20 +1007,23 @@
 @media (max-width: 640px) {
     .state-whats-inside-section {
         background-color: #2B2D42;
-        padding: 1.75rem 0 2rem;
+        padding: 1.5rem 0 1.75rem;
     }
 
     .whats-inside-inner {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1.15rem;
+        gap: 1rem;
     }
 
     .whats-inside-heading-col {
+        flex: 0 0 auto;
+        height: auto;
+        min-height: 0;
         border-right: none;
         padding-right: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 0.85rem;
+        padding-bottom: 0.75rem;
         width: 100%;
     }
 
