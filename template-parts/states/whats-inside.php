@@ -73,29 +73,27 @@ $q_count  = ( $current_veh === 'cdl' ) ? '250' : '150';
             <!-- Right: 4 Horizontal Feature Badges -->
             <div class="whats-inside-features-grid">
                 
-                <!-- Feature 1: Must-Know Questions -->
+                <!-- Feature 1: 150 must-know questions (Clipboard Check) -->
                 <div class="inside-feature-card">
                     <div class="feature-icon-badge" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="4" width="14" height="17" rx="3" ry="3"></rect>
+                            <path d="M9 2h6a1 1 0 0 1 1 1v1H8V3a1 1 0 0 1 1-1z"></path>
+                            <polyline points="9 13 11 15 15 10"></polyline>
                         </svg>
                     </div>
                     <div class="feature-text">
-                        <span class="feature-highlight" id="insideQuestionCount"><?php echo esc_html( $q_count ); ?></span> <?php esc_html_e( 'must-know questions', 'drive' ); ?>
+                        <span class="feature-highlight" id="insideQuestionCount"><?php echo esc_html( $q_count ); ?></span> <?php esc_html_e( 'must–know questions', 'drive' ); ?>
                     </div>
                 </div>
 
-                <!-- Feature 2: Answers with Explanations -->
+                <!-- Feature 2: Answers with explanations (Speech / Message Bubble) -->
                 <div class="inside-feature-card">
                     <div class="feature-icon-badge" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            <line x1="8" y1="9" x2="16" y2="9"></line>
+                            <line x1="8" y1="13" x2="13" y2="13"></line>
                         </svg>
                     </div>
                     <div class="feature-text">
@@ -103,13 +101,12 @@ $q_count  = ( $current_veh === 'cdl' ) ? '250' : '150';
                     </div>
                 </div>
 
-                <!-- Feature 3: Every Road Sign Explained -->
+                <!-- Feature 3: Every road sign explained (Octagon / No-Entry / Stop Sign) -->
                 <div class="inside-feature-card">
                     <div class="feature-icon-badge" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="18" height="18" rx="2" transform="rotate(45 12 12)"></rect>
-                            <line x1="12" y1="8" x2="12" y2="12"></line>
-                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
                         </svg>
                     </div>
                     <div class="feature-text">
@@ -117,12 +114,13 @@ $q_count  = ( $current_veh === 'cdl' ) ? '250' : '150';
                     </div>
                 </div>
 
-                <!-- Feature 4: Demerit Points Explained -->
+                <!-- Feature 4: Demerit points explained (Shield with Exclamation) -->
                 <div class="inside-feature-card">
                     <div class="feature-icon-badge" aria-hidden="true">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
                         </svg>
                     </div>
                     <div class="feature-text">
