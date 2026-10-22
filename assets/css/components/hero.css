@@ -124,11 +124,6 @@
     display: inline;
 }
 
-.hero-title-line-3 {
-    display: inline;
-    margin-left: 0.28em;
-}
-
 /* 3.3 Subtext Description (Body/Large 18 / 160% Regular 400, color light #C9CAD3) */
 .hero-subtext {
     font-size: 1.125rem;
