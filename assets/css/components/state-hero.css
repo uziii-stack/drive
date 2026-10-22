@@ -105,41 +105,45 @@
     max-width: 540px;
 }
 
-/* Vehicle Switcher Tabs / Chips */
+/* Vehicle Switcher Segmented Control Container (Matches Figma & Mobile) */
 .state-vehicle-tabs {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    background-color: #F4F5F7;
+    border-radius: 16px;
+    padding: 6px;
+    gap: 6px;
     margin-bottom: 2rem;
+    box-sizing: border-box;
 }
 
 .state-veh-tab {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
+    justify-content: center;
+    gap: 0.65rem;
     background: transparent;
-    color: #2B2D42;
-    border: 1.5px solid transparent;
-    border-radius: 999px;
-    padding: 0.625rem 1.25rem;
+    color: #202232;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 1.35rem;
     font-size: 0.9375rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: inherit;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     outline: none;
+    white-space: nowrap;
 }
 
 .state-veh-tab:hover {
-    background-color: #F4F5F7;
     color: #202232;
+    background-color: rgba(32, 34, 50, 0.05);
 }
 
 .state-veh-tab.is-active {
     background-color: #202232;
     color: #FFFFFF;
-    border-color: #202232;
     box-shadow: 0 4px 14px rgba(32, 34, 50, 0.18);
 }
 
@@ -152,6 +156,8 @@
 
 .state-veh-tab .veh-icon svg {
     display: block;
+    width: 20px;
+    height: 20px;
 }
 
 /* Orange CTA Button */
