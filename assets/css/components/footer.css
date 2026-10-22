@@ -18,16 +18,20 @@
 .site-footer.dark-site-footer {
     background-color: #2B2D42; /* Deep Charcoal */
     color: #ffffff;
-    padding: 2.25rem 0 1.5rem;
+    padding: 1.75rem 0 1rem;
     position: relative;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.site-footer .footer-container,
 .footer-container {
     max-width: 1240px;
     margin: 0 auto;
     padding-left: clamp(1.25rem, 4vw, 2.5rem);
     padding-right: clamp(1.25rem, 4vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0 !important; /* Override main.css flex gap: 2rem */
 }
 
 /* ==========================================================================
@@ -210,8 +214,8 @@
    ========================================================================== */
 .footer-disclaimer-wrap {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 0.85rem;
-    margin-bottom: 0.65rem;
+    padding-top: 0.75rem;
+    margin-bottom: 0.4rem;
 }
 
 .footer-disclaimer-card {
@@ -223,6 +227,7 @@
 
 .footer-disclaimer-card p {
     margin: 0;
+    padding: 0;
     font-size: 0.75rem;
     color: #9496A8;
     line-height: 1.4;
@@ -244,6 +249,7 @@
 
 .footer-copyright {
     margin: 0;
+    padding: 0;
     font-size: 0.75rem;
     color: #8C8E9F;
 }
