@@ -1958,6 +1958,12 @@
         gap: 0;
     }
 
+    /* Flatten content wrapper so title/description can sit above the cover,
+       and tabs/CTA/trust sit below the cover */
+    .state-hero-content {
+        display: contents;
+    }
+
     /* 1. State pill badge is hidden on mobile matching screenshot */
     .state-badge-pill {
         display: none !important;
@@ -1965,6 +1971,7 @@
 
     /* 2. Top Title */
     .state-hero-h1 {
+        order: 1;
         font-size: 1.875rem;
         line-height: 1.18;
         font-weight: 800;
@@ -1975,6 +1982,7 @@
 
     /* 3. Subtitle */
     .state-hero-description {
+        order: 2;
         font-size: 0.9375rem;
         line-height: 1.55;
         color: #55576D;
@@ -1982,9 +1990,9 @@
         max-width: 100%;
     }
 
-    /* 4. Visual Stage (Solid rounded container matching Figma on both desktop & mobile) */
+    /* 4. Visual Stage (Cheat sheet covers positioned below description, above buttons) */
     .state-hero-visual-col {
-        order: 1;
+        order: 3;
         width: 100%;
         margin-bottom: 1.5rem;
     }
@@ -2192,9 +2200,9 @@
         height: 15px;
     }
 
-    /* 5. Mobile Vehicle Segmented Control (Gray Pill Bar with 3 items) */
+    /* 5. Mobile Vehicle Segmented Control (Gray Pill Bar with 3 items, below cover) */
     .state-vehicle-tabs {
-        order: 2;
+        order: 4;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -2239,9 +2247,9 @@
         line-height: 1.1;
     }
 
-    /* 6. Mobile Orange CTA Button */
+    /* 6. Mobile Orange CTA Button (below vehicle switcher) */
     .state-hero-cta-wrap {
-        order: 3;
+        order: 5;
         width: 100%;
         margin-bottom: 1.15rem;
     }
@@ -2255,9 +2263,9 @@
         box-shadow: 0 6px 20px rgba(242, 100, 25, 0.25);
     }
 
-    /* 7. Trust Bar Centered Multi-line on Mobile */
+    /* 7. Trust Bar Centered Multi-line on Mobile (below CTA) */
     .state-hero-trust-bar {
-        order: 4;
+        order: 6;
         width: 100%;
         display: flex;
         flex-wrap: wrap;
