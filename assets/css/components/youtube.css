@@ -16,7 +16,7 @@
     background-color: #ffffff !important;
     border: none !important;
     border-bottom: none !important;
-    padding: 80px 0 72px;
+    padding: 110px 0 85px;
     position: relative;
     opacity: 1;
 }
@@ -32,7 +32,8 @@
    2. Dark Callout Card
    ========================================================================== */
 .youtube-banner-card {
-    background: #2B2D42; /* Charcoal */
+    background: #2B2D42;
+    /* Charcoal */
     border-radius: 22px;
     padding: 1.75rem 2.25rem;
     display: flex;
@@ -97,7 +98,8 @@
 
 .youtube-banner-subtext {
     font-size: 0.9375rem;
-    color: #C9CAD3; /* Light */
+    color: #C9CAD3;
+    /* Light */
     line-height: 1.45;
     margin: 0;
     font-weight: 400;
@@ -115,13 +117,16 @@
     align-items: center;
     gap: 0.55rem;
     background: #ffffff;
-    color: #2B2D42 !important; /* Charcoal */
-    font-weight: 800; /* ExtraBold 800 */
+    color: #2B2D42 !important;
+    /* Charcoal */
+    font-weight: 800;
+    /* ExtraBold 800 */
     font-size: 1.05rem;
     padding: 0.85rem 1.65rem;
     border-radius: 12px;
     text-decoration: none;
-    box-shadow: none !important; /* NO GLOW */
+    box-shadow: none !important;
+    /* NO GLOW */
     transition: background-color 180ms ease, transform 180ms ease;
     white-space: nowrap;
     border: none;
@@ -129,7 +134,8 @@
 
 .btn-youtube-subscribe:hover,
 .btn-youtube-subscribe:focus-visible {
-    background: #F4F5F7; /* Grey50 */
+    background: #F4F5F7;
+    /* Grey50 */
     transform: translateY(-2px);
     box-shadow: none !important;
     color: #2B2D42 !important;
