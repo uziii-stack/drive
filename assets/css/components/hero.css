@@ -13,9 +13,10 @@
    1. Hero Wrapper & Background
    ========================================================================== */
 .homepage-hero.hero-dark-mockup {
-    background: #2B2D42; /* Charcoal matching Figma */
+    background: #2B2D42;
+    /* Charcoal matching Figma */
     background-color: #2B2D42;
-    padding: 5rem 0 6.5rem;
+    padding: 1rem 0 6.5rem;
     position: relative;
     overflow: hidden;
     color: #ffffff;
@@ -140,10 +141,13 @@
 }
 
 .btn-hero-orange {
-    background-color: #F26419; /* Primary orange */
+    background-color: #F26419;
+    /* Primary orange */
     color: #ffffff !important;
-    font-size: 1.125rem; /* ~18px Label/Button */
-    font-weight: 800; /* ExtraBold 800 */
+    font-size: 1.125rem;
+    /* ~18px Label/Button */
+    font-weight: 800;
+    /* ExtraBold 800 */
     padding: 0.95rem 1.85rem;
     border-radius: 12px;
     text-decoration: none;
@@ -151,16 +155,19 @@
     align-items: center;
     gap: 0.65rem;
     border: none;
-    box-shadow: none; /* NO GLOW per client request */
+    box-shadow: none;
+    /* NO GLOW per client request */
     cursor: pointer;
     transition: background-color 180ms ease, transform 180ms ease;
 }
 
 .btn-hero-orange:hover,
 .btn-hero-orange:focus-visible {
-    background-color: #D9561A; /* Hover color from Figma guide */
+    background-color: #D9561A;
+    /* Hover color from Figma guide */
     transform: translateY(-2px);
-    box-shadow: none; /* NO GLOW on hover */
+    box-shadow: none;
+    /* NO GLOW on hover */
     outline: none;
 }
 
@@ -479,6 +486,7 @@
     0% {
         transform: translateY(0);
     }
+
     100% {
         transform: translateY(-6px);
     }
