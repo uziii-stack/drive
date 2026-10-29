@@ -113,3 +113,4 @@ $refund_url     = function_exists( 'get_privacy_policy_url' ) && get_privacy_pol
 
     </div><!-- .cheat-guarantee-container -->
 </section>
+

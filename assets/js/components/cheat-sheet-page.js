@@ -109,9 +109,50 @@
         });
     }
 
+    /**
+     * Interactive FAQ Accordion Script
+     */
+    function initFaqAccordion() {
+        var faqItems = document.querySelectorAll('.faq-item');
+        if (!faqItems.length) return;
+
+        faqItems.forEach(function(item) {
+            var btn = item.querySelector('.faq-question-btn');
+            var panel = item.querySelector('.faq-answer-panel');
+            if (!btn || !panel) return;
+
+            btn.addEventListener('click', function() {
+                var isOpen = item.classList.contains('is-open');
+
+                // Close all other open items
+                faqItems.forEach(function(other) {
+                    if (other !== item && other.classList.contains('is-open')) {
+                        other.classList.remove('is-open');
+                        var otherBtn = other.querySelector('.faq-question-btn');
+                        var otherPanel = other.querySelector('.faq-answer-panel');
+                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                        if (otherPanel) otherPanel.setAttribute('hidden', '');
+                    }
+                });
+
+                // Toggle current item
+                if (isOpen) {
+                    item.classList.remove('is-open');
+                    btn.setAttribute('aria-expanded', 'false');
+                    panel.setAttribute('hidden', '');
+                } else {
+                    item.classList.add('is-open');
+                    btn.setAttribute('aria-expanded', 'true');
+                    panel.removeAttribute('hidden');
+                }
+            });
+        });
+    }
+
     function initPageScripts() {
         initLookCarousel();
         initCompareToggle();
+        initFaqAccordion();
     }
 
     if (document.readyState === 'loading') {
