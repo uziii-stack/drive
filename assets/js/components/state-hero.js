@@ -103,9 +103,114 @@
         });
     }
 
+    /**
+     * Interactive Custom State Switcher Dropdown (Theme Design)
+     */
+    function initCustomStateSwitcher() {
+        var wrapper = document.getElementById('customStateSwitcher');
+        if (!wrapper) {
+            return;
+        }
+
+        var trigger = document.getElementById('customSwitcherTrigger');
+        var triggerText = document.getElementById('customTriggerText');
+        var menu = document.getElementById('customSwitcherMenu');
+        var searchInput = document.getElementById('customSwitcherSearch');
+        var nativeSelect = document.getElementById('stateSwitcherSelect');
+        var options = wrapper.querySelectorAll('.custom-state-option');
+
+        if (!trigger || !menu) {
+            return;
+        }
+
+        function toggleMenu(open) {
+            var isOpen = typeof open === 'boolean' ? open : !wrapper.classList.contains('is-open');
+            wrapper.classList.toggle('is-open', isOpen);
+            trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (isOpen && searchInput) {
+                setTimeout(function () {
+                    searchInput.focus();
+                }, 50);
+            }
+        }
+
+        trigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Filter search input
+        if (searchInput) {
+            searchInput.addEventListener('input', function () {
+                var q = searchInput.value.toLowerCase().trim();
+                options.forEach(function (opt) {
+                    var name = opt.getAttribute('data-name') || '';
+                    if (!q || name.indexOf(q) !== -1) {
+                        opt.style.display = 'flex';
+                    } else {
+                        opt.style.display = 'none';
+                    }
+                });
+            });
+
+            searchInput.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        }
+
+        // Option click handlers
+        options.forEach(function (opt) {
+            opt.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var val = opt.getAttribute('data-value');
+                var name = opt.querySelector('.custom-state-name') ? opt.querySelector('.custom-state-name').textContent.trim() : '';
+
+                options.forEach(function (o) {
+                    o.classList.remove('is-selected');
+                });
+                opt.classList.add('is-selected');
+
+                if (triggerText) {
+                    triggerText.textContent = name;
+                }
+
+                if (nativeSelect) {
+                    nativeSelect.value = val;
+                }
+
+                toggleMenu(false);
+
+                // Instantly navigate on selection like modern state pickers
+                if (val) {
+                    window.location.href = val;
+                }
+            });
+        });
+
+        // Close on click outside
+        document.addEventListener('click', function (e) {
+            if (wrapper.classList.contains('is-open') && !wrapper.contains(e.target)) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && wrapper.classList.contains('is-open')) {
+                toggleMenu(false);
+                trigger.focus();
+            }
+        });
+    }
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initStateHero);
+        document.addEventListener('DOMContentLoaded', function () {
+            initStateHero();
+            initCustomStateSwitcher();
+        });
     } else {
         initStateHero();
+        initCustomStateSwitcher();
     }
 })();

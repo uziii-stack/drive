@@ -102,8 +102,9 @@ foreach ( $selected_chip_slugs as $c_slug ) {
             <div class="switcher-right-col">
                 <form class="switcher-select-form" onsubmit="event.preventDefault(); var sel = document.getElementById('stateSwitcherSelect'); if (sel && sel.value) { window.location.href = sel.value; }">
                     <label for="stateSwitcherSelect" class="screen-reader-text"><?php esc_html_e( 'Choose another state', 'drive' ); ?></label>
-                    <div class="switcher-select-wrap">
-                        <select id="stateSwitcherSelect" class="switcher-select-dropdown" aria-label="<?php esc_attr_e( 'Choose another state', 'drive' ); ?>">
+                    <div class="switcher-select-wrap custom-switcher-dropdown" id="customStateSwitcher">
+                        <!-- Native select for form submit and fallback -->
+                        <select id="stateSwitcherSelect" class="switcher-select-dropdown" aria-label="<?php esc_attr_e( 'Choose another state', 'drive' ); ?>" tabindex="-1">
                             <option value="" disabled selected><?php esc_html_e( 'Choose another state...', 'drive' ); ?></option>
                             <?php foreach ( $all_states as $st_code => $st_data ) : 
                                 if ( $st_data['slug'] === $current_state_slug ) continue;
@@ -114,11 +115,44 @@ foreach ( $selected_chip_slugs as $c_slug ) {
                                 </option>
                             <?php endforeach; ?>
                         </select>
-                        <span class="select-arrow" aria-hidden="true">
-                            <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
+
+                        <!-- Custom Trigger Button Matching Theme Design -->
+                        <button type="button" class="custom-switcher-trigger" id="customSwitcherTrigger" aria-haspopup="listbox" aria-expanded="false">
+                            <span class="custom-trigger-text" id="customTriggerText"><?php esc_html_e( 'Choose another state...', 'drive' ); ?></span>
+                            <span class="select-arrow" aria-hidden="true">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+
+                        <!-- Custom Popover Menu Matching Theme Design -->
+                        <div class="custom-switcher-menu" id="customSwitcherMenu" role="listbox" aria-label="<?php esc_attr_e( 'States Menu', 'drive' ); ?>">
+                            <div class="custom-menu-search-wrap">
+                                <span class="custom-search-icon" aria-hidden="true">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </span>
+                                <input type="text" class="custom-menu-search-input" id="customSwitcherSearch" placeholder="<?php esc_attr_e( 'Filter state...', 'drive' ); ?>" autocomplete="off" />
+                            </div>
+                            <div class="custom-switcher-list" id="customSwitcherList">
+                                <?php foreach ( $all_states as $st_code => $st_data ) : 
+                                    if ( $st_data['slug'] === $current_state_slug ) continue;
+                                    $target_url = function_exists( 'drive_get_state_url' ) ? drive_get_state_url( $st_data['slug'] ) : home_url( '/' . esc_attr( $st_data['slug'] ) . '/' );
+                                ?>
+                                    <div class="custom-state-option" data-value="<?php echo esc_url( $target_url ); ?>" data-name="<?php echo esc_attr( strtolower( $st_data['name'] ) ); ?>" role="option">
+                                        <span class="custom-state-name"><?php echo esc_html( $st_data['name'] ); ?></span>
+                                        <span class="custom-option-check" aria-hidden="true">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
                     </div>
 
                     <button type="submit" class="btn-switcher-go" id="btnSwitcherGo">
