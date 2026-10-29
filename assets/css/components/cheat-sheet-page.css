@@ -240,18 +240,18 @@
 
 .cheat-hero-stage {
     position: relative;
-    padding: 2.75rem 1.25rem 2.5rem;
+    padding: 3rem 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 420px;
 }
 
-/* The smaller inner backdrop box matching client design */
+/* The rounded backdrop box matching client design */
 .cheat-hero-backdrop-box {
     position: absolute;
-    width: 78%;
-    height: 82%;
+    width: 82%;
+    height: 86%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -259,28 +259,29 @@
     border-radius: 36px;
     z-index: 0;
     pointer-events: none;
+    overflow: hidden; /* Clips the road line within the rounded backdrop */
 }
 
-/* Road curved dashed SVG line across the stage */
+/* Road curved dashed SVG line inside the backdrop */
 .stage-dashed-curve {
     position: absolute;
-    inset: 0;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
 }
 
 /* Peeking Sample Pages (Left & Right) */
 .peek-sample-page {
     position: absolute;
-    width: 175px;
-    height: 275px;
+    width: 185px;
+    height: 280px;
     background: #FFFFFF;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(43, 45, 66, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(43, 45, 66, 0.08), 0 2px 6px rgba(43, 45, 66, 0.04);
     border: 1px solid #E6E7EB;
-    padding: 0.85rem;
+    padding: 0.95rem;
     z-index: 2;
     overflow: hidden;
     pointer-events: none;
@@ -288,18 +289,18 @@
     flex-direction: column;
 }
 
-/* Left Page ("ROAD SIGNS") - peeks out on the left */
+/* Left Page ("ROAD SIGNS") - peeks out symmetrically on the left */
 .peek-sample-page.peek-left {
-    left: -15px;
+    left: 8px;
     top: 50%;
     transform: translateY(-50%) rotate(-7deg);
 }
 
-/* Right Page ("ANSWERS") - matches screenshot: sits higher and tilted */
+/* Right Page ("ANSWERS") - peeks symmetrically on the right */
 .peek-sample-page.peek-right {
-    right: -25px;
-    top: 38%;
-    transform: translateY(-50%) rotate(10deg);
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%) rotate(7deg);
 }
 
 .peek-sample-header {
@@ -517,8 +518,8 @@
     }
 
     .cheat-hero-backdrop-box {
-        width: 76%;
-        height: 80%;
+        width: 82%;
+        height: 84%;
         border-radius: 40px;
     }
 
@@ -528,15 +529,15 @@
     }
 
     .peek-sample-page.peek-left {
-        left: -15px;
+        left: 5px;
         top: 50%;
-        transform: translateY(-50%) rotate(-8.5deg);
+        transform: translateY(-50%) rotate(-7.5deg);
     }
 
     .peek-sample-page.peek-right {
-        right: -30px;
-        top: 36%;
-        transform: translateY(-50%) rotate(10deg);
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%) rotate(7.5deg);
     }
 
     .cheat-hero-cover-wrap .catalog-cover-mockup {
@@ -545,10 +546,10 @@
     }
 
     .floating-printable-pill {
-        bottom: 30px;
-        right: calc(50% - 165px);
-        font-size: 0.9rem;
-        padding: 0.6rem 1.15rem;
+        bottom: 24px;
+        right: calc(50% - 150px);
+        font-size: 0.875rem;
+        padding: 0.55rem 1rem;
     }
 }
 

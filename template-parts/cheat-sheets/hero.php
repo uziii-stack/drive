@@ -195,13 +195,13 @@ $guarantee_days = '30';
         <div class="cheat-hero-stage-col" aria-hidden="true">
             <div class="cheat-hero-stage">
                 
-                <!-- Inner Rounded Backdrop (#F4F5F7) which is smaller so cards peek outside -->
-                <div class="cheat-hero-backdrop-box"></div>
-
-                <!-- Road SVG with gentle curved line across the stage -->
-                <svg class="stage-dashed-curve" viewBox="0 0 540 460" fill="none" preserveAspectRatio="none">
-                    <path d="M 10 410 C 130 380, 260 365, 530 395" stroke="#DCDDE3" stroke-width="2.5" stroke-dasharray="10 9" stroke-linecap="round"/>
-                </svg>
+                <!-- Inner Rounded Backdrop (#F4F5F7) which holds the road line -->
+                <div class="cheat-hero-backdrop-box">
+                    <!-- Road SVG with gentle curved dashed line across the bottom of the backdrop -->
+                    <svg class="stage-dashed-curve" viewBox="0 0 400 380" fill="none" preserveAspectRatio="none">
+                        <path d="M 0 350 C 90 338, 200 332, 400 345" stroke="#C9CAD3" stroke-width="2.5" stroke-dasharray="10 8" stroke-linecap="round"/>
+                    </svg>
+                </div>
 
                 <!-- Left Sample Peeking Page: "ROAD SIGNS" -->
                 <div class="peek-sample-page peek-left">
