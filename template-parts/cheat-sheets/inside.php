@@ -90,8 +90,10 @@ if ( 'cdl' === $vehicle_key ) {
                         <line x1="8" y1="12" x2="16" y2="12"/>
                     </svg>
                 </div>
-                <h3 class="tile-title"><?php esc_html_e( 'Road signs', 'drive' ); ?></h3>
-                <p class="tile-desc"><?php esc_html_e( 'Shapes, colors and meanings of the signs you will see on the test.', 'drive' ); ?></p>
+                <div class="tile-text-content">
+                    <h3 class="tile-title"><?php esc_html_e( 'Road signs', 'drive' ); ?></h3>
+                    <p class="tile-desc"><?php esc_html_e( 'Shapes, colors and meanings of the signs you will see on the test.', 'drive' ); ?></p>
+                </div>
             </div>
 
             <!-- 3. Right-of-way (Map / 3-fold pamphlet icon) -->
@@ -103,8 +105,10 @@ if ( 'cdl' === $vehicle_key ) {
                         <line x1="16" y1="6" x2="16" y2="22"/>
                     </svg>
                 </div>
-                <h3 class="tile-title"><?php esc_html_e( 'Right-of-way', 'drive' ); ?></h3>
-                <p class="tile-desc"><?php esc_html_e( 'Who goes first at intersections, crosswalks and stops.', 'drive' ); ?></p>
+                <div class="tile-text-content">
+                    <h3 class="tile-title"><?php esc_html_e( 'Right-of-way', 'drive' ); ?></h3>
+                    <p class="tile-desc"><?php esc_html_e( 'Who goes first at intersections, crosswalks and stops.', 'drive' ); ?></p>
+                </div>
             </div>
 
             <!-- 4. Speed & lanes (Car front icon) -->
@@ -116,8 +120,10 @@ if ( 'cdl' === $vehicle_key ) {
                         <circle cx="17" cy="15" r="1.5" fill="currentColor"/>
                     </svg>
                 </div>
-                <h3 class="tile-title"><?php esc_html_e( 'Speed & lanes', 'drive' ); ?></h3>
-                <p class="tile-desc"><?php esc_html_e( 'Speed limits, lane markings, turns and passing.', 'drive' ); ?></p>
+                <div class="tile-text-content">
+                    <h3 class="tile-title"><?php esc_html_e( 'Speed & lanes', 'drive' ); ?></h3>
+                    <p class="tile-desc"><?php esc_html_e( 'Speed limits, lane markings, turns and passing.', 'drive' ); ?></p>
+                </div>
             </div>
 
             <!-- 5. Safe driving (Shield with checkmark) -->
@@ -128,8 +134,10 @@ if ( 'cdl' === $vehicle_key ) {
                         <polyline points="9 12 11 14 15 10"/>
                     </svg>
                 </div>
-                <h3 class="tile-title"><?php esc_html_e( 'Safe driving', 'drive' ); ?></h3>
-                <p class="tile-desc"><?php esc_html_e( 'Following distance, night and weather driving, sharing the road.', 'drive' ); ?></p>
+                <div class="tile-text-content">
+                    <h3 class="tile-title"><?php esc_html_e( 'Safe driving', 'drive' ); ?></h3>
+                    <p class="tile-desc"><?php esc_html_e( 'Following distance, night and weather driving, sharing the road.', 'drive' ); ?></p>
+                </div>
             </div>
 
             <!-- 6. Alcohol & points (Shield with exclamation mark) -->
@@ -150,8 +158,10 @@ if ( 'cdl' === $vehicle_key ) {
                         </svg>
                     <?php endif; ?>
                 </div>
-                <h3 class="tile-title"><?php echo esc_html( $last_tile_title ); ?></h3>
-                <p class="tile-desc"><?php echo esc_html( $last_tile_desc ); ?></p>
+                <div class="tile-text-content">
+                    <h3 class="tile-title"><?php echo esc_html( $last_tile_title ); ?></h3>
+                    <p class="tile-desc"><?php echo esc_html( $last_tile_desc ); ?></p>
+                </div>
             </div>
 
             <!-- 7. Wide Dark Tile: Every road sign, explained (Bottom-Right) -->

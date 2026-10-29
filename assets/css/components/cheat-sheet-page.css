@@ -877,14 +877,33 @@
     max-width: 340px;
 }
 
-/* 2-6. White Bento Tiles */
+/* 2-6. White Bento Tiles (Side-by-side row layout with icon on left) */
 .bento-tile-white {
     background-color: #FFFFFF;
     border: 1px solid #E6E7EB;
-    padding: 1.75rem 1.5rem;
+    padding: 1.5rem 1.35rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.15rem;
+}
+
+.bento-tile-white .tile-icon-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: #202232;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.bento-tile-white .tile-text-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    flex: 1;
 }
 
 .tile-icon-badge {
@@ -907,9 +926,9 @@
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 1.15rem;
     font-weight: 800;
-    color: #2B2D42;
+    color: #202232;
     line-height: 1.2;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.4rem 0;
 }
 
 .tile-desc {
