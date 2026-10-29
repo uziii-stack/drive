@@ -66,16 +66,6 @@ $site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_l
 ?>
 
 <section id="state-hero" class="state-page-hero" aria-labelledby="state-hero-title">
-    
-    <!-- Subtle Highway Curved Road Line Graphic in Background -->
-    <div class="state-hero-road-backdrop" aria-hidden="true">
-        <svg class="state-hero-road-svg" viewBox="0 0 1440 600" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Road subtle underlay -->
-            <path d="M 850 620 C 950 560, 1100 480, 1260 360 C 1380 270, 1420 180, 1480 120" stroke="rgba(43, 45, 66, 0.04)" stroke-width="80" stroke-linecap="round"/>
-            <!-- Dashed Highway Centerline -->
-            <path d="M 820 630 C 930 570, 1080 490, 1250 370 C 1370 280, 1430 190, 1490 130" stroke="#DCDDE3" stroke-width="3" stroke-dasharray="14 16" stroke-linecap="round"/>
-        </svg>
-    </div>
 
     <div class="site-container state-hero-container">
         <div class="state-hero-grid">
@@ -214,6 +204,11 @@ $site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_l
             <div class="state-hero-visual-col">
                 <div class="state-mockup-stage">
                     
+                    <!-- Road curved dashed SVG line safely contained inside the backdrop card -->
+                    <svg class="stage-dashed-curve" viewBox="0 0 400 380" preserveAspectRatio="none" fill="none" aria-hidden="true">
+                        <path d="M 15 320 Q 200 295 385 315" stroke="#B0B2C0" stroke-width="3" stroke-dasharray="12 10" stroke-linecap="round"/>
+                    </svg>
+
                     <!-- Fanned 3D Mockup Container -->
                     <div class="cheat-sheets-fanned-stack" id="stateMockupStack" data-active-veh="<?php echo esc_attr( $current_veh ); ?>">
                         
