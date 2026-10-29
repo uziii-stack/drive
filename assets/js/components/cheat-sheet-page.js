@@ -74,10 +74,50 @@
         });
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initLookCarousel);
-    } else {
+    /**
+     * Interactive Cheat Sheet vs Handbook Toggle Script
+     */
+    function initCompareToggle() {
+        var toggleBtns = document.querySelectorAll('.compare-toggle-btn');
+        if (!toggleBtns.length) return;
+
+        toggleBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var targetId = this.getAttribute('data-target');
+                if (!targetId) return;
+
+                // Update tab states
+                toggleBtns.forEach(function(b) {
+                    b.classList.remove('is-active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                this.classList.add('is-active');
+                this.setAttribute('aria-selected', 'true');
+
+                // Update panels
+                var panels = document.querySelectorAll('.compare-panel');
+                panels.forEach(function(panel) {
+                    if (panel.id === targetId) {
+                        panel.classList.add('is-active');
+                        panel.removeAttribute('hidden');
+                    } else {
+                        panel.classList.remove('is-active');
+                        panel.setAttribute('hidden', '');
+                    }
+                });
+            });
+        });
+    }
+
+    function initPageScripts() {
         initLookCarousel();
+        initCompareToggle();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPageScripts);
+    } else {
+        initPageScripts();
     }
 })();
 
