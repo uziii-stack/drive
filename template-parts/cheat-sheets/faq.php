@@ -95,39 +95,40 @@ $faq_items = array(
             <h2 id="faq-heading" class="faq-title"><?php esc_html_e( 'Good questions, quick answers', 'drive' ); ?></h2>
         </div>
 
-        <!-- Accordion List -->
-        <div class="faq-accordion" id="faqAccordion">
+        <!-- Accordion List (Using exact homepage FAQ card markup) -->
+        <div class="faq-accordion-list faq-accordion" id="faqAccordion">
             <?php foreach ( $faq_items as $index => $item ) : 
                 $item_id   = 'faq-item-' . $index;
                 $button_id = 'faq-btn-' . $index;
-                $panel_id  = 'faq-panel-' . $index;
+                $panel_id  = 'faq-ans-' . $index;
                 $is_open   = ! empty( $item['is_open'] );
             ?>
-                <div class="faq-item <?php echo $is_open ? 'is-open' : ''; ?>" id="<?php echo esc_attr( $item_id ); ?>">
+                <div class="faq-accordion-item faq-item <?php echo $is_open ? 'is-active is-open' : ''; ?>" id="<?php echo esc_attr( $item_id ); ?>">
                     <button type="button" 
                             class="faq-question-btn" 
                             id="<?php echo esc_attr( $button_id ); ?>" 
                             aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>" 
                             aria-controls="<?php echo esc_attr( $panel_id ); ?>">
-                        <span class="faq-q-text"><?php echo esc_html( $item['q'] ); ?></span>
+                        <span class="faq-question-text faq-q-text"><?php echo esc_html( $item['q'] ); ?></span>
                         <span class="faq-toggle-icon" aria-hidden="true">
-                            <span class="faq-icon-line h-line"></span>
-                            <span class="faq-icon-line v-line"></span>
+                            <span class="icon-line line-h"></span>
+                            <span class="icon-line line-v"></span>
                         </span>
                     </button>
 
-                    <div class="faq-answer-panel" 
+                    <div class="faq-answer-collapse faq-answer-panel" 
                          id="<?php echo esc_attr( $panel_id ); ?>" 
                          role="region" 
                          aria-labelledby="<?php echo esc_attr( $button_id ); ?>"
                          <?php echo $is_open ? '' : 'hidden'; ?>>
-                        <div class="faq-answer-inner">
+                        <div class="faq-answer-body faq-answer-inner">
                             <p><?php echo esc_html( $item['a'] ); ?></p>
                         </div>
                     </div>
-                </div><!-- .faq-item -->
+                </div><!-- .faq-accordion-item -->
             <?php endforeach; ?>
-        </div><!-- .faq-accordion -->
+        </div><!-- .faq-accordion-list -->
 
     </div><!-- .cheat-faq-container -->
 </section>
+

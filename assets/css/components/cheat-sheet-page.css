@@ -2600,12 +2600,13 @@
 
 /* ==========================================================================
    9. FAQ ACCORDION SECTION (#faq)
-   Matches screenshot:
-   - Clean white background
+   Matches homepage card design:
+   - Clean background (#FFFFFF / soft canvas)
    - Eyebrow: "FAQ" (Teal)
-   - Title: "Good questions, quick answers" (Charcoal #2B2D42)
-   - Closed item: Light grey rounded card (#F4F5F7), charcoal text, dark circular (+) button
-   - Open item: White background, vibrant teal border (#00B4A6), teal circular (×) button, clean lead answer text
+   - Title: "Good questions, quick answers"
+   - Card items: White background with clean subtle border (#E2E8F0)
+   - Active open card: Vibrant Teal border (#00B4A6) and soft glow shadow
+   - Dark circular button rotating to Teal (×) on active state
    ========================================================================== */
 .cheat-faq-section {
     background-color: #FFFFFF;
@@ -2646,102 +2647,116 @@
 }
 
 /* Accordion List */
-.faq-accordion {
+.cheat-faq-section .faq-accordion-list {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.15rem;
+    gap: 1rem;
 }
 
-/* Base Item */
-.faq-item {
-    background-color: #F4F5F7;
-    border: 1.5px solid transparent;
+/* Individual Accordion Item Card - Matches Homepage */
+.cheat-faq-section .faq-accordion-item {
+    background: #FFFFFF;
+    border: 1.5px solid #E2E8F0;
     border-radius: 18px;
     overflow: hidden;
-    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+    box-shadow: 0 4px 14px rgba(43, 45, 66, 0.02);
 }
 
-/* Open State Matching Screenshot */
-.faq-item.is-open {
-    background-color: #FFFFFF;
+.cheat-faq-section .faq-accordion-item:hover {
+    border-color: #CBD5E1;
+}
+
+/* Active State (Teal border & glowing shadow exactly like homepage) */
+.cheat-faq-section .faq-accordion-item.is-active,
+.cheat-faq-section .faq-accordion-item.is-open {
     border-color: #00B4A6;
-    box-shadow: 0 10px 30px rgba(0, 180, 166, 0.08), 0 2px 8px rgba(43, 45, 66, 0.04);
+    box-shadow: 0 8px 24px rgba(0, 180, 166, 0.15);
 }
 
-/* Question Header Button */
-.faq-question-btn {
-    width: 100%;
+/* Question Trigger Button */
+.cheat-faq-section .faq-question-btn {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.35rem 1.75rem;
+    gap: 1.25rem;
+    width: 100%;
+    padding: 1.25rem 1.65rem;
     background: transparent;
     border: none;
     cursor: pointer;
     text-align: left;
-    gap: 1.25rem;
-}
-
-.faq-q-text {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 1.0625rem;
     font-weight: 800;
     color: #2B2D42;
     line-height: 1.35;
+    transition: color 180ms ease;
 }
 
-/* Toggle Circle Button (+ / ×) */
-.faq-toggle-icon {
-    position: relative;
+.cheat-faq-section .faq-question-btn:hover {
+    color: #00B4A6;
+}
+
+.cheat-faq-section .faq-question-text {
+    flex: 1;
+    letter-spacing: -0.01em;
+}
+
+/* Toggle Plus/Close Icon Circle */
+.cheat-faq-section .faq-toggle-icon {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: #2B2D42;
+    background: #2B2D42;
+    color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     flex-shrink: 0;
-    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.25s ease;
+    transition: transform 220ms ease, background-color 220ms ease, color 220ms ease;
 }
 
-.faq-icon-line {
+.cheat-faq-section .icon-line {
     position: absolute;
-    background-color: #FFFFFF;
+    background: currentColor;
     border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.faq-icon-line.h-line {
+.cheat-faq-section .line-h {
     width: 12px;
     height: 2px;
 }
 
-.faq-icon-line.v-line {
+.cheat-faq-section .line-v {
     width: 2px;
     height: 12px;
 }
 
-/* In open state, switch button to Teal and rotate + to × */
-.faq-item.is-open .faq-toggle-icon {
-    background-color: #00B4A6;
+/* Active Icon (Teal circle with rotated X matching homepage) */
+.cheat-faq-section .faq-accordion-item.is-active .faq-toggle-icon,
+.cheat-faq-section .faq-accordion-item.is-open .faq-toggle-icon {
+    background: #00B4A6;
+    color: #FFFFFF;
     transform: rotate(45deg);
 }
 
-/* Answer Panel */
-.faq-answer-panel {
-    transition: all 0.3s ease;
+/* Answer Body */
+.cheat-faq-section .faq-answer-collapse {
+    transition: max-height 320ms ease, opacity 250ms ease;
 }
 
-.faq-answer-panel[hidden] {
+.cheat-faq-section .faq-answer-collapse[hidden] {
     display: none;
 }
 
-.faq-answer-inner {
-    padding: 0 1.75rem 1.6rem;
+.cheat-faq-section .faq-answer-body {
+    padding: 0 1.65rem 1.45rem;
 }
 
-.faq-answer-inner p {
+.cheat-faq-section .faq-answer-body p {
     font-size: 0.95rem;
     color: #55576D;
     line-height: 1.6;
@@ -2750,15 +2765,12 @@
 
 /* Responsive */
 @media (max-width: 640px) {
-    .faq-question-btn {
+    .cheat-faq-section .faq-question-btn {
         padding: 1.15rem 1.25rem;
-    }
-
-    .faq-q-text {
         font-size: 0.95rem;
     }
 
-    .faq-answer-inner {
+    .cheat-faq-section .faq-answer-body {
         padding: 0 1.25rem 1.25rem;
     }
 }
