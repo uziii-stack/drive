@@ -644,6 +644,9 @@
     /* Trust guarantee row */
     .cheat-hero-trust-row {
         order: 7;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
         margin-bottom: 1.25rem;
     }
 
