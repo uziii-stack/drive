@@ -822,11 +822,12 @@
 .bento-tile-core {
     background-color: #2B2D42;
     color: #FFFFFF;
-    padding: 2.25rem 2rem;
+    padding: 1.75rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 320px;
+    height: 230px;
+    min-height: 230px;
 }
 
 .core-dashed-arc {
