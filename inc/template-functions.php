@@ -50,15 +50,19 @@ add_action( 'wp_head', 'drive_pingback_header' );
  */
 function drive_register_query_vars( $vars ) {
     $vars[] = 'drive_state';
+    $vars[] = 'drive_vehicle';
     return $vars;
 }
 add_filter( 'query_vars', 'drive_register_query_vars' );
 
 /**
- * Register state rewrite rules (/[state]/)
+ * Register state and cheat sheet rewrite rules:
+ * - /[state]/
+ * - /[state]/[vehicle]-cheat-sheet/
  */
 function drive_state_rewrite_rules() {
     add_rewrite_tag( '%drive_state%', '([^&/]+)' );
+    add_rewrite_tag( '%drive_vehicle%', '([^&/]+)' );
 
     $all_states = function_exists( 'drive_get_all_states' ) ? drive_get_all_states() : array();
     $slugs = array();
@@ -69,48 +73,46 @@ function drive_state_rewrite_rules() {
     }
 
     if ( ! empty( $slugs ) ) {
-        $pattern = '^(' . implode( '|', $slugs ) . ')/?$';
-        add_rewrite_rule( $pattern, 'index.php?drive_state=$matches[1]', 'top' );
+        $state_pattern = '(' . implode( '|', $slugs ) . ')';
+        // Specific cheat sheet product page: /[state]/[vehicle]-cheat-sheet/
+        add_rewrite_rule( '^' . $state_pattern . '/(car|motorcycle|cdl|truck)-cheat-sheet/?$', 'index.php?drive_state=$matches[1]&drive_vehicle=$matches[2]', 'top' );
+        // State hub: /[state]/
+        add_rewrite_rule( '^' . $state_pattern . '/?$', 'index.php?drive_state=$matches[1]', 'top' );
     }
 
-    // Also support fallback pattern
+    // Fallback generic rewrite rules
+    add_rewrite_rule( '^([a-z\-]+)/(car|motorcycle|cdl|truck)-cheat-sheet/?$', 'index.php?drive_state=$matches[1]&drive_vehicle=$matches[2]', 'bottom' );
     add_rewrite_rule( '^([a-z\-]+)/?$', 'index.php?drive_state=$matches[1]', 'bottom' );
 }
 add_action( 'init', 'drive_state_rewrite_rules' );
 
 /**
- * Route state requests to the state-hub template
+ * Route state and cheat-sheet requests to their respective templates
  *
  * @param string $template Matched template.
  * @return string
  */
 function drive_state_template_include( $template ) {
-    $state = get_query_var( 'drive_state' );
+    $state   = get_query_var( 'drive_state' );
+    $vehicle = get_query_var( 'drive_vehicle' );
 
-    // If query var isn't set yet (e.g. rewrite cache pending or query param ?state=xyz)
-    if ( empty( $state ) && isset( $_GET['state'] ) && ! empty( $_GET['state'] ) ) {
-        $state = sanitize_title( wp_unslash( $_GET['state'] ) );
+    // URL path detection fallback if permalinks are not flushed
+    $req_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+    $site_path = wp_parse_url( home_url(), PHP_URL_PATH );
+    if ( ! empty( $site_path ) && $site_path !== '/' ) {
+        $req_uri = substr( $req_uri, strlen( rtrim( $site_path, '/' ) ) );
     }
+    $parts = explode( '?', $req_uri );
+    $path_segments = array_values( array_filter( explode( '/', trim( $parts[0], '/' ) ) ) );
 
-    // Direct path detection fallback if permalinks are not flushed yet
-    if ( empty( $state ) ) {
-        $req_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
-        $site_path = wp_parse_url( home_url(), PHP_URL_PATH );
-        if ( ! empty( $site_path ) && $site_path !== '/' ) {
-            $req_uri = substr( $req_uri, strlen( rtrim( $site_path, '/' ) ) );
-        }
-        $parts = explode( '?', $req_uri );
-        $path = trim( $parts[0], '/' );
-        if ( ! empty( $path ) && strpos( $path, '/' ) === false ) {
-            $all_states = function_exists( 'drive_get_all_states' ) ? drive_get_all_states() : array();
-            foreach ( $all_states as $code => $data ) {
-                if ( $data['slug'] === $path || strtolower( $code ) === strtolower( $path ) ) {
-                    $state = $data['slug'];
-                    set_query_var( 'drive_state', $state );
-                    break;
-                }
-            }
-        }
+    if ( count( $path_segments ) >= 2 && preg_match( '/^(car|motorcycle|cdl|truck)-cheat-sheet$/i', $path_segments[1], $matches ) ) {
+        $state   = sanitize_title( $path_segments[0] );
+        $vehicle = strtolower( $matches[1] );
+        set_query_var( 'drive_state', $state );
+        set_query_var( 'drive_vehicle', $vehicle );
+    } elseif ( empty( $state ) && count( $path_segments ) === 1 ) {
+        $state = sanitize_title( $path_segments[0] );
+        set_query_var( 'drive_state', $state );
     }
 
     if ( ! empty( $state ) ) {
@@ -119,14 +121,28 @@ function drive_state_template_include( $template ) {
         foreach ( $all_states as $code => $data ) {
             if ( $data['slug'] === $state || strtolower( $code ) === strtolower( $state ) ) {
                 $is_valid_state = true;
+                $state = $data['slug'];
                 break;
             }
         }
 
         if ( $is_valid_state ) {
+            // Check if this is a cheat sheet product page
+            if ( ! empty( $vehicle ) ) {
+                $cheat_sheet_template = DRIVE_THEME_DIR . '/templates/cheat-sheets/single-cheat-sheet.php';
+                if ( file_exists( $cheat_sheet_template ) ) {
+                    status_header( 200 );
+                    global $wp_query;
+                    if ( is_object( $wp_query ) ) {
+                        $wp_query->is_404 = false;
+                    }
+                    return $cheat_sheet_template;
+                }
+            }
+
+            // Otherwise, route to the state hub page
             $state_template = DRIVE_THEME_DIR . '/templates/states/state-hub.php';
             if ( file_exists( $state_template ) ) {
-                // Ensure 200 HTTP status if it was treated as 404
                 status_header( 200 );
                 global $wp_query;
                 if ( is_object( $wp_query ) ) {
