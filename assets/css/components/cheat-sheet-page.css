@@ -2792,9 +2792,10 @@
    - Trust points: Money-back guarantee · Secure checkout · Instant PDF download
    ========================================================================== */
 .cheat-final-section {
-    background-color: #FFFFFF;
+    background-color: #F8F9FB;
     padding: clamp(5rem, 8vw, 7.5rem) 0 4.5rem;
     text-align: center;
+    border-top: 1px solid #E6E8EE;
 }
 
 .cheat-final-container {
@@ -3059,7 +3060,7 @@
      - Link: "Get Your Cheat Sheet →"
    ========================================================================== */
 .cheat-other-section {
-    background-color: #F8F9FB;
+    background-color: #FFFFFF;
     padding: clamp(4.5rem, 7vw, 6.5rem) 0;
     border-top: 1px solid #E6E8EE;
 }
