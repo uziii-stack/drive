@@ -38,10 +38,10 @@
 .state-hero-container {
     position: relative;
     z-index: 2;
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding-left: clamp(1.25rem, 4vw, 2.5rem);
-    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .state-hero-grid {
@@ -2168,8 +2168,11 @@
     }
 
     .state-hero-container {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
     }
 
     .state-hero-grid {
@@ -2516,6 +2519,11 @@
 
 /* Extra small mobile screens (<= 360px) */
 @media (max-width: 360px) {
+    .state-hero-container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
     .state-hero-h1 {
         font-size: 1.625rem;
     }
