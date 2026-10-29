@@ -240,11 +240,11 @@
 
 .cheat-hero-stage {
     position: relative;
-    padding: 3rem 1.5rem;
+    padding: 3rem 1.5rem 4.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 450px;
+    min-height: 470px;
 }
 
 /* The rounded backdrop box matching client design */
@@ -262,12 +262,13 @@
     overflow: hidden; /* Clips the road line within the rounded backdrop */
 }
 
-/* Road curved dashed SVG line inside the backdrop */
+/* Road curved dashed SVG line inside the backdrop, anchored all the way at the bottom */
 .stage-dashed-curve {
     position: absolute;
-    inset: 0;
+    bottom: 14px;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: 90px;
     pointer-events: none;
     z-index: 0 !important;
     display: block;
@@ -513,8 +514,8 @@
     }
 
     .cheat-hero-stage {
-        padding: 3.5rem 2rem;
-        min-height: 500px;
+        padding: 3.5rem 2rem 5rem;
+        min-height: 520px;
     }
 
     .cheat-hero-backdrop-box {

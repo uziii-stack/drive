@@ -206,8 +206,8 @@ $site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_l
                     
                     <!-- Dedicated Road SVG backdrop layer physically behind cards -->
                     <div class="state-stage-road-layer" aria-hidden="true">
-                        <svg class="stage-dashed-curve" viewBox="0 0 500 450" preserveAspectRatio="none" fill="none">
-                            <path d="M 0 365 Q 250 385 500 350" stroke="#B0B2C0" stroke-width="4" stroke-dasharray="14 10" stroke-linecap="round"/>
+                        <svg class="stage-dashed-curve" viewBox="0 0 500 120" preserveAspectRatio="none" fill="none">
+                            <path d="M 0 65 Q 250 100 500 50" stroke="#B0B2C0" stroke-width="4" stroke-dasharray="14 10" stroke-linecap="round"/>
                         </svg>
                     </div>
 
