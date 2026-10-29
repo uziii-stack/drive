@@ -270,93 +270,79 @@ $site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_l
             <!-- PANEL 2: OFFICIAL HANDBOOK -->
             <div class="compare-panel" id="panelHandbook" role="tabpanel" aria-labelledby="tabHandbook" hidden>
                 
-                <!-- Left: Official Handbook Mockup Representation -->
+                <!-- Left: Thick Stack of 100+ Handbook Pages (Isometric Book Stack Artwork) -->
                 <div class="compare-mockup-col">
-                    <div class="compare-cover-wrapper">
-                        <div class="handbook-mockup-book">
-                            <div class="handbook-inner">
-                                <div class="handbook-header">
-                                    <span class="hb-seal-circle"></span>
-                                    <span class="hb-state-tag"><?php echo esc_html( strtoupper( $current_state_name ) ); ?></span>
-                                </div>
-                                <div class="handbook-title-block">
-                                    <span class="hb-official-eyebrow"><?php esc_html_e( 'Official State Driver', 'drive' ); ?></span>
-                                    <h4 class="hb-title"><?php esc_html_e( 'HANDBOOK', 'drive' ); ?></h4>
-                                    <span class="hb-sub"><?php echo esc_html( $curr_data['name'] . ' ' . __( 'Driver License Manual', 'drive' ) ); ?></span>
-                                </div>
-                                <div class="handbook-mock-lines">
-                                    <span class="hb-line w-80"></span>
-                                    <span class="hb-line w-100"></span>
-                                    <span class="hb-line w-60"></span>
-                                </div>
-                                <div class="handbook-footer">
-                                    <span><?php esc_html_e( 'Department of Motor Vehicles', 'drive' ); ?></span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="handbook-stack-art" aria-hidden="true">
+                        <!-- Bottom Paper Pages Layers -->
+                        <div class="handbook-page-layer layer-10"></div>
+                        <div class="handbook-page-layer layer-9"></div>
+                        <div class="handbook-page-layer layer-8"></div>
+                        <div class="handbook-page-layer layer-7"></div>
+                        <div class="handbook-page-layer layer-6"></div>
+                        <div class="handbook-page-layer layer-5"></div>
+                        <div class="handbook-page-layer layer-4"></div>
+                        <div class="handbook-page-layer layer-3"></div>
+                        <div class="handbook-page-layer layer-2"></div>
+                        <div class="handbook-page-layer layer-1"></div>
+                        <!-- Thick Charcoal Top Cover Slab -->
+                        <div class="handbook-top-cover"></div>
                     </div>
                 </div>
 
-                <!-- Right: Handbook Details & CTA -->
+                <!-- Right: Handbook Details & Text Link Matching Screenshot -->
                 <div class="compare-info-col">
-                    <h3 class="compare-info-title"><?php esc_html_e( 'Official handbook', 'drive' ); ?></h3>
+                    <h3 class="compare-info-title">
+                        <?php 
+                        printf(
+                            /* translators: %s: State name */
+                            esc_html__( 'Official %s handbook', 'drive' ),
+                            esc_html( $current_state_name )
+                        ); 
+                        ?>
+                    </h3>
 
-                    <ul class="compare-feature-list">
+                    <ul class="compare-feature-list handbook-list">
                         <li class="compare-feature-item">
-                            <span class="feature-check-badge" aria-hidden="true">
-                                <svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="#00B4A6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                            <span class="feature-soft-check" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="#6C7088" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="4 10 8 14 16 6"/>
                                 </svg>
                             </span>
-                            <span class="feature-text">
-                                <?php 
-                                printf(
-                                    /* translators: %s: State name */
-                                    esc_html__( 'Comprehensive official %s manual (100+ dense pages)', 'drive' ),
-                                    esc_html( $current_state_name )
-                                ); 
-                                ?>
-                            </span>
+                            <span class="feature-text"><?php esc_html_e( 'The full official rule book', 'drive' ); ?></span>
                         </li>
 
                         <li class="compare-feature-item">
-                            <span class="feature-check-badge" aria-hidden="true">
-                                <svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="#00B4A6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                            <span class="feature-soft-check" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="#6C7088" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="4 10 8 14 16 6"/>
                                 </svg>
                             </span>
-                            <span class="feature-text">
-                                <?php esc_html_e( 'Complete legal statutes and administrative regulations', 'drive' ); ?>
-                            </span>
+                            <span class="feature-text"><?php esc_html_e( 'Every rule in detail', 'drive' ); ?></span>
                         </li>
 
                         <li class="compare-feature-item">
-                            <span class="feature-check-badge" aria-hidden="true">
-                                <svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="#00B4A6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                            <span class="feature-soft-check" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="#6C7088" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="4 10 8 14 16 6"/>
                                 </svg>
                             </span>
-                            <span class="feature-text">
-                                <?php esc_html_e( 'Thorough reference reading when you have plenty of time', 'drive' ); ?>
-                            </span>
+                            <span class="feature-text"><?php esc_html_e( 'Road signs inside the chapters', 'drive' ); ?></span>
                         </li>
 
                         <li class="compare-feature-item">
-                            <span class="feature-check-badge" aria-hidden="true">
-                                <svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="#00B4A6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                            <span class="feature-soft-check" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="#6C7088" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="4 10 8 14 16 6"/>
                                 </svg>
                             </span>
-                            <span class="feature-text">
-                                <?php esc_html_e( 'Free PDF download from your state DMV', 'drive' ); ?>
-                            </span>
+                            <span class="feature-text"><?php esc_html_e( 'Free on the DMV website', 'drive' ); ?></span>
                         </li>
                     </ul>
 
-                    <div class="compare-cta-wrap">
-                        <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/handbook/' ) ); ?>" class="compare-cta-btn secondary-handbook-cta">
-                            <span><?php esc_html_e( 'Read Official Handbook', 'drive' ); ?></span>
-                            <span class="cta-arrow" aria-hidden="true">→</span>
+                    <div class="compare-link-wrap">
+                        <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/handbook/' ) ); ?>" class="compare-text-link">
+                            <span><?php esc_html_e( 'Read the official handbook', 'drive' ); ?></span>
+                            <span class="link-arrow" aria-hidden="true">→</span>
                         </a>
                     </div>
                 </div>
