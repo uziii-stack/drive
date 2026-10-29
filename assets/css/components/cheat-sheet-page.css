@@ -1847,22 +1847,64 @@
         height: 68px;
     }
 
+    /* Vertical Teal Connecting Line on Mobile */
     .how-connecting-line {
-        display: none;
+        display: block;
+        position: absolute;
+        top: 24px;
+        bottom: 40px;
+        left: 23px;
+        right: auto;
+        width: 2px;
+        height: auto;
+        background-color: #00B4A6;
+        z-index: 1;
     }
 
     .how-steps-grid {
         grid-template-columns: 1fr;
-        gap: 2.25rem;
+        gap: 2rem;
+        position: relative;
+        z-index: 2;
     }
 
     .how-step-item {
-        max-width: 380px;
-        margin: 0 auto;
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1.25rem;
+        max-width: 100%;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .how-step-num-badge {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        box-shadow: 0 0 0 6px #202232;
+        background-color: #202232;
+        border-color: #00B4A6;
+    }
+
+    .how-step-text {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding-top: 0.25rem;
+    }
+
+    .how-step-title {
+        font-size: 1.15rem;
+        margin: 0 0 0.35rem;
     }
 
     .how-step-desc {
         max-width: 100%;
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
 }
 

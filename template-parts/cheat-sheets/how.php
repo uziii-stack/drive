@@ -185,34 +185,40 @@ $site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_l
                 <!-- Step 1 -->
                 <div class="how-step-item">
                     <div class="how-step-num-badge">1</div>
-                    <h3 class="how-step-title"><?php esc_html_e( 'Pick your state and vehicle', 'drive' ); ?></h3>
-                    <p class="how-step-desc">
-                        <?php 
-                        printf(
-                            /* translators: %s: State name */
-                            esc_html__( 'Choose %s and Car, Motorcycle or Truck (CDL).', 'drive' ),
-                            esc_html( $current_state_name )
-                        ); 
-                        ?>
-                    </p>
+                    <div class="how-step-text">
+                        <h3 class="how-step-title"><?php esc_html_e( 'Pick your state and vehicle', 'drive' ); ?></h3>
+                        <p class="how-step-desc">
+                            <?php 
+                            printf(
+                                /* translators: %s: State name */
+                                esc_html__( 'Choose %s and Car, Motorcycle or Truck (CDL).', 'drive' ),
+                                esc_html( $current_state_name )
+                            ); 
+                            ?>
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Step 2 -->
                 <div class="how-step-item">
                     <div class="how-step-num-badge">2</div>
-                    <h3 class="how-step-title"><?php esc_html_e( 'Get your PDF instantly', 'drive' ); ?></h3>
-                    <p class="how-step-desc">
-                        <?php esc_html_e( 'Check out securely and download your cheat sheet right away.', 'drive' ); ?>
-                    </p>
+                    <div class="how-step-text">
+                        <h3 class="how-step-title"><?php esc_html_e( 'Get your PDF instantly', 'drive' ); ?></h3>
+                        <p class="how-step-desc">
+                            <?php esc_html_e( 'Check out securely and download your cheat sheet right away.', 'drive' ); ?>
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Step 3 -->
                 <div class="how-step-item">
                     <div class="how-step-num-badge">3</div>
-                    <h3 class="how-step-title"><?php esc_html_e( 'Study, print and go', 'drive' ); ?></h3>
-                    <p class="how-step-desc">
-                        <?php esc_html_e( 'Review on your phone or print it, then take your permit test.', 'drive' ); ?>
-                    </p>
+                    <div class="how-step-text">
+                        <h3 class="how-step-title"><?php esc_html_e( 'Study, print and go', 'drive' ); ?></h3>
+                        <p class="how-step-desc">
+                            <?php esc_html_e( 'Review on your phone or print it, then take your permit test.', 'drive' ); ?>
+                        </p>
+                    </div>
                 </div>
 
             </div>
