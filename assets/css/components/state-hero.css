@@ -1809,12 +1809,12 @@
     position: absolute;
     bottom: calc(100% + 8px);
     right: 0;
-    width: 290px;
+    width: 260px;
     background: #1E2032; /* Rich dark charcoal matching theme mega-dropdown */
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 16px;
+    border-radius: 14px;
     box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
-    padding: 0.75rem;
+    padding: 0.5rem;
     display: none;
     flex-direction: column;
     z-index: 1050;
@@ -1842,13 +1842,13 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
-    padding: 0 0.25rem;
+    margin-bottom: 0.4rem;
+    padding: 0 0.15rem;
 }
 
 .custom-search-icon {
     position: absolute;
-    left: 0.85rem;
+    left: 0.65rem;
     color: #8C8E9F;
     pointer-events: none;
     display: flex;
@@ -1859,8 +1859,8 @@
     width: 100%;
     background-color: #282A3E;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 0.5rem 0.75rem 0.5rem 2.15rem;
+    border-radius: 8px;
+    padding: 0.4rem 0.65rem 0.4rem 1.85rem;
     font-size: 0.8125rem;
     font-family: inherit;
     color: #FFFFFF;
@@ -1879,16 +1879,16 @@
 
 /* States List */
 .custom-switcher-list {
-    max-height: 240px;
+    max-height: 200px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 2px;
-    padding-right: 4px;
+    padding-right: 2px;
 }
 
 .custom-switcher-list::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
 }
 
 .custom-switcher-list::-webkit-scrollbar-track {
@@ -1904,13 +1904,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.55rem 0.75rem;
-    border-radius: 8px;
+    padding: 0.45rem 0.65rem;
+    border-radius: 6px;
     color: #C9CAD3;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .custom-state-option:hover {
@@ -2061,8 +2061,20 @@
     }
 
     .custom-switcher-menu {
-        width: min(290px, calc(100vw - 3rem));
-        right: 0;
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        bottom: 5.5rem;
+        width: auto;
+        max-width: calc(100vw - 2rem);
+        margin: 0 auto;
+        border-radius: 14px;
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+        z-index: 9999;
+    }
+
+    .custom-switcher-list {
+        max-height: 180px;
     }
 
     .btn-switcher-go {
@@ -2090,9 +2102,20 @@
         padding: 0.4rem 0.75rem;
     }
 
-    .switcher-select-dropdown {
+    .custom-switcher-trigger {
         font-size: 0.8125rem;
         padding: 0.65rem 1.6rem 0.65rem 0.65rem;
+    }
+
+    .custom-switcher-menu {
+        left: 0.5rem;
+        right: 0.5rem;
+        max-width: calc(100vw - 1rem);
+        bottom: 5rem;
+    }
+
+    .custom-switcher-list {
+        max-height: 160px;
     }
 
     .btn-switcher-go {
