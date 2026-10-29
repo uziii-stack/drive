@@ -205,3 +205,4 @@ $badge_text      = $current_state_code . ' · ' . $vehicle_label;
 
     </div><!-- .cheat-look-container -->
 </section>
+

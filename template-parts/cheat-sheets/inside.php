@@ -94,22 +94,20 @@ if ( 'cdl' === $vehicle_key ) {
                 <p class="tile-desc"><?php esc_html_e( 'Shapes, colors and meanings of the signs you will see on the test.', 'drive' ); ?></p>
             </div>
 
-            <!-- 3. Right-of-way -->
+            <!-- 3. Right-of-way (Map / 3-fold pamphlet icon) -->
             <div class="bento-tile bento-tile-white">
                 <div class="tile-icon-badge" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B4A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10 9 9 9 8 9"/>
+                        <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+                        <line x1="8" y1="2" x2="8" y2="18"/>
+                        <line x1="16" y1="6" x2="16" y2="22"/>
                     </svg>
                 </div>
                 <h3 class="tile-title"><?php esc_html_e( 'Right-of-way', 'drive' ); ?></h3>
                 <p class="tile-desc"><?php esc_html_e( 'Who goes first at intersections, crosswalks and stops.', 'drive' ); ?></p>
             </div>
 
-            <!-- 4. Speed & lanes -->
+            <!-- 4. Speed & lanes (Car front icon) -->
             <div class="bento-tile bento-tile-white">
                 <div class="tile-icon-badge" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B4A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -122,20 +120,19 @@ if ( 'cdl' === $vehicle_key ) {
                 <p class="tile-desc"><?php esc_html_e( 'Speed limits, lane markings, turns and passing.', 'drive' ); ?></p>
             </div>
 
-            <!-- 5. Safe driving -->
+            <!-- 5. Safe driving (Shield with checkmark) -->
             <div class="bento-tile bento-tile-white">
                 <div class="tile-icon-badge" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B4A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <path d="M12 8v4"/>
-                        <path d="M12 16h.01"/>
+                        <polyline points="9 12 11 14 15 10"/>
                     </svg>
                 </div>
                 <h3 class="tile-title"><?php esc_html_e( 'Safe driving', 'drive' ); ?></h3>
                 <p class="tile-desc"><?php esc_html_e( 'Following distance, night and weather driving, sharing the road.', 'drive' ); ?></p>
             </div>
 
-            <!-- 6. Alcohol & points (Bottom-Left) -->
+            <!-- 6. Alcohol & points (Shield with exclamation mark) -->
             <div class="bento-tile bento-tile-white bento-tile-bottom-left">
                 <div class="tile-icon-badge" aria-hidden="true">
                     <?php if ( 'cdl' === $vehicle_key ) : ?>
@@ -148,6 +145,8 @@ if ( 'cdl' === $vehicle_key ) {
                     <?php else : ?>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00B4A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <circle cx="12" cy="16" r="0.75" fill="#00B4A6"/>
                         </svg>
                     <?php endif; ?>
                 </div>
