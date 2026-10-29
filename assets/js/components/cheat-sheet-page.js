@@ -113,12 +113,12 @@
      * Interactive FAQ Accordion Script
      */
     function initFaqAccordion() {
-        var faqItems = document.querySelectorAll('.faq-item');
+        var faqItems = document.querySelectorAll('.cs-faq-item');
         if (!faqItems.length) return;
 
         faqItems.forEach(function(item) {
-            var btn = item.querySelector('.faq-question-btn');
-            var panel = item.querySelector('.faq-answer-panel');
+            var btn = item.querySelector('.cs-faq-btn');
+            var panel = item.querySelector('.cs-faq-panel');
             if (!btn || !panel) return;
 
             btn.addEventListener('click', function() {
@@ -128,8 +128,8 @@
                 faqItems.forEach(function(other) {
                     if (other !== item && other.classList.contains('is-open')) {
                         other.classList.remove('is-open');
-                        var otherBtn = other.querySelector('.faq-question-btn');
-                        var otherPanel = other.querySelector('.faq-answer-panel');
+                        var otherBtn = other.querySelector('.cs-faq-btn');
+                        var otherPanel = other.querySelector('.cs-faq-panel');
                         if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
                         if (otherPanel) otherPanel.setAttribute('hidden', '');
                     }

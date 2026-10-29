@@ -86,49 +86,49 @@ $faq_items = array(
 );
 ?>
 
-<section id="faq" class="cheat-faq-section" aria-labelledby="faq-heading">
-    <div class="site-container cheat-faq-container">
+<section id="faq" class="cs-faq-section" aria-labelledby="cs-faq-heading">
+    <div class="site-container cs-faq-container">
         
         <!-- Header -->
-        <div class="faq-header">
-            <span class="faq-eyebrow"><?php esc_html_e( 'FAQ', 'drive' ); ?></span>
-            <h2 id="faq-heading" class="faq-title"><?php esc_html_e( 'Good questions, quick answers', 'drive' ); ?></h2>
+        <div class="cs-faq-header">
+            <span class="cs-faq-eyebrow"><?php esc_html_e( 'FAQ', 'drive' ); ?></span>
+            <h2 id="cs-faq-heading" class="cs-faq-title"><?php esc_html_e( 'Good questions, quick answers', 'drive' ); ?></h2>
         </div>
 
-        <!-- Accordion List (Using exact homepage FAQ card markup) -->
-        <div class="faq-accordion-list faq-accordion" id="faqAccordion">
+        <!-- Accordion List -->
+        <div class="cs-faq-accordion" id="csFaqAccordion">
             <?php foreach ( $faq_items as $index => $item ) : 
-                $item_id   = 'faq-item-' . $index;
-                $button_id = 'faq-btn-' . $index;
-                $panel_id  = 'faq-ans-' . $index;
+                $item_id   = 'cs-faq-item-' . $index;
+                $button_id = 'cs-faq-btn-' . $index;
+                $panel_id  = 'cs-faq-ans-' . $index;
                 $is_open   = ! empty( $item['is_open'] );
             ?>
-                <div class="faq-accordion-item faq-item <?php echo $is_open ? 'is-active is-open' : ''; ?>" id="<?php echo esc_attr( $item_id ); ?>">
+                <div class="cs-faq-item <?php echo $is_open ? 'is-open' : ''; ?>" id="<?php echo esc_attr( $item_id ); ?>">
                     <button type="button" 
-                            class="faq-question-btn" 
+                            class="cs-faq-btn" 
                             id="<?php echo esc_attr( $button_id ); ?>" 
                             aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>" 
                             aria-controls="<?php echo esc_attr( $panel_id ); ?>">
-                        <span class="faq-question-text faq-q-text"><?php echo esc_html( $item['q'] ); ?></span>
-                        <span class="faq-toggle-icon" aria-hidden="true">
-                            <span class="icon-line line-h"></span>
-                            <span class="icon-line line-v"></span>
+                        <span class="cs-faq-q"><?php echo esc_html( $item['q'] ); ?></span>
+                        <span class="cs-faq-icon" aria-hidden="true">
+                            <span class="cs-icon-line h"></span>
+                            <span class="cs-icon-line v"></span>
                         </span>
                     </button>
 
-                    <div class="faq-answer-collapse faq-answer-panel" 
+                    <div class="cs-faq-panel" 
                          id="<?php echo esc_attr( $panel_id ); ?>" 
                          role="region" 
                          aria-labelledby="<?php echo esc_attr( $button_id ); ?>"
                          <?php echo $is_open ? '' : 'hidden'; ?>>
-                        <div class="faq-answer-body faq-answer-inner">
+                        <div class="cs-faq-body">
                             <p><?php echo esc_html( $item['a'] ); ?></p>
                         </div>
                     </div>
-                </div><!-- .faq-accordion-item -->
+                </div><!-- .cs-faq-item -->
             <?php endforeach; ?>
-        </div><!-- .faq-accordion-list -->
+        </div><!-- .cs-faq-accordion -->
 
-    </div><!-- .cheat-faq-container -->
+    </div><!-- .cs-faq-container -->
 </section>
 
