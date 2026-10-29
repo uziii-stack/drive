@@ -1478,3 +1478,308 @@
     }
 }
 
+/* ==========================================================================
+   5. HOW IT WORKS SECTION (#how)
+   Matches screenshot:
+   - Deep charcoal background (#26283B)
+   - Rounded video container with dashed road curve & mini book mockup peeking
+   - Center orange circular play button
+   - 3-step connected timeline with teal line and badges
+   ========================================================================== */
+.cheat-how-section {
+    background-color: #26283B;
+    color: #FFFFFF;
+    padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+    overflow: hidden;
+}
+
+.cheat-how-container {
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Section Header */
+.how-header {
+    text-align: center;
+    margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.how-eyebrow {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    color: #00B4A6;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.65rem;
+}
+
+.how-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(2.25rem, 3.8vw, 3.125rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0;
+}
+
+/* Video Container Box */
+.how-video-box {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background: radial-gradient(120% 100% at 50% 40%, #35384F 0%, #26283B 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: clamp(3rem, 5vw, 4.5rem);
+    box-shadow: 0 24px 60px rgba(10, 11, 20, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Road Curve SVG Background Decor */
+.how-road-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Mini Angled Cheat Sheet Mockup in Top-Right */
+.how-mini-cover-wrap {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    z-index: 2;
+    transform: rotate(8deg);
+    pointer-events: none;
+}
+
+.how-mini-mockup {
+    width: 140px;
+    height: 195px;
+    border-radius: 10px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    background: #1C1E2E;
+    overflow: hidden;
+}
+
+.how-mini-mockup .sheet-inner {
+    padding: 0.65rem;
+}
+
+.how-mini-mockup .sheet-header {
+    margin-bottom: 0.35rem;
+}
+
+.how-mini-mockup .sheet-brand-text .brand-top {
+    font-size: 0.45rem;
+    color: #FFFFFF;
+}
+
+.how-mini-mockup .sheet-brand-text .brand-bot {
+    font-size: 0.5rem;
+    color: #FFFFFF;
+}
+
+.how-mini-mockup .sheet-state-name {
+    font-size: 0.45rem;
+    color: #00B4A6;
+    font-weight: 800;
+}
+
+.how-mini-mockup .sheet-big-num {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #F26419;
+    line-height: 1;
+    margin: 2px 0;
+}
+
+.how-mini-mockup .sheet-main-title {
+    font-size: 0.42rem;
+    color: #FFFFFF;
+    line-height: 1.1;
+    display: block;
+}
+
+.how-mini-mockup .title-orange-underline {
+    width: 16px;
+    height: 2px;
+    background: #F26419;
+    margin-top: 3px;
+}
+
+.how-mini-mockup .sheet-image-showcase {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 85px;
+    overflow: hidden;
+}
+
+.how-mini-mockup .cover-showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+}
+
+/* Center Orange Play Button */
+.how-play-btn {
+    position: relative;
+    z-index: 4;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #F26419;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(242, 100, 25, 0.4);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background-color 0.2s ease;
+}
+
+.how-play-btn:hover {
+    transform: scale(1.08);
+    background-color: #ff752d;
+    box-shadow: 0 16px 36px rgba(242, 100, 25, 0.55);
+}
+
+.how-play-triangle {
+    margin-left: 4px;
+}
+
+/* Video Placeholder Bottom Note */
+.how-video-note {
+    position: absolute;
+    bottom: 24px;
+    left: 28px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: #9295A8;
+}
+
+.how-video-note svg {
+    flex-shrink: 0;
+}
+
+/* 3-Step Timeline Grid */
+.how-steps-track {
+    position: relative;
+    width: 100%;
+}
+
+/* Connecting Teal Line */
+.how-connecting-line {
+    position: absolute;
+    top: 22px;
+    left: 14%;
+    right: 14%;
+    height: 2px;
+    background-color: #00B4A6;
+    z-index: 1;
+}
+
+.how-steps-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.how-step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.how-step-num-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #26283B;
+    border: 2px solid #00B4A6;
+    color: #FFFFFF;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 0 0 6px #26283B;
+}
+
+.how-step-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.25;
+    margin: 0 0 0.65rem;
+}
+
+.how-step-desc {
+    font-size: 0.9rem;
+    color: #A6A9BC;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 260px;
+}
+
+/* Responsive How Section */
+@media (max-width: 768px) {
+    .how-video-box {
+        height: 380px;
+        border-radius: 20px;
+    }
+
+    .how-mini-cover-wrap {
+        right: 25px;
+        top: 25px;
+        transform: rotate(6deg) scale(0.85);
+    }
+
+    .how-play-btn {
+        width: 68px;
+        height: 68px;
+    }
+
+    .how-connecting-line {
+        display: none;
+    }
+
+    .how-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+    }
+
+    .how-step-item {
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    .how-step-desc {
+        max-width: 100%;
+    }
+}
+
