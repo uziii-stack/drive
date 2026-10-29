@@ -1,0 +1,705 @@
+/**
+ * Cheat Sheet Product Page Styles
+ *
+ * Route: /[state]/[vehicle]-cheat-sheet
+ * Design Spec: Desktop 1440px (1200px container max-width with 32px padding)
+ *              Mobile 390px (20px padding) - Mobile-First Architecture
+ * Brand Colors:
+ *   Charcoal:       #2B2D42
+ *   Teal:           #00B4A6
+ *   Teal Text:      #00796F
+ *   Orange:         #F26419
+ *   Light Grey:     #F4F5F7
+ *   Muted Text:     #55576D
+ *   Borders:        #E6E7EB
+ */
+
+/* ==========================================================================
+   1. HERO SECTION (#hero)
+   ========================================================================== */
+.cheat-hero-section {
+    position: relative;
+    background-color: #FFFFFF;
+    padding: 3rem 0 4rem;
+    overflow: hidden;
+}
+
+.cheat-hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+/* Left Column: Content */
+.cheat-hero-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Eyebrow Pill */
+.cheat-hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #2B2D42;
+    color: #FFFFFF;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+}
+
+.cheat-pill-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #00B4A6;
+    display: inline-block;
+}
+
+/* H1 Heading */
+.cheat-hero-title {
+    color: #2B2D42;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 2.15rem;
+    line-height: 1.14;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin: 0 0 1rem 0;
+}
+
+/* Lead text */
+.cheat-hero-lead {
+    color: #55576D;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 400;
+    margin: 0 0 1.5rem 0;
+    max-width: 540px;
+}
+
+/* Price row */
+.cheat-hero-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
+}
+
+.cheat-hero-price-amount {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2B2D42;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.cheat-hero-price-meta {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #55576D;
+}
+
+/* CTA Group */
+.cheat-hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.cheat-hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    background-color: #F26419;
+    color: #FFFFFF !important;
+    font-weight: 800;
+    font-size: 1.05rem;
+    padding: 0.95rem 2rem;
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(242, 100, 25, 0.28);
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    min-height: 52px;
+}
+
+.cheat-hero-cta-btn:hover {
+    background-color: #D9530D;
+    box-shadow: 0 10px 28px rgba(242, 100, 25, 0.38);
+    transform: translateY(-1px);
+    color: #FFFFFF !important;
+}
+
+.cheat-hero-cta-btn .btn-arrow {
+    font-size: 1.25rem;
+    transition: transform 0.2s ease;
+}
+
+.cheat-hero-cta-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.cheat-hero-secondary-link {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2B2D42;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1.5px;
+    transition: color 0.2s ease;
+}
+
+.cheat-hero-secondary-link:hover {
+    color: #00796F;
+}
+
+/* Trust row */
+.cheat-hero-trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem 0.6rem;
+    font-size: 0.825rem;
+    color: #55576D;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+}
+
+.trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.trust-check-icon {
+    flex-shrink: 0;
+}
+
+.trust-dot-sep {
+    color: #C9CAD3;
+    font-weight: 700;
+}
+
+/* Also available switcher */
+.cheat-hero-also-available {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #55576D;
+}
+
+.also-label {
+    font-weight: 600;
+}
+
+.also-links {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.also-link {
+    color: #2B2D42;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+}
+
+.also-link:hover {
+    color: #F26419;
+}
+
+.also-dot {
+    color: #C9CAD3;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   RIGHT STAGE: ROUNDED BACKDROP + PEEKING SAMPLES + CENTER COVER
+   ========================================================================== */
+.cheat-hero-stage-col {
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+}
+
+.cheat-hero-stage {
+    position: relative;
+    background-color: #F4F5F7;
+    border-radius: 36px;
+    padding: 3.5rem 1.5rem 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 440px;
+    overflow: hidden;
+}
+
+.stage-dashed-curve {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Peeking Sample Pages (Left & Right) */
+.peek-sample-page {
+    position: absolute;
+    top: 50%;
+    width: 180px;
+    height: 290px;
+    background: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(43, 45, 66, 0.08);
+    border: 1px solid #E6E7EB;
+    padding: 0.85rem;
+    z-index: 2;
+    overflow: hidden;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Left Page ("ROAD SIGNS") */
+.peek-sample-page.peek-left {
+    left: -12px;
+    transform: translateY(-50%) rotate(-6deg);
+}
+
+/* Right Page ("ANSWERS") */
+.peek-sample-page.peek-right {
+    right: -12px;
+    transform: translateY(-50%) rotate(6deg);
+}
+
+.peek-sample-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #F0F1F4;
+    margin-bottom: 0.65rem;
+}
+
+.peek-sample-title {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #00B4A6;
+    letter-spacing: 0.05em;
+}
+
+.peek-sample-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: #55576D;
+}
+
+.peek-sample-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.peek-sign-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.peek-sign-shape {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid #2B2D42;
+    flex-shrink: 0;
+}
+
+.peek-sign-shape.octagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.peek-sign-shape.circle {
+    border-radius: 50%;
+}
+
+.peek-sign-shape.rect {
+    border-radius: 4px;
+    height: 28px;
+    width: 20px;
+}
+
+.peek-sign-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.peek-line {
+    display: block;
+    height: 5px;
+    background-color: #E6E7EB;
+    border-radius: 3px;
+}
+
+.peek-line.w-50 { width: 50%; }
+.peek-line.w-60 { width: 60%; }
+.peek-line.w-70 { width: 70%; }
+.peek-line.w-75 { width: 75%; }
+.peek-line.w-80 { width: 80%; }
+.peek-line.w-85 { width: 85%; }
+.peek-line.w-90 { width: 90%; }
+
+.peek-line.teal-line {
+    background-color: #00B4A6;
+    opacity: 0.6;
+}
+
+.peek-qa-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0.35rem;
+    border-radius: 6px;
+    background-color: #FAFAFB;
+    border: 1px solid #F0F1F4;
+}
+
+.peek-question-line {
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: #2B2D42;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.peek-answer-line {
+    font-size: 0.55rem;
+    color: #00796F;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   CENTER CHEAT SHEET BOOK COVER MOCKUP
+   ========================================================================== */
+.cheat-hero-cover-wrap {
+    position: relative;
+    z-index: 5;
+    width: 240px;
+    box-shadow: 0 20px 48px -10px rgba(43, 45, 66, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.25s ease;
+}
+
+.cheat-hero-cover-wrap .sheet-inner.client-cover-style {
+    position: relative;
+    background-color: #2B2D42;
+    color: #FFFFFF;
+    padding: 1.15rem 1rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 340px;
+    overflow: hidden;
+}
+
+/* Dashed Circular Accent Pattern */
+.cheat-hero-cover-wrap .cover-dashed-arc {
+    position: absolute;
+    top: 15px;
+    right: -45px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 2px dashed rgba(255, 255, 255, 0.16);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Header inside card */
+.cheat-hero-cover-wrap .sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+    margin-bottom: 0.85rem;
+}
+
+.cheat-hero-cover-wrap .sheet-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.cheat-hero-cover-wrap .sheet-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.cheat-hero-cover-wrap .sheet-brand-text .brand-top {
+    font-size: 0.525rem;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.cheat-hero-cover-wrap .sheet-brand-text .brand-bot {
+    font-size: 0.6rem;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.cheat-hero-cover-wrap .sheet-brand-text .brand-test-orange {
+    color: #F26419;
+}
+
+.cheat-hero-cover-wrap .sheet-pill-tag {
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: #00B4A6;
+    border: 1px solid rgba(0, 180, 166, 0.4);
+    background: rgba(0, 180, 166, 0.08);
+    border-radius: 999px;
+    padding: 0.2rem 0.45rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* Title Area */
+.cheat-hero-cover-wrap .sheet-title-area {
+    position: relative;
+    z-index: 3;
+    margin-bottom: 0.5rem;
+}
+
+.cheat-hero-cover-wrap .sheet-state-name {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #00B4A6;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+.cheat-hero-cover-wrap .sheet-big-num {
+    font-size: 2.85rem;
+    font-weight: 800;
+    line-height: 0.95;
+    color: #F26419;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.25rem;
+}
+
+.cheat-hero-cover-wrap .sheet-main-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.15;
+    display: block;
+}
+
+.cheat-hero-cover-wrap .title-orange-underline {
+    width: 32px;
+    height: 3px;
+    background-color: #F26419;
+    border-radius: 2px;
+    margin-top: 0.4rem;
+}
+
+/* Photo / Artwork preview */
+.cheat-hero-cover-wrap .sheet-graphic-preview {
+    position: relative;
+    margin-top: 0.5rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    height: 135px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Exact gradient overlay matching reference */
+.cheat-hero-cover-wrap .sheet-graphic-preview::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #2B2D42 0%, rgba(43, 45, 66, 0.4) 40%, rgba(43, 45, 66, 0) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.cheat-hero-cover-wrap .aerial-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+}
+
+/* Footer Bar */
+.cheat-hero-cover-wrap .sheet-footer-bar {
+    position: relative;
+    z-index: 3;
+    padding-top: 0.5rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.cheat-hero-cover-wrap .footer-domain {
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cheat-hero-cover-wrap .footer-meta {
+    font-size: 0.425rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.25;
+}
+
+/* Floating Pill: Printable PDF */
+.floating-printable-pill {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    background: #FFFFFF;
+    color: #2B2D42;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 0.45rem 0.85rem;
+    box-shadow: 0 6px 20px rgba(43, 45, 66, 0.12);
+    border: 1px solid #E6E7EB;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    z-index: 10;
+}
+
+.floating-printable-pill .pill-download-icon {
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   DESKTOP MEDIA QUERIES (min-width: 992px)
+   ========================================================================== */
+@media (min-width: 992px) {
+    .cheat-hero-section {
+        padding: 4.5rem 0 5rem;
+    }
+
+    .cheat-hero-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 3.5rem;
+    }
+
+    .cheat-hero-content {
+        flex: 1;
+        max-width: 580px;
+    }
+
+    .cheat-hero-title {
+        font-size: 3.25rem;
+        line-height: 1.08;
+        margin-bottom: 1.25rem;
+    }
+
+    .cheat-hero-lead {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    .cheat-hero-price-amount {
+        font-size: 2.5rem;
+    }
+
+    .cheat-hero-cta-group {
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+        gap: 1.5rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .cheat-hero-cta-btn {
+        width: auto;
+        padding: 1rem 2.25rem;
+        font-size: 1.125rem;
+        min-height: 56px;
+    }
+
+    .cheat-hero-stage-col {
+        flex: 1;
+        max-width: 520px;
+    }
+
+    .cheat-hero-stage {
+        padding: 4.5rem 2.5rem 3.5rem;
+        border-radius: 44px;
+        min-height: 500px;
+    }
+
+    .peek-sample-page {
+        width: 220px;
+        height: 340px;
+    }
+
+    .peek-sample-page.peek-left {
+        left: 0;
+        transform: translateY(-50%) rotate(-8deg);
+    }
+
+    .peek-sample-page.peek-right {
+        right: 0;
+        transform: translateY(-50%) rotate(8deg);
+    }
+
+    .cheat-hero-cover-wrap {
+        width: 270px;
+    }
+
+    .cheat-hero-cover-wrap .sheet-inner.client-cover-style {
+        padding: 1.4rem 1.25rem 1rem;
+        min-height: 380px;
+    }
+
+    .cheat-hero-cover-wrap .sheet-graphic-preview {
+        height: 160px;
+        margin-left: -1.25rem;
+        margin-right: -1.25rem;
+    }
+
+    .cheat-hero-cover-wrap .sheet-big-num {
+        font-size: 3.35rem;
+    }
+
+    .cheat-hero-cover-wrap .sheet-main-title {
+        font-size: 1.1rem;
+    }
+}

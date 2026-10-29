@@ -95,6 +95,11 @@ function drive_scripts() {
     $state_hero_version  = file_exists( $state_hero_css_path ) ? filemtime( $state_hero_css_path ) : $theme_version;
     wp_enqueue_style( 'drive-state-hero-style', DRIVE_THEME_URI . '/assets/css/components/state-hero.css', array( 'drive-main-style' ), $state_hero_version );
 
+    // Single Cheat Sheet Product Page CSS
+    $cheat_sheet_page_css_path = DRIVE_THEME_DIR . '/assets/css/components/cheat-sheet-page.css';
+    $cheat_sheet_page_version  = file_exists( $cheat_sheet_page_css_path ) ? filemtime( $cheat_sheet_page_css_path ) : $theme_version;
+    wp_enqueue_style( 'drive-cheat-sheet-page-style', DRIVE_THEME_URI . '/assets/css/components/cheat-sheet-page.css', array( 'drive-state-hero-style' ), $cheat_sheet_page_version );
+
 
     // Main JS (Lightweight vanilla JS)
     $main_js_path = DRIVE_THEME_DIR . '/assets/js/main.js';
