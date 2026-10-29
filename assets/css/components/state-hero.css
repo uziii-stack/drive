@@ -256,14 +256,14 @@
     overflow: hidden;
 }
 
-/* Contained Road SVG inside the backdrop card (Sits below cards) */
+/* Contained Road SVG inside the backdrop card (Sits strictly below cards) */
 .state-mockup-stage .stage-dashed-curve {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
+    z-index: 0 !important;
     display: block;
 }
 
@@ -284,7 +284,7 @@
     width: 320px;
     height: 440px;
     perspective: 1200px;
-    z-index: 4;
+    z-index: 10 !important;
 }
 
 /* Common Card Styles */
@@ -2272,7 +2272,7 @@
         height: 315px;
         margin: 0 auto;
         position: relative;
-        z-index: 1;
+        z-index: 10 !important;
     }
 
     .cheat-sheet-card {
