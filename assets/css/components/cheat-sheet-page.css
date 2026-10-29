@@ -2056,7 +2056,7 @@
     background-color: #F26419;
     color: #FFFFFF;
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 1.0625rem;
+    font-size: 13px;
     font-weight: 800;
     padding: 1rem 2rem;
     border-radius: 12px;
@@ -3247,6 +3247,18 @@
 
     .other-card-desc {
         font-size: 0.72rem;
+    }
+}
+
+/* ==========================================================================
+   Mobile Buttons (13px font size)
+   ========================================================================== */
+@media (max-width: 640px) {
+    .cheat-hero-cta-btn,
+    .compare-cta-btn,
+    .pricing-buy-btn,
+    .final-cta-btn {
+        font-size: 13px !important;
     }
 }
 
