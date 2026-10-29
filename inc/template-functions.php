@@ -105,9 +105,17 @@ function drive_state_template_include( $template ) {
     $parts = explode( '?', $req_uri );
     $path_segments = array_values( array_filter( explode( '/', trim( $parts[0], '/' ) ) ) );
 
-    if ( count( $path_segments ) >= 2 && preg_match( '/^(car|motorcycle|cdl|truck)-cheat-sheet$/i', $path_segments[1], $matches ) ) {
+    if ( count( $path_segments ) >= 2 && preg_match( '/^(car|motorcycle|cdl|truck)-cheat-?sheet$/i', $path_segments[1], $matches ) ) {
         $state   = sanitize_title( $path_segments[0] );
         $vehicle = strtolower( $matches[1] );
+
+        // If old format was requested, e.g. /california/car-cheatsheet/, 301 redirect to canonical /california/car-cheat-sheet/
+        if ( strpos( $path_segments[1], '-cheat-sheet' ) === false ) {
+            $canonical_url = home_url( '/' . esc_attr( $state ) . '/' . esc_attr( $vehicle ) . '-cheat-sheet/' );
+            wp_safe_redirect( $canonical_url, 301 );
+            exit;
+        }
+
         set_query_var( 'drive_state', $state );
         set_query_var( 'drive_vehicle', $vehicle );
     } elseif ( empty( $state ) && count( $path_segments ) === 1 ) {

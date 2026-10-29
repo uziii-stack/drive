@@ -174,7 +174,7 @@ $site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_l
                 <div class="state-hero-cta-wrap">
                     <?php 
                     $active_cta_label = sprintf( __( 'Get %s Cheat Sheet', 'drive' ), ( $current_veh === 'motorcycle' ? __( 'Motorcycle', 'drive' ) : ( $current_veh === 'cdl' ? __( 'CDL', 'drive' ) : __( 'Car', 'drive' ) ) ) );
-                    $cta_url = home_url( '/' . esc_attr( $current_state_slug ) . '/' . ( $current_veh === 'cdl' ? 'cdl-cheatsheet' : ( $current_veh === 'motorcycle' ? 'motorcycle-cheatsheet' : 'car-cheatsheet' ) ) . '/' );
+                    $cta_url = home_url( '/' . esc_attr( $current_state_slug ) . '/' . ( $current_veh === 'cdl' ? 'cdl-cheat-sheet' : ( $current_veh === 'motorcycle' ? 'motorcycle-cheat-sheet' : 'car-cheat-sheet' ) ) . '/' );
                     ?>
                     <a href="<?php echo esc_url( $cta_url ); ?>" class="btn-primary-orange state-hero-cta-btn" id="stateHeroCtaBtn">
                         <span class="cta-btn-text" id="stateCtaBtnText"><?php echo esc_html( $active_cta_label ); ?></span>

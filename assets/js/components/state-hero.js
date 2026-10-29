@@ -43,13 +43,13 @@
             // Update CTA destination URL if current href exists
             var currentHref = ctaBtn.getAttribute('href');
             if (currentHref) {
-                var targetSlug = 'car-cheatsheet';
+                var targetSlug = 'car-cheat-sheet';
                 if (vehType === 'cdl') {
-                    targetSlug = 'cdl-cheatsheet';
+                    targetSlug = 'cdl-cheat-sheet';
                 } else if (vehType === 'motorcycle') {
-                    targetSlug = 'motorcycle-cheatsheet';
+                    targetSlug = 'motorcycle-cheat-sheet';
                 }
-                var updatedHref = currentHref.replace(/(car|cdl|motorcycle)-cheatsheet/i, targetSlug);
+                var updatedHref = currentHref.replace(/(car|cdl|motorcycle)-cheat-?sheet/i, targetSlug);
                 ctaBtn.setAttribute('href', updatedHref);
             }
 
