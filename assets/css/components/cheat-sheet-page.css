@@ -2941,6 +2941,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: left;
 }
 
 .final-cover-mockup {
@@ -2953,10 +2954,12 @@
     background: #2B2D42;
     overflow: hidden;
     margin: -50px 0;
+    text-align: left;
 }
 
 .final-cover-mockup .sheet-inner {
     height: 100%;
+    text-align: left;
 }
 
 /* Heading & Subtitle */

@@ -418,6 +418,8 @@
 .sheet-title-area {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
     margin-bottom: 0.5rem;
 }
 
@@ -427,6 +429,7 @@
     color: #8C8E9F;
     letter-spacing: 0.08em;
     margin-bottom: 0.15rem;
+    text-align: left;
 }
 
 .sheet-big-num {
@@ -434,6 +437,8 @@
     font-weight: 800;
     line-height: 1;
     margin-bottom: 0.2rem;
+    text-align: left;
+    align-self: flex-start;
 }
 
 .sheet-big-num.orange-accent {
@@ -716,6 +721,8 @@
     color: #F26419;
     margin: 0.1rem 0 0.35rem;
     letter-spacing: -0.02em;
+    text-align: left;
+    align-self: flex-start;
 }
 
 /* 2-line Subtitle */
@@ -748,6 +755,7 @@
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0.5rem;
+    text-align: left;
 }
 
 .sheet-inner.client-cover-style .sheet-header,
