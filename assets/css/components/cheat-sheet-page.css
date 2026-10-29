@@ -277,13 +277,13 @@
 /* Peeking Sample Pages (Left & Right) */
 .peek-sample-page {
     position: absolute;
-    width: 185px;
-    height: 280px;
+    width: 195px;
+    height: 290px;
     background: #FFFFFF;
     border-radius: 16px;
     box-shadow: 0 12px 32px rgba(43, 45, 66, 0.08), 0 2px 6px rgba(43, 45, 66, 0.04);
     border: 1px solid #E6E7EB;
-    padding: 0.95rem;
+    padding: 0;
     z-index: 2;
     overflow: hidden;
     pointer-events: none;
@@ -293,14 +293,14 @@
 
 /* Left Page ("ROAD SIGNS") - peeks out symmetrically on the left */
 .peek-sample-page.peek-left {
-    left: 8px;
+    left: 4px;
     top: 50%;
     transform: translateY(-50%) rotate(-7deg);
 }
 
 /* Right Page ("ANSWERS") - peeks symmetrically on the right */
 .peek-sample-page.peek-right {
-    right: 8px;
+    right: 4px;
     top: 50%;
     transform: translateY(-50%) rotate(7deg);
 }
@@ -309,9 +309,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #F0F1F4;
-    margin-bottom: 0.65rem;
+    padding: 0.65rem 0.85rem;
+    background-color: #202232;
+    color: #FFFFFF;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .peek-sample-title {
@@ -319,29 +320,35 @@
     font-weight: 800;
     color: #00B4A6;
     letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .peek-sample-badge {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     font-weight: 700;
-    color: #55576D;
+    color: #A0A2B3;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .peek-sample-body {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    padding: 0.85rem;
+    background-color: #FFFFFF;
+    flex: 1;
 }
 
 .peek-sign-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.55rem;
 }
 
 .peek-sign-shape {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     border: 1.5px solid #2B2D42;
     flex-shrink: 0;
 }
@@ -355,9 +362,9 @@
 }
 
 .peek-sign-shape.rect {
-    border-radius: 4px;
-    height: 28px;
-    width: 20px;
+    border-radius: 3px;
+    height: 24px;
+    width: 18px;
 }
 
 .peek-sign-lines {
@@ -367,52 +374,59 @@
     width: 100%;
 }
 
+.peek-sign-lines-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    padding-top: 4px;
+}
+
 .peek-line {
     display: block;
     height: 5px;
-    background-color: #E6E7EB;
+    background-color: #E2E4E9;
     border-radius: 3px;
 }
 
+.peek-line.w-40 { width: 40%; }
 .peek-line.w-50 { width: 50%; }
 .peek-line.w-60 { width: 60%; }
+.peek-line.w-65 { width: 65%; }
 .peek-line.w-70 { width: 70%; }
 .peek-line.w-75 { width: 75%; }
 .peek-line.w-80 { width: 80%; }
 .peek-line.w-85 { width: 85%; }
 .peek-line.w-90 { width: 90%; }
 
-.peek-line.teal-line {
-    background-color: #00B4A6;
-    opacity: 0.6;
-}
-
 .peek-qa-box {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    padding: 0.35rem;
+    padding: 0.45rem 0.5rem;
     border-radius: 6px;
     background-color: #FAFAFB;
-    border: 1px solid #F0F1F4;
+    border: 1px solid #ECEEF2;
 }
 
 .peek-question-line {
-    font-size: 0.625rem;
+    font-size: 0.6rem;
     font-weight: 700;
-    color: #2B2D42;
+    color: #202232;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.25;
 }
 
 .peek-answer-line {
-    font-size: 0.55rem;
-    color: #00796F;
+    font-size: 0.53rem;
+    color: #008779;
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.25;
 }
 
 /* ==========================================================================

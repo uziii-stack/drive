@@ -225,11 +225,20 @@ $guarantee_days = '30';
                                 <span class="peek-line w-60"></span>
                             </div>
                         </div>
-                        <!-- Sign Row 3: Speed limit -->
+                        <!-- Sign Row 3: Guide / Rect sign -->
                         <div class="peek-sign-item">
                             <div class="peek-sign-shape rect"></div>
                             <div class="peek-sign-lines">
+                                <span class="peek-line w-85"></span>
+                                <span class="peek-line w-50"></span>
+                            </div>
+                        </div>
+                        <!-- Sign Row 4 -->
+                        <div class="peek-sign-item">
+                            <div class="peek-sign-lines-block">
+                                <span class="peek-line w-90"></span>
                                 <span class="peek-line w-70"></span>
+                                <span class="peek-line w-40"></span>
                             </div>
                         </div>
                     </div>
@@ -239,23 +248,28 @@ $guarantee_days = '30';
                 <div class="peek-sample-page peek-right">
                     <div class="peek-sample-header right-align">
                         <span class="peek-sample-title">ANSWERS</span>
-                        <span class="peek-sample-badge"><?php echo esc_html( $current_state_code . '-' . strtoupper( $curr_data['name'] ) ); ?></span>
+                        <span class="peek-sample-badge"><?php echo esc_html( $current_state_code . ' · ' . strtoupper( $curr_data['name'] ) ); ?></span>
                     </div>
                     <div class="peek-sample-body">
                         <!-- Q&A Row 1 -->
                         <div class="peek-qa-box">
-                            <span class="peek-question-line">8-sided sign mean?</span>
-                            <span class="peek-answer-line">hen go when it is safe.</span>
+                            <span class="peek-question-line">What does an 8-sided sign mean?</span>
+                            <span class="peek-answer-line">Stop completely, then go when safe.</span>
                         </div>
                         <!-- Q&A Row 2 -->
                         <div class="peek-qa-box">
-                            <span class="peek-line w-90"></span>
-                            <span class="peek-line w-70 teal-line"></span>
+                            <span class="peek-line w-85"></span>
+                            <span class="peek-line w-65"></span>
                         </div>
                         <!-- Q&A Row 3 -->
                         <div class="peek-qa-box">
-                            <span class="peek-line w-85"></span>
-                            <span class="peek-line w-60 teal-line"></span>
+                            <span class="peek-line w-90"></span>
+                            <span class="peek-line w-50"></span>
+                        </div>
+                        <!-- Q&A Row 4 -->
+                        <div class="peek-qa-box">
+                            <span class="peek-line w-75"></span>
+                            <span class="peek-line w-60"></span>
                         </div>
                     </div>
                 </div>
