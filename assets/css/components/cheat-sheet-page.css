@@ -3443,3 +3443,121 @@
     }
 }
 
+/* ==========================================================================
+   STICKY MOBILE BUY BAR (.cs-sticky-buy-bar)
+   Fixed bottom bar visible throughout cheat sheet page on mobile
+   ========================================================================== */
+.cs-sticky-buy-bar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .cs-sticky-buy-bar {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: #FFFFFF;
+        border-top: 1px solid #E6E8EE;
+        box-shadow: 0 -4px 20px rgba(20, 21, 33, 0.08);
+        z-index: 999;
+        padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Padding on page container so sticky bar doesn't cover footer content */
+    body.single-cheat-sheet,
+    body:has(.cs-sticky-buy-bar) {
+        padding-bottom: 72px;
+    }
+
+    .cs-sticky-buy-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.85rem;
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+    .cs-sticky-product-info {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        flex-shrink: 0;
+    }
+
+    .cs-sticky-thumb-wrap {
+        width: 32px;
+        height: 44px;
+        border-radius: 4px;
+        overflow: hidden;
+        flex-shrink: 0;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        background-color: #202232;
+    }
+
+    .cs-sticky-thumb-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .cs-sticky-meta {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.15;
+    }
+
+    .cs-sticky-price {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #202232;
+        letter-spacing: -0.02em;
+    }
+
+    .cs-sticky-label {
+        font-size: 0.75rem;
+        color: #55576D;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    .cs-sticky-cta-wrap {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .cs-sticky-btn {
+        background-color: #F26419;
+        color: #FFFFFF !important;
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 13px !important;
+        font-weight: 800;
+        padding: 0.75rem 1.25rem;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(242, 100, 25, 0.28);
+        white-space: nowrap;
+        text-align: center;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .cs-sticky-btn:hover,
+    .cs-sticky-btn:active {
+        background-color: #D9530D;
+        color: #FFFFFF !important;
+    }
+}
+
+
