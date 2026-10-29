@@ -779,7 +779,7 @@
     width: 100%;
 }
 
-/* Soft atmospheric blur & gradient feathering at top of image matching client design */
+/* Soft atmospheric feathering at top of image matching client design */
 .sheet-graphic-preview.has-photo::before,
 .cover-art-box.has-photo::before {
     content: '';
@@ -787,10 +787,8 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 48px;
-    background: linear-gradient(to bottom, #262838 0%, rgba(38, 40, 56, 0.7) 40%, rgba(38, 40, 56, 0) 100%);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    height: 26px;
+    background: linear-gradient(to bottom, rgba(38, 40, 56, 0.95) 0%, rgba(38, 40, 56, 0.45) 50%, rgba(38, 40, 56, 0) 100%);
     z-index: 2;
     pointer-events: none;
 }
