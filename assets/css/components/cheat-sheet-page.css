@@ -569,6 +569,92 @@
 }
 
 /* ==========================================================================
+   MOBILE HERO REORDERING (max-width: 991px)
+   Orders content matching reference:
+   1. Eyebrow pill
+   2. H1 Title
+   3. Lead description
+   4. Visual Stage (Cards mockup)
+   5. Price row
+   6. CTA Button + Secondary link
+   7. Trust micro-copy
+   8. Also available switcher
+   ========================================================================== */
+@media (max-width: 991px) {
+    .cheat-hero-section {
+        padding: 2rem 0 3rem;
+    }
+
+    .cheat-hero-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Flatten content wrapper so individual elements can be ordered around the visual cards */
+    .cheat-hero-content {
+        display: contents;
+    }
+
+    .cheat-hero-pill {
+        order: 1;
+        margin-bottom: 0.85rem;
+    }
+
+    .cheat-hero-title {
+        order: 2;
+        font-size: 1.875rem;
+        line-height: 1.18;
+        margin-bottom: 0.85rem;
+    }
+
+    .cheat-hero-lead {
+        order: 3;
+        font-size: 0.95rem;
+        line-height: 1.55;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Cards Visual Stage sits directly below description, above price/CTA */
+    .cheat-hero-stage-col {
+        order: 4;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1.75rem;
+    }
+
+    .cheat-hero-stage {
+        padding: 2.25rem 1rem 3rem;
+        min-height: 420px;
+    }
+
+    /* Price row below the cards */
+    .cheat-hero-price-row {
+        order: 5;
+        margin-bottom: 1.15rem;
+    }
+
+    /* Orange CTA button & See what's inside link */
+    .cheat-hero-cta-group {
+        order: 6;
+        width: 100%;
+        margin-bottom: 1.25rem;
+    }
+
+    /* Trust guarantee row */
+    .cheat-hero-trust-row {
+        order: 7;
+        margin-bottom: 1.25rem;
+    }
+
+    /* Also available vehicle links */
+    .cheat-hero-also-available {
+        order: 8;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* ==========================================================================
    2. TRUST STRIP SECTION (#trust)
    ========================================================================== */
 .cheat-trust-section {
