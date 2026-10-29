@@ -2038,7 +2038,7 @@
     display: block;
 }
 
-.feature-text {
+.compare-feature-list .feature-text {
     font-size: 1rem;
     font-weight: 700;
     color: #2B2D42;
