@@ -2133,9 +2133,10 @@
      - Right (White #FFFFFF): Product title, $[XX] one-time, Orange CTA button, 3 trust lines
    ========================================================================== */
 .cheat-pricing-section {
-    background-color: #F8F9FB;
+    background-color: #FFFFFF;
     padding: clamp(4.5rem, 7vw, 6.5rem) 0;
     overflow: hidden;
+    border-top: 1px solid #E6E8EE;
 }
 
 .cheat-pricing-container {
