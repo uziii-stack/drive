@@ -158,6 +158,10 @@ $site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_l
                                 <div class="sheet-graphic-preview has-photo">
                                     <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $item['cover_photo'] ); ?>" alt="" class="aerial-photo-img" />
                                 </div>
+                                <div class="sheet-footer-bar client-cover-footer">
+                                    <span class="footer-domain">dmvlearnerspermittest.com</span>
+                                    <span class="footer-meta">Built from official <?php echo esc_html( $current_state_name ); ?> handbook · Not affiliated with any state DMV</span>
+                                </div>
                             </div>
                         </div>
                     </div>
