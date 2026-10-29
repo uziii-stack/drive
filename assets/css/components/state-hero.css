@@ -256,7 +256,7 @@
     overflow: hidden;
 }
 
-/* Contained Road SVG inside the backdrop card */
+/* Contained Road SVG inside the backdrop card (Sits below cards) */
 .state-mockup-stage .stage-dashed-curve {
     position: absolute;
     inset: 0;
@@ -278,13 +278,13 @@
     pointer-events: none;
 }
 
-/* Fanned 3D Cards Stack */
+/* Fanned 3D Cards Stack (Sits above the contained road curve) */
 .cheat-sheets-fanned-stack {
     position: relative;
     width: 320px;
     height: 440px;
     perspective: 1200px;
-    z-index: 1;
+    z-index: 4;
 }
 
 /* Common Card Styles */
