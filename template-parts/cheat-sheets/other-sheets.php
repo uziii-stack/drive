@@ -149,17 +149,11 @@ foreach ( $all_vehicle_options as $key => $opt ) {
 
                     <!-- Right: Info & Link -->
                     <div class="other-info-wrap">
-                        <div class="other-veh-badge">
-                            <?php echo $item['icon']; // SVG ?>
-                            <span class="other-veh-label"><?php echo esc_html( $item['badge'] ); ?></span>
-                        </div>
-
                         <h3 class="other-card-title"><?php echo esc_html( $item['title'] ); ?></h3>
                         <p class="other-card-desc"><?php echo esc_html( $item['desc'] ); ?></p>
 
                         <a href="<?php echo esc_url( $card_link ); ?>" class="other-card-link">
                             <span><?php esc_html_e( 'Get Your Cheat Sheet', 'drive' ); ?></span>
-                            <span class="link-arrow" aria-hidden="true">→</span>
                         </a>
                     </div>
 
