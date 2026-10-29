@@ -66,37 +66,38 @@ $badge_text      = $current_state_code . ' · ' . $vehicle_label;
                         <span class="look-card-badge"><?php echo esc_html( $badge_text ); ?></span>
                     </div>
                     <div class="look-card-body">
-                        <!-- Sign Grid (2 columns x 3 rows) -->
+                        <!-- Sign Grid (3 columns x 2 rows = 6 sign boxes) -->
                         <div class="look-signs-grid">
                             <div class="look-sign-box">
                                 <div class="sign-mini-shape shape-octagon"></div>
-                                <span class="sign-line w-60"></span>
+                                <span class="skeleton-line sk-60"></span>
                             </div>
                             <div class="look-sign-box">
                                 <div class="sign-mini-shape shape-triangle"></div>
-                                <span class="sign-line w-60"></span>
+                                <span class="skeleton-line sk-60"></span>
                             </div>
                             <div class="look-sign-box">
                                 <div class="sign-mini-shape shape-diamond"></div>
-                                <span class="sign-line w-60"></span>
+                                <span class="skeleton-line sk-60"></span>
                             </div>
                             <div class="look-sign-box">
                                 <div class="sign-mini-shape shape-circle"></div>
-                                <span class="sign-line w-60"></span>
+                                <span class="skeleton-line sk-60"></span>
                             </div>
                             <div class="look-sign-box">
                                 <div class="sign-mini-shape shape-square"></div>
-                                <span class="sign-line w-60"></span>
+                                <span class="skeleton-line sk-60"></span>
                             </div>
                             <div class="look-sign-box">
                                 <div class="sign-mini-shape shape-pentagon"></div>
-                                <span class="sign-line w-60"></span>
+                                <span class="skeleton-line sk-60"></span>
                             </div>
                         </div>
-                        <div class="look-text-lines">
-                            <span class="sign-line w-100"></span>
-                            <span class="sign-line w-85"></span>
-                            <span class="sign-line w-70"></span>
+                        <div class="look-skeleton-lines">
+                            <span class="skeleton-line sk-100"></span>
+                            <span class="skeleton-line sk-90"></span>
+                            <span class="skeleton-line sk-75"></span>
+                            <span class="skeleton-line sk-60"></span>
                         </div>
                     </div>
                 </div>
@@ -124,19 +125,28 @@ $badge_text      = $current_state_code . ' · ' . $vehicle_label;
                         <!-- Q2 Placeholder Box -->
                         <div class="qa-item-box placeholder-qa">
                             <span class="qa-num">Q2.</span>
-                            <span class="sign-line w-75"></span>
+                            <div class="qa-skeleton-lines">
+                                <span class="skeleton-line sk-90"></span>
+                                <span class="skeleton-line sk-65"></span>
+                            </div>
                         </div>
 
                         <!-- Q3 Placeholder Box -->
                         <div class="qa-item-box placeholder-qa">
                             <span class="qa-num">Q3.</span>
-                            <span class="sign-line w-80"></span>
+                            <div class="qa-skeleton-lines">
+                                <span class="skeleton-line sk-85"></span>
+                                <span class="skeleton-line sk-60"></span>
+                            </div>
                         </div>
 
                         <!-- Q4 Placeholder Box -->
                         <div class="qa-item-box placeholder-qa">
                             <span class="qa-num">Q4.</span>
-                            <span class="sign-line w-70"></span>
+                            <div class="qa-skeleton-lines">
+                                <span class="skeleton-line sk-90"></span>
+                                <span class="skeleton-line sk-50"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -152,8 +162,12 @@ $badge_text      = $current_state_code . ' · ' . $vehicle_label;
                     <div class="look-card-body">
                         <!-- Intersection Schematic Diagram Preview -->
                         <div class="look-intersection-diagram" aria-hidden="true">
-                            <div class="inter-road horizontal-road"></div>
-                            <div class="inter-road vertical-road"></div>
+                            <div class="inter-road horizontal-road">
+                                <div class="road-dashed-line h-dash"></div>
+                            </div>
+                            <div class="inter-road vertical-road">
+                                <div class="road-dashed-line v-dash"></div>
+                            </div>
                             <div class="inter-car main-car"></div>
                             <div class="inter-car other-car"></div>
                             <!-- Turn Arrow -->
@@ -162,11 +176,13 @@ $badge_text      = $current_state_code . ' · ' . $vehicle_label;
                                 <polyline points="28 8 33 12 28 16" stroke="#F26419" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <div class="look-text-lines">
-                            <span class="sign-line w-100"></span>
-                            <span class="sign-line w-90"></span>
-                            <span class="sign-line w-80"></span>
-                            <span class="sign-line w-65"></span>
+                        <div class="look-skeleton-lines">
+                            <span class="skeleton-line sk-100"></span>
+                            <span class="skeleton-line sk-95"></span>
+                            <span class="skeleton-line sk-85"></span>
+                            <span class="skeleton-line sk-90"></span>
+                            <span class="skeleton-line sk-70"></span>
+                            <span class="skeleton-line sk-40"></span>
                         </div>
                     </div>
                 </div>
