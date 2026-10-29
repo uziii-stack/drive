@@ -634,3 +634,318 @@
     }
 }
 
+/* ==========================================================================
+   3. WHAT'S INSIDE SECTION (#inside - Bento Grid)
+   ========================================================================== */
+.cheat-inside-section {
+    background-color: #FFFFFF;
+    padding: clamp(3.5rem, 5.5vw, 5.5rem) 0;
+}
+
+.cheat-inside-container {
+    width: 100%;
+}
+
+/* Section Header */
+.inside-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: clamp(2rem, 3.5vw, 3rem);
+}
+
+.inside-eyebrow {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #00B4A6;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.inside-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    color: #2B2D42;
+    line-height: 1.16;
+    letter-spacing: -0.025em;
+    margin: 0;
+}
+
+.inside-header-lead {
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    color: #55576D;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 440px;
+}
+
+@media (min-width: 992px) {
+    .inside-header-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 2.5rem;
+    }
+
+    .inside-header-left {
+        max-width: 580px;
+    }
+
+    .inside-header-right {
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+/* Bento Grid */
+.inside-bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+/* Shared Bento Tile Base */
+.bento-tile {
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 1. Core Dark Tile (Charcoal #2B2D42) */
+.bento-tile-core {
+    background-color: #2B2D42;
+    color: #FFFFFF;
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+}
+
+.core-dashed-arc {
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 2px dashed rgba(0, 180, 166, 0.45);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.core-inner-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.core-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #00B4A6;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: auto;
+}
+
+.core-big-number {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(4.5rem, 8vw, 6.75rem);
+    font-weight: 800;
+    line-height: 0.95;
+    color: #F26419;
+    letter-spacing: -0.04em;
+    margin: 1.5rem 0 0.75rem;
+}
+
+.core-title {
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.25;
+    margin: 0;
+    max-width: 340px;
+}
+
+/* 2-6. White Bento Tiles */
+.bento-tile-white {
+    background-color: #FFFFFF;
+    border: 1px solid #E6E7EB;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tile-icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: #2B2D42;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+}
+
+.tile-icon-badge svg {
+    color: #00B4A6;
+}
+
+.tile-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #2B2D42;
+    line-height: 1.2;
+    margin: 0 0 0.5rem 0;
+}
+
+.tile-desc {
+    font-size: 0.875rem;
+    color: #55576D;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* 7. Wide Dark Tile (Bottom-Right) */
+.bento-tile-wide-dark {
+    background-color: #2B2D42;
+    color: #FFFFFF;
+    padding: 2rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: space-between;
+}
+
+.wide-dark-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.wide-dark-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.wide-dark-desc {
+    font-size: 0.925rem;
+    color: #A0A2B3;
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* Sign Shapes Row */
+.wide-dark-shapes {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sign-shape {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #FFFFFF;
+    flex-shrink: 0;
+    opacity: 0.85;
+}
+
+/* Octagon */
+.sign-shape.shape-octagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    background: transparent;
+    border: 2px solid #FFFFFF;
+}
+
+/* Triangle */
+.sign-shape.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 22px solid #F26419;
+    border-top: none;
+    background: transparent;
+}
+
+/* Diamond */
+.sign-shape.shape-diamond {
+    width: 18px;
+    height: 18px;
+    transform: rotate(45deg);
+    border-color: #00B4A6;
+    margin: 3px;
+}
+
+/* Circle */
+.sign-shape.shape-circle {
+    border-radius: 50%;
+    border-color: #FFFFFF;
+}
+
+/* Square */
+.sign-shape.shape-square {
+    border-radius: 4px;
+    border-color: #00B4A6;
+}
+
+/* ==========================================================================
+   DESKTOP BENTO GRID (4 Columns)
+   ========================================================================== */
+@media (min-width: 992px) {
+    .inside-bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+
+    /* Core spans 2 columns & 2 rows */
+    .bento-tile-core {
+        grid-column: span 2;
+        grid-row: span 2;
+        min-height: 380px;
+        padding: 3rem 2.5rem 2.5rem;
+    }
+
+    .bento-tile-white {
+        min-height: 180px;
+    }
+
+    /* Bottom-Left single white tile */
+    .bento-tile-bottom-left {
+        grid-column: span 1;
+    }
+
+    /* Bottom-Right wide dark tile spans 3 columns */
+    .bento-tile-wide-dark {
+        grid-column: span 3;
+        flex-direction: row;
+        align-items: center;
+        padding: 2.25rem 3rem;
+    }
+
+    .wide-dark-shapes {
+        gap: 1.25rem;
+    }
+
+    .sign-shape {
+        width: 26px;
+        height: 26px;
+    }
+}
+
