@@ -637,8 +637,10 @@
    3. WHAT'S INSIDE SECTION (#inside - Bento Grid)
    ========================================================================== */
 .cheat-inside-section {
-    background-color: #FFFFFF;
+    background-color: #F8F9FB;
     padding: clamp(3.5rem, 5.5vw, 5.5rem) 0;
+    border-top: 1px solid #E6E8EE;
+    border-bottom: 1px solid #E6E8EE;
 }
 
 .cheat-inside-container {
