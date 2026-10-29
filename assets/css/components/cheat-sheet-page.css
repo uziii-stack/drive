@@ -234,22 +234,34 @@
    ========================================================================== */
 .cheat-hero-stage-col {
     width: 100%;
-    max-width: 480px;
+    max-width: 490px;
     position: relative;
 }
 
 .cheat-hero-stage {
     position: relative;
-    background-color: #F4F5F7;
-    border-radius: 36px;
-    padding: 3.5rem 1.5rem 2.5rem;
+    padding: 2.75rem 1.25rem 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 440px;
-    overflow: hidden;
+    min-height: 420px;
 }
 
+/* The smaller inner backdrop box matching client design */
+.cheat-hero-backdrop-box {
+    position: absolute;
+    width: 78%;
+    height: 82%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #F4F5F7;
+    border-radius: 36px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Road curved dashed SVG line across the stage */
 .stage-dashed-curve {
     position: absolute;
     inset: 0;
@@ -263,8 +275,8 @@
 .peek-sample-page {
     position: absolute;
     top: 50%;
-    width: 180px;
-    height: 290px;
+    width: 175px;
+    height: 280px;
     background: #FFFFFF;
     border-radius: 14px;
     box-shadow: 0 10px 30px rgba(43, 45, 66, 0.08);
@@ -277,16 +289,16 @@
     flex-direction: column;
 }
 
-/* Left Page ("ROAD SIGNS") */
+/* Left Page ("ROAD SIGNS") - peeks well outside the backdrop */
 .peek-sample-page.peek-left {
-    left: -12px;
-    transform: translateY(-50%) rotate(-6deg);
+    left: -18px;
+    transform: translateY(-50%) rotate(-7deg);
 }
 
-/* Right Page ("ANSWERS") */
+/* Right Page ("ANSWERS") - peeks well outside the backdrop */
 .peek-sample-page.peek-right {
-    right: -12px;
-    transform: translateY(-50%) rotate(6deg);
+    right: -18px;
+    transform: translateY(-50%) rotate(7deg);
 }
 
 .peek-sample-header {
@@ -499,24 +511,29 @@
     }
 
     .cheat-hero-stage {
-        padding: 4.5rem 2.5rem 3.5rem;
-        border-radius: 44px;
-        min-height: 500px;
+        padding: 3.5rem 2rem;
+        min-height: 480px;
+    }
+
+    .cheat-hero-backdrop-box {
+        width: 76%;
+        height: 80%;
+        border-radius: 40px;
     }
 
     .peek-sample-page {
-        width: 220px;
-        height: 340px;
+        width: 215px;
+        height: 330px;
     }
 
     .peek-sample-page.peek-left {
-        left: 0;
-        transform: translateY(-50%) rotate(-8deg);
+        left: -15px;
+        transform: translateY(-50%) rotate(-8.5deg);
     }
 
     .peek-sample-page.peek-right {
-        right: 0;
-        transform: translateY(-50%) rotate(8deg);
+        right: -15px;
+        transform: translateY(-50%) rotate(8.5deg);
     }
 
     .cheat-hero-cover-wrap .catalog-cover-mockup {
