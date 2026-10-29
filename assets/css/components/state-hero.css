@@ -1201,12 +1201,6 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1.25rem;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
-}
-
-.sheet-catalog-card:hover .sheet-card-stage {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
 }
 
 .catalog-cover-mockup {
@@ -1219,11 +1213,6 @@
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
-    transition: transform 0.25s ease;
-}
-
-.sheet-catalog-card:hover .catalog-cover-mockup {
-    transform: scale(1.02);
 }
 
 /* Proportional scaling for Catalog Grid Cards */
