@@ -855,7 +855,7 @@
     color: #00B4A6;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: auto;
+    margin-bottom: 0.5rem;
 }
 
 .core-big-number {
@@ -865,7 +865,7 @@
     line-height: 0.95;
     color: #F26419;
     letter-spacing: -0.04em;
-    margin: 1.5rem 0 0.75rem;
+    margin: 0.25rem 0 0.75rem;
 }
 
 .core-title {
@@ -1022,6 +1022,14 @@
         grid-row: span 2;
         min-height: 380px;
         padding: 3rem 2.5rem 2.5rem;
+    }
+
+    .core-eyebrow {
+        margin-bottom: auto;
+    }
+
+    .core-big-number {
+        margin: 1.5rem 0 0.75rem;
     }
 
     .bento-tile-white {
