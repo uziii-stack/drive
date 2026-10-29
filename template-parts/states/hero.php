@@ -204,6 +204,13 @@ $site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_l
             <div class="state-hero-visual-col">
                 <div class="state-mockup-stage">
                     
+                    <!-- Dedicated Road SVG backdrop layer physically behind cards -->
+                    <div class="state-stage-road-layer" aria-hidden="true">
+                        <svg class="stage-dashed-curve" viewBox="0 0 400 380" preserveAspectRatio="none" fill="none">
+                            <path d="M 15 320 Q 200 295 385 315" stroke="#B0B2C0" stroke-width="3" stroke-dasharray="12 10" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
                     <!-- Fanned 3D Mockup Container -->
                     <div class="cheat-sheets-fanned-stack" id="stateMockupStack" data-active-veh="<?php echo esc_attr( $current_veh ); ?>">
                         

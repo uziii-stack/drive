@@ -256,30 +256,37 @@
     overflow: hidden;
 }
 
-/* Contained Road SVG inside the backdrop card (Sits strictly below cards) */
-.state-mockup-stage .stage-dashed-curve {
+/* Dedicated road SVG backdrop layer inside the stage */
+.state-stage-road-layer {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 0 !important;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 36px;
+}
+
+.state-stage-road-layer .stage-dashed-curve {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
     display: block;
 }
 
 /* Ensure fanned stack and every card render as a dedicated stacking context above the curve */
 .state-mockup-stage .cheat-sheets-fanned-stack {
-    isolation: isolate;
     position: relative;
-    z-index: 10 !important;
+    z-index: 5 !important;
 }
 
 .state-mockup-stage .cheat-sheet-card {
     position: absolute;
     background-color: #202232 !important;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform-style: flat;
+    opacity: 1 !important;
 }
 
 /* Optional subtle road or highlight accent in stage */
