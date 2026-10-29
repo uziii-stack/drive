@@ -418,7 +418,7 @@
 .sheet-title-area {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .sheet-state-name {
@@ -447,7 +447,7 @@
 .sheet-main-title {
     font-size: 0.8125rem;
     font-weight: 700;
-    line-height: 1.25;
+    line-height: 1.2;
     color: #FFFFFF;
     max-width: 190px;
 }
@@ -721,22 +721,22 @@
 /* 2-line Subtitle */
 .sheet-title-area .sheet-main-title,
 .cover-title-area .cover-subtitle {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     font-weight: 800;
     line-height: 1.15;
     color: #FFFFFF;
     letter-spacing: -0.015em;
     max-width: 190px;
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.35rem;
 }
 
 /* Orange Underline Accent Bar */
 .title-orange-underline {
-    width: 44px;
-    height: 3.5px;
+    width: 38px;
+    height: 3px;
     background-color: #F26419;
     border-radius: 2px;
-    margin-top: 0.2rem;
+    margin-top: 0.15rem;
 }
 
 /* High-Res Aerial Intersection Photo (Bleeds edge-to-edge flush like client design) */
@@ -747,7 +747,7 @@
     background-color: #2B2D42; /* Matches theme header bg */
     padding-left: 0;
     padding-right: 0;
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
 }
 
 .sheet-inner.client-cover-style .sheet-header,
@@ -766,12 +766,13 @@
 
 .sheet-graphic-preview.has-photo,
 .cover-art-box.has-photo {
-    flex: 1;
+    flex: 1 1 auto;
+    min-height: 90px;
     position: relative;
     overflow: hidden;
     border-radius: 0;
     background: #1e202e;
-    margin: 0.65rem 0 0.5rem 0;
+    margin: 0.4rem 0 0.35rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     border-left: none;
