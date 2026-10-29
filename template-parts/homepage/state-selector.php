@@ -137,9 +137,9 @@ $zone_5 = array( 'PA', 'NY', 'NJ', 'CT', 'RI', 'MA', 'VT', 'NH', 'ME' );
         <div class="state-bottom-controls-wrap">
             <div class="state-controls-form">
                 
-                <div class="state-select-custom-box">
+                <div class="state-select-custom-box custom-map-dropdown-wrap" id="customMapStateWrapper">
                     <label for="state-map-dropdown" class="screen-reader-text"><?php esc_html_e( 'Select state from dropdown', 'drive' ); ?></label>
-                    <select id="state-map-dropdown" class="state-map-dropdown" aria-label="<?php esc_attr_e( 'Select your state from the list', 'drive' ); ?>">
+                    <select id="state-map-dropdown" class="state-map-dropdown" aria-label="<?php esc_attr_e( 'Select your state from the list', 'drive' ); ?>" tabindex="-1">
                         <option value="" selected><?php esc_html_e( 'Or select your state from the list...', 'drive' ); ?></option>
                         <?php foreach ( $all_states as $st_code => $st_data ) : 
                             $opt_url = function_exists( 'drive_get_state_url' ) ? drive_get_state_url( $st_data['slug'] ) : home_url( '/' . esc_attr( $st_data['slug'] ) . '/' );
@@ -149,11 +149,43 @@ $zone_5 = array( 'PA', 'NY', 'NJ', 'CT', 'RI', 'MA', 'VT', 'NH', 'ME' );
                             </option>
                         <?php endforeach; ?>
                     </select>
-                    <span class="select-chevron" aria-hidden="true">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
+
+                    <!-- Custom Trigger Button Matching Theme Design -->
+                    <button type="button" class="custom-map-trigger" id="customMapTrigger" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="custom-map-trigger-text" id="customMapTriggerText"><?php esc_html_e( 'Or select your state from the list...', 'drive' ); ?></span>
+                        <span class="select-chevron" aria-hidden="true">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </button>
+
+                    <!-- Custom Popover Menu Matching Theme Design -->
+                    <div class="custom-map-menu" id="customMapMenu" role="listbox" aria-label="<?php esc_attr_e( 'States Menu', 'drive' ); ?>">
+                        <div class="custom-map-search-wrap">
+                            <span class="custom-map-search-icon" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </span>
+                            <input type="text" class="custom-map-search-input" id="customMapSearch" placeholder="<?php esc_attr_e( 'Filter state...', 'drive' ); ?>" autocomplete="off" />
+                        </div>
+                        <div class="custom-map-list" id="customMapList">
+                            <?php foreach ( $all_states as $st_code => $st_data ) : 
+                                $opt_url = function_exists( 'drive_get_state_url' ) ? drive_get_state_url( $st_data['slug'] ) : home_url( '/' . esc_attr( $st_data['slug'] ) . '/' );
+                            ?>
+                                <div class="custom-map-option" data-value="<?php echo esc_url( $opt_url ); ?>" data-name="<?php echo esc_attr( strtolower( $st_data['name'] ) ); ?>" role="option">
+                                    <span class="custom-map-option-name"><?php echo esc_html( $st_data['name'] ); ?></span>
+                                    <span class="custom-map-option-check" aria-hidden="true">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </span>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
 
                 <button type="button" class="btn-map-continue" id="btnMapContinue">

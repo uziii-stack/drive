@@ -141,12 +141,99 @@
             });
         });
 
-        // Bottom Select & Continue Button
+        // Bottom Select & Continue Button + Custom Dropdown Integration
+        const customWrapper = document.getElementById('customMapStateWrapper');
+        const customTrigger = document.getElementById('customMapTrigger');
+        const customTriggerText = document.getElementById('customMapTriggerText');
+        const customMenu = document.getElementById('customMapMenu');
+        const customSearch = document.getElementById('customMapSearch');
+        const customOptions = customWrapper ? customWrapper.querySelectorAll('.custom-map-option') : [];
+
+        function toggleCustomMapMenu(open) {
+            if (!customWrapper || !customTrigger) return;
+            const isOpen = typeof open === 'boolean' ? open : !customWrapper.classList.contains('is-open');
+            customWrapper.classList.toggle('is-open', isOpen);
+            customTrigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (isOpen && customSearch) {
+                setTimeout(function () { customSearch.focus(); }, 50);
+            }
+        }
+
+        if (customTrigger) {
+            customTrigger.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleCustomMapMenu();
+            });
+        }
+
+        if (customSearch) {
+            customSearch.addEventListener('input', function () {
+                const q = customSearch.value.toLowerCase().trim();
+                customOptions.forEach(function (opt) {
+                    const name = opt.getAttribute('data-name') || '';
+                    if (!q || name.indexOf(q) !== -1) {
+                        opt.style.display = 'flex';
+                    } else {
+                        opt.style.display = 'none';
+                    }
+                });
+            });
+
+            customSearch.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        }
+
+        customOptions.forEach(function (opt) {
+            opt.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const val = opt.getAttribute('data-value');
+                const name = opt.querySelector('.custom-map-option-name') ? opt.querySelector('.custom-map-option-name').textContent.trim() : '';
+
+                customOptions.forEach(function (o) { o.classList.remove('is-selected'); });
+                opt.classList.add('is-selected');
+
+                if (customTriggerText) {
+                    customTriggerText.textContent = name;
+                }
+
+                if (selectEl) {
+                    selectEl.value = val;
+                    // Trigger state preview on map
+                    statePaths.forEach(function (p) {
+                        if (p.getAttribute('data-state-name') === name) {
+                            statePaths.forEach(function (sp) { sp.classList.remove('is-selected'); });
+                            p.classList.add('is-selected');
+                            showTooltipFor(p.getAttribute('data-state-code'), p);
+                        }
+                    });
+                }
+
+                toggleCustomMapMenu(false);
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (customWrapper && customWrapper.classList.contains('is-open') && !customWrapper.contains(e.target)) {
+                toggleCustomMapMenu(false);
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && customWrapper && customWrapper.classList.contains('is-open')) {
+                toggleCustomMapMenu(false);
+                if (customTrigger) customTrigger.focus();
+            }
+        });
+
         if (continueBtn && selectEl) {
             continueBtn.addEventListener('click', function () {
                 const selectedUrl = selectEl.value;
                 if (selectedUrl) {
                     window.location.href = selectedUrl;
+                } else if (customTrigger) {
+                    toggleCustomMapMenu(true);
                 } else {
                     selectEl.focus();
                 }
