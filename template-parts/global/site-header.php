@@ -189,16 +189,10 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
             <!-- 2. Vehicle Switcher Tabs / Icons (Desktop - Hidden on Mobile) -->
             <div class="header-vehicle-switcher desktop-vehicle-switcher" role="tablist" aria-label="<?php esc_attr_e( 'Vehicle Type', 'drive' ); ?>">
                 <?php
-                // Build URLs based on context: on cheat sheet pages, link to [state]/[veh]-cheat-sheet/
-                if ( $is_cheat_sheet_page ) {
-                    $car_url  = home_url( '/' . esc_attr( $current_state_slug ) . '/car-cheat-sheet/' );
-                    $moto_url = home_url( '/' . esc_attr( $current_state_slug ) . '/motorcycle-cheat-sheet/' );
-                    $cdl_url  = home_url( '/' . esc_attr( $current_state_slug ) . '/cdl-cheat-sheet/' );
-                } else {
-                    $car_url  = home_url( '/' . esc_attr( $current_state_slug ) . '/car-practice-test/' );
-                    $moto_url = home_url( '/' . esc_attr( $current_state_slug ) . '/motorcycle-practice-test/' );
-                    $cdl_url  = home_url( '/' . esc_attr( $current_state_slug ) . '/cdl-practice-test/' );
-                }
+                // Header vehicle switcher links to canonical [state]/[veh]-cheat-sheet/
+                $car_url  = home_url( '/' . esc_attr( $current_state_slug ) . '/car-cheat-sheet/' );
+                $moto_url = home_url( '/' . esc_attr( $current_state_slug ) . '/motorcycle-cheat-sheet/' );
+                $cdl_url  = home_url( '/' . esc_attr( $current_state_slug ) . '/cdl-cheat-sheet/' );
                 ?>
                 
                 <!-- Car -->

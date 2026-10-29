@@ -90,7 +90,7 @@ $faq_items = array(
                 </p>
 
                 <div class="state-faq-handbook-wrap desktop-handbook-wrap">
-                    <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/car-practice-test/' ) ); ?>" class="state-faq-handbook-link">
+                    <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/car-cheat-sheet/' ) ); ?>" class="state-faq-handbook-link">
                         <span><?php esc_html_e( 'Read the official handbook', 'drive' ); ?></span>
                         <span class="handbook-arrow" aria-hidden="true">
                             <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -141,7 +141,7 @@ $faq_items = array(
 
                 <!-- Mobile Handbook Link (Rendered below accordion on mobile matching screenshot) -->
                 <div class="state-faq-handbook-wrap mobile-handbook-wrap">
-                    <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/car-practice-test/' ) ); ?>" class="state-faq-handbook-link">
+                    <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/car-cheat-sheet/' ) ); ?>" class="state-faq-handbook-link">
                         <span><?php esc_html_e( 'Read the official handbook', 'drive' ); ?></span>
                         <span class="handbook-arrow" aria-hidden="true">
                             <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
