@@ -234,7 +234,7 @@
    ========================================================================== */
 .cheat-hero-stage-col {
     width: 100%;
-    max-width: 490px;
+    max-width: 540px;
     position: relative;
 }
 
@@ -244,19 +244,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 420px;
+    min-height: 450px;
 }
 
 /* The rounded backdrop box matching client design */
 .cheat-hero-backdrop-box {
     position: absolute;
-    width: 82%;
-    height: 86%;
+    width: 95%;
+    height: 94%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #F4F5F7;
-    border-radius: 36px;
+    border-radius: 40px;
     z-index: 1; /* Sits above stage background */
     pointer-events: none;
     overflow: hidden; /* Clips the road line within the rounded backdrop */
@@ -509,18 +509,18 @@
 
     .cheat-hero-stage-col {
         flex: 1;
-        max-width: 520px;
+        max-width: 550px;
     }
 
     .cheat-hero-stage {
         padding: 3.5rem 2rem;
-        min-height: 480px;
+        min-height: 500px;
     }
 
     .cheat-hero-backdrop-box {
-        width: 82%;
-        height: 84%;
-        border-radius: 40px;
+        width: 95%;
+        height: 94%;
+        border-radius: 44px;
     }
 
     .peek-sample-page {

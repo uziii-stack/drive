@@ -197,9 +197,9 @@ $guarantee_days = '30';
                 
                 <!-- Inner Rounded Backdrop (#F4F5F7) which holds the road line -->
                 <div class="cheat-hero-backdrop-box">
-                    <!-- Road SVG with gentle curved dashed line contained safely inside the backdrop -->
-                    <svg class="stage-dashed-curve" viewBox="0 0 400 380" preserveAspectRatio="none" fill="none">
-                        <path d="M 15 320 Q 200 295 385 315" stroke="#B0B2C0" stroke-width="3" stroke-dasharray="12 10" stroke-linecap="round"/>
+                    <!-- Road SVG with gentle curved dashed line contained safely inside the backdrop below the cards -->
+                    <svg class="stage-dashed-curve" viewBox="0 0 500 450" preserveAspectRatio="none" fill="none">
+                        <path d="M 0 355 Q 250 375 500 340" stroke="#B0B2C0" stroke-width="4" stroke-dasharray="14 10" stroke-linecap="round"/>
                     </svg>
                 </div>
 
