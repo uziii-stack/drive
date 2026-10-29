@@ -54,7 +54,12 @@ if ( isset( $us_map_states[ $current_state_code ] ) ) {
 
 // Determine current vehicle type
 $current_veh = 'car';
-if ( isset( $_GET['veh'] ) && ! empty( $_GET['veh'] ) ) {
+if ( get_query_var( 'drive_vehicle' ) ) {
+    $current_veh = strtolower( trim( get_query_var( 'drive_vehicle' ) ) );
+    if ( 'truck' === $current_veh ) {
+        $current_veh = 'cdl';
+    }
+} elseif ( isset( $_GET['veh'] ) && ! empty( $_GET['veh'] ) ) {
     $req_veh = sanitize_title( wp_unslash( $_GET['veh'] ) );
     if ( array_key_exists( $req_veh, $vehicle_types ) ) {
         $current_veh = $req_veh;
@@ -63,9 +68,15 @@ if ( isset( $_GET['veh'] ) && ! empty( $_GET['veh'] ) ) {
     $page_slug = get_post_field( 'post_name', get_post() );
     if ( strpos( $page_slug, 'motorcycle' ) !== false ) {
         $current_veh = 'motorcycle';
-    } elseif ( strpos( $page_slug, 'cdl' ) !== false ) {
+    } elseif ( strpos( $page_slug, 'cdl' ) !== false || strpos( $page_slug, 'truck' ) !== false ) {
         $current_veh = 'cdl';
     }
+}
+
+// Detect if current page is cheat sheet single page
+$is_cheat_sheet_page = (bool) get_query_var( 'drive_vehicle' );
+if ( ! $is_cheat_sheet_page && isset( $_SERVER['REQUEST_URI'] ) ) {
+    $is_cheat_sheet_page = ( strpos( $_SERVER['REQUEST_URI'], '-cheat-sheet' ) !== false );
 }
 
 $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_types[ $current_veh ]['slug'] : 'car-practice-test';
@@ -177,9 +188,21 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
 
             <!-- 2. Vehicle Switcher Tabs / Icons (Desktop - Hidden on Mobile) -->
             <div class="header-vehicle-switcher desktop-vehicle-switcher" role="tablist" aria-label="<?php esc_attr_e( 'Vehicle Type', 'drive' ); ?>">
+                <?php
+                // Build URLs based on context: on cheat sheet pages, link to [state]/[veh]-cheat-sheet/
+                if ( $is_cheat_sheet_page ) {
+                    $car_url  = home_url( '/' . esc_attr( $current_state_slug ) . '/car-cheat-sheet/' );
+                    $moto_url = home_url( '/' . esc_attr( $current_state_slug ) . '/motorcycle-cheat-sheet/' );
+                    $cdl_url  = home_url( '/' . esc_attr( $current_state_slug ) . '/cdl-cheat-sheet/' );
+                } else {
+                    $car_url  = home_url( '/' . esc_attr( $current_state_slug ) . '/car-practice-test/' );
+                    $moto_url = home_url( '/' . esc_attr( $current_state_slug ) . '/motorcycle-practice-test/' );
+                    $cdl_url  = home_url( '/' . esc_attr( $current_state_slug ) . '/cdl-practice-test/' );
+                }
+                ?>
                 
                 <!-- Car -->
-                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/car-practice-test/' ) ); ?>" 
+                <a href="<?php echo esc_url( $car_url ); ?>" 
                    class="vehicle-switch-btn <?php echo ( $current_veh === 'car' ) ? 'is-active' : ''; ?>" 
                    data-vehicle="car" 
                    role="tab" 
@@ -196,7 +219,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                 </a>
 
                 <!-- Motorcycle -->
-                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/motorcycle-practice-test/' ) ); ?>" 
+                <a href="<?php echo esc_url( $moto_url ); ?>" 
                    class="vehicle-switch-btn <?php echo ( $current_veh === 'motorcycle' ) ? 'is-active' : ''; ?>" 
                    data-vehicle="motorcycle" 
                    role="tab" 
@@ -215,7 +238,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                 </a>
 
                 <!-- CDL / Truck -->
-                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/cdl-practice-test/' ) ); ?>" 
+                <a href="<?php echo esc_url( $cdl_url ); ?>" 
                    class="vehicle-switch-btn <?php echo ( $current_veh === 'cdl' ) ? 'is-active' : ''; ?>" 
                    data-vehicle="cdl" 
                    role="tab" 
