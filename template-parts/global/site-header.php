@@ -319,7 +319,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
             <div class="mobile-modal-section-label"><?php esc_html_e( 'Vehicle Type', 'drive' ); ?></div>
             <div class="mobile-modal-veh-grid">
                 
-                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/car-practice-test/' ) ); ?>" 
+                <a href="<?php echo esc_url( $car_url ); ?>" 
                    class="mobile-modal-veh-btn <?php echo ( $current_veh === 'car' ) ? 'is-active' : ''; ?>" 
                    data-veh="car">
                     <span class="m-veh-icon" aria-hidden="true">
@@ -332,7 +332,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                     <span class="m-veh-name"><?php esc_html_e( 'Car', 'drive' ); ?></span>
                 </a>
 
-                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/motorcycle-practice-test/' ) ); ?>" 
+                <a href="<?php echo esc_url( $moto_url ); ?>" 
                    class="mobile-modal-veh-btn <?php echo ( $current_veh === 'motorcycle' ) ? 'is-active' : ''; ?>" 
                    data-veh="motorcycle">
                     <span class="m-veh-icon" aria-hidden="true">
@@ -347,7 +347,7 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
                     <span class="m-veh-name"><?php esc_html_e( 'Motorcycle', 'drive' ); ?></span>
                 </a>
 
-                <a href="<?php echo esc_url( home_url( '/' . esc_attr( $current_state_slug ) . '/cdl-practice-test/' ) ); ?>" 
+                <a href="<?php echo esc_url( $cdl_url ); ?>" 
                    class="mobile-modal-veh-btn <?php echo ( $current_veh === 'cdl' ) ? 'is-active' : ''; ?>" 
                    data-veh="cdl">
                     <span class="m-veh-icon" aria-hidden="true">
@@ -372,7 +372,11 @@ $current_veh_slug = isset( $vehicle_types[ $current_veh ]['slug'] ) ? $vehicle_t
             </div>
             <div class="mobile-modal-states-grid" id="mobileModalStatesGrid">
                 <?php foreach ( $all_states as $st_code => $st_data ) : 
-                    $st_url = function_exists( 'drive_get_state_url' ) ? drive_get_state_url( $st_data['slug'] ) : home_url( '/' . esc_attr( $st_data['slug'] ) . '/' );
+                    if ( $is_cheat_sheet_page ) {
+                        $st_url = home_url( '/' . esc_attr( $st_data['slug'] ) . '/' . esc_attr( $current_veh ) . '-cheat-sheet/' );
+                    } else {
+                        $st_url = function_exists( 'drive_get_state_url' ) ? drive_get_state_url( $st_data['slug'] ) : home_url( '/' . esc_attr( $st_data['slug'] ) . '/' );
+                    }
                     $is_active = ( $st_data['slug'] === $current_state_slug ) ? 'is-selected' : '';
                     $st_vb = isset( $us_map_states[ $st_code ]['viewBox'] ) ? $us_map_states[ $st_code ]['viewBox'] : '0 0 975 610';
                     $st_path = isset( $us_map_states[ $st_code ]['path'] ) ? $us_map_states[ $st_code ]['path'] : '';
