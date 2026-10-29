@@ -2123,3 +2123,281 @@
     }
 }
 
+/* ==========================================================================
+   7. PRICING SECTION (#pricing)
+   Matches screenshot:
+   - Off-white background
+   - Eyebrow: "PRICING" (Teal)
+   - Title: "Simple, one-time price"
+   - Split card (32px border radius, overflow hidden, shadow):
+     - Left (Dark #2B2D42): Scaled angled cover card mockup + "WHAT YOU GET" 5 bullet points
+     - Right (White #FFFFFF): Product title, $[XX] one-time, Orange CTA button, 3 trust lines
+   ========================================================================== */
+.cheat-pricing-section {
+    background-color: #F8F9FB;
+    padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+    overflow: hidden;
+}
+
+.cheat-pricing-container {
+    width: 100%;
+    max-width: 1140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.pricing-header {
+    text-align: center;
+    margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.pricing-eyebrow {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    color: #00B4A6;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.65rem;
+}
+
+.pricing-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(2.25rem, 3.8vw, 3.125rem);
+    font-weight: 800;
+    color: #2B2D42;
+    letter-spacing: -0.03em;
+    margin: 0;
+}
+
+/* Split Card */
+.pricing-split-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 32px;
+    box-shadow: 0 24px 60px rgba(43, 45, 66, 0.08), 0 2px 8px rgba(43, 45, 66, 0.04);
+    border: 1px solid #E6E8EE;
+    overflow: hidden;
+}
+
+@media (min-width: 992px) {
+    .pricing-split-card {
+        flex-direction: row;
+        align-items: stretch;
+    }
+}
+
+/* Left Half: Dark Charcoal Side */
+.pricing-card-left {
+    flex: 1.4;
+    background-color: #2B2D42;
+    color: #FFFFFF;
+    padding: clamp(2.5rem, 4vw, 3.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+@media (min-width: 680px) {
+    .pricing-card-left {
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+    }
+}
+
+.pricing-mockup-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-4deg);
+    flex-shrink: 0;
+}
+
+.pricing-cover-mockup {
+    width: 190px;
+    height: 270px;
+    border-radius: 14px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    background: #1C1E2E;
+    overflow: hidden;
+    margin: 0;
+}
+
+.pricing-cover-mockup .sheet-inner {
+    height: 100%;
+}
+
+/* "What You Get" Checklist */
+.pricing-features-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pricing-features-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #00B4A6;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+}
+
+.pricing-bullets-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+.pricing-bullet-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.pricing-check-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pricing-bullet-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.35;
+}
+
+/* Right Half: Clean White Side */
+.pricing-card-right {
+    flex: 1;
+    background-color: #FFFFFF;
+    padding: clamp(2.5rem, 4vw, 3.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.pricing-product-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #2B2D42;
+    margin: 0 0 1.25rem;
+    line-height: 1.4;
+}
+
+/* Price Row */
+.pricing-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+    margin-bottom: 1.75rem;
+}
+
+.pricing-amount {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(3rem, 5vw, 4.25rem);
+    font-weight: 800;
+    color: #2B2D42;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.pricing-cadence {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #7A7D94;
+}
+
+/* Orange CTA Button */
+.pricing-buy-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    background-color: #F26419;
+    color: #FFFFFF;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 800;
+    padding: 1.15rem 2rem;
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(242, 100, 25, 0.35);
+    margin-bottom: 2rem;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s ease, box-shadow 0.2s ease;
+}
+
+.pricing-buy-btn:hover {
+    background-color: #ff752d;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(242, 100, 25, 0.45);
+    color: #FFFFFF;
+}
+
+.pricing-buy-btn .cta-arrow {
+    font-size: 1.25rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.pricing-buy-btn:hover .cta-arrow {
+    transform: translateX(4px);
+}
+
+/* Trust List */
+.pricing-trust-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+.pricing-trust-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.875rem;
+    color: #55576D;
+    font-weight: 600;
+}
+
+.pricing-trust-row svg {
+    flex-shrink: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .pricing-split-card {
+        border-radius: 24px;
+    }
+
+    .pricing-card-left,
+    .pricing-card-right {
+        padding: 2rem 1.5rem;
+    }
+
+    .pricing-mockup-wrapper {
+        margin-bottom: 1.5rem;
+    }
+}
+
