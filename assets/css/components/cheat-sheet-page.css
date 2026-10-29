@@ -1559,27 +1559,34 @@
 .how-mini-cover-wrap {
     position: absolute;
     top: 40px;
-    right: 60px;
+    right: 65px;
     z-index: 2;
     transform: rotate(8deg);
     pointer-events: none;
+    transform-origin: top right;
 }
 
 .how-mini-mockup {
-    width: 140px;
-    height: 195px;
-    border-radius: 10px;
+    width: 145px;
+    height: 205px;
+    border-radius: 12px;
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
     background: #1C1E2E;
     overflow: hidden;
 }
 
 .how-mini-mockup .sheet-inner {
-    padding: 0.65rem;
+    padding: 0.65rem 0.65rem 0.45rem;
 }
 
 .how-mini-mockup .sheet-header {
     margin-bottom: 0.35rem;
+}
+
+.how-mini-mockup .sheet-brand-logo-icon img,
+.how-mini-mockup .sheet-brand-logo-icon svg {
+    width: 10px;
+    height: 10px;
 }
 
 .how-mini-mockup .sheet-brand-text .brand-top {
@@ -1592,14 +1599,20 @@
     color: #FFFFFF;
 }
 
+.how-mini-mockup .sheet-pill-tag {
+    font-size: 0.35rem;
+    padding: 1px 4px;
+    border-radius: 999px;
+}
+
 .how-mini-mockup .sheet-state-name {
-    font-size: 0.45rem;
+    font-size: 0.48rem;
     color: #00B4A6;
     font-weight: 800;
 }
 
 .how-mini-mockup .sheet-big-num {
-    font-size: 1.45rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: #F26419;
     line-height: 1;
@@ -1607,9 +1620,9 @@
 }
 
 .how-mini-mockup .sheet-main-title {
-    font-size: 0.42rem;
+    font-size: 0.44rem;
     color: #FFFFFF;
-    line-height: 1.1;
+    line-height: 1.15;
     display: block;
 }
 
@@ -1620,20 +1633,24 @@
     margin-top: 3px;
 }
 
-.how-mini-mockup .sheet-image-showcase {
+.how-mini-mockup .sheet-graphic-preview.has-photo {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 85px;
+    height: 100px;
     overflow: hidden;
 }
 
-.how-mini-mockup .cover-showcase-img {
+.how-mini-mockup .aerial-photo-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.75;
+    display: block;
+}
+
+.how-mini-mockup .client-cover-footer {
+    display: none;
 }
 
 /* Center Orange Play Button */
