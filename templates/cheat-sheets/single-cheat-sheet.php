@@ -95,3 +95,4 @@ if ( locate_template( 'template-parts/cheat-sheets/sticky-buy.php' ) ) {
 }
 
 get_footer();
+
