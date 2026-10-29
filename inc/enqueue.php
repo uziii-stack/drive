@@ -157,6 +157,20 @@ function drive_scripts() {
         )
     );
 
+    // Single Cheat Sheet Product Page Component JS
+    $cheat_sheet_js_path = DRIVE_THEME_DIR . '/assets/js/components/cheat-sheet-page.js';
+    $cheat_sheet_js_ver  = file_exists( $cheat_sheet_js_path ) ? filemtime( $cheat_sheet_js_path ) : $theme_version;
+    wp_enqueue_script(
+        'drive-cheat-sheet-script',
+        DRIVE_THEME_URI . '/assets/js/components/cheat-sheet-page.js',
+        array( 'drive-main-script' ),
+        $cheat_sheet_js_ver,
+        array(
+            'in_footer' => true,
+            'strategy'  => 'defer',
+        )
+    );
+
     // Localized data
     wp_localize_script(
         'drive-main-script',

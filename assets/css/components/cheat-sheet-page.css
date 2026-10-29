@@ -949,3 +949,436 @@
     }
 }
 
+/* ==========================================================================
+   4. TAKE A LOOK INSIDE CAROUSEL SECTION (#look)
+   ========================================================================== */
+.cheat-look-section {
+    background-color: #FFFFFF;
+    padding: clamp(3.5rem, 5.5vw, 5.5rem) 0;
+    overflow: hidden;
+}
+
+.cheat-look-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.look-header {
+    text-align: center;
+    margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.look-eyebrow {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #00B4A6;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.look-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    font-weight: 800;
+    color: #2B2D42;
+    letter-spacing: -0.025em;
+    margin: 0;
+}
+
+/* Carousel Track Stage */
+.look-carousel-stage {
+    position: relative;
+    width: 100%;
+    max-width: 980px;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.25rem;
+}
+
+/* Sample Page Card Base */
+.look-page-card {
+    position: absolute;
+    width: 320px;
+    height: 450px;
+    background: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 16px 40px rgba(43, 45, 66, 0.1), 0 2px 8px rgba(43, 45, 66, 0.04);
+    border: 1px solid #E6E7EB;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, z-index 0.4s ease;
+}
+
+.look-card-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card Header Strip */
+.look-card-header {
+    background-color: #7A7D94;
+    color: #FFFFFF;
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.look-card-header.dark-header {
+    background-color: #2B2D42;
+}
+
+.look-card-title {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #00B4A6;
+    letter-spacing: 0.08em;
+}
+
+.look-card-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.04em;
+    opacity: 0.9;
+}
+
+/* Card Body Content */
+.look-card-body {
+    padding: 1.25rem 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+/* Sign Mini Shape Base */
+.sign-mini-shape {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #55576D;
+    flex-shrink: 0;
+}
+
+.sign-mini-shape.shape-octagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.sign-mini-shape.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 25px solid #F26419;
+}
+
+.sign-mini-shape.shape-diamond {
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    border-color: #00B4A6;
+    margin: 4px;
+}
+
+.sign-mini-shape.shape-circle {
+    border-radius: 50%;
+}
+
+.sign-mini-shape.shape-square {
+    border-radius: 4px;
+    border-color: #00B4A6;
+}
+
+.sign-mini-shape.shape-pentagon {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    border-color: #F26419;
+}
+
+.look-signs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+}
+
+.look-sign-box {
+    background-color: #FAFAFB;
+    border: 1px solid #F0F1F4;
+    border-radius: 8px;
+    padding: 0.75rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.look-text-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 0.5rem;
+}
+
+/* Q&A Items Inside Active Card */
+.qa-item-box {
+    border-radius: 12px;
+    border: 1px solid #E6E7EB;
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.qa-item-box.active-qa {
+    border-color: #00B4A6;
+    background-color: #F0FAF9;
+    gap: 0.4rem;
+}
+
+.qa-q-title {
+    font-size: 0.8125rem;
+    font-weight: 800;
+    color: #2B2D42;
+    margin: 0;
+}
+
+.qa-a-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.qa-a-text {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #00796F;
+}
+
+.qa-item-box.placeholder-qa {
+    background-color: #FAFAFB;
+    gap: 0.45rem;
+    padding: 0.75rem 1rem;
+}
+
+.qa-num {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #2B2D42;
+}
+
+/* Intersection Diagram */
+.look-intersection-diagram {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    background-color: #F0F1F4;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.inter-road.horizontal-road {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 55px;
+    background-color: #E2E4E9;
+    border-top: 1px dashed #FFFFFF;
+    border-bottom: 1px dashed #FFFFFF;
+}
+
+.inter-road.vertical-road {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 85px;
+    width: 55px;
+    background-color: #E2E4E9;
+    border-left: 1px dashed #FFFFFF;
+    border-right: 1px dashed #FFFFFF;
+}
+
+.inter-car.main-car {
+    position: absolute;
+    width: 12px;
+    height: 22px;
+    background-color: #2B2D42;
+    border-radius: 3px;
+    bottom: 15px;
+    left: 105px;
+    z-index: 2;
+}
+
+.inter-car.other-car {
+    position: absolute;
+    width: 22px;
+    height: 12px;
+    background-color: #00B4A6;
+    border-radius: 3px;
+    top: 55px;
+    right: 35px;
+    z-index: 2;
+}
+
+.inter-turn-arrow {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 95px;
+    bottom: 25px;
+    z-index: 3;
+}
+
+/* 3D Carousel Positioning (Default State: Index 1 Active in Center) */
+.look-carousel-stage[data-current-index="1"] .page-road-signs {
+    transform: translateX(-240px) scale(0.86) rotate(-6deg);
+    z-index: 2;
+    opacity: 0.85;
+}
+
+.look-carousel-stage[data-current-index="1"] .page-questions-answers {
+    transform: translateX(0) scale(1) rotate(0deg);
+    z-index: 5;
+    opacity: 1;
+    box-shadow: 0 24px 60px rgba(43, 45, 66, 0.16), 0 4px 12px rgba(43, 45, 66, 0.06);
+}
+
+.look-carousel-stage[data-current-index="1"] .page-right-of-way {
+    transform: translateX(240px) scale(0.86) rotate(6deg);
+    z-index: 2;
+    opacity: 0.85;
+}
+
+/* State when Index 0 (Road Signs) is Active */
+.look-carousel-stage[data-current-index="0"] .page-road-signs {
+    transform: translateX(0) scale(1) rotate(0deg);
+    z-index: 5;
+    opacity: 1;
+    box-shadow: 0 24px 60px rgba(43, 45, 66, 0.16);
+}
+.look-carousel-stage[data-current-index="0"] .page-questions-answers {
+    transform: translateX(240px) scale(0.86) rotate(6deg);
+    z-index: 2;
+    opacity: 0.85;
+}
+.look-carousel-stage[data-current-index="0"] .page-right-of-way {
+    transform: translateX(420px) scale(0.72) rotate(10deg);
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* State when Index 2 (Right of way) is Active */
+.look-carousel-stage[data-current-index="2"] .page-road-signs {
+    transform: translateX(-420px) scale(0.72) rotate(-10deg);
+    z-index: 1;
+    opacity: 0.5;
+}
+.look-carousel-stage[data-current-index="2"] .page-questions-answers {
+    transform: translateX(-240px) scale(0.86) rotate(-6deg);
+    z-index: 2;
+    opacity: 0.85;
+}
+.look-carousel-stage[data-current-index="2"] .page-right-of-way {
+    transform: translateX(0) scale(1) rotate(0deg);
+    z-index: 5;
+    opacity: 1;
+    box-shadow: 0 24px 60px rgba(43, 45, 66, 0.16);
+}
+
+/* Controls */
+.look-controls-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.look-arrow-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 1.5px solid #2B2D42;
+    color: #2B2D42;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.look-arrow-btn:hover {
+    background-color: #2B2D42;
+    color: #FFFFFF;
+}
+
+.look-indicator-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.look-current-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #2B2D42;
+}
+
+.look-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.look-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #DCDDE3;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.look-dot.is-active {
+    width: 22px;
+    border-radius: 999px;
+    background-color: #00B4A6;
+}
+
+/* Footnote Disclaimer */
+.look-footnote {
+    font-size: 0.8125rem;
+    color: #8C8E9F;
+    margin: 0;
+    text-align: center;
+}
+
+/* Mobile responsive carousel */
+@media (max-width: 640px) {
+    .look-carousel-stage {
+        height: 420px;
+    }
+
+    .look-page-card {
+        width: 270px;
+        height: 390px;
+    }
+
+    .look-carousel-stage[data-current-index="1"] .page-road-signs {
+        transform: translateX(-160px) scale(0.82) rotate(-5deg);
+    }
+
+    .look-carousel-stage[data-current-index="1"] .page-right-of-way {
+        transform: translateX(160px) scale(0.82) rotate(5deg);
+    }
+}
+
