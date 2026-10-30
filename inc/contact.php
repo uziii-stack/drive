@@ -69,3 +69,4 @@ function drive_handle_contact_submission() {
 }
 add_action( 'wp_ajax_drive_submit_contact', 'drive_handle_contact_submission' );
 add_action( 'wp_ajax_nopriv_drive_submit_contact', 'drive_handle_contact_submission' );
+
