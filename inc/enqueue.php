@@ -100,6 +100,13 @@ function drive_scripts() {
     $cheat_sheet_page_version  = file_exists( $cheat_sheet_page_css_path ) ? filemtime( $cheat_sheet_page_css_path ) : $theme_version;
     wp_enqueue_style( 'drive-cheat-sheet-page-style', DRIVE_THEME_URI . '/assets/css/components/cheat-sheet-page.css', array( 'drive-state-hero-style' ), $cheat_sheet_page_version );
 
+    // Contact Page CSS (only on contact page template or /contact/ slug)
+    if ( is_page_template( 'page-contact.php' ) || is_page( 'contact' ) ) {
+        $contact_css_path = DRIVE_THEME_DIR . '/assets/css/components/contact.css';
+        $contact_version  = file_exists( $contact_css_path ) ? filemtime( $contact_css_path ) : $theme_version;
+        wp_enqueue_style( 'drive-contact-style', DRIVE_THEME_URI . '/assets/css/components/contact.css', array( 'drive-main-style' ), $contact_version );
+    }
+
 
     // Main JS (Lightweight vanilla JS)
     $main_js_path = DRIVE_THEME_DIR . '/assets/js/main.js';
@@ -170,6 +177,29 @@ function drive_scripts() {
             'strategy'  => 'defer',
         )
     );
+
+    // Contact Page Component JS
+    if ( is_page_template( 'page-contact.php' ) || is_page( 'contact' ) ) {
+        $contact_js_path = DRIVE_THEME_DIR . '/assets/js/components/contact.js';
+        $contact_js_ver  = file_exists( $contact_js_path ) ? filemtime( $contact_js_path ) : $theme_version;
+        wp_enqueue_script(
+            'drive-contact-script',
+            DRIVE_THEME_URI . '/assets/js/components/contact.js',
+            array( 'drive-main-script' ),
+            $contact_js_ver,
+            array(
+                'in_footer' => true,
+                'strategy'  => 'defer',
+            )
+        );
+        wp_localize_script(
+            'drive-contact-script',
+            'driveContactData',
+            array(
+                'ajaxUrl' => esc_url( admin_url( 'admin-ajax.php' ) ),
+            )
+        );
+    }
 
     // Localized data
     wp_localize_script(

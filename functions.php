@@ -27,3 +27,4 @@ require_once DRIVE_THEME_DIR . '/inc/template-tags.php';
 require_once DRIVE_THEME_DIR . '/inc/helpers.php';
 require_once DRIVE_THEME_DIR . '/inc/customizer.php';
 require_once DRIVE_THEME_DIR . '/inc/us-map-data.php';
+require_once DRIVE_THEME_DIR . '/inc/contact.php';

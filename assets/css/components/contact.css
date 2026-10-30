@@ -1,0 +1,389 @@
+/* ==========================================================================
+   CONTACT PAGE STYLES (.contact-page-main)
+   Designed in full parity with Drive theme design system:
+   - Charcoal headers (#202232 / #2B2D42)
+   - Teal accents (#00B4A6)
+   - Vibrant Orange CTA (#F26419)
+   - Clean card styling with soft borders and shadows
+   ========================================================================== */
+
+.contact-page-main {
+    background-color: #F8F9FB;
+    min-height: 80vh;
+}
+
+/* 1. Hero Section */
+.contact-hero-section {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E6E8EE;
+    padding: 2.5rem 0 3rem;
+    text-align: center;
+}
+
+.contact-hero-container {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #202232;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    margin-bottom: 1.15rem;
+    text-transform: uppercase;
+}
+
+.contact-hero-badge .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #00B4A6;
+}
+
+.contact-hero-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: #202232;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1rem;
+}
+
+.contact-hero-lead {
+    font-size: 1.05rem;
+    color: #55576D;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 640px;
+}
+
+/* 2. Main Content & 2-Column Grid */
+.contact-content-section {
+    padding: clamp(2.5rem, 4.5vw, 4rem) 0 clamp(3.5rem, 5vw, 5rem);
+}
+
+.contact-grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+    .contact-grid-container {
+        grid-template-columns: 1fr 1.25fr;
+        gap: 3rem;
+        align-items: flex-start;
+    }
+}
+
+/* Left Column: Cards */
+.contact-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.contact-info-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E6E8EE;
+    border-radius: 20px;
+    padding: 1.5rem 1.65rem;
+    box-shadow: 0 4px 16px rgba(32, 34, 50, 0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.15rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(32, 34, 50, 0.08);
+}
+
+.contact-card-icon-box {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background-color: #202232;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.contact-card-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #00B4A6;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.contact-card-heading {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: #202232;
+    margin: 0 0 0.4rem;
+    line-height: 1.25;
+}
+
+.contact-card-text {
+    font-size: 0.875rem;
+    color: #55576D;
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+}
+
+.contact-card-text:last-child {
+    margin-bottom: 0;
+}
+
+.contact-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #202232;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+}
+
+.contact-card-link:hover {
+    color: #00B4A6;
+}
+
+.contact-card-link .link-arrow {
+    transition: transform 0.15s ease;
+}
+
+.contact-card-link:hover .link-arrow {
+    transform: translateX(3px);
+}
+
+/* Right Column: Form Card */
+.contact-form-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E6E8EE;
+    border-radius: 24px;
+    padding: clamp(1.75rem, 3.5vw, 2.5rem);
+    box-shadow: 0 10px 30px rgba(32, 34, 50, 0.06);
+}
+
+.contact-form-header {
+    margin-bottom: 1.75rem;
+}
+
+.contact-form-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #202232;
+    margin: 0 0 0.35rem;
+    letter-spacing: -0.015em;
+}
+
+.contact-form-desc {
+    font-size: 0.9rem;
+    color: #55576D;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #202232;
+    margin-bottom: 0.45rem;
+}
+
+.form-label .required {
+    color: #F26419;
+}
+
+.form-control {
+    width: 100%;
+    background-color: #FAFAFB;
+    border: 1.5px solid #E6E8EE;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    color: #202232;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    background-color: #FFFFFF;
+    border-color: #00B4A6;
+    box-shadow: 0 0 0 4px rgba(0, 180, 166, 0.12);
+}
+
+.form-control::placeholder {
+    color: #9C9EA9;
+}
+
+.form-control.is-invalid {
+    border-color: #E63946;
+    background-color: #FFF5F5;
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2355576D' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-error-msg {
+    font-size: 0.75rem;
+    color: #E63946;
+    margin-top: 0.35rem;
+    display: none;
+}
+
+.form-error-msg.is-visible {
+    display: block;
+}
+
+/* Submit Button */
+.contact-submit-btn {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #F26419;
+    color: #FFFFFF !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 0.95rem 1.75rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(242, 100, 25, 0.28);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.contact-submit-btn:hover {
+    background-color: #D9530D;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(242, 100, 25, 0.36);
+}
+
+.contact-submit-btn .btn-arrow {
+    transition: transform 0.15s ease;
+}
+
+.contact-submit-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.contact-submit-btn.is-loading .btn-text,
+.contact-submit-btn.is-loading .btn-arrow {
+    display: none;
+}
+
+.contact-submit-btn .btn-spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #FFFFFF;
+    border-radius: 50%;
+    animation: contactSpin 0.8s linear infinite;
+}
+
+.contact-submit-btn.is-loading .btn-spinner {
+    display: inline-block;
+}
+
+@keyframes contactSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* Feedback Notice */
+.contact-form-notice {
+    margin-top: 1.25rem;
+    padding: 0.95rem 1.15rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    font-weight: 600;
+}
+
+.contact-form-notice.is-success {
+    background-color: #E8F8F5;
+    color: #00796F;
+    border: 1px solid rgba(0, 180, 166, 0.3);
+}
+
+.contact-form-notice.is-error {
+    background-color: #FFF2F2;
+    color: #C5221F;
+    border: 1px solid rgba(230, 57, 70, 0.25);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 640px) {
+    .contact-hero-section {
+        padding: 1.75rem 0 2.25rem;
+    }
+
+    .contact-hero-title {
+        font-size: 1.75rem;
+    }
+
+    .contact-hero-lead {
+        font-size: 0.925rem;
+    }
+
+    .contact-form-card {
+        padding: 1.35rem 1.15rem;
+        border-radius: 20px;
+    }
+
+    .contact-submit-btn {
+        font-size: 13px !important;
+        padding: 0.85rem 1.25rem;
+    }
+}
