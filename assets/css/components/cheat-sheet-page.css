@@ -3578,7 +3578,7 @@
 /* Specific micro-optimizations down to 320px */
 @media (max-width: 375px) {
     .cs-sticky-buy-bar {
-        padding: 0.5rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+        padding: 0.5rem 0.4rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
     }
 
     .cs-sticky-buy-container {
@@ -3590,16 +3590,19 @@
     }
 
     .cs-sticky-thumb-wrap {
-        width: 26px;
-        height: 36px;
+        display: block !important;
+        width: 24px;
+        height: 34px;
+        border-radius: 3px;
+        flex-shrink: 0;
     }
 
     .cs-sticky-cover-mockup {
-        transform: scale(0.108);
+        transform: scale(0.1);
     }
 
     .cs-sticky-price {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
     .cs-sticky-label {
@@ -3608,24 +3611,46 @@
 
     .cs-sticky-btn {
         font-size: 11.5px !important;
-        padding: 0.55rem 0.75rem;
+        padding: 0.55rem 0.65rem;
         border-radius: 8px;
     }
 }
 
 @media (max-width: 330px) {
     .cs-sticky-buy-bar {
-        padding-left: 0.35rem;
-        padding-right: 0.35rem;
+        padding: 0.45rem 0.3rem calc(0.45rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .cs-sticky-buy-container {
+        gap: 0.25rem;
+    }
+
+    .cs-sticky-product-info {
+        gap: 0.25rem;
     }
 
     .cs-sticky-thumb-wrap {
-        display: none; /* Hide thumbnail on extreme screens (<=330px) to prevent button compression */
+        display: block !important;
+        width: 22px;
+        height: 31px;
+    }
+
+    .cs-sticky-cover-mockup {
+        transform: scale(0.091);
+    }
+
+    .cs-sticky-price {
+        font-size: 0.95rem;
+    }
+
+    .cs-sticky-label {
+        font-size: 0.6rem;
     }
 
     .cs-sticky-btn {
-        font-size: 11px !important;
-        padding: 0.5rem 0.65rem;
+        font-size: 10.5px !important;
+        padding: 0.5rem 0.5rem;
+        border-radius: 6px;
     }
 }
 
