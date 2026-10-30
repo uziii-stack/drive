@@ -70,3 +70,28 @@ function drive_handle_contact_submission() {
 add_action( 'wp_ajax_drive_submit_contact', 'drive_handle_contact_submission' );
 add_action( 'wp_ajax_nopriv_drive_submit_contact', 'drive_handle_contact_submission' );
 
+/**
+ * Automatically create the Contact Us page in WordPress if it doesn't exist yet
+ */
+function drive_auto_create_contact_page() {
+    // Check if a page with slug 'contact' already exists
+    $page = get_page_by_path( 'contact' );
+
+    if ( ! $page ) {
+        $page_id = wp_insert_post( array(
+            'post_title'     => __( 'Contact Us', 'drive' ),
+            'post_name'      => 'contact',
+            'post_status'    => 'publish',
+            'post_type'      => 'page',
+            'comment_status' => 'closed',
+            'ping_status'    => 'closed',
+        ) );
+
+        if ( $page_id && ! is_wp_error( $page_id ) ) {
+            update_post_meta( $page_id, '_wp_page_template', 'page-contact.php' );
+        }
+    }
+}
+add_action( 'init', 'drive_auto_create_contact_page' );
+
+
