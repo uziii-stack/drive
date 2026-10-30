@@ -20,7 +20,7 @@
 .cheat-hero-section {
     position: relative;
     background-color: #FFFFFF;
-    padding: 3rem 0 4rem;
+    padding: 1.5rem 0 2.5rem;
     overflow: hidden;
 }
 
@@ -476,7 +476,7 @@
    ========================================================================== */
 @media (min-width: 992px) {
     .cheat-hero-section {
-        padding: 4.5rem 0 5rem;
+        padding: 2.25rem 0 3.5rem;
     }
 
     .cheat-hero-container {
@@ -582,7 +582,7 @@
    ========================================================================== */
 @media (max-width: 991px) {
     .cheat-hero-section {
-        padding: 2rem 0 3rem;
+        padding: 1.25rem 0 2rem;
     }
 
     .cheat-hero-container {
@@ -686,7 +686,7 @@
     background-color: #FFFFFF;
     border-top: 1px solid #E6E7EB;
     border-bottom: 1px solid #E6E7EB;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
 }
 
 .cheat-trust-container {
@@ -732,7 +732,7 @@
 
 @media (min-width: 992px) {
     .cheat-trust-section {
-        padding: 1.75rem 0;
+        padding: 1.25rem 0;
     }
 
     .cheat-trust-grid {
@@ -764,7 +764,7 @@
    ========================================================================== */
 .cheat-inside-section {
     background-color: #F8F9FB;
-    padding: clamp(3.5rem, 5.5vw, 5.5rem) 0;
+    padding: clamp(2rem, 3.5vw, 3.25rem) 0 clamp(2.5rem, 4vw, 3.75rem);
     border-top: 1px solid #E6E8EE;
     border-bottom: 1px solid #E6E8EE;
 }
@@ -1112,7 +1112,7 @@
    ========================================================================== */
 .cheat-look-section {
     background-color: #FFFFFF;
-    padding: clamp(4rem, 6vw, 6rem) 0 clamp(3rem, 5vw, 4.5rem);
+    padding: clamp(2rem, 3.5vw, 3.25rem) 0 clamp(2.5rem, 4vw, 3.75rem);
     overflow: hidden;
 }
 
@@ -1647,7 +1647,7 @@
 .cheat-how-section {
     background-color: #26283B;
     color: #FFFFFF;
-    padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+    padding: clamp(2.25rem, 4vw, 3.75rem) 0 clamp(2.5rem, 4.5vw, 4rem);
     overflow: hidden;
 }
 
@@ -1945,7 +1945,7 @@
    ========================================================================== */
 .cheat-compare-section {
     background-color: #F8F9FB;
-    padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+    padding: clamp(2.25rem, 4vw, 3.75rem) 0 clamp(2.5rem, 4.5vw, 4rem);
     overflow: hidden;
 }
 
@@ -2335,7 +2335,7 @@
    ========================================================================== */
 .cheat-pricing-section {
     background-color: #FFFFFF;
-    padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+    padding: clamp(2.25rem, 4vw, 3.75rem) 0 clamp(2.5rem, 4.5vw, 4rem);
     overflow: hidden;
     border-top: 1px solid #E6E8EE;
 }
@@ -2619,7 +2619,7 @@
     position: relative;
     background-color: #26283B;
     color: #FFFFFF;
-    padding: clamp(5rem, 8vw, 7rem) 0;
+    padding: clamp(2.5rem, 4.5vw, 4rem) 0;
     overflow: hidden;
     text-align: center;
 }
@@ -2808,7 +2808,7 @@
    ========================================================================== */
 .cs-faq-section {
     background-color: #FFFFFF;
-    padding: clamp(3.5rem, 5.5vw, 5rem) 0;
+    padding: clamp(2rem, 3.5vw, 3.5rem) 0;
 }
 
 .cs-faq-container {
@@ -2995,7 +2995,7 @@
    ========================================================================== */
 .cheat-final-section {
     background-color: #F8F9FB;
-    padding: clamp(5rem, 8vw, 7.5rem) 0 4.5rem;
+    padding: clamp(2.5rem, 4.5vw, 4rem) 0 clamp(2.25rem, 3.5vw, 3.25rem);
     text-align: center;
     border-top: 1px solid #E6E8EE;
 }
@@ -3263,7 +3263,7 @@
    ========================================================================== */
 .cheat-other-section {
     background-color: #FFFFFF;
-    padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+    padding: clamp(2.25rem, 4vw, 3.75rem) 0 clamp(2.5rem, 4.5vw, 4rem);
     border-top: 1px solid #E6E8EE;
 }
 
