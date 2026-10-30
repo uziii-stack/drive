@@ -589,6 +589,7 @@
         display: flex;
         flex-direction: column;
         gap: 0;
+        align-items: flex-start;
     }
 
     /* Flatten content wrapper so individual elements can be ordered around the visual cards */
@@ -598,11 +599,16 @@
 
     .cheat-hero-pill {
         order: 1;
+        align-self: flex-start;
+        margin-left: 0;
+        margin-right: auto;
         margin-bottom: 0.85rem;
     }
 
     .cheat-hero-title {
         order: 2;
+        text-align: left;
+        width: 100%;
         font-size: 1.875rem;
         line-height: 1.18;
         margin-bottom: 0.85rem;
@@ -610,6 +616,8 @@
 
     .cheat-hero-lead {
         order: 3;
+        text-align: left;
+        width: 100%;
         font-size: 0.95rem;
         line-height: 1.55;
         margin-bottom: 1.5rem;
