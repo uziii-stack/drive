@@ -3522,10 +3522,11 @@
         box-sizing: border-box;
     }
 
-    /* Padding on page container so sticky bar doesn't cover footer content */
-    body.single-cheat-sheet,
-    body:has(.cs-sticky-buy-bar) {
-        padding-bottom: 72px;
+    /* Padding on footer container so sticky bar doesn't cover footer content without exposing body white background */
+    body.page-cheat-sheet .site-footer,
+    body.single-cheat-sheet .site-footer,
+    body:has(.cs-sticky-buy-bar) .site-footer {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
     }
 
     .cs-sticky-buy-container {
