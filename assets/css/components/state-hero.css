@@ -926,10 +926,10 @@
 }
 
 .whats-inside-container {
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding-left: clamp(1.25rem, 4vw, 2.5rem);
-    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .whats-inside-inner {
@@ -1193,10 +1193,10 @@
 }
 
 .all-sheets-container {
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding-left: clamp(1.25rem, 4vw, 2.5rem);
-    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 /* Header */
@@ -1459,10 +1459,10 @@
 }
 
 .state-faq-container {
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding-left: clamp(1.25rem, 4vw, 2.5rem);
-    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .state-faq-split-grid {
@@ -1699,10 +1699,10 @@
 }
 
 .state-switcher-container {
-    max-width: 1240px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding-left: clamp(1.25rem, 4vw, 2.5rem);
-    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 /* Outer Rounded Card with Dark Border */
@@ -2201,7 +2201,11 @@
         padding: 1.25rem 0 2rem;
     }
 
-    .state-hero-container {
+    .state-hero-container,
+    .whats-inside-container,
+    .all-sheets-container,
+    .state-faq-container,
+    .state-switcher-container {
         padding-left: 14px !important;
         padding-right: 14px !important;
         width: 100%;
