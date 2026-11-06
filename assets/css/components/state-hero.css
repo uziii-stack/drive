@@ -2221,14 +2221,21 @@
         display: contents;
     }
 
-    /* 1. State pill badge is hidden on mobile matching screenshot */
+    /* 1. State pill badge on mobile */
     .state-badge-pill {
-        display: none !important;
+        order: 1;
+        display: inline-flex !important;
+        align-self: flex-start;
+        margin-left: 0;
+        margin-right: auto;
+        margin-bottom: 0.85rem;
+        font-size: 0.75rem;
+        padding: 0.35rem 0.85rem;
     }
 
     /* 2. Top Title */
     .state-hero-h1 {
-        order: 1;
+        order: 2;
         font-size: 1.875rem;
         line-height: 1.18;
         font-weight: 800;
@@ -2239,7 +2246,7 @@
 
     /* 3. Subtitle */
     .state-hero-description {
-        order: 2;
+        order: 3;
         font-size: 0.9375rem;
         line-height: 1.55;
         color: #55576D;
@@ -2249,7 +2256,7 @@
 
     /* 4. Visual Stage (Cheat sheet covers positioned below description, above buttons) */
     .state-hero-visual-col {
-        order: 3;
+        order: 4;
         width: 100%;
         margin-bottom: 1.5rem;
     }
@@ -2470,7 +2477,7 @@
 
     /* 5. Mobile Vehicle Segmented Control (Gray Pill Bar with 3 items, below cover) */
     .state-vehicle-tabs {
-        order: 4;
+        order: 5;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -2517,7 +2524,7 @@
 
     /* 6. Mobile Orange CTA Button (below vehicle switcher) */
     .state-hero-cta-wrap {
-        order: 5;
+        order: 6;
         width: 100%;
         margin-bottom: 1.15rem;
     }
@@ -2533,7 +2540,7 @@
 
     /* 7. Trust Bar Centered Multi-line on Mobile (below CTA) */
     .state-hero-trust-bar {
-        order: 6;
+        order: 7;
         width: 100%;
         display: flex;
         flex-wrap: wrap;
