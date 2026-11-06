@@ -466,6 +466,7 @@
 
         btn.addEventListener('click', function (e) {
             e.preventDefault();
+            btn.blur(); // Remove focus state so it returns to dark charcoal when scrolling down
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
