@@ -10,6 +10,9 @@
 .contact-page-main {
     background-color: #F8F9FB;
     min-height: 80vh;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* 1. Hero Section */
@@ -18,14 +21,18 @@
     border-bottom: 1px solid #E6E8EE;
     padding: 2.5rem 0 3rem;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .contact-hero-container {
     max-width: 720px;
     margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .contact-hero-badge {
@@ -71,6 +78,7 @@
 /* 2. Main Content & 2-Column Grid */
 .contact-content-section {
     padding: clamp(2.5rem, 4.5vw, 4rem) 0 clamp(3.5rem, 5vw, 5rem);
+    overflow-x: hidden;
 }
 
 .contact-grid-container {
@@ -79,6 +87,9 @@
     gap: 2rem;
     max-width: 1100px;
     margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-sizing: border-box;
 }
 
 @media (min-width: 900px) {
@@ -169,6 +180,9 @@
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: color 0.15s ease;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    max-width: 100%;
 }
 
 .contact-card-link:hover {
@@ -363,28 +377,109 @@
     border: 1px solid rgba(230, 57, 70, 0.25);
 }
 
-/* Mobile Adjustments */
-@media (max-width: 640px) {
+/* Tablet & Mobile Adjustments (<= 768px matching theme standard) */
+@media (max-width: 768px) {
+    .contact-hero-container,
+    .contact-grid-container {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+
     .contact-hero-section {
         padding: 1.75rem 0 2.25rem;
     }
 
     .contact-hero-title {
         font-size: 1.75rem;
+        font-weight: 700;
     }
 
     .contact-hero-lead {
-        font-size: 0.925rem;
+        font-size: 0.9375rem;
+        line-height: 1.55;
+    }
+
+    .contact-content-section {
+        padding: 1.75rem 0 3rem;
+    }
+
+    .contact-info-col,
+    .contact-form-col {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-info-card {
+        padding: 1.25rem 1.15rem;
+        border-radius: 16px;
+        box-sizing: border-box;
     }
 
     .contact-form-card {
         padding: 1.35rem 1.15rem;
         border-radius: 20px;
+        box-sizing: border-box;
+    }
+
+    .contact-form-title {
+        font-size: 1.35rem;
+    }
+
+    .form-control {
+        font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+    }
+
+    .form-select {
+        font-size: 16px;
+        background-position: right 0.75rem center;
+    }
+
+    .form-select option {
+        font-size: 14px;
+        color: #202232;
+        background: #FFFFFF;
     }
 
     .contact-submit-btn {
         font-size: 13px !important;
         padding: 0.85rem 1.25rem;
+    }
+}
+
+/* Extra small mobile screens (<= 360px) */
+@media (max-width: 360px) {
+    .contact-hero-container,
+    .contact-grid-container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .contact-hero-title {
+        font-size: 1.55rem;
+    }
+
+    .contact-info-card {
+        padding: 1rem 0.85rem;
+        gap: 0.85rem;
+    }
+
+    .contact-card-icon-box {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+    }
+
+    .contact-card-icon-box svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .contact-form-card {
+        padding: 1.15rem 0.95rem;
     }
 }
 
