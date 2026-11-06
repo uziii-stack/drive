@@ -25,6 +25,12 @@
 }
 
 .cheat-hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
@@ -599,6 +605,11 @@
         flex-direction: column;
         gap: 0;
         align-items: flex-start;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
     }
 
     /* Flatten content wrapper so individual elements can be ordered around the visual cards */
@@ -3715,6 +3726,14 @@
         font-size: 10.5px !important;
         padding: 0.5rem 0.5rem;
         border-radius: 6px;
+    }
+}
+
+/* Extra small mobile screens (<= 360px) */
+@media (max-width: 360px) {
+    .cheat-hero-container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
     }
 }
 
