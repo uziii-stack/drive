@@ -94,7 +94,7 @@ $youtube_url = get_theme_mod( 'drive_youtube_url', 'https://www.youtube.com' );
             </div><!-- .footer-brand-col -->
 
 
-            <!-- Col 2: PRACTICE -->
+            <!-- Col 2: PRACTICE
             <div class="footer-nav-col">
                 <h4 class="footer-col-heading"><?php esc_html_e( 'PRACTICE', 'drive' ); ?></h4>
                 <ul class="footer-links-list">
@@ -104,6 +104,7 @@ $youtube_url = get_theme_mod( 'drive_youtube_url', 'https://www.youtube.com' );
                     <li><a href="<?php echo esc_url( home_url( '/#how-it-works' ) ); ?>"><?php esc_html_e( 'How It Works', 'drive' ); ?></a></li>
                 </ul>
             </div>
+            -->
 
 
             <!-- Col 3: POPULAR STATES -->
