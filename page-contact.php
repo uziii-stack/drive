@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-$admin_email   = get_option( 'admin_email' );
+$contact_email = function_exists( 'drive_get_contact_email' ) ? drive_get_contact_email() : get_option( 'admin_email' );
 $contact_nonce = wp_create_nonce( 'drive_contact_nonce' );
 ?>
 
@@ -61,8 +61,8 @@ $contact_nonce = wp_create_nonce( 'drive_contact_nonce' );
                         <p class="contact-card-text">
                             <?php esc_html_e( 'Our dedicated support team replies to all inquiries within 24 hours on business days.', 'drive' ); ?>
                         </p>
-                        <a href="mailto:<?php echo esc_attr( $admin_email ); ?>" class="contact-card-link">
-                            <span><?php echo esc_html( $admin_email ); ?></span>
+                        <a href="mailto:<?php echo esc_attr( $contact_email ); ?>" class="contact-card-link">
+                            <span><?php echo esc_html( $contact_email ); ?></span>
                             <span class="link-arrow" aria-hidden="true">→</span>
                         </a>
                     </div>

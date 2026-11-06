@@ -34,8 +34,8 @@ function drive_handle_contact_submission() {
         wp_send_json_error( array( 'message' => __( 'Please enter a valid email address.', 'drive' ) ) );
     }
 
-    $admin_email = get_option( 'admin_email' );
-    $site_name   = get_bloginfo( 'name' );
+    $recipient_email = function_exists( 'drive_get_contact_email' ) ? drive_get_contact_email() : get_option( 'admin_email' );
+    $site_name       = get_bloginfo( 'name' );
 
     $email_subject = sprintf( '[%s Contact] %s', $site_name, ! empty( $subject ) ? $subject : 'New Inquiry' );
 
@@ -50,11 +50,11 @@ function drive_handle_contact_submission() {
 
     $headers = array(
         'Content-Type: text/plain; charset=UTF-8',
-        'From: ' . $site_name . ' <' . $admin_email . '>',
+        'From: ' . $site_name . ' <' . $recipient_email . '>',
         'Reply-To: ' . $name . ' <' . $email . '>',
     );
 
-    $sent = wp_mail( $admin_email, $email_subject, $body, $headers );
+    $sent = wp_mail( $recipient_email, $email_subject, $body, $headers );
 
     if ( $sent ) {
         wp_send_json_success( array(
