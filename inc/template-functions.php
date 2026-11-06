@@ -28,6 +28,12 @@ function drive_body_classes( $classes ) {
         $classes[] = 'is-front-page';
     }
 
+    if ( get_query_var( 'drive_vehicle' ) ) {
+        $classes[] = 'page-cheat-sheet';
+    } elseif ( get_query_var( 'drive_state' ) ) {
+        $classes[] = 'page-state-hub';
+    }
+
     return $classes;
 }
 add_filter( 'body_class', 'drive_body_classes' );

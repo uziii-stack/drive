@@ -422,12 +422,26 @@
 
         var threshold = 350; // Show after scrolling 350px
 
+        function adjustPosition() {
+            var stickyBuy = document.getElementById('csStickyBuyBar') || document.querySelector('.cs-sticky-buy-bar');
+            if (stickyBuy && window.innerWidth <= 768) {
+                var buyStyle = window.getComputedStyle(stickyBuy);
+                if (buyStyle.display !== 'none' && buyStyle.visibility !== 'hidden') {
+                    var buyHeight = stickyBuy.offsetHeight || 60;
+                    btn.style.bottom = (buyHeight + 14) + 'px';
+                    return;
+                }
+            }
+            btn.style.bottom = '';
+        }
+
         function toggleVisibility() {
             var scrollY = window.pageYOffset || document.documentElement.scrollTop;
             if (scrollY > threshold) {
                 if (!btn.classList.contains('is-visible')) {
                     btn.classList.add('is-visible');
                 }
+                adjustPosition();
             } else {
                 if (btn.classList.contains('is-visible')) {
                     btn.classList.remove('is-visible');
@@ -446,6 +460,10 @@
             }
         }, { passive: true });
 
+        window.addEventListener('resize', function () {
+            adjustPosition();
+        }, { passive: true });
+
         btn.addEventListener('click', function (e) {
             e.preventDefault();
             window.scrollTo({
@@ -456,6 +474,7 @@
 
         // Initial check
         toggleVisibility();
+        adjustPosition();
     }
 
     // Initialize once DOM is ready

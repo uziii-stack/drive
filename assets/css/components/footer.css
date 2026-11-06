@@ -541,7 +541,8 @@
     }
 
     /* Elevate above mobile sticky buy bar if present on cheat sheet pages */
+    body.page-cheat-sheet .scroll-to-top-btn,
     body:has(.cs-sticky-buy-bar) .scroll-to-top-btn {
-        bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+        bottom: calc(76px + env(safe-area-inset-bottom, 0px));
     }
 }
