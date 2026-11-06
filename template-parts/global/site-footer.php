@@ -166,4 +166,15 @@ $youtube_url = get_theme_mod( 'drive_youtube_url', 'https://www.youtube.com' );
         </div>
 
     </div><!-- .site-container -->
+
+    <!-- Scroll to Top Button -->
+    <button type="button" 
+            id="scrollToTopBtn" 
+            class="scroll-to-top-btn" 
+            aria-label="<?php esc_attr_e( 'Scroll to top', 'drive' ); ?>" 
+            title="<?php esc_attr_e( 'Back to top', 'drive' ); ?>">
+        <svg class="scroll-to-top-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 </footer><!-- #colophon -->

@@ -411,12 +411,60 @@
         checkScroll();
     }
 
+    /**
+     * Scroll To Top Button Component Handler
+     */
+    function initScrollToTop() {
+        var btn = document.getElementById('scrollToTopBtn');
+        if (!btn) {
+            return;
+        }
+
+        var threshold = 350; // Show after scrolling 350px
+
+        function toggleVisibility() {
+            var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollY > threshold) {
+                if (!btn.classList.contains('is-visible')) {
+                    btn.classList.add('is-visible');
+                }
+            } else {
+                if (btn.classList.contains('is-visible')) {
+                    btn.classList.remove('is-visible');
+                }
+            }
+        }
+
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    toggleVisibility();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Initial check
+        toggleVisibility();
+    }
+
     // Initialize once DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
             initHeaderControls();
             initMobileMenu();
             initStickyHeader();
+            initScrollToTop();
             initHeroMockup();
             initHowItWorks();
             initTestimonials();
@@ -427,6 +475,7 @@
         initHeaderControls();
         initMobileMenu();
         initStickyHeader();
+        initScrollToTop();
         initHeroMockup();
         initHowItWorks();
         initTestimonials();
