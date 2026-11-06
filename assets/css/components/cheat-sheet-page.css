@@ -483,22 +483,23 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 3.5rem;
+        gap: clamp(1.75rem, 3.5vw, 3.5rem);
     }
 
     .cheat-hero-content {
-        flex: 1;
+        flex: 1 1 50%;
         max-width: 580px;
+        min-width: 0;
     }
 
     .cheat-hero-title {
-        font-size: 3.25rem;
+        font-size: clamp(2.35rem, 3.5vw, 3.25rem);
         line-height: 1.08;
         margin-bottom: 1.25rem;
     }
 
     .cheat-hero-lead {
-        font-size: 1.125rem;
+        font-size: clamp(1rem, 1.2vw, 1.125rem);
         line-height: 1.6;
         margin-bottom: 2rem;
     }
@@ -509,27 +510,35 @@
 
     .cheat-hero-cta-group {
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
         width: auto;
-        gap: 1.5rem;
+        gap: clamp(0.85rem, 1.5vw, 1.5rem);
         margin-bottom: 1.75rem;
     }
 
     .cheat-hero-cta-btn {
         width: auto;
-        padding: 1rem 2.25rem;
-        font-size: 1.125rem;
+        padding: 1rem clamp(1.5rem, 2.25vw, 2.25rem);
+        font-size: clamp(1rem, 1.1vw, 1.125rem);
         min-height: 56px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .cheat-hero-secondary-link {
+        white-space: nowrap;
     }
 
     .cheat-hero-stage-col {
-        flex: 1;
+        flex: 1 1 50%;
         max-width: 550px;
+        min-width: 0;
     }
 
     .cheat-hero-stage {
-        padding: 3.5rem 2rem 5rem;
-        min-height: 520px;
+        padding: clamp(2.5rem, 3.5vw, 3.5rem) clamp(1rem, 2vw, 2rem) clamp(3.5rem, 5vw, 5rem);
+        min-height: clamp(440px, 45vw, 520px);
     }
 
     .cheat-hero-backdrop-box {
@@ -539,8 +548,8 @@
     }
 
     .peek-sample-page {
-        width: 215px;
-        height: 330px;
+        width: clamp(180px, 18vw, 215px);
+        height: clamp(280px, 28vw, 330px);
     }
 
     .peek-sample-page.peek-left {
@@ -556,8 +565,8 @@
     }
 
     .cheat-hero-cover-wrap .catalog-cover-mockup {
-        width: 240px;
-        height: 340px;
+        width: clamp(205px, 20vw, 240px);
+        height: clamp(295px, 29vw, 340px);
     }
 
     .floating-printable-pill {
@@ -569,7 +578,7 @@
 }
 
 /* ==========================================================================
-   MOBILE HERO REORDERING (max-width: 991px)
+   MOBILE HERO REORDERING (max-width: 991.98px)
    Orders content matching reference:
    1. Eyebrow pill
    2. H1 Title
@@ -580,7 +589,7 @@
    7. Trust micro-copy
    8. Also available switcher
    ========================================================================== */
-@media (max-width: 991px) {
+@media (max-width: 991.98px) {
     .cheat-hero-section {
         padding: 1.25rem 0 2rem;
     }
@@ -1598,7 +1607,7 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 991px) {
+@media (max-width: 991.98px) {
     .look-carousel-stage {
         height: 480px;
     }
