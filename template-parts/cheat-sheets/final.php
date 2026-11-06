@@ -232,7 +232,7 @@ $site_logo_src = function_exists( 'drive_get_site_logo_src' ) ? drive_get_site_l
                     <?php 
                     printf(
                         /* translators: %s: Guarantee days */
-                        esc_html__( '[%s]–day money–back guarantee', 'drive' ),
+                        esc_html__( '%s–day money–back guarantee', 'drive' ),
                         esc_html( $guarantee_days )
                     ); 
                     ?>

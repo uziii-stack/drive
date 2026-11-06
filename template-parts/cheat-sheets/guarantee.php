@@ -55,7 +55,7 @@ $refund_url     = function_exists( 'get_privacy_policy_url' ) && get_privacy_pol
                 <?php 
                 printf(
                     /* translators: %s: Number of guarantee days */
-                    esc_html__( '[%s]–DAY MONEY–BACK GUARANTEE', 'drive' ),
+                    esc_html__( '%s–DAY MONEY–BACK GUARANTEE', 'drive' ),
                     esc_html( $guarantee_days )
                 ); 
                 ?>
@@ -96,7 +96,7 @@ $refund_url     = function_exists( 'get_privacy_policy_url' ) && get_privacy_pol
                     <?php 
                     printf(
                         /* translators: %s: Days */
-                        esc_html__( 'Not happy? Email us within [%s] days', 'drive' ),
+                        esc_html__( 'Not happy? Email us within %s days', 'drive' ),
                         esc_html( $guarantee_days )
                     ); 
                     ?>
