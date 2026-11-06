@@ -89,7 +89,7 @@
 /* Main H1 Headline */
 .state-hero-h1 {
     font-size: clamp(2.25rem, 4.2vw, 3.75rem);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.12;
     letter-spacing: -0.03em;
     color: #202232;
@@ -2242,7 +2242,7 @@
         order: 2;
         font-size: 1.875rem;
         line-height: 1.18;
-        font-weight: 800;
+        font-weight: 700;
         letter-spacing: -0.025em;
         color: #202232;
         margin: 0 0 0.85rem 0;
